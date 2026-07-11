@@ -16,6 +16,10 @@ class DhikrModel {
     this.virtue,
     this.count = 1,
   });
+
+  /// معرّف ثابت للذكر (فئة + عنوان) يُستخدم في المفضلة والتخزين المحلي.
+  /// لا يعتمد على ترتيب العناصر في القائمة حتى لا يتغير عند إضافة أذكار جديدة.
+  String get id => '${category.name}__$title';
 }
 
 enum DhikrCategory {
