@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'core/theme.dart';
 import 'providers/favorites_provider.dart';
+import 'providers/reminder_provider.dart';
+import 'providers/stats_provider.dart';
 import 'providers/theme_provider.dart';
 import 'screens/home_screen.dart';
 
@@ -21,6 +23,8 @@ class AthkariApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+        ChangeNotifierProvider(create: (_) => StatsProvider()),
+        ChangeNotifierProvider(create: (_) => ReminderProvider()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, _) {

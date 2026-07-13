@@ -7,6 +7,9 @@ import '../providers/favorites_provider.dart';
 import '../providers/theme_provider.dart';
 import 'dhikr_screen.dart';
 import 'favorites_screen.dart';
+import 'search_screen.dart';
+import 'settings_screen.dart';
+import 'stats_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -40,21 +43,62 @@ class HomeScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildIconButton(
-                icon: Icons.favorite,
-                isDark: isDark,
-                badgeCount: favoritesCount,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => const FavoritesScreen()),
-                  );
-                },
+              Row(
+                children: [
+                  _buildIconButton(
+                    icon: Icons.search,
+                    isDark: isDark,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const SearchScreen()),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  _buildIconButton(
+                    icon: Icons.bar_chart_rounded,
+                    isDark: isDark,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const StatsScreen()),
+                      );
+                    },
+                  ),
+                ],
               ),
-              _buildIconButton(
-                icon: isDark ? Icons.light_mode : Icons.dark_mode,
-                isDark: isDark,
-                onTap: () => context.read<ThemeProvider>().toggleTheme(),
+              Row(
+                children: [
+                  _buildIconButton(
+                    icon: Icons.notifications_none_rounded,
+                    isDark: isDark,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const SettingsScreen()),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  _buildIconButton(
+                    icon: Icons.favorite,
+                    isDark: isDark,
+                    badgeCount: favoritesCount,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const FavoritesScreen()),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  _buildIconButton(
+                    icon: isDark ? Icons.light_mode : Icons.dark_mode,
+                    isDark: isDark,
+                    onTap: () => context.read<ThemeProvider>().toggleTheme(),
+                  ),
+                ],
               ),
             ],
           ),
