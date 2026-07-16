@@ -87,6 +87,46 @@ class NotificationService {
 
   Future<void> cancel(int id) => _plugin.cancel(id: id);
 
+  /// يجدول إشعاراً لمرة واحدة بتاريخ ووقت محددين بالضبط (يُستخدم لتنبيهات
+  /// أذان الصلاة، لأن مواقيتها تتغيّر يومياً فلا يصلح جدول "يومي ثابت").
+  /// يتجاهل بصمت أي وقت في الماضي.
+  Future<void> scheduleOneOff({
+    required int id,
+    required String title,
+    required String body,
+    required DateTime dateTime,
+    required String channelId,
+    required String channelName,
+    String? channelDescription,
+  }) async {
+    final scheduled = tz.TZDateTime.from(dateTime, tz.local);
+    if (scheduled.isBefore(tz.TZDateTime.now(tz.local))) return;
+    await _plugin.zonedSchedule(
+      id: id,
+      title: title,
+      body: body,
+      scheduledDate: scheduled,
+      notificationDetails: NotificationDetails(
+        android: AndroidNotificationDetails(
+          channelId,
+          channelName,
+          channelDescription: channelDescription,
+          importance: Importance.high,
+          priority: Priority.high,
+        ),
+        iOS: const DarwinNotificationDetails(),
+      ),
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+    );
+  }
+
+  /// يلغي مجموعة متتالية من الإشعارات دفعة واحدة عبر مدى مُعرّفات (id).
+  Future<void> cancelRange(int startId, int count) async {
+    for (int i = 0; i < count; i++) {
+      await _plugin.cancel(id: startId + i);
+    }
+  }
+
   tz.TZDateTime _nextInstanceOf(int hour, int minute) {
     final now = tz.TZDateTime.now(tz.local);
     var scheduled = tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, minute);

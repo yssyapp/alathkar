@@ -3,10 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'core/theme.dart';
 import 'providers/favorites_provider.dart';
+import 'providers/habits_provider.dart';
+import 'providers/khatma_provider.dart';
+import 'providers/prayer_notification_provider.dart';
+import 'providers/random_dhikr_notification_provider.dart';
 import 'providers/reminder_provider.dart';
 import 'providers/stats_provider.dart';
 import 'providers/theme_provider.dart';
-import 'screens/home_screen.dart';
+import 'screens/dashboard_home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +29,10 @@ class AthkariApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
         ChangeNotifierProvider(create: (_) => StatsProvider()),
         ChangeNotifierProvider(create: (_) => ReminderProvider()),
+        ChangeNotifierProvider(create: (_) => PrayerNotificationProvider()),
+        ChangeNotifierProvider(create: (_) => RandomDhikrNotificationProvider()),
+        ChangeNotifierProvider(create: (_) => KhatmaProvider()),
+        ChangeNotifierProvider(create: (_) => HabitsProvider()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, _) {
@@ -33,7 +41,7 @@ class AthkariApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             locale: const Locale('ar'),
             theme: themeProvider.isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
-            home: const HomeScreen(),
+            home: const DashboardHomeScreen(),
           );
         },
       ),

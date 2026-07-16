@@ -168,7 +168,7 @@ class HomeScreen extends StatelessWidget {
               right: -4,
               child: Container(
                 padding: const EdgeInsets.all(4),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: AppTheme.goldGradient,
                   shape: BoxShape.circle,
                 ),

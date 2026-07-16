@@ -1,16 +1,38 @@
 name: athkari
-description: "A new Flutter project."
-publish_to: 'none'
+description: "تطبيق الأذكار — أذكار الصباح والمساء وأدعية السنة، مواقيت الصلاة، والتقويم الهجري."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+4
 
 environment:
   sdk: ^3.12.2
 
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
 
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   provider: ^6.1.5+1
   shared_preferences: ^2.5.5
@@ -19,15 +41,39 @@ dependencies:
   flutter_local_notifications: ^21.0.0
   timezone: ^0.11.0
   flutter_timezone: ^5.1.0
+  # حزمة التقويم الهجري: أُعيدت خصيصاً لميزة الشاشة الرئيسية الجديدة
+  # (لوحة المعلومات) لعرض التاريخ الهجري الحقيقي وتحديد شهر رمضان تلقائياً.
+  hijri: any
+  # حزمة اتجاه القبلة: تحسب زاوية القبلة عبر GPS وبوصلة الجهاز (تتطلب صلاحية
+  # الموقع، ولا تعمل على محاكي iOS — تحتاج جهاز حقيقي للاختبار).
+  flutter_qiblah: ^3.2.0
+  # نصرّح بها صراحة (رغم إنها أصلاً تابعة لـ flutter_qiblah) لأننا نستخدم
+  # LocationPermission منها مباشرة في qibla_screen.dart.
+  geolocator: ^14.0.3
+  # لفتح تطبيق الخرائط (آبل/قوقل) عند البحث عن أقرب مسجد — بديل مجاني لا
+  # يحتاج مفتاح API ولا اشتراكاً، فقط يمرّر الموقع الحالي لتطبيق خرائط
+  # مثبّت أصلاً على جهاز المستخدم.
+  url_launcher: ^6.3.1
+  # ملاحظة: تمت إزالة 8 حزم أخرى غير مستخدمة فعلياً في lib/ سابقاً: flutter_svg,
+  # flutter_animate, wakelock_plus, package_info_plus, just_audio,
+  # flutter_screenutil, connectivity_plus, http (كانت الأخيرة لميزة المصحف
+  # التي حُذفت بالكامل من التطبيق) — كانت تُضخّم حجم التطبيق ووقت البناء
+  # بلا فائدة. إذا احتجتها لميزة قادمة، أضفها وقتها فقط.
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
   flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.14.4
   flutter_native_splash: ^2.4.7
 
+# إعدادات أيقونة التطبيق (يُشغَّل عبر: dart run flutter_launcher_icons)
 flutter_launcher_icons:
   android: true
   ios: true
@@ -35,6 +81,7 @@ flutter_launcher_icons:
   image_path: "assets/icon/icon.png"
   min_sdk_android: 24
 
+# إعدادات شاشة البدء (يُشغَّل عبر: dart run flutter_native_splash:create)
 flutter_native_splash:
   color: "#0A1F0A"
   image: assets/splash/splash.png
@@ -45,5 +92,25 @@ flutter_native_splash:
     color: "#0A1F0A"
     color_dark: "#0A1F0A"
 
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
 flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
   uses-material-design: true
+
+  # ملاحظة: كانت هنا سابقاً ميزة عرض المصحف الشريف الكاملة (صور صفحتي
+  # الفاتحة/البقرة، بيانات مجمع الملك فهد الرسمية hafs_smart_v8.json،
+  # وخطا UthmanicHafs وHafsSmart) — حُذفت بالكامل (الكود والبيانات
+  # والخطوط) من هذه النسخة تفادياً لأي تعارض عند بناء ميزة مصحف جديدة
+  # نظيفة لاحقاً. لا توجد حالياً أي أصول (assets) أو خطوط إضافية مخصّصة.
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package

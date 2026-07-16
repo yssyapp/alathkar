@@ -79,7 +79,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: AppTheme.gold.withValues(alpha: 0.3)),
               ),
-              child: const Icon(Icons.arrow_forward_ios, color: AppTheme.gold, size: 20),
+              child: Icon(Icons.arrow_forward_ios, color: AppTheme.gold, size: 20),
             ),
           ),
           const Spacer(),

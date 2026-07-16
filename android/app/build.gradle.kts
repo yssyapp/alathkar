@@ -1,7 +1,20 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+// يقرأ بيانات توقيع نسخة الإطلاق (release) من android/key.properties — هذا الملف
+// محلي على جهازك فقط وغير مرفوع لـ git (مستثنى في .gitignore) لأنه يحتوي كلمات
+// مرور حساسة. إذا لم يوجد الملف (مثلاً عند بناء المشروع على جهاز آخر)، يبقى بناء
+// الـ debug يعمل عادي، لكن بناء الـ release سيفشل حتى يُنشأ الملف.
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 android {
@@ -26,11 +39,22 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        create("release") {
+            if (keystorePropertiesFile.exists()) {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = keystoreProperties["storeFile"]?.let { file(it) }
+                storePassword = keystoreProperties["storePassword"] as String
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            // توقيع نسخة الإطلاق بمفتاح alathkar الخاص بالتطبيق (من key.properties)
+            // بدل مفتاح الـ debug المؤقت، جاهز للنشر الفعلي على المتجر.
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 }

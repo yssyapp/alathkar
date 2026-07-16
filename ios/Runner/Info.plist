@@ -6,6 +6,8 @@
 		<true/>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>نحتاج موقعك لحساب اتجاه القبلة بدقة من مكانك الحالي.</string>
 		<key>CFBundleDisplayName</key>
 		<string>الأذكار</string>
 		<key>CFBundleExecutable</key>

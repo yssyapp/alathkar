@@ -1,8 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- مطلوبة لطلب إذن الإشعارات على أندرويد 13 (API 33) وأعلى -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!-- مطلوبة فقط لتحميل خط "Cairo" (حزمة google_fonts) عند أول تشغيل — لا
+         يوجد أي اتصال إنترنت آخر بالتطبيق (ميزة المصحف عبر alquran.cloud
+         حُذفت بالكامل)؛ الخط يُخزَّن محلياً بعد أول تحميل ويعمل بدون إنترنت بعدها -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- مطلوبة لميزة اتجاه القبلة (حزمة flutter_qiblah) لحساب الاتجاه من موقع المستخدم -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
-        android:label="athkari"
+        android:label="الأذكار"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

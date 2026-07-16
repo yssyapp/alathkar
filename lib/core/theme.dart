@@ -1,13 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+/// وصف لون ثانوي (accent) واحد ضمن قائمة الاختيار بالإعدادات.
+class AccentPreset {
+  final String name;
+  final Color main;
+  final Color light;
+  const AccentPreset({required this.name, required this.main, required this.light});
+}
+
 class AppTheme {
   // ألوان العلامة التجارية (مشتركة بين الوضعين)
   static const Color primaryGreen = Color(0xFF1B5E20);
   static const Color secondaryGreen = Color(0xFF2E7D32);
   static const Color lightGreenAccent = Color(0xFF4CAF50);
-  static const Color gold = Color(0xFFD4AF37);
-  static const Color lightGold = Color(0xFFFFD700);
+
+  // =============================================
+  // اللون الثانوي (accent) القابل للتخصيص من قِبل المستخدم — الأخضر يبقى
+  // دائماً اللون الرئيسي الثابت للتطبيق (primaryGreen وخلفياته)، لكن هذا
+  // اللون الثانوي (المستخدم بالأيقونات والحدود والعناوين) يمكن تغييره من
+  // الإعدادات. القيمة الافتراضية هي نفس الذهبي الأصلي للتطبيق.
+  // =============================================
+  static const List<AccentPreset> accentPresets = [
+    AccentPreset(name: 'ذهبي', main: Color(0xFFD4AF37), light: Color(0xFFFFD700)),
+    AccentPreset(name: 'أزرق', main: Color(0xFF2C7DA0), light: Color(0xFF61A5C2)),
+    AccentPreset(name: 'بنفسجي', main: Color(0xFF6A4C93), light: Color(0xFF9D7FC9)),
+    AccentPreset(name: 'عنّابي', main: Color(0xFFB5443E), light: Color(0xFFE0736C)),
+    AccentPreset(name: 'فيروزي', main: Color(0xFF0E7C86), light: Color(0xFF3FB8C4)),
+    AccentPreset(name: 'كهرماني', main: Color(0xFFC97A2B), light: Color(0xFFE5A15C)),
+  ];
+
+  static int accentIndex = 0;
+  static Color gold = accentPresets[0].main;
+  static Color lightGold = accentPresets[0].light;
+
+  /// يغيّر اللون الثانوي لكل التطبيق فوراً — يكفي استدعاؤه مرة ثم عمل
+  /// notifyListeners() من ThemeProvider لإعادة رسم كل الشاشات، لأن كل
+  /// الشاشات تقرأ AppTheme.gold مباشرة عند كل build() ولا تخزّنه مسبقاً.
+  static void setAccent(int index) {
+    if (index < 0 || index >= accentPresets.length) return;
+    accentIndex = index;
+    gold = accentPresets[index].main;
+    lightGold = accentPresets[index].light;
+  }
 
   // الوضع الداكن (التصميم الأصلي للتطبيق)
   static const Color darkBackground = Color(0xFF0A1F0A);
@@ -40,12 +75,12 @@ class AppTheme {
       primaryColor: primaryGreen,
       scaffoldBackgroundColor: bg,
       colorScheme: isDark
-          ? const ColorScheme.dark(
+          ? ColorScheme.dark(
               primary: primaryGreen,
               secondary: gold,
               surface: darkCardBackground,
             )
-          : const ColorScheme.light(
+          : ColorScheme.light(
               primary: primaryGreen,
               secondary: gold,
               surface: lightCardBackground,
@@ -63,7 +98,7 @@ class AppTheme {
         elevation: 0,
         centerTitle: true,
         titleTextStyle: GoogleFonts.cairo(fontSize: 22, fontWeight: FontWeight.w700, color: gold),
-        iconTheme: const IconThemeData(color: gold),
+        iconTheme: IconThemeData(color: gold),
       ),
       cardColor: surface,
     );
@@ -97,13 +132,56 @@ class AppTheme {
           );
   }
 
-  static const LinearGradient goldGradient = LinearGradient(
+  static LinearGradient get goldGradient => LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [Color(0xFFD4AF37), Color(0xFFFFD700), Color(0xFFD4AF37)],
+    colors: [gold, lightGold, gold],
   );
+
+  // =============================================
+  // لوحة الشاشة الرئيسية الجديدة (لوحة المعلومات)
+  // تدرّج أخضر عصري (غامق ← وسط ← فاتح) + ألوان قريبة منه لإحساس حيوي
+  // وجذاب دون كسر هوية التطبيق الأساسية (أخضر + ذهبي).
+  // =============================================
+  static const LinearGradient heroGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Color(0xFF07271A), Color(0xFF127A4C), Color(0xFF57D98C)],
+  );
+
+  static const LinearGradient heroGradientSoft = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [Color(0xFF0E3D26), Color(0xFF1B7A4C)],
+  );
+
+  // ألوان مساعدة لبطاقات "أدواتك اليوم" وأيقونات الشريط السفلي — درجات
+  // قريبة من الأخضر (زمرّدي، نعناعي، فيروزي، زيتوني) لتنويع بصري متناسق.
+  static const Color toolEmerald = Color(0xFF1FAA6D);
+  static const Color toolTeal = Color(0xFF14A085);
+  static const Color toolMint = Color(0xFF7FE0A8);
+  static const Color toolOlive = Color(0xFF9CA83C);
+  static const Color toolSage = Color(0xFF6FA37D);
+  static const Color toolAmber = Color(0xFFE0A339);
+
+  /// توهّج ناعم خلف الأيقونات (Soft Glow Minimalist Icons) بلون العنصر نفسه.
+  static List<BoxShadow> softGlow(Color color, {double opacity = 0.35, double blur = 18}) {
+    return [BoxShadow(color: color.withValues(alpha: opacity), blurRadius: blur, spreadRadius: 0.5)];
+  }
 
   static Color textColor(bool isDark) => isDark ? darkTextPrimary : lightTextPrimary;
   static Color subTextColor(bool isDark) => isDark ? darkTextSecondary : lightTextSecondary;
   static Color surfaceColor(bool isDark) => isDark ? darkCardBackground : lightCardBackground;
+}
+
+/// تحويل الأرقام الإنجليزية (0-9) داخل أي نص إلى أرقام هندية عربية (٠-٩)
+/// للعرض بالشكل التقليدي المألوف في الواجهات العربية (الوقت، التاريخ...).
+String toArabicDigits(String input) {
+  const western = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const arabic = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+  String result = input;
+  for (int i = 0; i < western.length; i++) {
+    result = result.replaceAll(western[i], arabic[i]);
+  }
+  return result;
 }

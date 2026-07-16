@@ -1,0 +1,28 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_compass_v2 (0.0.1):
+    - Flutter
+  - flutter_qiblah (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_compass_v2 (from `.symlinks/plugins/flutter_compass_v2/ios`)
+  - flutter_qiblah (from `.symlinks/plugins/flutter_qiblah/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_compass_v2:
+    :path: ".symlinks/plugins/flutter_compass_v2/ios"
+  flutter_qiblah:
+    :path: ".symlinks/plugins/flutter_qiblah/ios"
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  flutter_compass_v2: bdaac539c444ca34617debfa444b037c30be6e54
+  flutter_qiblah: 453c7fb44af9a329373bcef113c25627d5b8c9e8
+
+PODFILE CHECKSUM: 3c63482e143d1b91d2d2560aee9fb04ecc74ac7e
+
+COCOAPODS: 1.17.0

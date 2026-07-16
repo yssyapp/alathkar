@@ -24,7 +24,8 @@ class DhikrModel {
 
 enum DhikrCategory {
   morning, evening, sleep, wakeup, prayer,
-  afterPrayer, mosque, food, travel, quran, names, misc,
+  afterPrayer, mosque, food, travel, quran, names, misc, ruqyah, nawawi40,
+  dailySunnah, fridaySunnah, prophetsDua,
 }
 
 extension DhikrCategoryExtension on DhikrCategory {
@@ -42,6 +43,11 @@ extension DhikrCategoryExtension on DhikrCategory {
       case DhikrCategory.quran: return 'أدعية قرآنية';
       case DhikrCategory.names: return 'أسماء الله الحسنى';
       case DhikrCategory.misc: return 'أذكار متفرقة';
+      case DhikrCategory.ruqyah: return 'الرقية الشرعية';
+      case DhikrCategory.nawawi40: return 'الأربعون النووية';
+      case DhikrCategory.dailySunnah: return 'سنن النبي ﷺ اليومية';
+      case DhikrCategory.fridaySunnah: return 'سنن يوم الجمعة';
+      case DhikrCategory.prophetsDua: return 'أدعية الأنبياء';
     }
   }
 
@@ -59,6 +65,11 @@ extension DhikrCategoryExtension on DhikrCategory {
       case DhikrCategory.quran: return '📖';
       case DhikrCategory.names: return '✨';
       case DhikrCategory.misc: return '🤲';
+      case DhikrCategory.ruqyah: return '🛡️';
+      case DhikrCategory.nawawi40: return '📜';
+      case DhikrCategory.dailySunnah: return '🌿';
+      case DhikrCategory.fridaySunnah: return '📅';
+      case DhikrCategory.prophetsDua: return '🌟';
     }
   }
 }
