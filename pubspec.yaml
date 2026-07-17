@@ -107,10 +107,32 @@ flutter:
   # الفاتحة/البقرة، بيانات مجمع الملك فهد الرسمية hafs_smart_v8.json،
   # وخطا UthmanicHafs وHafsSmart) — حُذفت بالكامل (الكود والبيانات
   # والخطوط) من هذه النسخة تفادياً لأي تعارض عند بناء ميزة مصحف جديدة
-  # نظيفة لاحقاً. لا توجد حالياً أي أصول (assets) أو خطوط إضافية مخصّصة.
+  # نظيفة لاحقاً.
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
+
+  # خط Cairo مُضمَّن محلياً (بدل الاعتماد على تحميله من خوادم قوقل وقت
+  # التشغيل عبر حزمة google_fonts) — هذا يجعل التطبيق يعمل بلا إنترنت ١٠٠٪
+  # حتى من أول تشغيل، ويزيل أي اتصال شبكي خارجي غير ضروري. لازم أيضاً ضبط
+  # GoogleFonts.config.allowRuntimeFetching = false في main.dart حتى تعتمد
+  # استدعاءات GoogleFonts.cairo(...) الموجودة بكل الشاشات على هذا الخط
+  # المحلي مباشرة بدون أي تغيير بها.
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Cairo-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Cairo-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Cairo-Black.ttf
+          weight: 900
