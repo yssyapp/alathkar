@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/app_strings.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../core/theme.dart';
@@ -99,27 +100,27 @@ class _ZakatCalculatorSheetState extends State<ZakatCalculatorSheet> {
                   Icon(Icons.savings_outlined, color: AppTheme.gold, size: 22),
                   const SizedBox(width: 8),
                   Text(
-                    'حاسبة الزكاة',
+                    context.tr('zakatTitle'),
                     style: GoogleFonts.cairo(fontSize: 20, fontWeight: FontWeight.w800, color: AppTheme.textColor(isDark)),
                   ),
                 ],
               ),
               const SizedBox(height: 4),
               Text(
-                'أدخل القيم بالريال السعودي حسب علمك بالأسعار الحالية',
+                context.tr('zakatSubtitle'),
                 textAlign: TextAlign.center,
                 style: GoogleFonts.cairo(fontSize: 12, color: AppTheme.subTextColor(isDark)),
               ),
               const SizedBox(height: 20),
-              _field(isDark, 'المال النقدي (رصيد + مدخرات)', _cashController),
+              _field(isDark, context.tr('zakatCashLabel'), _cashController),
               const SizedBox(height: 12),
-              _field(isDark, 'قيمة الذهب والفضة', _goldController),
+              _field(isDark, context.tr('zakatGoldLabel'), _goldController),
               const SizedBox(height: 12),
-              _field(isDark, 'عروض التجارة (إن وُجدت)', _tradeController),
+              _field(isDark, context.tr('zakatTradeLabel'), _tradeController),
               const SizedBox(height: 12),
-              _field(isDark, 'الديون المستحقة عليك (تُطرح)', _debtController),
+              _field(isDark, context.tr('zakatDebtLabel'), _debtController),
               const SizedBox(height: 12),
-              _field(isDark, 'النصاب التقريبي بالريال', _nisabController, hint: 'حدّثه حسب سعر الذهب الحالي (~85غ)'),
+              _field(isDark, context.tr('zakatNisabLabel'), _nisabController, hint: context.tr('zakatNisabHint')),
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: _calculate,
@@ -130,7 +131,7 @@ class _ZakatCalculatorSheetState extends State<ZakatCalculatorSheet> {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(
-                    'احسب الزكاة',
+                    context.tr('zakatCalculateButton'),
                     textAlign: TextAlign.center,
                     style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w800, color: AppTheme.darkBackground),
                   ),
@@ -148,7 +149,7 @@ class _ZakatCalculatorSheetState extends State<ZakatCalculatorSheet> {
                   child: Column(
                     children: [
                       Text(
-                        _belowNisab ? 'المال لم يبلغ النصاب — لا زكاة عليك' : 'الزكاة الواجبة',
+                        _belowNisab ? context.tr('zakatBelowNisab') : context.tr('zakatDueLabel'),
                         style: GoogleFonts.cairo(fontSize: 13, color: AppTheme.subTextColor(isDark)),
                       ),
                       if (!_belowNisab) ...[
@@ -164,7 +165,7 @@ class _ZakatCalculatorSheetState extends State<ZakatCalculatorSheet> {
               ],
               const SizedBox(height: 14),
               Text(
-                'هذه حاسبة تقديرية للنقد والذهب/الفضة وعروض التجارة فقط، ولا تشمل زكاة الأنعام والزروع. للحالات الخاصة يُستحسن مراجعة أهل العلم.',
+                context.tr('zakatFootnote'),
                 textAlign: TextAlign.center,
                 style: GoogleFonts.cairo(fontSize: 11, color: AppTheme.subTextColor(isDark), height: 1.6),
               ),

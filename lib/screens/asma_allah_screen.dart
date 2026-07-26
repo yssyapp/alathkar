@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 import '../data/athkar_data.dart';
 import '../models/dhikr_model.dart';
@@ -18,7 +19,7 @@ class AsmaAllahScreen extends StatelessWidget {
     final names = AthkarData.getByCategory(DhikrCategory.names);
 
     return Scaffold(
-      appBar: AppBar(title: Text('أسماء الله الحسنى', style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
+      appBar: AppBar(title: Text(context.tr('asmaTitle'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
       body: SafeArea(
         child: Column(
           children: [
@@ -31,7 +32,7 @@ class AsmaAllahScreen extends StatelessWidget {
                 border: Border.all(color: AppTheme.gold.withValues(alpha: 0.25)),
               ),
               child: Text(
-                'اسم الله (لفظ الجلالة) هو الاسم الأعظم الجامع، وما يلي هو أسماؤه الحسنى التسعة والتسعون الواردة في حديث الترمذي. أهل العلم مختلفون قليلاً في حصر بعض الأسماء (كـ"الرشيد" و"الصبور")، فأثبتناهما معاً كما هو شائع في أغلب المصادر مع التنبيه لذلك.',
+                context.tr('asmaIntroDescription'),
                 style: GoogleFonts.cairo(fontSize: 11, color: AppTheme.subTextColor(isDark), height: 1.6),
                 textAlign: TextAlign.center,
               ),

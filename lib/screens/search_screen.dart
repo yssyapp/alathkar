@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 import '../data/athkar_data.dart';
 import '../models/dhikr_model.dart';
+import '../providers/language_provider.dart';
 import '../providers/stats_provider.dart';
 import '../providers/theme_provider.dart';
 import '../widgets/dhikr_card.dart';
@@ -36,12 +38,21 @@ class _SearchScreenState extends State<SearchScreen> {
     for (final category in DhikrCategory.values) {
       all.addAll(AthkarData.getByCategory(category));
     }
+    // البحث يشمل النص العربي دائماً، وأيضاً أي ترجمة متوفرة (إنجليزي/إندونيسي/
+    // أردو) — حتى يقدر المستخدم يبحث بأي لغة يستخدمها التطبيق حالياً.
+    final q = trimmed.toLowerCase();
     setState(() {
       _results = all
           .where((d) =>
               d.title.contains(trimmed) ||
               d.text.contains(trimmed) ||
-              (d.virtue?.contains(trimmed) ?? false))
+              (d.virtue?.contains(trimmed) ?? false) ||
+              (d.textEn?.toLowerCase().contains(q) ?? false) ||
+              (d.textId?.toLowerCase().contains(q) ?? false) ||
+              (d.textUr?.contains(trimmed) ?? false) ||
+              (d.titleEn?.toLowerCase().contains(q) ?? false) ||
+              (d.titleId?.toLowerCase().contains(q) ?? false) ||
+              (d.titleUr?.contains(trimmed) ?? false))
           .toList();
     });
   }
@@ -84,7 +95,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           const Spacer(),
           Text(
-            'البحث بالأذكار',
+            context.tr('searchTitle'),
             style: GoogleFonts.cairo(fontSize: 20, fontWeight: FontWeight.w700, color: AppTheme.gold),
           ),
           const Spacer(),
@@ -110,7 +121,7 @@ class _SearchScreenState extends State<SearchScreen> {
           textAlign: TextAlign.right,
           style: GoogleFonts.cairo(color: AppTheme.textColor(isDark), fontSize: 16),
           decoration: InputDecoration(
-            hintText: 'ابحث بعنوان الذكر أو نصه...',
+            hintText: context.tr('searchHint'),
             hintStyle: GoogleFonts.cairo(color: AppTheme.subTextColor(isDark), fontSize: 14),
             prefixIcon: Icon(Icons.search, color: AppTheme.gold),
             suffixIcon: _controller.text.isNotEmpty
@@ -131,10 +142,11 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildResults(bool isDark) {
+    final lang = context.watch<LanguageProvider>().language;
     if (_controller.text.trim().isEmpty) {
       return Center(
         child: Text(
-          'اكتب كلمة للبحث بين كل الأذكار',
+          context.tr('searchEmptyPrompt'),
           style: GoogleFonts.cairo(fontSize: 15, color: AppTheme.subTextColor(isDark)),
         ),
       );
@@ -142,7 +154,7 @@ class _SearchScreenState extends State<SearchScreen> {
     if (_results.isEmpty) {
       return Center(
         child: Text(
-          'لا توجد نتائج',
+          context.tr('searchNoResults'),
           style: GoogleFonts.cairo(fontSize: 15, color: AppTheme.subTextColor(isDark)),
         ),
       );
@@ -153,7 +165,7 @@ class _SearchScreenState extends State<SearchScreen> {
       itemBuilder: (context, index) => DhikrCard(
         key: ValueKey(_results[index].id),
         dhikr: _results[index],
-        subtitle: _results[index].category.arabicName,
+        subtitle: _results[index].category.nameFor(lang),
         initiallyExpanded: true,
         onCompleted: () => context.read<StatsProvider>().recordCompletion(),
       ),

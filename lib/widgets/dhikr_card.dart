@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 import '../models/dhikr_model.dart';
 import '../providers/favorites_provider.dart';
+import '../providers/language_provider.dart';
 import '../providers/theme_provider.dart';
 
 /// بطاقة عرض ذكر واحد بنظام أكورديون (فتح/غلق) لسهولة وسرعة التنقل بين
@@ -108,6 +110,7 @@ class _DhikrCardState extends State<DhikrCard> {
     // select بدل watch: هذه البطاقة تُعاد بناؤها فقط عند تغيّر حالة
     // "مفضّلة" هذا الذكر تحديداً، لا عند أي تغيير في مزوّد المفضّلة كاملاً.
     final isFavorite = context.select<FavoritesProvider, bool>((p) => p.isFavorite(dhikr));
+    final lang = context.watch<LanguageProvider>().language;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 14),
@@ -122,12 +125,12 @@ class _DhikrCardState extends State<DhikrCard> {
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: [
-          _buildHeader(context, isDark, isFavorite, isCompleted),
+          _buildHeader(context, isDark, isFavorite, isCompleted, lang),
           AnimatedSize(
             duration: const Duration(milliseconds: 220),
             curve: Curves.easeInOut,
             alignment: Alignment.topCenter,
-            child: _expanded ? _buildExpandedBody(context, isDark, isCompleted) : const SizedBox(width: double.infinity),
+            child: _expanded ? _buildExpandedBody(context, isDark, isCompleted, lang) : const SizedBox(width: double.infinity),
           ),
         ],
       ),
@@ -136,8 +139,14 @@ class _DhikrCardState extends State<DhikrCard> {
 
   /// رأس البطاقة: ظاهر دائماً (مطوية أو مفتوحة) — عنوان + مفضّلة +
   /// شارة تقدّم مصغّرة + سهم يدور مع حالة الفتح. النقر عليه يفتح/يطوي.
-  Widget _buildHeader(BuildContext context, bool isDark, bool isFavorite, bool isCompleted) {
+  ///
+  /// العنوان يبقى عربياً دائماً (لا يوجد له ترجمة بعد)، أما نص الذكر نفسه
+  /// فيُعرض بلغة التطبيق الحالية عبر [DhikrModel.textFor] — ولو الترجمة
+  /// غير متوفرة لهذا الذكر تحديداً يرجع تلقائياً للنص العربي بدل الفراغ.
+  Widget _buildHeader(BuildContext context, bool isDark, bool isFavorite, bool isCompleted, AppLanguage lang) {
     final dhikr = widget.dhikr;
+    final previewDir = lang.isRtl ? TextDirection.rtl : TextDirection.ltr;
+    final previewAlign = lang.isRtl ? TextAlign.right : TextAlign.left;
     return InkWell(
       onTap: _toggleExpanded,
       child: Padding(
@@ -173,9 +182,10 @@ class _DhikrCardState extends State<DhikrCard> {
                       ),
                     ),
                   Text(
-                    dhikr.title,
+                    dhikr.titleFor(lang),
                     style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark)),
-                    textAlign: TextAlign.right,
+                    textAlign: previewAlign,
+                    textDirection: previewDir,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                   ),
@@ -183,10 +193,10 @@ class _DhikrCardState extends State<DhikrCard> {
                     Padding(
                       padding: const EdgeInsets.only(top: 2),
                       child: Text(
-                        dhikr.text,
+                        dhikr.textFor(lang),
                         style: GoogleFonts.cairo(fontSize: 12, color: AppTheme.subTextColor(isDark)),
-                        textAlign: TextAlign.right,
-                        textDirection: TextDirection.rtl,
+                        textAlign: previewAlign,
+                        textDirection: previewDir,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       ),
@@ -221,8 +231,9 @@ class _DhikrCardState extends State<DhikrCard> {
   }
 
   /// المحتوى الكامل: يظهر فقط عند الفتح (النص، الفضل، المصدر، الإجراءات).
-  Widget _buildExpandedBody(BuildContext context, bool isDark, bool isCompleted) {
+  Widget _buildExpandedBody(BuildContext context, bool isDark, bool isCompleted, AppLanguage lang) {
     final dhikr = widget.dhikr;
+    final bodyDir = lang.isRtl ? TextDirection.rtl : TextDirection.ltr;
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
       child: Column(
@@ -239,14 +250,51 @@ class _DhikrCardState extends State<DhikrCard> {
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
-                dhikr.text,
+                dhikr.textFor(lang),
                 style: GoogleFonts.cairo(fontSize: 19, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark), height: 2.0),
                 textAlign: TextAlign.center,
-                textDirection: TextDirection.rtl,
+                textDirection: bodyDir,
               ),
             ),
           ),
           const SizedBox(height: 12),
+          // معنى/تفسير مبسّط للآية بلغة العرض — يظهر فقط للأذكار القرآنية
+          // (isQuran) وفقط لو الترجمة متوفرة، ولا يستبدل النص العربي أبداً
+          // (النص أعلاه يبقى عربياً دائماً بحسب DhikrModel.textFor).
+          if (dhikr.meaningFor(lang) != null)
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: AppTheme.primaryGreen.withValues(alpha: 0.08),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(color: AppTheme.primaryGreen.withValues(alpha: 0.3)),
+              ),
+              child: Column(
+                crossAxisAlignment: lang.isRtl ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    lang == AppLanguage.en
+                        ? 'Meaning'
+                        : lang == AppLanguage.id
+                            ? 'Arti'
+                            : lang == AppLanguage.ur
+                                ? 'معنی'
+                                : 'المعنى',
+                    style: GoogleFonts.cairo(fontSize: 11, fontWeight: FontWeight.w700, color: AppTheme.primaryGreen),
+                    textDirection: bodyDir,
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    dhikr.meaningFor(lang)!,
+                    style: GoogleFonts.cairo(fontSize: 13.5, color: AppTheme.textColor(isDark), height: 1.7),
+                    textAlign: lang.isRtl ? TextAlign.right : TextAlign.left,
+                    textDirection: bodyDir,
+                  ),
+                ],
+              ),
+            ),
           if (dhikr.virtue != null)
             Container(
               width: double.infinity,
@@ -281,9 +329,9 @@ class _DhikrCardState extends State<DhikrCard> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: lang.isRtl ? CrossAxisAlignment.end : CrossAxisAlignment.start,
               children: [
-                Text(dhikr.source, style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark)), textDirection: TextDirection.rtl),
+                Text(dhikr.sourceFor(lang), style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark)), textDirection: bodyDir),
                 Text(dhikr.bookSource, style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.gold.withValues(alpha: 0.7)), textDirection: TextDirection.rtl),
               ],
             ),
@@ -326,10 +374,10 @@ class _DhikrCardState extends State<DhikrCard> {
                 icon: Icons.copy,
                 isDark: isDark,
                 onTap: () {
-                  Clipboard.setData(ClipboardData(text: dhikr.text));
+                  Clipboard.setData(ClipboardData(text: dhikr.textFor(lang)));
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('تم نسخ الذكر', style: GoogleFonts.cairo(), textDirection: TextDirection.rtl),
+                      content: Text(context.tr('dhikrCopiedMsg'), style: GoogleFonts.cairo(), textDirection: TextDirection.rtl),
                       backgroundColor: AppTheme.primaryGreen,
                     ),
                   );
@@ -341,7 +389,7 @@ class _DhikrCardState extends State<DhikrCard> {
                 isDark: isDark,
                 onTap: () => SharePlus.instance.share(
                   ShareParams(
-                    text: '${dhikr.text}\n\n${dhikr.source}\n${dhikr.bookSource}',
+                    text: '${dhikr.textFor(lang)}\n\n${dhikr.sourceFor(lang)}\n${dhikr.bookSource}',
                   ),
                 ),
               ),

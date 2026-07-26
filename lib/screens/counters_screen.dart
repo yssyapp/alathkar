@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 
 /// شاشة العدادات: تسبيح، حمد، استغفار (بأهداف يومية تُصفَّر تلقائياً كل يوم
@@ -16,16 +17,16 @@ class CountersScreen extends StatefulWidget {
 
 class _CounterConfig {
   final String key;
-  final String title;
-  final String subtitle;
+  final String titleKey;
+  final String subtitleKey;
   final Color accent;
   final int? dailyTarget;
   final bool resetsDaily;
 
   const _CounterConfig({
     required this.key,
-    required this.title,
-    required this.subtitle,
+    required this.titleKey,
+    required this.subtitleKey,
     required this.accent,
     this.dailyTarget,
     this.resetsDaily = true,
@@ -34,10 +35,10 @@ class _CounterConfig {
 
 class _CountersScreenState extends State<CountersScreen> {
   static const List<_CounterConfig> _counters = [
-    _CounterConfig(key: 'tasbih', title: 'سبحان الله', subtitle: 'تسبيح', accent: AppTheme.toolEmerald, dailyTarget: 33),
-    _CounterConfig(key: 'hamd', title: 'الحمد لله', subtitle: 'حمد', accent: AppTheme.toolAmber, dailyTarget: 33),
-    _CounterConfig(key: 'istighfar', title: 'أستغفر الله', subtitle: 'استغفار', accent: AppTheme.toolTeal, dailyTarget: 100),
-    _CounterConfig(key: 'misbaha', title: 'المسبحة العامة', subtitle: 'عداد حر بدون هدف يومي', accent: AppTheme.toolSage, resetsDaily: false),
+    _CounterConfig(key: 'tasbih', titleKey: 'countersTasbihTitle', subtitleKey: 'countersTasbihSubtitle', accent: AppTheme.toolEmerald, dailyTarget: 33),
+    _CounterConfig(key: 'hamd', titleKey: 'countersHamdTitle', subtitleKey: 'countersHamdSubtitle', accent: AppTheme.toolAmber, dailyTarget: 33),
+    _CounterConfig(key: 'istighfar', titleKey: 'countersIstighfarTitle', subtitleKey: 'countersIstighfarSubtitle', accent: AppTheme.toolTeal, dailyTarget: 100),
+    _CounterConfig(key: 'misbaha', titleKey: 'countersMisbahaTitle', subtitleKey: 'countersMisbahaSubtitle', accent: AppTheme.toolSage, resetsDaily: false),
   ];
 
   final Map<String, int> _counts = {};
@@ -96,24 +97,26 @@ class _CountersScreenState extends State<CountersScreen> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      appBar: AppBar(title: Text('العدادات', style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
+      appBar: AppBar(title: Text(context.tr('countersTitle'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
       body: !_loaded
           ? const Center(child: CircularProgressIndicator())
           : SafeArea(
               child: ListView.builder(
                 padding: const EdgeInsets.all(16),
                 itemCount: _counters.length,
-                itemBuilder: (context, index) => _buildCounterCard(isDark, _counters[index]),
+                itemBuilder: (context, index) => _buildCounterCard(context, isDark, _counters[index]),
               ),
             ),
     );
   }
 
-  Widget _buildCounterCard(bool isDark, _CounterConfig c) {
+  Widget _buildCounterCard(BuildContext context, bool isDark, _CounterConfig c) {
     final count = _counts[c.key] ?? 0;
     final hasTarget = c.dailyTarget != null;
     final progress = hasTarget ? (count / c.dailyTarget!).clamp(0.0, 1.0) : 0.0;
     final reachedTarget = hasTarget && count >= c.dailyTarget!;
+    final title = context.tr(c.titleKey);
+    final subtitle = context.tr(c.subtitleKey);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
@@ -131,10 +134,10 @@ class _CountersScreenState extends State<CountersScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(c.title, style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark))),
+                  Text(title, style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark))),
                   const SizedBox(height: 2),
                   Text(
-                    hasTarget ? '${c.subtitle} · الهدف ${toArabicDigits('${c.dailyTarget}')}' : c.subtitle,
+                    hasTarget ? '$subtitle · ${context.tr('countersTargetLabel')} ${toArabicDigits('${c.dailyTarget}')}' : subtitle,
                     style: GoogleFonts.cairo(fontSize: 12, color: AppTheme.subTextColor(isDark)),
                   ),
                 ],
@@ -142,7 +145,7 @@ class _CountersScreenState extends State<CountersScreen> {
               IconButton(
                 onPressed: () => _reset(c),
                 icon: Icon(Icons.refresh_rounded, color: AppTheme.subTextColor(isDark)),
-                tooltip: 'إعادة تصفير',
+                tooltip: context.tr('countersResetTooltip'),
               ),
             ],
           ),
@@ -184,7 +187,7 @@ class _CountersScreenState extends State<CountersScreen> {
           ),
           if (reachedTarget) ...[
             const SizedBox(height: 10),
-            Text('ما شاء الله، حققت الهدف اليوم ✅', style: GoogleFonts.cairo(fontSize: 12, color: c.accent, fontWeight: FontWeight.w600)),
+            Text(context.tr('countersTargetReached'), style: GoogleFonts.cairo(fontSize: 12, color: c.accent, fontWeight: FontWeight.w600)),
           ],
         ],
       ),

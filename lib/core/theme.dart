@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../providers/language_provider.dart';
 
 /// وصف لون ثانوي (accent) واحد ضمن قائمة الاختيار بالإعدادات.
 class AccentPreset {
@@ -184,4 +185,13 @@ String toArabicDigits(String input) {
     result = result.replaceAll(western[i], arabic[i]);
   }
   return result;
+}
+
+/// نفس فكرة [toArabicDigits] لكن حسب لغة الواجهة الحالية: أرقام هندية
+/// عربية (٠-٩) فقط لما تكون لغة التطبيق عربية، وأرقام إنجليزية عادية
+/// (0-9) لأي لغة أخرى (إنجليزي/إندونيسي/أردو) — يُستخدم في أي مكان يعرض
+/// أرقاماً متغيّرة (كالساعة والعدّادات) حتى تنسجم مع لغة الواجهة تلقائياً
+/// بدل ما تبقى بالشكل العربي دائماً بغض النظر عن اللغة المختارة.
+String localizedDigits(String input, AppLanguage lang) {
+  return lang == AppLanguage.ar ? toArabicDigits(input) : input;
 }

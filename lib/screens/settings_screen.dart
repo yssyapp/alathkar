@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../core/theme.dart';
+import '../core/app_strings.dart';
+import '../providers/language_provider.dart';
+import '../providers/online_features_provider.dart';
 import '../providers/prayer_notification_provider.dart';
 import '../providers/random_dhikr_notification_provider.dart';
 import '../providers/reminder_provider.dart';
 import '../providers/theme_provider.dart';
+import '../services/backup_service.dart';
 
 /// شاشة إعدادات تذكيرات أذكار الصباح والمساء (تفعيل/تعطيل واختيار الوقت).
 class SettingsScreen extends StatelessWidget {
@@ -45,6 +50,19 @@ class SettingsScreen extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.all(20),
                   children: [
+                    _buildSectionCard(
+                      isDark: isDark,
+                      children: [
+                        Text(
+                          context.tr('language_section_title'),
+                          textAlign: TextAlign.right,
+                          style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark)),
+                        ),
+                        const SizedBox(height: 14),
+                        _buildLanguagePicker(context, isDark),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
                     _buildSectionCard(
                       isDark: isDark,
                       children: [
@@ -153,6 +171,10 @@ class SettingsScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: GoogleFonts.cairo(fontSize: 12, color: AppTheme.subTextColor(isDark), height: 1.8),
                     ),
+                    const SizedBox(height: 16),
+                    _buildSectionCard(isDark: isDark, children: const [_OnlineFeaturesSection()]),
+                    const SizedBox(height: 16),
+                    _buildSectionCard(isDark: isDark, children: const [_BackupSection()]),
                   ],
                 ),
               ),
@@ -202,6 +224,37 @@ class SettingsScreen extends StatelessWidget {
         border: Border.all(color: AppTheme.gold.withValues(alpha: 0.3)),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: children),
+    );
+  }
+
+  Widget _buildLanguagePicker(BuildContext context, bool isDark) {
+    final languageProvider = context.watch<LanguageProvider>();
+    return Wrap(
+      alignment: WrapAlignment.end,
+      spacing: 10,
+      runSpacing: 10,
+      children: AppLanguage.values.map((lang) {
+        final selected = languageProvider.language == lang;
+        return GestureDetector(
+          onTap: () => context.read<LanguageProvider>().setLanguage(lang),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            decoration: BoxDecoration(
+              color: selected ? AppTheme.gold.withValues(alpha: 0.14) : Colors.transparent,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: selected ? AppTheme.gold.withValues(alpha: 0.5) : AppTheme.subTextColor(isDark).withValues(alpha: 0.3)),
+            ),
+            child: Text(
+              lang.nativeName,
+              style: GoogleFonts.cairo(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                color: selected ? AppTheme.gold : AppTheme.subTextColor(isDark),
+              ),
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 
@@ -355,6 +408,207 @@ class SettingsScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// قسم "الميزات الاختيارية عبر الإنترنت" — معطّل افتراضياً بالكامل، ومجاني
+/// ١٠٠٪ بدون إعلانات ولا اشتراك. تفعيله الوحيد المتاح حالياً: مواقيت صلاة
+/// أدق عبر خدمة Aladhan المجانية (تحتاج صلاحية الموقع مرة واحدة فقط). أي
+/// فشل بالاتصال يرجع التطبيق تلقائياً للحساب الفلكي المحلي بدون أي انقطاع.
+class _OnlineFeaturesSection extends StatefulWidget {
+  const _OnlineFeaturesSection();
+
+  @override
+  State<_OnlineFeaturesSection> createState() => _OnlineFeaturesSectionState();
+}
+
+class _OnlineFeaturesSectionState extends State<_OnlineFeaturesSection> {
+  bool _loading = false;
+
+  Future<void> _handleToggle(bool value) async {
+    final provider = context.read<OnlineFeaturesProvider>();
+    if (!value) {
+      await provider.setOnlinePrayerTimesEnabled(false);
+      return;
+    }
+    setState(() => _loading = true);
+    try {
+      var serviceEnabled = await Geolocator.isLocationServiceEnabled();
+      if (!serviceEnabled) {
+        _showError('onlineLocationServiceDisabled');
+        return;
+      }
+      var permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+        _showError('onlineLocationPermissionDenied');
+        return;
+      }
+      final position = await Geolocator.getCurrentPosition().timeout(const Duration(seconds: 12));
+      if (!mounted) return;
+      await provider.setLocation(position.latitude, position.longitude);
+      await provider.setOnlinePrayerTimesEnabled(true);
+    } catch (_) {
+      _showError('onlineLocationGenericError');
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
+  /// يستقبل مفتاح الترجمة (وليس النص الجاهز) حتى يقدر يتحقق من [mounted]
+  /// بنفسه مباشرة قبل استخدام context — بدل ما يعتمد على فحص يصير في مكان
+  /// الاستدعاء (المحلّل الساكن static analyzer ما يقدر يربط بينهم عبر دالتين).
+  void _showError(String messageKey) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(context.tr(messageKey), style: GoogleFonts.cairo())));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = context.watch<ThemeProvider>().isDark;
+    final online = context.watch<OnlineFeaturesProvider>();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          context.tr('onlineFeaturesSectionTitle'),
+          textAlign: TextAlign.right,
+          style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark)),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          context.tr('onlineFeaturesSectionSubtitle'),
+          textAlign: TextAlign.right,
+          style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark), height: 1.6),
+        ),
+        const SizedBox(height: 14),
+        Row(
+          children: [
+            _loading
+                ? const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2.5)),
+                  )
+                : Switch(
+                    value: online.onlinePrayerTimesEnabled,
+                    onChanged: _handleToggle,
+                    activeThumbColor: AppTheme.gold,
+                  ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                context.tr('onlinePrayerTimesToggleLabel'),
+                textAlign: TextAlign.right,
+                style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark)),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 4),
+        Text(
+          context.tr('onlinePrayerTimesToggleSubtitle'),
+          textAlign: TextAlign.right,
+          style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark), height: 1.6),
+        ),
+      ],
+    );
+  }
+}
+
+/// قسم "النسخ الاحتياطي" — تصدير/استيراد محلي بالكامل عبر ملف JSON يشاركه
+/// المستخدم بنفسه (لا يوجد أي خادم أو حساب سحابي تابع للتطبيق). يشمل
+/// المفضلة والإحصائيات والعادات وتقدّم الختمة واللغة والثيم وكل الإعدادات.
+class _BackupSection extends StatefulWidget {
+  const _BackupSection();
+
+  @override
+  State<_BackupSection> createState() => _BackupSectionState();
+}
+
+class _BackupSectionState extends State<_BackupSection> {
+  bool _busy = false;
+
+  /// يستقبل مفتاح الترجمة (وليس النص الجاهز) حتى يقدر يتحقق من [mounted]
+  /// بنفسه مباشرة قبل استخدام context — بدل ما يعتمد على فحص يصير في مكان
+  /// الاستدعاء (المحلّل الساكن static analyzer ما يقدر يربط بينهم عبر دالتين).
+  void _showMessage(String messageKey) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(context.tr(messageKey), style: GoogleFonts.cairo())));
+  }
+
+  Future<void> _export() async {
+    setState(() => _busy = true);
+    try {
+      await BackupService.exportAndShare();
+    } catch (_) {
+      _showMessage('backupExportError');
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  Future<void> _import() async {
+    setState(() => _busy = true);
+    try {
+      final success = await BackupService.pickAndRestore();
+      if (success) {
+        _showMessage('backupImportSuccess');
+      } else {
+        _showMessage('backupImportError');
+      }
+    } catch (_) {
+      _showMessage('backupImportError');
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = context.watch<ThemeProvider>().isDark;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          context.tr('backupSectionTitle'),
+          textAlign: TextAlign.right,
+          style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark)),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          context.tr('backupSectionSubtitle'),
+          textAlign: TextAlign.right,
+          style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark), height: 1.6),
+        ),
+        const SizedBox(height: 14),
+        if (_busy)
+          const Center(child: Padding(padding: EdgeInsets.all(8), child: CircularProgressIndicator(strokeWidth: 2.5)))
+        else
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: _import,
+                  icon: const Icon(Icons.file_open_outlined, size: 18),
+                  label: Text(context.tr('backupImportButton'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700, fontSize: 12.5)),
+                  style: OutlinedButton.styleFrom(foregroundColor: AppTheme.gold, side: BorderSide(color: AppTheme.gold.withValues(alpha: 0.5))),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: ElevatedButton.icon(
+                  onPressed: _export,
+                  icon: const Icon(Icons.ios_share_outlined, size: 18),
+                  label: Text(context.tr('backupExportButton'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700, fontSize: 12.5)),
+                  style: ElevatedButton.styleFrom(backgroundColor: AppTheme.gold, foregroundColor: Colors.black),
+                ),
+              ),
+            ],
+          ),
+      ],
     );
   }
 }

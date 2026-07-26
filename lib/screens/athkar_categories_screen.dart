@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 import '../data/athkar_data.dart';
 import '../models/dhikr_model.dart';
+import '../providers/language_provider.dart';
 import '../providers/stats_provider.dart';
 import '../providers/theme_provider.dart';
 import '../widgets/dhikr_card.dart';
@@ -73,7 +75,7 @@ class _AthkarCategoriesScreenState extends State<AthkarCategoriesScreen> {
           ),
           const Spacer(),
           Text(
-            'الأذكار',
+            context.tr('athkarCatTitle'),
             style: GoogleFonts.cairo(fontSize: 22, fontWeight: FontWeight.w800, color: AppTheme.textColor(isDark)),
           ),
           const Spacer(),
@@ -131,7 +133,7 @@ class _AthkarCategoriesScreenState extends State<AthkarCategoriesScreen> {
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      category.arabicName,
+                      category.nameFor(context.watch<LanguageProvider>().language),
                       style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark)),
                       textAlign: TextAlign.right,
                     ),
@@ -161,7 +163,7 @@ class _AthkarCategoriesScreenState extends State<AthkarCategoriesScreen> {
       return Padding(
         padding: const EdgeInsets.fromLTRB(14, 0, 14, 16),
         child: Text(
-          'لا توجد أذكار في هذه الفئة بعد',
+          context.tr('athkarCatEmptyCategory'),
           style: GoogleFonts.cairo(fontSize: 13, color: AppTheme.subTextColor(isDark)),
           textAlign: TextAlign.center,
         ),

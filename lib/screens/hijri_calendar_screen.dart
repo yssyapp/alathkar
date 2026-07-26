@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hijri/hijri_calendar.dart';
 
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 
 /// شاشة التقويم الهجري التفصيلي: عرض شهري كامل مع أهم المناسبات الإسلامية،
@@ -91,12 +92,12 @@ class _HijriCalendarScreenState extends State<HijriCalendarScreen> {
     final monthEvents = _events.where((e) => e.month == _month).toList();
 
     return Scaffold(
-      appBar: AppBar(title: Text('التقويم الهجري', style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
+      appBar: AppBar(title: Text(context.tr('hijriTitle'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            _buildRamadanCard(isDark, cal),
+            _buildRamadanCard(context, isDark, cal),
             _buildMonthHeader(isDark),
             const SizedBox(height: 16),
             _buildWeekdayRow(isDark),
@@ -104,13 +105,13 @@ class _HijriCalendarScreenState extends State<HijriCalendarScreen> {
             _buildGrid(isDark, daysInMonth, leadingBlanks),
             if (monthEvents.isNotEmpty) ...[
               const SizedBox(height: 24),
-              Text('مناسبات هذا الشهر', style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark))),
+              Text(context.tr('hijriEventsThisMonth'), style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark))),
               const SizedBox(height: 10),
               ...monthEvents.map((e) => _buildEventTile(isDark, e)),
             ],
             const SizedBox(height: 16),
             Text(
-              'ملاحظة: التقويم حسابي تقريبي، وقد يختلف بيوم أو يومين عن إعلان رؤية الهلال الرسمي في بلدك.',
+              context.tr('hijriApproxNote'),
               style: GoogleFonts.cairo(fontSize: 11, color: AppTheme.subTextColor(isDark), height: 1.6),
               textAlign: TextAlign.center,
             ),
@@ -124,7 +125,7 @@ class _HijriCalendarScreenState extends State<HijriCalendarScreen> {
   /// الفطر، وقبل الشهر تعرض عدّاداً تنازلياً لعدد الأيام المتبقية لاستقباله.
   /// الحساب حسابي تقريبي مبني على نفس تحويل hijriToGregorian المستخدم في
   /// بقية الشاشة، فيخضع لنفس هامش الاختلاف عن رؤية الهلال الرسمية.
-  Widget _buildRamadanCard(bool isDark, HijriCalendar cal) {
+  Widget _buildRamadanCard(BuildContext context, bool isDark, HijriCalendar cal) {
     late final String title;
     late final String subtitle;
     late final IconData icon;
@@ -132,10 +133,10 @@ class _HijriCalendarScreenState extends State<HijriCalendarScreen> {
     if (_todayHMonth == 9) {
       final daysInRamadan = cal.getDaysInMonth(_todayHYear, 9);
       final remaining = daysInRamadan - _todayHDay;
-      title = 'اليوم ${toArabicDigits('$_todayHDay')} من رمضان المبارك';
+      title = '${context.tr('hijriRamadanDayPrefix')} ${toArabicDigits('$_todayHDay')} ${context.tr('hijriRamadanDaySuffix')}';
       subtitle = remaining > 0
-          ? 'بقي ${toArabicDigits('$remaining')} ${remaining == 1 ? 'يوم' : 'أيام'} على عيد الفطر المبارك، تقبل الله منا ومنكم'
-          : 'غداً عيد الفطر المبارك بإذن الله، تقبل الله منا ومنكم صالح الأعمال';
+          ? '${context.tr('hijriRemainingPrefix')} ${toArabicDigits('$remaining')} ${remaining == 1 ? context.tr('hijriDaySingular') : context.tr('hijriDaysPlural')} ${context.tr('hijriEidSuffix')}'
+          : context.tr('hijriEidTomorrow');
       icon = Icons.nightlight_round;
     } else {
       final targetYear = _todayHMonth < 9 ? _todayHYear : _todayHYear + 1;
@@ -143,10 +144,10 @@ class _HijriCalendarScreenState extends State<HijriCalendarScreen> {
       final now = DateTime.now();
       final today = DateTime(now.year, now.month, now.day);
       final daysLeft = ramadanStart.difference(today).inDays;
-      title = 'شهر رمضان المبارك';
+      title = context.tr('hijriRamadanMonthTitle');
       subtitle = daysLeft > 0
-          ? 'يفصلنا ${toArabicDigits('$daysLeft')} ${daysLeft == 1 ? 'يوم' : 'يوماً'} عن استقبال رمضان، اللهم بلّغنا رمضان'
-          : 'رمضان على الأبواب بإذن الله';
+          ? '${context.tr('hijriDaysLeftPrefix')} ${toArabicDigits('$daysLeft')} ${daysLeft == 1 ? context.tr('hijriDaySingular') : context.tr('hijriDayAccusativePlural')} ${context.tr('hijriRamadanComingSuffix')}'
+          : context.tr('hijriRamadanSoon');
       icon = Icons.mosque_rounded;
     }
 

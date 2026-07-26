@@ -6,13 +6,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
 import '../core/theme.dart';
+import '../core/app_strings.dart';
 import '../data/athkar_data.dart';
 import '../data/daily_reflection_data.dart';
 import '../providers/favorites_provider.dart';
 import '../providers/khatma_provider.dart';
+import '../providers/language_provider.dart';
+import '../providers/online_features_provider.dart';
 import '../providers/prayer_notification_provider.dart';
 import '../providers/random_dhikr_notification_provider.dart';
 import '../providers/theme_provider.dart';
+import '../services/online_prayer_service.dart';
 import '../utils/moon_phase.dart';
 import '../utils/prayer_times.dart';
 import '../widgets/dhikr_card.dart';
@@ -35,18 +39,56 @@ const _arMonths = [
   'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
 
-String _formatDuration(Duration d) {
-  if (d.isNegative) return toArabicDigits('٠٠:٠٠:٠٠');
-  final h = d.inHours.remainder(24).toString().padLeft(2, '0');
-  final m = d.inMinutes.remainder(60).toString().padLeft(2, '0');
-  final s = d.inSeconds.remainder(60).toString().padLeft(2, '0');
-  return toArabicDigits('$h:$m:$s');
+/// يقسّم الوقت المتبقي إلى أجزاء منفصلة (أرقام وفواصل) بدل نص واحد، حتى
+/// نقدر نلوّن/نحجّم الفاصل ":" بشكل متناسق مع الأرقام (كان يظهر بخط Cairo
+/// بوزن ثقيل جداً w900 فيبين ضخم وغير متناسق). الفاصل يبقى دائماً — فقط
+/// لو الوقت المتبقي أقل من ساعة نعرض دقائق:ثواني (MM:SS) بدل ساعات:دقائق:
+/// ثواني، لعرض أنظف بدون صفر ساعات بلا فايدة (٠٠:).
+///
+/// الأرقام نفسها تتبع لغة الواجهة الحالية عبر [localizedDigits]: هندية
+/// عربية (٠-٩) فقط لو التطبيق بالعربي، وإنجليزية عادية (0-9) لأي لغة
+/// أخرى — تتبدّل تلقائياً فور تغيير اللغة من الإعدادات.
+class _CountdownParts {
+  final List<String> segments;
+  const _CountdownParts(this.segments);
 }
 
-String _formatTime12(DateTime t) {
+_CountdownParts _formatDurationParts(Duration d, AppLanguage lang) {
+  if (d.isNegative) return _CountdownParts([localizedDigits('00', lang), localizedDigits('00', lang)]);
+  final totalHours = d.inHours.remainder(24);
+  final m = d.inMinutes.remainder(60).toString().padLeft(2, '0');
+  final s = d.inSeconds.remainder(60).toString().padLeft(2, '0');
+  if (totalHours == 0) {
+    // أقل من ساعة متبقية: دقائق:ثواني فقط، مع الإبقاء على الفاصل ":".
+    return _CountdownParts([localizedDigits(m, lang), localizedDigits(s, lang)]);
+  }
+  final h = totalHours.toString().padLeft(2, '0');
+  return _CountdownParts([localizedDigits(h, lang), localizedDigits(m, lang), localizedDigits(s, lang)]);
+}
+
+String _formatTime12(DateTime t, AppLanguage lang) {
   final h12 = t.hour % 12 == 0 ? 12 : t.hour % 12;
-  final period = t.hour < 12 ? 'ص' : 'م';
-  return '${toArabicDigits('$h12:${t.minute.toString().padLeft(2, '0')}')} $period';
+  final String period;
+  switch (lang) {
+    case AppLanguage.ar:
+      period = t.hour < 12 ? 'ص' : 'م';
+      break;
+    case AppLanguage.ur:
+      period = t.hour < 12 ? 'صبح' : 'شام';
+      break;
+    case AppLanguage.en:
+    case AppLanguage.id:
+      period = t.hour < 12 ? 'AM' : 'PM';
+      break;
+  }
+  return '${localizedDigits('$h12:${t.minute.toString().padLeft(2, '0')}', lang)} $period';
+}
+
+/// نفس [_formatTime12] لكن بدون لاحقة ص/م أو AM/PM — تُستخدم في الأماكن
+/// الضيقة (شريط أوقات الصلاة) اللي ما فيها مساحة كافية لعرضها.
+String _formatTime12NoPeriod(DateTime t, AppLanguage lang) {
+  final h12 = t.hour % 12 == 0 ? 12 : t.hour % 12;
+  return localizedDigits('$h12:${t.minute.toString().padLeft(2, '0')}', lang);
 }
 
 /// الشاشة الرئيسية الجديدة: لوحة معلومات ديناميكية بصفحة واحدة (Dashboard)
@@ -71,8 +113,12 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
   static const PrayerTimesCalculator _calculator = PrayerTimesCalculator();
 
   late final DateTime _today;
-  late final PrayerTimesResult _todayTimes;
-  late final DateTime _tomorrowFajr;
+  late PrayerTimesResult _todayTimes;
+  late DateTime _tomorrowFajr;
+  // true فقط لو نجح جلب مواقيت أونلاين فعلاً وحلّت محل الحساب المحلي —
+  // تُستخدم لعرض إشارة صغيرة "مواقيت أونلاين" بدل ما يبقى المستخدم غير
+  // متأكد أي مصدر يُعرض له حالياً.
+  bool _usingOnlinePrayerTimes = false;
   late final HijriCalendar _hijriToday;
   int _khatmaTab = 0;
 
@@ -90,7 +136,35 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
       if (!mounted) return;
       context.read<PrayerNotificationProvider>().refreshIfEnabled();
       context.read<RandomDhikrNotificationProvider>().refreshIfEnabled();
+      _tryLoadOnlinePrayerTimes();
     });
+  }
+
+  /// لو المستخدم فعّل "مواقيت صلاة أدق عبر الإنترنت" من الإعدادات وعنده
+  /// موقع محفوظ، نحاول نجلب مواقيت اليوم وغد من خدمة Aladhan المجانية في
+  /// الخلفية بدون ما نعطّل عرض الحساب المحلي أصلاً (يظهر فوراً كالمعتاد).
+  /// أي فشل بالجلب (لا إنترنت، انقطاع، مهلة) يُتجاهل بصمت ويستمر الحساب
+  /// المحلي كما هو — هذي الميزة إضافة اختيارية فقط، لا اعتماد عليها إطلاقاً.
+  Future<void> _tryLoadOnlinePrayerTimes() async {
+    final onlineSettings = context.read<OnlineFeaturesProvider>();
+    if (!onlineSettings.onlinePrayerTimesEnabled || !onlineSettings.hasLocation) return;
+    final lat = onlineSettings.latitude!;
+    final lng = onlineSettings.longitude!;
+
+    final results = await Future.wait([
+      OnlinePrayerService.fetch(latitude: lat, longitude: lng, date: _today),
+      OnlinePrayerService.fetch(latitude: lat, longitude: lng, date: _today.add(const Duration(days: 1))),
+    ]);
+    if (!mounted) return;
+    final todayOnline = results[0];
+    final tomorrowOnline = results[1];
+    if (todayOnline != null) {
+      setState(() {
+        _todayTimes = todayOnline;
+        if (tomorrowOnline != null) _tomorrowFajr = tomorrowOnline.fajr;
+        _usingOnlinePrayerTimes = true;
+      });
+    }
   }
 
   bool get _isFriday => _today.weekday == DateTime.friday;
@@ -114,19 +188,19 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
                   const SizedBox(height: 10),
                   _buildPrayerHeroCard(isDark),
                   const SizedBox(height: 20),
-                  _sectionTitle(isDark, 'آية وحديث اليوم', null),
+                  _sectionTitle(isDark, context.tr('dashSectionAyahHadith'), null),
                   const SizedBox(height: 10),
                   _buildDailyAyahCard(isDark),
                   const SizedBox(height: 12),
                   _buildDailyHadithCard(isDark),
                   const SizedBox(height: 20),
-                  _sectionTitle(isDark, 'أدواتك اليوم', '٩ أقسام'),
+                  _sectionTitle(isDark, context.tr('dashSectionToolsToday'), context.tr('dashToolsSectionCount')),
                   const SizedBox(height: 10),
                   _buildToolsGrid(context, isDark),
                   const SizedBox(height: 20),
                   _buildKhatmaCard(context, isDark),
                   const SizedBox(height: 20),
-                  _sectionTitle(isDark, 'محتوى متجدد', null),
+                  _sectionTitle(isDark, context.tr('dashSectionFreshContent'), null),
                   const SizedBox(height: 10),
                   DhikrCard(
                     key: ValueKey('rotating-${_today.hour ~/ 4}-${_today.day}'),
@@ -255,9 +329,9 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             child: Text('$gDate · جدة', style: GoogleFonts.cairo(fontSize: 11, color: Colors.white.withValues(alpha: 0.65))),
           ),
           const SizedBox(height: 16),
-          _PrayerCountdownLive(todayTimes: _todayTimes, tomorrowFajr: _tomorrowFajr),
+          _PrayerCountdownLive(todayTimes: _todayTimes, tomorrowFajr: _tomorrowFajr, isOnlineSource: _usingOnlinePrayerTimes),
           const SizedBox(height: 8),
-          Text('مواقيت جدة (حساب فلكي حقيقي) — تحديد الموقع تلقائياً قريباً',
+          Text(context.tr('dashPrayerTimesFooterNote'),
               style: GoogleFonts.cairo(fontSize: 9.5, color: Colors.white.withValues(alpha: 0.55))),
         ],
       ),
@@ -286,38 +360,39 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
       mainAxisSpacing: 10,
       childAspectRatio: 0.92,
       children: [
-        _toolCard(isDark, icon: Icons.auto_stories_rounded, accent: AppTheme.gold, title: 'الأذكار', subtitle: 'صباح · مساء', onTap: () {
+        _toolCard(isDark, icon: Icons.auto_stories_rounded, accent: AppTheme.gold, title: context.tr('dashToolAthkarTitle'), subtitle: context.tr('dashToolAthkarSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const AthkarCategoriesScreen()));
         }),
-        _toolCard(isDark, icon: Icons.explore_outlined, accent: AppTheme.toolTeal, title: 'القبلة', subtitle: 'اتجاه دقيق', onTap: () {
+        _toolCard(isDark, icon: Icons.explore_outlined, accent: AppTheme.toolTeal, title: context.tr('dashToolQiblaTitle'), subtitle: context.tr('dashToolQiblaSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const QiblaScreen()));
         }),
-        _toolCard(isDark, icon: Icons.savings_outlined, accent: AppTheme.toolAmber, title: 'الزكاة', subtitle: 'مال · ذهب', onTap: () {
+        _toolCard(isDark, icon: Icons.savings_outlined, accent: AppTheme.toolAmber, title: context.tr('dashToolZakatTitle'), subtitle: context.tr('dashToolZakatSubtitle'), onTap: () {
           ZakatCalculatorSheet.show(context, isDark);
         }),
-        _toolCard(isDark, icon: Icons.menu_book_outlined, accent: AppTheme.toolSage, title: 'ورد الختمة',
+        _toolCard(isDark, icon: Icons.menu_book_outlined, accent: AppTheme.toolSage, title: context.tr('dashToolKhatmaTitle'),
             subtitle: 'اليوم ${toArabicDigits('${khatma.currentDay}')} من ٣٠', onTap: () async {
           if (khatma.completedToday) {
-            _snack('أتممت ورد اليوم بالفعل، جزاك الله خيراً 🌙');
+            _snack(context.tr('dashKhatmaAlreadyDoneMsg'));
           } else {
             await context.read<KhatmaProvider>().markTodayDone();
-            if (mounted) _snack('بارك الله فيك، تم تسجيل ورد اليوم ✅');
+            if (!context.mounted) return;
+            _snack(context.tr('dashKhatmaDoneMsg'));
           }
         }),
-        _toolCard(isDark, icon: Icons.calendar_month_outlined, accent: AppTheme.toolMint, title: 'التقويم الهجري',
+        _toolCard(isDark, icon: Icons.calendar_month_outlined, accent: AppTheme.toolMint, title: context.tr('dashToolHijriCalendarTitle'),
             subtitle: _hijriToday.getLongMonthName(), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const HijriCalendarScreen()));
         }),
-        _toolCard(isDark, icon: Icons.fingerprint, accent: AppTheme.toolEmerald, title: 'العدادات', subtitle: 'تسبيح · حمد · استغفار', onTap: () {
+        _toolCard(isDark, icon: Icons.fingerprint, accent: AppTheme.toolEmerald, title: context.tr('dashToolCountersTitle'), subtitle: context.tr('dashToolCountersSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const CountersScreen()));
         }),
-        _toolCard(isDark, icon: Icons.checklist_rounded, accent: AppTheme.toolOlive, title: 'العادات', subtitle: 'تعقّب يومي', onTap: () {
+        _toolCard(isDark, icon: Icons.checklist_rounded, accent: AppTheme.toolOlive, title: context.tr('dashToolHabitsTitle'), subtitle: context.tr('dashToolHabitsSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const HabitsScreen()));
         }),
-        _toolCard(isDark, icon: Icons.auto_awesome_outlined, accent: AppTheme.gold, title: 'أسماء الله', subtitle: 'الحسنى', onTap: () {
+        _toolCard(isDark, icon: Icons.auto_awesome_outlined, accent: AppTheme.gold, title: context.tr('dashToolAsmaAllahTitle'), subtitle: context.tr('dashToolAsmaAllahSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const AsmaAllahScreen()));
         }),
-        _toolCard(isDark, icon: Icons.mosque_rounded, accent: AppTheme.toolMint, title: 'أقرب مسجد', subtitle: 'عبر الخرائط', onTap: () {
+        _toolCard(isDark, icon: Icons.mosque_rounded, accent: AppTheme.toolMint, title: context.tr('dashToolNearbyMosqueTitle'), subtitle: context.tr('dashToolNearbyMosqueSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const NearbyMosqueScreen()));
         }),
       ],
@@ -360,7 +435,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                       decoration: BoxDecoration(color: AppTheme.subTextColor(isDark).withValues(alpha: 0.25), borderRadius: BorderRadius.circular(6)),
-                      child: Text('قريباً', style: GoogleFonts.cairo(fontSize: 7.5, color: AppTheme.subTextColor(isDark), fontWeight: FontWeight.w700)),
+                      child: Text(context.tr('dashComingSoonBadge'), style: GoogleFonts.cairo(fontSize: 7.5, color: AppTheme.subTextColor(isDark), fontWeight: FontWeight.w700)),
                     ),
                   ),
               ],
@@ -395,7 +470,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             children: [
               Icon(Icons.menu_book_outlined, color: AppTheme.gold, size: 18),
               const SizedBox(width: 8),
-              Text('آية اليوم', style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w800, color: AppTheme.gold)),
+              Text(context.tr('dashAyahOfDayLabel'), style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w800, color: AppTheme.gold)),
             ],
           ),
           const SizedBox(height: 12),
@@ -409,7 +484,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
           const SizedBox(height: 14),
           Divider(color: AppTheme.gold.withValues(alpha: 0.15), height: 1),
           const SizedBox(height: 12),
-          Text('التفسير الميسّر:', style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.toolEmerald)),
+          Text(context.tr('dashTafsirLabel'), style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.toolEmerald)),
           const SizedBox(height: 6),
           Text(ayah.tafsir, style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark), height: 1.7)),
           const SizedBox(height: 6),
@@ -435,7 +510,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             children: [
               Icon(Icons.record_voice_over_outlined, color: AppTheme.toolEmerald, size: 18),
               const SizedBox(width: 8),
-              Text('حديث اليوم', style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w800, color: AppTheme.toolEmerald)),
+              Text(context.tr('dashHadithOfDayLabel'), style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w800, color: AppTheme.toolEmerald)),
             ],
           ),
           const SizedBox(height: 12),
@@ -450,7 +525,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
           const SizedBox(height: 14),
           Divider(color: AppTheme.toolEmerald.withValues(alpha: 0.15), height: 1),
           const SizedBox(height: 12),
-          Text('الشرح:', style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.gold)),
+          Text(context.tr('dashExplanationLabel'), style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.gold)),
           const SizedBox(height: 6),
           Text(hadith.sharh, style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark), height: 1.7)),
         ],
@@ -477,8 +552,8 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             decoration: BoxDecoration(color: (isDark ? Colors.white : Colors.black).withValues(alpha: 0.05), borderRadius: BorderRadius.circular(14)),
             child: Row(
               children: [
-                _tabButton(isDark, 'الورد اليومي', 0),
-                _tabButton(isDark, 'استماع للقرآن', 1),
+                _tabButton(isDark, context.tr('dashTabDailyWird'), 0),
+                _tabButton(isDark, context.tr('dashTabListenQuran'), 1),
               ],
             ),
           ),
@@ -518,7 +593,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('ورد الختمة', style: GoogleFonts.cairo(fontSize: 14, fontWeight: FontWeight.w800, color: AppTheme.textColor(isDark))),
+            Text(context.tr('dashToolKhatmaTitle'), style: GoogleFonts.cairo(fontSize: 14, fontWeight: FontWeight.w800, color: AppTheme.textColor(isDark))),
             Text('اليوم ${toArabicDigits('${khatma.currentDay}')} من ٣٠',
                 style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.toolEmerald)),
           ],
@@ -549,7 +624,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
                 Icon(khatma.completedToday ? Icons.check_circle_rounded : Icons.check_circle_outline_rounded,
                     color: khatma.completedToday ? AppTheme.toolEmerald : Colors.white, size: 18),
                 const SizedBox(width: 8),
-                Text(khatma.completedToday ? 'تم إتمام ورد اليوم' : 'أتممت هذا الورد',
+                Text(khatma.completedToday ? context.tr('dashKhatmaCompletedLabel') : context.tr('dashKhatmaCompleteButtonLabel'),
                     style: GoogleFonts.cairo(
                         fontSize: 13.5,
                         fontWeight: FontWeight.w800,
@@ -583,9 +658,9 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('الاستماع للقرآن', style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark))),
+                  Text(context.tr('dashListenQuranTitle'), style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark))),
                   const SizedBox(height: 2),
-                  Text('مشغّل صوتي بأصوات القرّاء — قريباً بإذن الله',
+                  Text(context.tr('dashListenQuranComingSoonDesc'),
                       style: GoogleFonts.cairo(fontSize: 10.5, color: AppTheme.subTextColor(isDark))),
                 ],
               ),
@@ -619,10 +694,10 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('يوم الجمعة — سيد الأيام', style: GoogleFonts.cairo(fontSize: 14, fontWeight: FontWeight.w800, color: AppTheme.textColor(isDark))),
+                Text(context.tr('dashFridayTitle'), style: GoogleFonts.cairo(fontSize: 14, fontWeight: FontWeight.w800, color: AppTheme.textColor(isDark))),
                 const SizedBox(height: 6),
                 Text(
-                  'يُستحبّ اليوم الإكثار من الصلاة على النبي ﷺ، وقراءة سورة الكهف، وتحرّي ساعة الإجابة في آخر ساعة قبل المغرب.',
+                  context.tr('dashFridayDesc'),
                   style: GoogleFonts.cairo(fontSize: 12, color: AppTheme.subTextColor(isDark), height: 1.7),
                 ),
               ],
@@ -634,6 +709,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
   }
 
   Widget _buildRamadanCard(bool isDark) {
+    final lang = context.watch<LanguageProvider>().language;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -647,19 +723,19 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             children: [
               const Icon(Icons.nights_stay_outlined, color: Colors.white, size: 20),
               const SizedBox(width: 8),
-              Text('رمضان مبارك', style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w800, color: Colors.white)),
+              Text(context.tr('dashRamadanTitle'), style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w800, color: Colors.white)),
             ],
           ),
           const SizedBox(height: 12),
           Row(
             children: [
-              Expanded(child: _ramadanTimeBox('الإمساك (الفجر)', _formatTime12(_todayTimes.fajr))),
+              Expanded(child: _ramadanTimeBox(context.tr('dashRamadanImsakLabel'), _formatTime12(_todayTimes.fajr, lang))),
               const SizedBox(width: 10),
-              Expanded(child: _ramadanTimeBox('الإفطار (المغرب)', _formatTime12(_todayTimes.maghrib))),
+              Expanded(child: _ramadanTimeBox(context.tr('dashRamadanIftarLabel'), _formatTime12(_todayTimes.maghrib, lang))),
             ],
           ),
           const SizedBox(height: 12),
-          Text('من أدعية الإفطار المأثورة: «اللهم لك صمت، وعلى رزقك أفطرت»، و«ذهب الظمأ وابتلت العروق وثبت الأجر إن شاء الله».',
+          Text(context.tr('dashRamadanDuaText'),
               style: GoogleFonts.cairo(fontSize: 11.5, color: Colors.white.withValues(alpha: 0.85), height: 1.7)),
         ],
       ),
@@ -685,9 +761,9 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
   Widget _buildQuickIconsRow(BuildContext context, bool isDark) {
     return Row(
       children: [
-        Expanded(child: _quickIconTile(isDark, icon: Icons.savings_outlined, accent: AppTheme.toolAmber, label: 'حساب الزكاة', onTap: () => ZakatCalculatorSheet.show(context, isDark))),
+        Expanded(child: _quickIconTile(isDark, icon: Icons.savings_outlined, accent: AppTheme.toolAmber, label: context.tr('dashQuickZakatLabel'), onTap: () => ZakatCalculatorSheet.show(context, isDark))),
         const SizedBox(width: 12),
-        Expanded(child: _quickIconTile(isDark, icon: Icons.dark_mode_outlined, accent: AppTheme.toolMint, label: 'حالة القمر', onTap: () => _showMoonPhase(isDark))),
+        Expanded(child: _quickIconTile(isDark, icon: Icons.dark_mode_outlined, accent: AppTheme.toolMint, label: context.tr('dashQuickMoonPhaseLabel'), onTap: () => _showMoonPhase(isDark))),
       ],
     );
   }
@@ -735,7 +811,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             Text('نسبة الإضاءة التقريبية: ${toArabicDigits((info.illumination * 100).round().toString())}٪',
                 style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark))),
             const SizedBox(height: 4),
-            Text('حساب تقريبي بالدورة القمرية — للتقويم الهجري الدقيق راجع مصادر الرؤية الشرعية',
+            Text(context.tr('dashMoonPhaseDisclaimer'),
                 textAlign: TextAlign.center,
                 style: GoogleFonts.cairo(fontSize: 10.5, color: AppTheme.subTextColor(isDark))),
           ],
@@ -762,13 +838,13 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _navIcon(isDark, Icons.explore_outlined, 'القبلة', () {
+              _navIcon(isDark, Icons.explore_outlined, context.tr('dashNavQibla'), () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const QiblaScreen()));
               }),
-              _navIcon(isDark, Icons.auto_stories_rounded, 'الأذكار', () {
+              _navIcon(isDark, Icons.auto_stories_rounded, context.tr('dashToolAthkarTitle'), () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const AthkarCategoriesScreen()));
               }, highlighted: true),
-              _navIcon(isDark, Icons.calendar_month_outlined, 'التقويم', () {
+              _navIcon(isDark, Icons.calendar_month_outlined, context.tr('dashNavCalendar'), () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const HijriCalendarScreen()));
               }),
               _navIcon(isDark, Icons.settings_outlined, 'الإعدادات', () {
@@ -821,8 +897,9 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
 class _PrayerCountdownLive extends StatefulWidget {
   final PrayerTimesResult todayTimes;
   final DateTime tomorrowFajr;
+  final bool isOnlineSource;
 
-  const _PrayerCountdownLive({required this.todayTimes, required this.tomorrowFajr});
+  const _PrayerCountdownLive({required this.todayTimes, required this.tomorrowFajr, this.isOnlineSource = false});
 
   @override
   State<_PrayerCountdownLive> createState() => _PrayerCountdownLiveState();
@@ -846,8 +923,46 @@ class _PrayerCountdownLiveState extends State<_PrayerCountdownLive> {
     super.dispose();
   }
 
+  /// يبني عرض العدّاد التنازلي: أرقام كبيرة عريضة وفاصل ":" متناسق معها
+  /// بنفس الوزن تقريباً (بدل ما يظهر ضخم بخط Cairo الأسود w900 القديم)،
+  /// مع خط سفلي بسيط تحت الرقم كامل. الفاصل يبقى ظاهراً دائماً — فقط
+  /// نقلّل عدد الأجزاء (MM:SS بدل HH:MM:SS) لو أقل من ساعة متبقية.
+  Widget _buildCountdownDisplay(BuildContext context, Duration remaining, AppLanguage lang) {
+    final parts = _formatDurationParts(remaining, lang);
+    final digitStyle = GoogleFonts.cairo(
+      fontSize: 44,
+      fontWeight: FontWeight.w800,
+      color: Colors.white,
+      letterSpacing: 1,
+      height: 1,
+    );
+    final separatorStyle = GoogleFonts.cairo(
+      fontSize: 40,
+      fontWeight: FontWeight.w700,
+      color: Colors.white.withValues(alpha: 0.85),
+      height: 1,
+    );
+    return Container(
+      padding: const EdgeInsets.only(bottom: 6),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.35), width: 2)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          for (var i = 0; i < parts.segments.length; i++) ...[
+            if (i > 0) Padding(padding: const EdgeInsets.symmetric(horizontal: 2), child: Text(':', style: separatorStyle)),
+            Text(parts.segments[i], style: digitStyle),
+          ],
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final lang = context.watch<LanguageProvider>().language;
     final next = widget.todayTimes.nextPrayer(_now, widget.tomorrowFajr);
     final remaining = next.value.difference(_now);
     final currentName = widget.todayTimes.currentPrayerName(_now);
@@ -856,11 +971,22 @@ class _PrayerCountdownLiveState extends State<_PrayerCountdownLive> {
       children: [
         Text('الوقت المتبقي لأذان ${next.key}',
             style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.85))),
+        if (widget.isOnlineSource) ...[
+          const SizedBox(height: 3),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(width: 6, height: 6, decoration: BoxDecoration(shape: BoxShape.circle, color: AppTheme.toolEmerald)),
+              const SizedBox(width: 4),
+              Text(context.tr('dashOnlinePrayerTimesBadge'),
+                  style: GoogleFonts.cairo(fontSize: 10, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.6))),
+            ],
+          ),
+        ],
         const SizedBox(height: 10),
-        Text(_formatDuration(remaining),
-            style: GoogleFonts.cairo(fontSize: 44, fontWeight: FontWeight.w900, color: Colors.white, letterSpacing: 1)),
+        _buildCountdownDisplay(context, remaining, lang),
         const SizedBox(height: 4),
-        Text('${next.key} ${_formatTime12(next.value)}',
+        Text('${next.key} ${_formatTime12(next.value, lang)}',
             style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.lightGold, fontWeight: FontWeight.w700)),
         const SizedBox(height: 18),
         Container(
@@ -886,7 +1012,7 @@ class _PrayerCountdownLiveState extends State<_PrayerCountdownLive> {
                             color: isCurrent ? AppTheme.lightGold : Colors.white.withValues(alpha: 0.75))),
                   ),
                   const SizedBox(height: 3),
-                  Text(_formatTime12(p.value).replaceAll(RegExp(r' [صم]'), ''),
+                  Text(_formatTime12NoPeriod(p.value, lang),
                       style: GoogleFonts.cairo(
                           fontSize: 11.5,
                           fontWeight: isCurrent ? FontWeight.w800 : FontWeight.w600,

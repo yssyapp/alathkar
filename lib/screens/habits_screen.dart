@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 import '../providers/habits_provider.dart';
 
@@ -18,14 +19,14 @@ class HabitsScreen extends StatelessWidget {
     final habits = context.watch<HabitsProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: Text('متعقب العادات', style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
+      appBar: AppBar(title: Text(context.tr('habitsTitle'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
       body: !habits.loaded
           ? const Center(child: CircularProgressIndicator())
           : SafeArea(
               child: ListView(
                 padding: const EdgeInsets.all(16),
                 children: [
-                  _buildProgressHeader(isDark, habits),
+                  _buildProgressHeader(context, isDark, habits),
                   const SizedBox(height: 20),
                   ...kHabits.map((h) => _buildHabitTile(context, isDark, habits, h)),
                 ],
@@ -34,7 +35,7 @@ class HabitsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProgressHeader(bool isDark, HabitsProvider habits) {
+  Widget _buildProgressHeader(BuildContext context, bool isDark, HabitsProvider habits) {
     final done = habits.completedTodayCount;
     final total = kHabits.length;
     final progress = total == 0 ? 0.0 : done / total;
@@ -49,7 +50,7 @@ class HabitsScreen extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'أنجزت ${toArabicDigits('$done')} من ${toArabicDigits('$total')} اليوم',
+            '${context.tr('habitsCompletedPrefix')} ${toArabicDigits('$done')} ${context.tr('habitsOfMiddle')} ${toArabicDigits('$total')} ${context.tr('habitsTodaySuffix')}',
             style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark)),
           ),
           const SizedBox(height: 12),
@@ -105,7 +106,7 @@ class HabitsScreen extends StatelessWidget {
                     ),
                     if (streak > 0) ...[
                       const SizedBox(height: 3),
-                      Text('🔥 ${toArabicDigits('$streak')} يوم متتالي', style: GoogleFonts.cairo(fontSize: 11, color: AppTheme.subTextColor(isDark))),
+                      Text('🔥 ${toArabicDigits('$streak')} ${context.tr('habitsStreakSuffix')}', style: GoogleFonts.cairo(fontSize: 11, color: AppTheme.subTextColor(isDark))),
                     ],
                   ],
                 ),

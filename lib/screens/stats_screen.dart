@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/app_strings.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../core/theme.dart';
@@ -32,7 +33,7 @@ class StatsScreen extends StatelessWidget {
                             isDark: isDark,
                             icon: '🔥',
                             value: '${stats.streak}',
-                            label: 'يوم متتالي',
+                            label: context.tr('statsStreakLabel'),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -41,7 +42,7 @@ class StatsScreen extends StatelessWidget {
                             isDark: isDark,
                             icon: '🏆',
                             value: '${stats.bestStreak}',
-                            label: 'أفضل سلسلة',
+                            label: context.tr('statsBestStreakLabel'),
                           ),
                         ),
                       ],
@@ -54,7 +55,7 @@ class StatsScreen extends StatelessWidget {
                             isDark: isDark,
                             icon: '📿',
                             value: '${stats.todayCount}',
-                            label: 'أذكار اليوم',
+                            label: context.tr('statsTodayLabel'),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -63,7 +64,7 @@ class StatsScreen extends StatelessWidget {
                             isDark: isDark,
                             icon: '✨',
                             value: '${stats.totalAllTime}',
-                            label: 'إجمالي كل الأوقات',
+                            label: context.tr('statsTotalLabel'),
                           ),
                         ),
                       ],
@@ -77,7 +78,7 @@ class StatsScreen extends StatelessWidget {
                         border: Border.all(color: AppTheme.gold.withValues(alpha: 0.25)),
                       ),
                       child: Text(
-                        'يُحسب "الذكر المكتمل" لما تخلّص عدّ التكرار المطلوب لذكر معيّن (زي التسبيح 33 مرة). واصل يومياً عشان تحافظ على سلسلتك 🔥',
+                        context.tr('statsNote'),
                         textAlign: TextAlign.center,
                         style: GoogleFonts.cairo(fontSize: 13, color: AppTheme.subTextColor(isDark), height: 1.8),
                       ),
@@ -111,7 +112,7 @@ class StatsScreen extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            'إحصائياتي',
+            context.tr('statsTitle'),
             style: GoogleFonts.cairo(fontSize: 20, fontWeight: FontWeight.w700, color: AppTheme.gold),
           ),
           const Spacer(),

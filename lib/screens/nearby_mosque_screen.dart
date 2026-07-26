@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
+import '../core/app_strings.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -95,7 +96,7 @@ class _NearbyMosqueScreenState extends State<NearbyMosqueScreen> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      appBar: AppBar(title: Text('أقرب مسجد', style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
+      appBar: AppBar(title: Text(context.tr('mosqueTitle'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
       body: SafeArea(child: _buildBody(isDark)),
     );
   }
@@ -108,8 +109,8 @@ class _NearbyMosqueScreenState extends State<NearbyMosqueScreen> {
         return _buildMessage(
           isDark,
           icon: Icons.location_disabled_outlined,
-          title: 'خدمة الموقع غير مفعّلة',
-          body: 'فعّل خدمة تحديد الموقع (GPS) من إعدادات جهازك ثم أعد المحاولة.',
+          title: context.tr('mosqueServiceDisabledTitle'),
+          body: context.tr('mosqueServiceDisabledBody'),
           actionLabel: 'إعادة المحاولة',
         );
       case _MosqueState.permissionDenied:
@@ -117,22 +118,22 @@ class _NearbyMosqueScreenState extends State<NearbyMosqueScreen> {
           isDark,
           icon: Icons.location_off_outlined,
           title: 'صلاحية الموقع مطلوبة',
-          body: 'نحتاج صلاحية الوصول لموقعك حتى نفتح لك تطبيق الخرائط مع البحث عن أقرب مسجد.',
+          body: context.tr('mosqueLocationPermissionBody'),
           actionLabel: 'إعادة المحاولة',
         );
       case _MosqueState.permissionDeniedForever:
         return _buildMessage(
           isDark,
           icon: Icons.settings_outlined,
-          title: 'صلاحية الموقع مرفوضة',
-          body: 'تم رفض صلاحية الموقع بشكل دائم. فعّلها يدوياً من إعدادات الجهاز > الخصوصية > خدمات الموقع > الأذكار.',
+          title: context.tr('mosqueLocationDeniedForeverTitle'),
+          body: context.tr('mosqueLocationDeniedForeverBody'),
         );
       case _MosqueState.error:
         return _buildMessage(
           isDark,
           icon: Icons.error_outline_rounded,
-          title: 'تعذّر تحديد موقعك',
-          body: 'حدث خطأ غير متوقع أثناء محاولة تحديد موقعك، حاول مرة أخرى.',
+          title: context.tr('mosqueErrorTitle'),
+          body: context.tr('mosqueErrorBody'),
           actionLabel: 'إعادة المحاولة',
         );
       case _MosqueState.ready:
@@ -187,12 +188,12 @@ class _NearbyMosqueScreenState extends State<NearbyMosqueScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'تم تحديد موقعك',
+              context.tr('mosqueReadyTitle'),
               style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark)),
             ),
             const SizedBox(height: 8),
             Text(
-              'اضغط الزر لفتح تطبيق الخرائط والبحث عن أقرب مسجد إليك.',
+              context.tr('mosqueReadyBody'),
               style: GoogleFonts.cairo(fontSize: 13, color: AppTheme.subTextColor(isDark), height: 1.7),
               textAlign: TextAlign.center,
             ),
@@ -200,7 +201,7 @@ class _NearbyMosqueScreenState extends State<NearbyMosqueScreen> {
             ElevatedButton.icon(
               onPressed: _openMaps,
               icon: const Icon(Icons.map_outlined),
-              label: Text('فتح الخرائط والبحث عن مسجد', style: GoogleFonts.cairo(fontWeight: FontWeight.w700)),
+              label: Text(context.tr('mosqueOpenMapsButton'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700)),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppTheme.gold,
                 foregroundColor: Colors.black,

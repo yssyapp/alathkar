@@ -1,6 +1,7 @@
 import 'dart:math' show pi;
 
 import 'package:flutter/material.dart';
+import '../core/app_strings.dart';
 import 'package:flutter_qiblah/flutter_qiblah.dart';
 import 'package:geolocator/geolocator.dart' show LocationPermission;
 import 'package:google_fonts/google_fonts.dart';
@@ -62,7 +63,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      appBar: AppBar(title: Text('اتجاه القبلة', style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
+      appBar: AppBar(title: Text(context.tr('qibla_title'), style: GoogleFonts.cairo(fontWeight: FontWeight.w700))),
       body: SafeArea(child: _buildBody(isDark)),
     );
   }
@@ -75,7 +76,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
         return _buildMessage(
           isDark,
           icon: Icons.explore_off_outlined,
-          title: 'الجهاز ما يدعم البوصلة',
+          title: context.tr('qibla_no_compass_title'),
           body:
               'هذا الجهاز ما فيه حساس بوصلة، أو إنك تجرّب على محاكي (Simulator) — بوصلة القبلة تحتاج جهاز حقيقي فيه حساس بوصلة فعلي.',
         );
@@ -83,7 +84,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
         return _buildMessage(
           isDark,
           icon: Icons.location_off_outlined,
-          title: 'صلاحية الموقع مطلوبة',
+          title: context.tr('qibla_location_required_title'),
           body: 'نحتاج صلاحية الوصول لموقعك لحساب اتجاه القبلة بدقة.',
           actionLabel: 'إعادة المحاولة',
         );
@@ -141,7 +142,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              aligned ? 'أنت متجه الآن نحو القبلة ✅' : 'وجّه الجهاز حتى تتطابق أيقونة الكعبة مع المؤشر',
+              aligned ? context.tr('qibla_aligned') : context.tr('qibla_align_hint'),
               style: GoogleFonts.cairo(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,

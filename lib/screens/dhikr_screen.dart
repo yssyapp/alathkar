@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 import '../data/athkar_data.dart';
 import '../models/dhikr_model.dart';
+import '../providers/language_provider.dart';
 import '../providers/stats_provider.dart';
 import '../providers/theme_provider.dart';
 import '../widgets/dhikr_card.dart';
@@ -87,7 +89,7 @@ class _DhikrScreenState extends State<DhikrScreen> {
           ),
           const Spacer(),
           Text(
-            widget.category.arabicName,
+            widget.category.nameFor(context.watch<LanguageProvider>().language),
             style: GoogleFonts.cairo(fontSize: 20, fontWeight: FontWeight.w700, color: AppTheme.gold),
           ),
           const Spacer(),
@@ -104,7 +106,7 @@ class _DhikrScreenState extends State<DhikrScreen> {
     if (athkar.isEmpty) {
       return Center(
         child: Text(
-          'لا توجد أذكار',
+          context.tr('dhikrEmptyList'),
           style: GoogleFonts.cairo(fontSize: 18, color: AppTheme.subTextColor(isDark)),
         ),
       );

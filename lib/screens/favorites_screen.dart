@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../core/app_strings.dart';
 import '../core/theme.dart';
 import '../models/dhikr_model.dart';
 import '../providers/favorites_provider.dart';
+import '../providers/language_provider.dart';
 import '../providers/stats_provider.dart';
 import '../providers/theme_provider.dart';
 import '../widgets/dhikr_card.dart';
@@ -51,7 +53,7 @@ class FavoritesScreen extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            'المفضلة',
+            context.tr('favoritesTitle'),
             style: GoogleFonts.cairo(fontSize: 20, fontWeight: FontWeight.w700, color: AppTheme.gold),
           ),
           const Spacer(),
@@ -65,6 +67,7 @@ class FavoritesScreen extends StatelessWidget {
   }
 
   Widget _buildList(BuildContext context, List<DhikrModel> favorites, bool isDark) {
+    final lang = context.watch<LanguageProvider>().language;
     if (favorites.isEmpty) {
       return Center(
         child: Padding(
@@ -75,13 +78,13 @@ class FavoritesScreen extends StatelessWidget {
               Icon(Icons.star_border, color: AppTheme.gold.withValues(alpha: 0.6), size: 48),
               const SizedBox(height: 12),
               Text(
-                'لا توجد أذكار مفضّلة بعد',
+                context.tr('favoritesEmptyTitle'),
                 style: GoogleFonts.cairo(fontSize: 16, color: AppTheme.subTextColor(isDark)),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 6),
               Text(
-                'اضغط على أيقونة النجمة بجانب أي ذكر لإضافته هنا',
+                context.tr('favoritesEmptyHint'),
                 style: GoogleFonts.cairo(fontSize: 13, color: AppTheme.subTextColor(isDark)),
                 textAlign: TextAlign.center,
               ),
@@ -96,7 +99,7 @@ class FavoritesScreen extends StatelessWidget {
       itemBuilder: (context, index) => DhikrCard(
         key: ValueKey(favorites[index].id),
         dhikr: favorites[index],
-        subtitle: favorites[index].category.arabicName,
+        subtitle: favorites[index].category.nameFor(lang),
         initiallyExpanded: true,
         onCompleted: () => context.read<StatsProvider>().recordCompletion(),
       ),

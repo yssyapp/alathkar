@@ -6,6 +6,8 @@ import 'core/theme.dart';
 import 'providers/favorites_provider.dart';
 import 'providers/habits_provider.dart';
 import 'providers/khatma_provider.dart';
+import 'providers/language_provider.dart';
+import 'providers/online_features_provider.dart';
 import 'providers/prayer_notification_provider.dart';
 import 'providers/random_dhikr_notification_provider.dart';
 import 'providers/reminder_provider.dart';
@@ -33,6 +35,7 @@ class AthkariApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => LanguageProvider()),
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
         ChangeNotifierProvider(create: (_) => StatsProvider()),
         ChangeNotifierProvider(create: (_) => ReminderProvider()),
@@ -41,15 +44,21 @@ class AthkariApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => KhatmaProvider()),
         ChangeNotifierProvider(create: (_) => HabitsProvider()),
         ChangeNotifierProvider(create: (_) => ToolsOrderProvider()),
+        ChangeNotifierProvider(create: (_) => OnlineFeaturesProvider()),
       ],
-      child: Consumer<ThemeProvider>(
-        builder: (context, themeProvider, _) {
+      child: Consumer2<ThemeProvider, LanguageProvider>(
+        builder: (context, themeProvider, languageProvider, _) {
           return MaterialApp(
             title: 'الأذكار',
             debugShowCheckedModeBanner: false,
-            locale: const Locale('ar'),
+            locale: languageProvider.language.locale,
             theme: themeProvider.isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
-            home: const DashboardHomeScreen(),
+            home: Directionality(
+              textDirection: languageProvider.language.isRtl
+                  ? TextDirection.rtl
+                  : TextDirection.ltr,
+              child: const DashboardHomeScreen(),
+            ),
           );
         },
       ),
