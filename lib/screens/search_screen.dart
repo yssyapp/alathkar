@@ -3,14 +3,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../core/app_strings.dart';
 import '../core/theme.dart';
-import '../data/athkar_data.dart';
 import '../models/dhikr_model.dart';
 import '../providers/language_provider.dart';
+import '../providers/search_provider.dart';
 import '../providers/stats_provider.dart';
 import '../providers/theme_provider.dart';
 import '../widgets/dhikr_card.dart';
 
 /// شاشة بحث تفلتر كل الأذكار (بكل الفئات) بعنوان الذكر أو نصه أو فضله.
+///
+/// حالة البحث (النص + النتائج) تعيش في [SearchProvider] بدل setState محلي
+/// — بهذا الشكل تُعاد بناء أجزاء الواجهة المستمعة فقط عند تغيّر النتائج
+/// فعلياً، ونفس الحالة تبقى متاحة عبر Provider لأي شاشة أخرى مستقبلاً
+/// بدون تمريرها يدوياً.
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
@@ -20,7 +25,6 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _controller = TextEditingController();
-  List<DhikrModel> _results = [];
 
   @override
   void dispose() {
@@ -28,38 +32,12 @@ class _SearchScreenState extends State<SearchScreen> {
     super.dispose();
   }
 
-  void _search(String query) {
-    final trimmed = query.trim();
-    if (trimmed.isEmpty) {
-      setState(() => _results = []);
-      return;
-    }
-    final all = <DhikrModel>[];
-    for (final category in DhikrCategory.values) {
-      all.addAll(AthkarData.getByCategory(category));
-    }
-    // البحث يشمل النص العربي دائماً، وأيضاً أي ترجمة متوفرة (إنجليزي/إندونيسي/
-    // أردو) — حتى يقدر المستخدم يبحث بأي لغة يستخدمها التطبيق حالياً.
-    final q = trimmed.toLowerCase();
-    setState(() {
-      _results = all
-          .where((d) =>
-              d.title.contains(trimmed) ||
-              d.text.contains(trimmed) ||
-              (d.virtue?.contains(trimmed) ?? false) ||
-              (d.textEn?.toLowerCase().contains(q) ?? false) ||
-              (d.textId?.toLowerCase().contains(q) ?? false) ||
-              (d.textUr?.contains(trimmed) ?? false) ||
-              (d.titleEn?.toLowerCase().contains(q) ?? false) ||
-              (d.titleId?.toLowerCase().contains(q) ?? false) ||
-              (d.titleUr?.contains(trimmed) ?? false))
-          .toList();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final isDark = context.watch<ThemeProvider>().isDark;
+    // مراقبة SearchProvider تتم داخل _buildResults، وبما أنها تُستدعى من
+    // نفس build() فهذا يكفي لإعادة بناء الشاشة كاملة (شاملاً زر المسح)
+    // عند تغيّر نص أو نتائج البحث، بدون حاجة لمراقبة مكررة هنا.
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient(isDark)),
@@ -116,7 +94,7 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         child: TextField(
           controller: _controller,
-          onChanged: _search,
+          onChanged: (q) => context.read<SearchProvider>().search(q),
           textDirection: TextDirection.rtl,
           textAlign: TextAlign.right,
           style: GoogleFonts.cairo(color: AppTheme.textColor(isDark), fontSize: 16),
@@ -128,7 +106,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ? GestureDetector(
                     onTap: () {
                       _controller.clear();
-                      _search('');
+                      context.read<SearchProvider>().clear();
                     },
                     child: Icon(Icons.close, color: AppTheme.subTextColor(isDark)),
                   )
@@ -143,7 +121,8 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget _buildResults(bool isDark) {
     final lang = context.watch<LanguageProvider>().language;
-    if (_controller.text.trim().isEmpty) {
+    final search = context.watch<SearchProvider>();
+    if (!search.hasQuery) {
       return Center(
         child: Text(
           context.tr('searchEmptyPrompt'),
@@ -151,7 +130,7 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
       );
     }
-    if (_results.isEmpty) {
+    if (search.results.isEmpty) {
       return Center(
         child: Text(
           context.tr('searchNoResults'),
@@ -161,11 +140,11 @@ class _SearchScreenState extends State<SearchScreen> {
     }
     return ListView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      itemCount: _results.length,
+      itemCount: search.results.length,
       itemBuilder: (context, index) => DhikrCard(
-        key: ValueKey(_results[index].id),
-        dhikr: _results[index],
-        subtitle: _results[index].category.nameFor(lang),
+        key: ValueKey(search.results[index].id),
+        dhikr: search.results[index],
+        subtitle: search.results[index].category.nameFor(lang),
         initiallyExpanded: true,
         onCompleted: () => context.read<StatsProvider>().recordCompletion(),
       ),

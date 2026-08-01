@@ -16,6 +16,11 @@ class AppStrings {
 
   static const Map<String, Map<String, String>> _dict = {
     'app_name': {'ar': 'الأذكار', 'en': 'Athkar', 'id': 'Athkar', 'ur': 'اذکار'},
+    // يظهر كعنوان صغير فوق ترجمة الآية/الحديث المعروضة تحت النص العربي
+    // الأصلي — راجع القاعدة في dhikr_card.dart و azkar_swipe_screen.dart:
+    // النص الشرعي (آية أو حديث) يظهر عربياً كاملاً دائماً أولاً، ثم ترجمته
+    // تحته كتوضيح، لا كبديل عنه.
+    'translationLabel': {'ar': 'الترجمة', 'en': 'Translation', 'id': 'Terjemahan', 'ur': 'ترجمہ'},
     'settings_title': {
       'ar': 'الإعدادات والتذكيرات',
       'en': 'Settings & Reminders',

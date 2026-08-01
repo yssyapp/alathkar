@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/build/
+
+# سجلات بناء تشخيصية مؤقتة (أنشأناها أثناء حل مشاكل flutter build) — لا
+# داعي لتتبعها بجيت.
+build_log.txt
+full_build_log*.txt

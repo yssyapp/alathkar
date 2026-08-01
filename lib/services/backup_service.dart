@@ -52,15 +52,19 @@ class BackupService {
   /// إلى SharedPreferences. يرجع true لو نجحت الاستعادة، و false لو ألغى
   /// المستخدم الاختيار أو كان الملف غير صالح (بدون رمي استثناء يكسر الواجهة).
   static Future<bool> pickAndRestore() async {
-    final result = await FilePicker.platform.pickFiles(
+    // منذ file_picker 11.0.0 صارت الدوال static مباشرة على الكلاس
+    // (FilePicker.pickFiles) بدل FilePicker.platform.pickFiles القديمة.
+    // ونتجنب withData/bytes (تُحمّل الملف كاملاً بالذاكرة وأصبحتا مهملتين)
+    // لصالح readAsBytes() التي تقرأ من القرص مباشرة وأأمن للملفات الكبيرة.
+    final result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['json'],
-      withData: true,
     );
     if (result == null || result.files.isEmpty) return false;
 
-    final fileData = result.files.single.bytes;
-    if (fileData == null) return false;
+    final pickedPath = result.files.single.path;
+    if (pickedPath == null) return false;
+    final fileData = await File(pickedPath).readAsBytes();
 
     try {
       final decoded = jsonDecode(utf8.decode(fileData)) as Map<String, dynamic>;

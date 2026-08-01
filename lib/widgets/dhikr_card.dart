@@ -182,10 +182,9 @@ class _DhikrCardState extends State<DhikrCard> {
                       ),
                     ),
                   Text(
-                    dhikr.titleFor(lang),
+                    dhikr.title,
                     style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark)),
-                    textAlign: previewAlign,
-                    textDirection: previewDir,
+                    textAlign: TextAlign.right,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                   ),
@@ -231,15 +230,40 @@ class _DhikrCardState extends State<DhikrCard> {
   }
 
   /// المحتوى الكامل: يظهر فقط عند الفتح (النص، الفضل، المصدر، الإجراءات).
+  ///
+  /// قاعدة ثابتة: النص الشرعي (آية أو حديث) يظهر بالعربية كاملاً دائماً
+  /// أولاً مهما كانت لغة التطبيق — لا يُستبدل أبداً بالترجمة. لو كانت لغة
+  /// التطبيق غير العربية وتتوفر ترجمة فعلية لهذا الذكر، تُعرض الترجمة في
+  /// كتلة منفصلة تحت النص الأصلي مباشرة كتوضيح له، لا كبديل عنه.
   Widget _buildExpandedBody(BuildContext context, bool isDark, bool isCompleted, AppLanguage lang) {
     final dhikr = widget.dhikr;
     final bodyDir = lang.isRtl ? TextDirection.rtl : TextDirection.ltr;
+    final translated = dhikr.textFor(lang);
+    final hasTranslation = lang != AppLanguage.ar && translated != dhikr.text;
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 0, 14, 14),
       child: Column(
         children: [
           Divider(color: AppTheme.gold.withValues(alpha: 0.15), height: 1),
           const SizedBox(height: 12),
+          if (dhikr.narrator != null) ...[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.person_outline_rounded, color: AppTheme.gold, size: 15),
+                const SizedBox(width: 6),
+                Flexible(
+                  child: Text(
+                    dhikr.narrator!,
+                    style: GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w700, color: AppTheme.gold),
+                    textAlign: TextAlign.center,
+                    textDirection: TextDirection.rtl,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+          ],
           GestureDetector(
             onTap: dhikr.count > 1 ? _incrementCounter : null,
             child: Container(
@@ -250,51 +274,43 @@ class _DhikrCardState extends State<DhikrCard> {
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
-                dhikr.textFor(lang),
+                dhikr.text,
                 style: GoogleFonts.cairo(fontSize: 19, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark), height: 2.0),
                 textAlign: TextAlign.center,
-                textDirection: bodyDir,
+                textDirection: TextDirection.rtl,
               ),
             ),
           ),
-          const SizedBox(height: 12),
-          // معنى/تفسير مبسّط للآية بلغة العرض — يظهر فقط للأذكار القرآنية
-          // (isQuran) وفقط لو الترجمة متوفرة، ولا يستبدل النص العربي أبداً
-          // (النص أعلاه يبقى عربياً دائماً بحسب DhikrModel.textFor).
-          if (dhikr.meaningFor(lang) != null)
+          if (hasTranslation) ...[
+            const SizedBox(height: 12),
             Container(
               width: double.infinity,
-              margin: const EdgeInsets.only(bottom: 12),
-              padding: const EdgeInsets.all(14),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppTheme.primaryGreen.withValues(alpha: 0.08),
-                borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: AppTheme.primaryGreen.withValues(alpha: 0.3)),
+                color: (isDark ? Colors.white : Colors.black).withValues(alpha: 0.05),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppTheme.gold.withValues(alpha: 0.2)),
               ),
               child: Column(
                 crossAxisAlignment: lang.isRtl ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                 children: [
                   Text(
-                    lang == AppLanguage.en
-                        ? 'Meaning'
-                        : lang == AppLanguage.id
-                            ? 'Arti'
-                            : lang == AppLanguage.ur
-                                ? 'معنی'
-                                : 'المعنى',
-                    style: GoogleFonts.cairo(fontSize: 11, fontWeight: FontWeight.w700, color: AppTheme.primaryGreen),
+                    context.tr('translationLabel'),
+                    style: GoogleFonts.cairo(fontSize: 11.5, fontWeight: FontWeight.w700, color: AppTheme.gold.withValues(alpha: 0.85)),
                     textDirection: bodyDir,
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    dhikr.meaningFor(lang)!,
-                    style: GoogleFonts.cairo(fontSize: 13.5, color: AppTheme.textColor(isDark), height: 1.7),
+                    translated,
+                    style: GoogleFonts.cairo(fontSize: 15.5, color: AppTheme.textColor(isDark), height: 1.7),
                     textAlign: lang.isRtl ? TextAlign.right : TextAlign.left,
                     textDirection: bodyDir,
                   ),
                 ],
               ),
             ),
+          ],
+          const SizedBox(height: 12),
           if (dhikr.virtue != null)
             Container(
               width: double.infinity,
@@ -331,7 +347,7 @@ class _DhikrCardState extends State<DhikrCard> {
             child: Column(
               crossAxisAlignment: lang.isRtl ? CrossAxisAlignment.end : CrossAxisAlignment.start,
               children: [
-                Text(dhikr.sourceFor(lang), style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark)), textDirection: bodyDir),
+                Text(dhikr.attributionFor(lang), style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark)), textDirection: bodyDir),
                 Text(dhikr.bookSource, style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.gold.withValues(alpha: 0.7)), textDirection: TextDirection.rtl),
               ],
             ),
@@ -377,7 +393,7 @@ class _DhikrCardState extends State<DhikrCard> {
                   Clipboard.setData(ClipboardData(text: dhikr.textFor(lang)));
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(context.tr('dhikrCopiedMsg'), style: GoogleFonts.cairo(), textDirection: TextDirection.rtl),
+                      content: Text('تم نسخ الذكر', style: GoogleFonts.cairo(), textDirection: TextDirection.rtl),
                       backgroundColor: AppTheme.primaryGreen,
                     ),
                   );

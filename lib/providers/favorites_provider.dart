@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../data/athkar_data.dart';
 import '../models/dhikr_model.dart';
+import '../repositories/favorites_repository.dart';
 
-/// يدير قائمة الأذكار المفضّلة ويحفظها محلياً باستخدام shared_preferences.
+/// يدير قائمة الأذكار المفضّلة، ويحفظها الآن في قاعدة بيانات SQLite حقيقية
+/// عبر [FavoritesRepository] بدل shared_preferences مباشرة — هذه الفئة لا
+/// تعرف تفاصيل التخزين إطلاقاً، فقط تدير حالة الواجهة (Set في الذاكرة
+/// لسرعة isFavorite) وتستدعي طبقة الوصول للبيانات عند أي تغيير.
 class FavoritesProvider extends ChangeNotifier {
-  static const String _prefKey = 'favoriteDhikrIds';
+  static const FavoritesRepository _repository = FavoritesRepository();
 
   final Set<String> _favoriteIds = {};
 
   FavoritesProvider() {
-    _loadFromPrefs();
+    _loadFromDatabase();
   }
 
-  Future<void> _loadFromPrefs() async {
-    final prefs = await SharedPreferences.getInstance();
-    final saved = prefs.getStringList(_prefKey) ?? <String>[];
+  Future<void> _loadFromDatabase() async {
+    final saved = await _repository.loadAll();
     _favoriteIds
       ..clear()
       ..addAll(saved);
@@ -27,12 +29,13 @@ class FavoritesProvider extends ChangeNotifier {
   Future<void> toggleFavorite(DhikrModel dhikr) async {
     if (_favoriteIds.contains(dhikr.id)) {
       _favoriteIds.remove(dhikr.id);
+      notifyListeners();
+      await _repository.remove(dhikr.id);
     } else {
       _favoriteIds.add(dhikr.id);
+      notifyListeners();
+      await _repository.add(dhikr.id);
     }
-    notifyListeners();
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setStringList(_prefKey, _favoriteIds.toList());
   }
 
   /// يرجع كل الأذكار المفضّلة من جميع الفئات، بترتيب الفئات نفسه المستخدم في الرئيسية.

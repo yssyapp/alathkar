@@ -63,22 +63,6 @@ class AthkarData {
   static final List<DhikrModel> _morningAthkar = [
     // ===== تُقال مرة واحدة =====
     const DhikrModel(
-      title: 'الاستعاذة قبل القراءة',
-      text: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
-      source:
-          'امتثالاً لقوله تعالى: ﴿فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ﴾ [النحل: 98]',
-      bookSource: 'حصن المسلم',
-      virtue: 'تُقال استفتاحاً قبل قراءة آية الكرسي وخواتيم سورة البقرة',
-      count: 1,
-      category: DhikrCategory.morning,
-      textEn: '"I seek refuge in Allah from Satan the outcast."',
-      sourceEn: 'Surah An-Nahl 16:98',
-      textId: '"Aku berlindung kepada Allah dari godaan setan yang terkutuk."',
-      sourceId: 'Q.S. An-Nahl: 98',
-      textUr: 'میں شیطان مردود سے اللہ کی پناہ مانگتا ہوں',
-      sourceUr: 'سورۃ النحل: 98',
-    ),
-    const DhikrModel(
       title: 'آية الكرسي',
       text:
           'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ (255)',
@@ -181,7 +165,7 @@ class AthkarData {
       sourceUr: 'مسند احمد 406/3، ح 5360، عمل الیوم واللیلۃ لابن السنی 34 وسندہ حسن',
       textEn: '"We have reached the morning upon the natural religion of Islam (fitrah), the word of sincere devotion, the religion of our Prophet Muhammad (peace be upon him), and the way of our father Ibrahim, who was upright in submission (hanifan musliman) and was not of those who associate partners with Allah."',
       sourceEn: 'Musnad Ahmad 3/406',
-      textId: '"Kami memasuki waktu pagi di atas fitrah Islam, kalimat ikhlas, agama Nabi kami Muhammad shallallahu 'alaihi wa sallam, dan millah (agama) bapak kami Ibrahim yang lurus lagi berserah diri, dan beliau bukan termasuk golongan orang-orang musyrik."',
+      textId: '"Kami memasuki waktu pagi di atas fitrah Islam, kalimat ikhlas, agama Nabi kami Muhammad shallallahu alaihi wa sallam, dan millah (agama) bapak kami Ibrahim yang lurus lagi berserah diri, dan beliau bukan termasuk golongan orang-orang musyrik."',
       sourceId: 'Musnad Ahmad 3/406',
     ),
     const DhikrModel(
@@ -198,7 +182,7 @@ class AthkarData {
       sourceUr: 'صحیح مسلم 2726(6913)',
       textEn: '"Glory is to Allah and praise is to Him, by the number of His creation, and by His pleasure, and by the weight of His Throne, and by the ink (extent) of His Words."',
       sourceEn: 'Sahih Muslim 2726',
-      textId: '"Mahasuci Allah dan segala puji bagi-Nya, sebanyak bilangan makhluk-Nya, seridha diri-Nya, seberat timbangan 'Arsy-Nya, dan sebanyak tinta (yang menulis) kalimat-kalimat-Nya."',
+      textId: '"Mahasuci Allah dan segala puji bagi-Nya, sebanyak bilangan makhluk-Nya, seridha diri-Nya, seberat timbangan Arsy-Nya, dan sebanyak tinta (yang menulis) kalimat-kalimat-Nya."',
       sourceId: 'Shahih Muslim 2726',
     ),
     const DhikrModel(
@@ -339,7 +323,7 @@ class AthkarData {
       sourceUr: 'سنن ابی داود 5072، عمل الیوم واللیلۃ للنسائی 4، سنن الترمذی 3389، مسند احمد 337/4 وسندہ حسن، نیز حاکم اور ذہبی (518/1) نے صحیح قرار دیا ہے',
       textEn: '"I am pleased with Allah as my Lord, with Islam as my religion, and with Muhammad (peace and blessings be upon him) as my Prophet and Messenger."',
       sourceEn: 'Sahih Muslim 234',
-      textId: '"Aku ridha Allah sebagai Tuhanku, Islam sebagai agamaku, dan Muhammad shallallahu 'alaihi wa sallam sebagai Nabi dan Rasul."',
+      textId: '"Aku ridha Allah sebagai Tuhanku, Islam sebagai agamaku, dan Muhammad shallallahu alaihi wa sallam sebagai Nabi dan Rasul."',
       sourceId: 'Shahih Muslim 234',
     ),
     const DhikrModel(
@@ -441,7 +425,7 @@ class AthkarData {
           '"O Allah, I have reached the morning and call upon You, the bearers of Your Throne, Your angels and all of Your creation to witness that surely You are Allah, there is none worthy of worship except You alone, You have no partner, and that Muhammad is Your slave and Messenger."',
       sourceEn:
           'Abu Dawood 5069, graded sahih by Al-Albani',
-      textId: '"Ya Allah, sesungguhnya aku memasuki waktu pagi ini seraya mempersaksikan Engkau, para pemikul 'Arsy-Mu, para malaikat-Mu, dan seluruh makhluk-Mu, bahwa Engkaulah Allah, tidak ada Tuhan yang berhak disembah selain Engkau semata, tidak ada sekutu bagi-Mu, dan bahwa Muhammad adalah hamba dan Rasul-Mu."',
+      textId: '"Ya Allah, sesungguhnya aku memasuki waktu pagi ini seraya mempersaksikan Engkau, para pemikul Arsy-Mu, para malaikat-Mu, dan seluruh makhluk-Mu, bahwa Engkaulah Allah, tidak ada Tuhan yang berhak disembah selain Engkau semata, tidak ada sekutu bagi-Mu, dan bahwa Muhammad adalah hamba dan Rasul-Mu."',
       sourceId: 'Sunan Abu Dawud 5069, dishahihkan oleh Al-Albani',
       textUr: 'اے اللہ! میں نے صبح کی، تجھے اور تیرے عرش کے اٹھانے والوں کو اور تیرے فرشتوں اور تیری تمام مخلوق کو گواہ بناتا ہوں کہ تو ہی اللہ ہے، تیرے سوا کوئی معبود برحق نہیں، تو اکیلا ہے، تیرا کوئی شریک نہیں، اور محمد تیرا بندہ اور رسول ہے',
       sourceUr: 'سنن ابی داود 5069، وسندہ صحیح',
@@ -463,7 +447,7 @@ class AthkarData {
       sourceUr: 'سورۃ التوبۃ: 129، سنن ابی داود 5081 وسندہ حسن',
       textEn: '"Allah is sufficient for me, none has the right to be worshipped except Him. Upon Him I have relied, and He is Lord of the Mighty Throne."',
       sourceEn: 'Surah At-Tawbah 9:129 | Abu Dawood 5081, graded sahih by Ibn As-Sunni and Al-Albani',
-      textId: '"Cukuplah Allah bagiku, tidak ada Tuhan yang berhak disembah selain Dia, hanya kepada-Nya aku bertawakal dan Dia adalah Tuhan yang memiliki 'Arsy yang agung."',
+      textId: '"Cukuplah Allah bagiku, tidak ada Tuhan yang berhak disembah selain Dia, hanya kepada-Nya aku bertawakal dan Dia adalah Tuhan yang memiliki Arsy yang agung."',
       sourceId: 'Q.S. At-Taubah: 129 | Sunan Abu Dawud 5081, dishahihkan Ibnu Sunni dan Al-Albani',
     ),
 
@@ -479,7 +463,7 @@ class AthkarData {
       sourceEn:
           'At-Tabarani, graded sahih by Al-Albani in Sahih al-Jami\' 6357',
       textId: '"Ya Allah, limpahkanlah shalawat dan salam kepada Nabi kami, Muhammad."',
-      sourceId: 'At-Thabrani, dishahihkan Al-Albani dalam Shahih Al-Jami' 6357',
+      sourceId: 'At-Thabrani, dishahihkan Al-Albani dalam Shahih Al-Jami 6357',
       textUr: 'اے اللہ! ہمارے نبی محمد پر درود اور سلامتی بھیج',
       sourceUr: 'طبرانی، صححہ الالبانی فی صحیح الجامع 6357',
     ),
@@ -540,18 +524,6 @@ class AthkarData {
   // =============================================
   static final List<DhikrModel> _eveningAthkar = [
     // ===== تُقال مرة واحدة =====
-    const DhikrModel(
-      title: 'الاستعاذة قبل القراءة',
-      text: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
-      source:
-          'امتثالاً لقوله تعالى: ﴿فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ﴾ [النحل: 98]',
-      bookSource: 'حصن المسلم',
-      virtue: 'تُقال استفتاحاً قبل قراءة آية الكرسي وخواتيم سورة البقرة',
-      count: 1,
-      category: DhikrCategory.evening,
-      textEn: '"I seek refuge in Allah from Satan the outcast."',
-      sourceEn: 'Surah An-Nahl 16:98',
-    ),
     const DhikrModel(
       title: 'آية الكرسي',
       text:

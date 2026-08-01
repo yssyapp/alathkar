@@ -11,6 +11,7 @@ import 'providers/online_features_provider.dart';
 import 'providers/prayer_notification_provider.dart';
 import 'providers/random_dhikr_notification_provider.dart';
 import 'providers/reminder_provider.dart';
+import 'providers/search_provider.dart';
 import 'providers/stats_provider.dart';
 import 'providers/theme_provider.dart';
 import 'providers/tools_order_provider.dart';
@@ -45,6 +46,7 @@ class AthkariApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HabitsProvider()),
         ChangeNotifierProvider(create: (_) => ToolsOrderProvider()),
         ChangeNotifierProvider(create: (_) => OnlineFeaturesProvider()),
+        ChangeNotifierProvider(create: (_) => SearchProvider()),
       ],
       child: Consumer2<ThemeProvider, LanguageProvider>(
         builder: (context, themeProvider, languageProvider, _) {

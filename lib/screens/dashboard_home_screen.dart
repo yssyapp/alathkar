@@ -34,38 +34,10 @@ import 'search_screen.dart';
 import 'settings_screen.dart';
 import 'stats_screen.dart';
 
-const _arWeekdays = ['الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد'];
 const _arMonths = [
   'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
   'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر',
 ];
-
-/// يقسّم الوقت المتبقي إلى أجزاء منفصلة (أرقام وفواصل) بدل نص واحد، حتى
-/// نقدر نلوّن/نحجّم الفاصل ":" بشكل متناسق مع الأرقام (كان يظهر بخط Cairo
-/// بوزن ثقيل جداً w900 فيبين ضخم وغير متناسق). الفاصل يبقى دائماً — فقط
-/// لو الوقت المتبقي أقل من ساعة نعرض دقائق:ثواني (MM:SS) بدل ساعات:دقائق:
-/// ثواني، لعرض أنظف بدون صفر ساعات بلا فايدة (٠٠:).
-///
-/// الأرقام نفسها تتبع لغة الواجهة الحالية عبر [localizedDigits]: هندية
-/// عربية (٠-٩) فقط لو التطبيق بالعربي، وإنجليزية عادية (0-9) لأي لغة
-/// أخرى — تتبدّل تلقائياً فور تغيير اللغة من الإعدادات.
-class _CountdownParts {
-  final List<String> segments;
-  const _CountdownParts(this.segments);
-}
-
-_CountdownParts _formatDurationParts(Duration d, AppLanguage lang) {
-  if (d.isNegative) return _CountdownParts([localizedDigits('00', lang), localizedDigits('00', lang)]);
-  final totalHours = d.inHours.remainder(24);
-  final m = d.inMinutes.remainder(60).toString().padLeft(2, '0');
-  final s = d.inSeconds.remainder(60).toString().padLeft(2, '0');
-  if (totalHours == 0) {
-    // أقل من ساعة متبقية: دقائق:ثواني فقط، مع الإبقاء على الفاصل ":".
-    return _CountdownParts([localizedDigits(m, lang), localizedDigits(s, lang)]);
-  }
-  final h = totalHours.toString().padLeft(2, '0');
-  return _CountdownParts([localizedDigits(h, lang), localizedDigits(m, lang), localizedDigits(s, lang)]);
-}
 
 String _formatTime12(DateTime t, AppLanguage lang) {
   final h12 = t.hour % 12 == 0 ? 12 : t.hour % 12;

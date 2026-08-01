@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import '../repositories/settings_repository.dart';
 
 /// اللغات المدعومة حالياً. الإندونيسية والأردية أُضيفتا لاحقاً زي ما طلب
 /// صاحب التطبيق — الهدف إيصال الأذكار لأكبر عدد ممكن من المسلمين حول العالم.
@@ -40,23 +40,23 @@ extension AppLanguageCode on AppLanguage {
   Locale get locale => Locale(code);
 }
 
-/// يتحكم باللغة الحالية للتطبيق ويحفظها محلياً، بنفس نمط ThemeProvider
-/// الموجود مسبقاً في المشروع. يبقى التطبيق يعمل بلا إنترنت ١٠٠٪ لأن كل
-/// الترجمات مُضمَّنة داخل الكود نفسه (app_strings.dart)، بدون أي تحميل
-/// شبكي لملفات لغة.
+/// يتحكم باللغة الحالية للتطبيق ويحفظها الآن عبر [SettingsRepository]
+/// (قاعدة بيانات SQLite) بدل shared_preferences مباشرة — بنفس نمط
+/// ThemeProvider. يبقى التطبيق يعمل بلا إنترنت ١٠٠٪ لأن كل الترجمات
+/// مُضمَّنة داخل الكود نفسه (app_strings.dart)، بدون أي تحميل شبكي لملفات لغة.
 class LanguageProvider extends ChangeNotifier {
+  static const SettingsRepository _repository = SettingsRepository();
   static const String _prefKey = 'appLanguage';
 
   AppLanguage _language = AppLanguage.ar;
   AppLanguage get language => _language;
 
   LanguageProvider() {
-    _loadFromPrefs();
+    _loadFromDatabase();
   }
 
-  Future<void> _loadFromPrefs() async {
-    final prefs = await SharedPreferences.getInstance();
-    final saved = prefs.getString(_prefKey);
+  Future<void> _loadFromDatabase() async {
+    final saved = await _repository.getString(_prefKey);
     if (saved != null) {
       _language = AppLanguage.values.firstWhere(
         (l) => l.code == saved,
@@ -70,7 +70,6 @@ class LanguageProvider extends ChangeNotifier {
     if (_language == lang) return;
     _language = lang;
     notifyListeners();
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_prefKey, lang.code);
+    await _repository.setString(_prefKey, lang.code);
   }
 }
