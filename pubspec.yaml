@@ -97,13 +97,11 @@ flutter_launcher_icons:
   min_sdk_android: 24
 
 # إعدادات شاشة البدء (يُشغَّل عبر: dart run flutter_native_splash:create)
+# بدون صورة/علامة إطلاقاً — خلفية بلون واحد فقط أثناء تشغيل التطبيق
 flutter_native_splash:
   color: "#0A1F0A"
-  image: assets/splash/splash.png
   color_dark: "#0A1F0A"
-  image_dark: assets/splash/splash.png
   android_12:
-    image: assets/splash/splash.png
     color: "#0A1F0A"
     color_dark: "#0A1F0A"
 

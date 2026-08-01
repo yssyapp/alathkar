@@ -23,6 +23,7 @@ import '../widgets/dhikr_card.dart';
 import '../widgets/zakat_calculator_sheet.dart';
 import 'asma_allah_screen.dart';
 import 'athkar_categories_screen.dart';
+import 'azkar_tabs_screen.dart';
 import 'counters_screen.dart';
 import 'favorites_screen.dart';
 import 'habits_screen.dart';
@@ -300,9 +301,8 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
 
   Widget _buildPrayerHeroCard(bool isDark) {
     final hijri = _hijriToday;
-    final gDayName = _arWeekdays[_today.weekday - 1];
-    final gDate = '${toArabicDigits('${_today.day}')} ${_arMonths[_today.month - 1]} ${toArabicDigits('${_today.year}')}';
-    final hDate = '$gDayName ${toArabicDigits('${hijri.hDay}')} ${hijri.getLongMonthName()} ${toArabicDigits('${hijri.hYear}')} هـ';
+    final gDate = '${toArabicDigits('${_today.day}')} ${_arMonths[_today.month - 1]}، ${toArabicDigits('${_today.year}')}';
+    final hDate = '${toArabicDigits('${hijri.hDay}')} ${hijri.getLongMonthName()}، ${toArabicDigits('${hijri.hYear}')} هـ';
 
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 16),
@@ -313,26 +313,34 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
       ),
       child: Column(
         children: [
-          Row(
-            children: [
-              const Icon(Icons.nightlight_round, color: Colors.white70, size: 18),
-              const SizedBox(width: 6),
-              Expanded(
-                child: Text(hDate, textAlign: TextAlign.right,
-                    style: GoogleFonts.cairo(fontSize: 12.5, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.92))),
-              ),
-            ],
-          ),
-          const SizedBox(height: 3),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text('$gDate · جدة', style: GoogleFonts.cairo(fontSize: 11, color: Colors.white.withValues(alpha: 0.65))),
-          ),
-          const SizedBox(height: 16),
+          _buildDateBadge(gDate: gDate, hDate: hDate),
+          const SizedBox(height: 18),
           _PrayerCountdownLive(todayTimes: _todayTimes, tomorrowFajr: _tomorrowFajr, isOnlineSource: _usingOnlinePrayerTimes),
           const SizedBox(height: 8),
           Text(context.tr('dashPrayerTimesFooterNote'),
               style: GoogleFonts.cairo(fontSize: 9.5, color: Colors.white.withValues(alpha: 0.55))),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDateBadge({required String gDate, required String hDate}) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+      decoration: BoxDecoration(
+        color: AppTheme.darkBackground,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: AppTheme.toolEmerald.withValues(alpha: 0.25), width: 1),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(gDate, textAlign: TextAlign.center,
+              style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white, letterSpacing: 0.3)),
+          const SizedBox(height: 8),
+          Text(hDate, textAlign: TextAlign.center,
+              style: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.w800, color: AppTheme.toolEmerald, letterSpacing: 0.3)),
         ],
       ),
     );
@@ -362,6 +370,9 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
       children: [
         _toolCard(isDark, icon: Icons.auto_stories_rounded, accent: AppTheme.gold, title: context.tr('dashToolAthkarTitle'), subtitle: context.tr('dashToolAthkarSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const AthkarCategoriesScreen()));
+        }),
+        _toolCard(isDark, icon: Icons.wb_twilight, accent: AppTheme.toolEmerald, title: 'الصباح والمساء', subtitle: 'عرض سريع بتبويبين', onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => const AzkarTabsScreen()));
         }),
         _toolCard(isDark, icon: Icons.explore_outlined, accent: AppTheme.toolTeal, title: context.tr('dashToolQiblaTitle'), subtitle: context.tr('dashToolQiblaSubtitle'), onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (_) => const QiblaScreen()));
@@ -923,40 +934,78 @@ class _PrayerCountdownLiveState extends State<_PrayerCountdownLive> {
     super.dispose();
   }
 
-  /// يبني عرض العدّاد التنازلي: أرقام كبيرة عريضة وفاصل ":" متناسق معها
-  /// بنفس الوزن تقريباً (بدل ما يظهر ضخم بخط Cairo الأسود w900 القديم)،
-  /// مع خط سفلي بسيط تحت الرقم كامل. الفاصل يبقى ظاهراً دائماً — فقط
-  /// نقلّل عدد الأجزاء (MM:SS بدل HH:MM:SS) لو أقل من ساعة متبقية.
-  Widget _buildCountdownDisplay(BuildContext context, Duration remaining, AppLanguage lang) {
-    final parts = _formatDurationParts(remaining, lang);
-    final digitStyle = GoogleFonts.cairo(
-      fontSize: 44,
-      fontWeight: FontWeight.w800,
-      color: Colors.white,
-      letterSpacing: 1,
-      height: 1,
-    );
-    final separatorStyle = GoogleFonts.cairo(
-      fontSize: 40,
-      fontWeight: FontWeight.w700,
-      color: Colors.white.withValues(alpha: 0.85),
-      height: 1,
-    );
+  /// صندوق رقم واحد (ساعة/دقيقة/ثانية) بتصميم بطاقة زجاجية شفافة.
+  Widget _timeBox(int value, AppLanguage lang) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 6),
+      width: 58,
+      height: 70,
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.35), width: 2)),
+        color: Colors.white.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: Colors.white24),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          for (var i = 0; i < parts.segments.length; i++) ...[
-            if (i > 0) Padding(padding: const EdgeInsets.symmetric(horizontal: 2), child: Text(':', style: separatorStyle)),
-            Text(parts.segments[i], style: digitStyle),
+      alignment: Alignment.center,
+      child: Text(
+        localizedDigits(value.toString().padLeft(2, '0'), lang),
+        style: GoogleFonts.cairo(
+          fontSize: 30,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 1,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  Widget _timeLabel(String text) {
+    return Text(text,
+        style: GoogleFonts.cairo(fontSize: 11, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.65)));
+  }
+
+  /// يبني عرض العدّاد التنازلي بشكل صناديق أرقام احترافية (ساعة/دقيقة/ثانية)
+  /// مع حركة انتقال ناعمة (تلاشي + تكبير) عند اختفاء/ظهور خانة الساعة.
+  Widget _buildCountdownDisplay(BuildContext context, Duration remaining, AppLanguage lang) {
+    final showHours = remaining.inHours > 0;
+    final hours = remaining.inHours;
+    final minutes = remaining.inMinutes.remainder(60);
+    final seconds = remaining.inSeconds.remainder(60);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 400),
+          transitionBuilder: (child, animation) {
+            return FadeTransition(
+              opacity: animation,
+              child: ScaleTransition(scale: animation, child: child),
+            );
+          },
+          child: Row(
+            key: ValueKey(showHours),
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (showHours) _timeBox(hours, lang),
+              if (showHours) const SizedBox(width: 10),
+              _timeBox(minutes, lang),
+              const SizedBox(width: 10),
+              _timeBox(seconds, lang),
+            ],
+          ),
+        ),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (showHours) _timeLabel('ساعة'),
+            if (showHours) const SizedBox(width: 40),
+            _timeLabel('دقيقة'),
+            const SizedBox(width: 40),
+            _timeLabel('ثانية'),
           ],
-        ],
-      ),
+        ),
+      ],
     );
   }
 

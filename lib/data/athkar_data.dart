@@ -64,9 +64,6 @@ class AthkarData {
     // ===== تُقال مرة واحدة =====
     const DhikrModel(
       title: 'الاستعاذة قبل القراءة',
-      titleEn: 'Seeking Refuge Before Reciting the Quran',
-      titleId: 'Doa Perlindungan Sebelum Membaca Al-Qur\'an',
-      titleUr: 'قرآت سے پہلے پناہ مانگنا',
       text: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
       source:
           'امتثالاً لقوله تعالى: ﴿فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ﴾ [النحل: 98]',
@@ -76,12 +73,13 @@ class AthkarData {
       category: DhikrCategory.morning,
       textEn: '"I seek refuge in Allah from Satan the outcast."',
       sourceEn: 'Surah An-Nahl 16:98',
+      textId: '"Aku berlindung kepada Allah dari godaan setan yang terkutuk."',
+      sourceId: 'Q.S. An-Nahl: 98',
+      textUr: 'میں شیطان مردود سے اللہ کی پناہ مانگتا ہوں',
+      sourceUr: 'سورۃ النحل: 98',
     ),
     const DhikrModel(
       title: 'آية الكرسي',
-      titleEn: 'Ayat al-Kursi',
-      titleId: 'Ayat Kursi',
-      titleUr: 'آیت الکرسی',
       text:
           'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ (255)',
       source:
@@ -90,22 +88,18 @@ class AthkarData {
       virtue: 'من قرأها صباحاً حفظه الله حتى المساء',
       count: 1,
       category: DhikrCategory.morning,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Allah! La ilaha illa Huwa (none has the right to be worshipped but He), the Ever Living, the One Who sustains and protects all that exists. Neither slumber, nor sleep overtake Him. To Him belongs whatever is in the heavens and whatever is on earth. Who is he that can intercede with Him except with His Permission? He knows what happens to them (His creatures) in this world, and what will happen to them in the Hereafter. And they will never compass anything of His Knowledge except that which He wills. His Kursi extends over the heavens and the earth, and He feels no fatigue in guarding and preserving them. And He is the Most High, the Most Great."',
       sourceEn: 'Surah Al-Baqarah 2:255 | Sahihut-Targhib wat-Tarhib 1/273, graded sahih by Al-Albani',
-      meaningId:
+      textId:
           '"Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia, yang hidup kekal lagi terus menerus, mengurus (makhluk-Nya), tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi, tiada yang dapat memberi syafa\'at di sisi Allah tanpa seizin-Nya. Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar."',
       sourceId: 'Q.S. Al-Baqarah: 255 | Ditashih oleh Al-Albani dalam kitab "Shohihut Targhib wat Tarhib" 1/273',
-      meaningUr:
+      textUr:
           'اللہ وہ ذات ہے جس کے علاوہ کوئی سچا معبود ہمیشہ زندہ رہنے والا اور (سب کو) قائم رکھنے والا ہے، نہ اسے اونگھ آتی ہے اور نہ نیند، اسی کے لیے ہے جو آسمانوں میں ہے اور جو زمین میں ہے، کون ہے جو اس کی اجازت کے بغیر اس کے پاس سفارش کر سکے، جو لوگوں کے سامنے ہے اور جو ان کے پیچھے ہے سب کو جانتا ہے، لوگ اس کے علم میں سے کسی چیز کا احاطہ نہیں کرسکتے مگر جو وہ چاہے، اسی کی کرسی آسمانوں اور زمین کو گھیرے ہوئے ہے اور ان دونوں کی حفاظت اسے تھکاتی نہیں، اور وہ بلند ہے عظمت والا ہے۔',
       sourceUr: 'آیۃ الکرسی، سورۃ البقرۃ: 255',
     ),
     const DhikrModel(
       title: 'دعاء الصباح',
-      titleEn: 'The Morning Dua',
-      titleId: 'Doa Pagi Hari',
-      titleUr: 'صبح کی دعا',
       text:
           'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ',
       source: 'رواه مسلم (2723) وأبو داود (4/318) من حديث أبي هريرة',
@@ -118,12 +112,11 @@ class AthkarData {
       textUr:
           'اے اللہ! ہم نے تیرے نام کے ساتھ صبح کی، اور تیرے نام کے ساتھ ساری بادشاہت ہے، اور تیرے ہی لیے تمام تعریفیں ہیں، تیرے علاوہ کوئی سچا معبود نہیں، تو اکیلا ہے، تیرا کوئی شریک نہیں، بادشاہت اسی کے لیے ہے اور تمام تعریفیں اسی کے لیے ہیں، اور وہ ہر چیز پر قادر ہے، اے میرے رب! میں تجھ سے اس دن کی بھلائی اور اس کے بعد کی بھلائی کا سوال کرتا ہوں، اور میں اس دن اور اس کے بعد جو اس میں شر ہے اس سے تیری پناہ میں آتا ہوں، اے میرے رب! میں سستی اور برے بڑھاپے سے تیری پناہ میں آتا ہوں، اے میرے رب! میں آگ اور قبر میں عذاب سے تیری پناہ میں آتا ہوں',
       sourceUr: 'صحیح مسلم 2723 (6907، 6908)',
+      textId: '"Kami memasuki waktu pagi dan kerajaan hanya milik Allah, segala puji bagi Allah, tidak ada Tuhan yang berhak disembah selain Allah semata, tidak ada sekutu bagi-Nya, milik-Nya kerajaan dan milik-Nya segala puji, dan Dia Maha Kuasa atas segala sesuatu. Ya Tuhanku, aku memohon kepada-Mu kebaikan hari ini dan kebaikan sesudahnya, dan aku berlindung kepada-Mu dari keburukan hari ini dan keburukan sesudahnya. Ya Tuhanku, aku berlindung kepada-Mu dari kemalasan dan buruknya usia tua. Ya Tuhanku, aku berlindung kepada-Mu dari siksa neraka dan siksa kubur."',
+      sourceId: 'Sahih Muslim 2723',
     ),
     const DhikrModel(
       title: 'سيد الاستغفار صباحاً',
-      titleEn: 'The Master Supplication for Forgiveness (Morning)',
-      titleId: 'Sayyidul Istighfar (Pagi)',
-      titleUr: 'سید الاستغفار (صبح)',
       text:
           'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ',
       source: 'رواه البخاري (6306) من حديث شداد بن أوس',
@@ -137,12 +130,11 @@ class AthkarData {
       textUr:
           'اے اللہ! تو میرا رب ہے تیرے سوا کوئی معبود برحق نہیں تو نے مجھے پیدا کیا اور میں تیرا بندہ ہوں اور میں اپنی طاقت کے مطابق تیرے عہد وعدے پر قائم ہوں، میں نے جو کچھ کیا ہے اس کے شر سے تیری پناہ مانگتا ہوں، اپنے اوپر تیری نعمت کا اقرار ہوں اور اپنے گناہ کا اقرار ہے، تو مجھے معاف کر دے، یقیناً تیرے سوا گناہوں کو معاف کرنے والا کوئی نہیں',
       sourceUr: 'سیدالاستغفار، صحیح بخاری 6306',
+      textId: '"Ya Allah, Engkau adalah Tuhanku, tidak ada Tuhan yang berhak disembah selain Engkau, Engkau telah menciptakanku dan aku adalah hamba-Mu, dan aku berada di atas janji dan ikrar-Mu semampuku. Aku berlindung kepada-Mu dari keburukan apa yang telah aku perbuat. Aku mengakui nikmat-Mu atasku dan aku mengakui dosaku, maka ampunilah aku, sesungguhnya tidak ada yang mengampuni dosa-dosa kecuali Engkau."',
+      sourceId: 'Shahih Al-Bukhari 6306',
     ),
     const DhikrModel(
       title: 'دعاء شكر النعمة',
-      titleEn: 'Dua for Giving Thanks for a Blessing',
-      titleId: 'Doa Bersyukur atas Nikmat',
-      titleUr: 'نعمت پر شکر کی دعا',
       text:
           'اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ',
       source: 'رواه أبو داود (4/324) وابن حبان، وحسّنه الألباني',
@@ -153,13 +145,14 @@ class AthkarData {
       textEn:
           '"O Allah, whatever blessing has been received by me or anyone of Your creation this morning is from You alone, without partner, so to You is all praise and unto You all thanks."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 4/324, Ibn Hibban, graded Hasan by Al-Albani',
+          'Abu Dawood 4/324, Ibn Hibban, graded Hasan by Al-Albani',
+      textId: '"Ya Allah, nikmat apa pun yang aku peroleh pada pagi ini atau diperoleh oleh salah seorang dari makhluk-Mu, itu semua dari-Mu semata, tidak ada sekutu bagi-Mu, maka bagi-Mu segala puji dan bagi-Mu segala syukur."',
+      sourceId: 'Sunan Abu Dawud 4/324, dihasankan oleh Al-Albani',
+      textUr: 'اے اللہ! آج صبح مجھے یا تیری کسی مخلوق کو جو نعمت بھی حاصل ہوئی ہے وہ تیری ہی طرف سے ہے، تنہا تیری طرف سے، تیرا کوئی شریک نہیں، پس تیرے ہی لیے حمد ہے اور تیرے ہی لیے شکر ہے',
+      sourceUr: 'سنن ابی داود 324/4، وسندہ حسن',
     ),
     const DhikrModel(
       title: 'اللهم بك أصبحنا',
-      titleEn: 'Dua: O Allah, By You We Reach the Morning',
-      titleId: 'Doa: Ya Allah, dengan-Mu Kami Memasuki Pagi',
-      titleUr: 'دعا: اے اللہ تیرے ہی سہارے ہم نے صبح کی',
       text:
           'اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ',
       source: 'رواه الترمذي (3391) من حديث أبي هريرة، وصححه الألباني',
@@ -172,12 +165,11 @@ class AthkarData {
       textUr:
           'اے اللہ! ہم نے تیرے نام کے ساتھ صبح کی، تیرے نام کے ساتھ شام کی، تیرے نام کے ساتھ ہم زندہ ہیں اور تیرے نام کے ساتھ ہم مرتے ہیں اور تیری ہی طرف لوٹ کر جانا ہے',
       sourceUr: 'سنن الترمذی 3391، وصححه الألبانی',
+      textId: '"Ya Allah, dengan (izin)-Mu kami memasuki waktu pagi dan dengan (izin)-Mu kami memasuki waktu sore, dengan (izin)-Mu kami hidup dan dengan (izin)-Mu kami mati, dan kepada-Mu kami akan dibangkitkan."',
+      sourceId: 'Shahih At-Tirmidzi 3391',
     ),
     const DhikrModel(
       title: 'أصبحنا على فطرة الإسلام',
-      titleEn: 'Dua Upon Reaching Morning Upon the Natural Faith of Islam',
-      titleId: 'Doa di Pagi Hari atas Fitrah Islam',
-      titleUr: 'صبح کے وقت فطرتِ اسلام پر ہونے کی دعا',
       text:
           'أَصْبَحْنَا عَلَى فِطْرَةِ الْإِسْلَامِ وَعَلَى كَلِمَةِ الْإِخْلَاصِ وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ حَنِيفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِينَ',
       source: 'رواه أحمد (3/406) من حديث أنس بن مالك',
@@ -187,12 +179,13 @@ class AthkarData {
       textUr:
           'ہم نے صبح کی فطرت اسلام، کلمہ اخلاص، اپنے نبی محمد ﷺ کے دین اور اپنے والد ابراہیم علیہ السلام کی ملت پر جو یکسو مسلمان تھے اور مشرکین میں سے نہ تھے',
       sourceUr: 'مسند احمد 406/3، ح 5360، عمل الیوم واللیلۃ لابن السنی 34 وسندہ حسن',
+      textEn: '"We have reached the morning upon the natural religion of Islam (fitrah), the word of sincere devotion, the religion of our Prophet Muhammad (peace be upon him), and the way of our father Ibrahim, who was upright in submission (hanifan musliman) and was not of those who associate partners with Allah."',
+      sourceEn: 'Musnad Ahmad 3/406',
+      textId: '"Kami memasuki waktu pagi di atas fitrah Islam, kalimat ikhlas, agama Nabi kami Muhammad shallallahu 'alaihi wa sallam, dan millah (agama) bapak kami Ibrahim yang lurus lagi berserah diri, dan beliau bukan termasuk golongan orang-orang musyrik."',
+      sourceId: 'Musnad Ahmad 3/406',
     ),
     const DhikrModel(
       title: 'سبحان الله وبحمده عدد خلقه',
-      titleEn: 'Dua: Glory Be to Allah and Praise Be to Him, by the Number of His Creation',
-      titleId: 'Doa: Subhanallah wa bihamdih \'adada khalqihi',
-      titleUr: 'دعا: سبحان اللہ وبحمدہ عدد خلقہ',
       text:
           'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ',
       source: 'رواه مسلم (2726) من حديث جويرية بنت الحارث رضي الله عنها',
@@ -203,12 +196,13 @@ class AthkarData {
       textUr:
           'اللہ تعالیٰ پاک ہے اپنی تعریف کے ساتھ، اپنی مخلوق کی تعداد کے برابر، اپنے نفس کی خوشنودی کے برابر، اپنے عرش کے وزن کے برابر اور اپنے کلمات کی سیاہی کے برابر',
       sourceUr: 'صحیح مسلم 2726(6913)',
+      textEn: '"Glory is to Allah and praise is to Him, by the number of His creation, and by His pleasure, and by the weight of His Throne, and by the ink (extent) of His Words."',
+      sourceEn: 'Sahih Muslim 2726',
+      textId: '"Mahasuci Allah dan segala puji bagi-Nya, sebanyak bilangan makhluk-Nya, seridha diri-Nya, seberat timbangan 'Arsy-Nya, dan sebanyak tinta (yang menulis) kalimat-kalimat-Nya."',
+      sourceId: 'Shahih Muslim 2726',
     ),
     const DhikrModel(
       title: 'دعاء العافية',
-      titleEn: 'Dua for Well-Being',
-      titleId: 'Doa Memohon Keselamatan',
-      titleUr: 'عافیت کی دعا',
       text:
           'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي اللَّهُمَّ احْفَظْنِي مِن بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي',
       source: 'رواه أبو داود (5074) وابن ماجه (3871) وصححه الألباني',
@@ -218,12 +212,13 @@ class AthkarData {
       textUr:
           'اے اللہ! میں تجھ سے دنیا و آخرت میں درگزر اور عافیت کا سوال کرتا ہوں، اے اللہ! میں تجھ سے اپنے دین، دنیا، اہل اور مال میں درگزر اور عافیت کا سوال کرتا ہوں، اے اللہ! میرے پوشیدہ امور پر پردہ ڈال اور میری گھبراہٹوں میں مجھے امن دے، اے اللہ! میری حفاظت فرما میرے سامنے سے، میرے پیچھے سے، میرے دائیں سے، میرے بائیں سے اور میرے اوپر سے، اور میں تیری عظمت کے ساتھ تیری پناہ میں آتا ہوں کہ میں اپنے نیچے سے اچانک ہلاک کر دیا جاؤں',
       sourceUr: 'سنن ابی داود 5074، سنن النسائی 5531 وسندہ صحیح، نیز ابن حبان (2352) والحاکم (517/1، 518) نے صحیح کہا ہے',
+      textEn: '"O Allah, I ask You for pardon and well-being in this life and the Hereafter. O Allah, I ask You for pardon and well-being in my religious and worldly affairs, and my family and my wealth. O Allah, conceal my faults and calm my fears. O Allah, protect me from before me and behind me, and from my right and my left, and from above me, and I take refuge in Your greatness from being taken unaware from beneath me."',
+      sourceEn: 'Abu Dawood 5074, Ibn Majah 3871, graded sahih by Al-Albani',
+      textId: '"Ya Allah, sesungguhnya aku memohon kepada-Mu ampunan dan keselamatan di dunia dan akhirat. Ya Allah, aku memohon kepada-Mu ampunan dan keselamatan dalam agamaku, duniaku, keluargaku dan hartaku. Ya Allah, tutupilah auratku (aib dan kekuranganku) dan tenteramkanlah aku dari rasa takut. Ya Allah, jagalah aku dari arah depan, belakang, kanan, kiri, dan dari atasku, dan aku berlindung dengan keagungan-Mu agar aku tidak disambar (dibinasakan) dari bawahku."',
+      sourceId: 'Sunan Abu Dawud 5074, Sunan Ibnu Majah 3871, dishahihkan oleh Al-Albani',
     ),
     const DhikrModel(
       title: 'يا حي يا قيوم',
-      titleEn: 'Dua: O Ever-Living, O Sustainer of All',
-      titleId: 'Doa: Ya Hayyu Ya Qayyum',
-      titleUr: 'دعا: یا حی یا قیوم',
       text:
           'يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ',
       source:
@@ -235,12 +230,13 @@ class AthkarData {
       textUr:
           'اے ہمیشہ زندہ رہنے والے، اے قائم رکھنے والے! تیری رحمت کے ساتھ مدد چاہتا ہوں، میری پوری حالت درست فرما دے، اور مجھے پلک جھپکنے کے برابر بھی میرے نفس کے سپرد نہ کر',
       sourceUr: 'المستدرک للحاکم 545/1، المختارہ للمقدسی 2330، عمل الیوم واللیلۃ للنسائی 570 وسندہ حسن',
+      textEn: '"O Ever-Living One, O Self-Subsisting Sustainer, by Your mercy I seek help; set right all of my affairs, and do not leave me to myself even for the blink of an eye."',
+      sourceEn: 'Al-Hakim 1/545, graded weak in chain by Al-Albani though the meaning is sound',
+      textId: '"Wahai Yang Maha Hidup, wahai Yang Maha Berdiri Sendiri (mengurus makhluk-Nya), dengan rahmat-Mu aku memohon pertolongan, perbaikilah segala urusanku, dan janganlah Engkau serahkan diriku kepada diriku sendiri walau sekejap mata."',
+      sourceId: 'Al-Hakim 1/545, sanadnya dinilai lemah oleh Al-Albani meski maknanya sahih',
     ),
     const DhikrModel(
       title: 'اللهم عالم الغيب والشهادة',
-      titleEn: 'Dua: O Allah, Knower of the Unseen and the Seen',
-      titleId: 'Doa: Ya Allah, Yang Mengetahui yang Gaib dan yang Nyata',
-      titleUr: 'دعا: اے اللہ، غیب اور ظاہر کے جاننے والے',
       text:
           'اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءًا أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ',
       source: 'رواه الترمذي (3529) من حديث عبد الرحمن بن أبي بكرة، وصححه الألباني',
@@ -250,12 +246,13 @@ class AthkarData {
       textUr:
           'اے اللہ! غائب اور حاضر کو جاننے والے، اے آسمانوں اور زمین کو نئے سرے سے بنانے والے، اے ہر چیز کے رب اور مالک، میں گواہی دیتا ہوں کہ تیرے علاوہ کوئی سچا معبود نہیں، میں اپنے نفس کے شر اور شیطان کے شر اور اس کے شرک سے تیری پناہ میں آتا ہوں',
       sourceUr: 'سنن ابی داود 5067، سنن الترمذی 3392، ابن حبان 2349، المستدرک للحاکم 513/1 وسندہ صحیح',
+      textEn: '"O Allah, Knower of the unseen and the seen, Creator of the heavens and the earth, Lord and Sovereign of all things, I bear witness that none has the right to be worshipped except You. I seek refuge in You from the evil of my soul and from the evil and shirk of Satan, and from wronging myself or bringing such wrong upon a Muslim."',
+      sourceEn: 'At-Tirmidhi 3529, graded sahih by Al-Albani',
+      textId: '"Ya Allah, Yang Mengetahui yang gaib dan yang nyata, Pencipta langit dan bumi, Tuhan segala sesuatu dan yang menguasainya, aku bersaksi bahwa tidak ada Tuhan yang berhak disembah selain Engkau. Aku berlindung kepada-Mu dari kejahatan diriku dan dari kejahatan serta syirik setan, dan dari berbuat kejahatan terhadap diriku sendiri atau menyeretnya kepada seorang muslim."',
+      sourceId: 'At-Tirmidzi 3529, dishahihkan oleh Al-Albani',
     ),
     const DhikrModel(
       title: 'دعاء الهم والحزن',
-      titleEn: 'Dua for Anxiety and Grief',
-      titleId: 'Doa Menghilangkan Kesedihan dan Kegundahan',
-      titleUr: 'غم اور پریشانی کی دعا',
       text:
           'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْجُبْنِ وَالْبُخْلِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ',
       source: 'رواه البخاري (6369) من حديث أنس بن مالك',
@@ -265,15 +262,16 @@ class AthkarData {
       textEn:
           '"O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and being overpowered by men."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Al-Bukhari 6369',
+          'Al-Bukhari 6369',
+      textId: '"Ya Allah, sesungguhnya aku berlindung kepada-Mu dari rasa gelisah dan sedih, dari lemah dan malas, dari sifat pengecut dan kikir, dari lilitan hutang dan tekanan orang lain."',
+      sourceId: 'Shahih Al-Bukhari 6369',
+      textUr: 'اے اللہ! میں غم اور حزن سے، عاجزی اور سستی سے، بزدلی اور بخل سے، قرض کے بوجھ اور لوگوں کے غلبے سے تیری پناہ مانگتا ہوں',
+      sourceUr: 'صحیح بخاری 6369',
     ),
 
     // ===== تُقال ثلاث مرات =====
     const DhikrModel(
       title: 'سورة الإخلاص',
-      titleEn: 'Surah Al-Ikhlas',
-      titleId: 'Surah Al-Ikhlas',
-      titleUr: 'سورۃ الاخلاص',
       text:
           'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)',
       source:
@@ -282,19 +280,17 @@ class AthkarData {
       virtue: 'تعدل ثلث القرآن — من قرأها ثلاثاً صباحاً كفته عن كل شيء',
       count: 3,
       category: DhikrCategory.morning,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Say: He is Allah, (The One) Allah-us-Samad. He begets not, nor was He begotten. And there is none co-equal or comparable unto Him."',
       sourceEn: 'Surah Al-Ikhlas 112:1-4',
-      meaningId:
+      textId:
           '"Katakanlah! Dialah Allah Yang Maha Tunggal. Allah, tempat bergantung segala sesuatu. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorangpun yang setara dengan Dia." (Q.S. Al-Ikhlas: 1-4)',
       sourceId: 'Q.S. Al-Ikhlas: 1-4',
+      textUr: 'کہہ دیجیے! اللہ ایک ہے۔ اللہ بے نیاز ہے۔ نہ اس نے کسی کو جنا اور نہ وہ جنا گیا۔ اور نہ کوئی اس کا ہمسر ہے',
+      sourceUr: 'سورۃ الاخلاص: 1-4',
     ),
     const DhikrModel(
       title: 'سورة الفلق',
-      titleEn: 'Surah Al-Falaq',
-      titleId: 'Surah Al-Falaq',
-      titleUr: 'سورۃ الفلق',
       text:
           'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
       source:
@@ -302,19 +298,17 @@ class AthkarData {
       bookSource: 'حصن المسلم',
       count: 3,
       category: DhikrCategory.morning,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Say: I seek refuge with (Allah), the Lord of the daybreak. From the evil of what He has created, And from the evil of the darkening (night) as it comes with its darkness, And from the evil of those who practice witchcraft when they blow in the knots, And from the evil of the envier when he envies."',
       sourceEn: 'Surah Al-Falaq 113:1-5',
-      meaningId:
+      textId:
           '"Katakanlah! Aku berlindung kepada Tuhan Yang Menguasai waktu subuh. Dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang menghembus pada buhul-buhul. Dan dari kejahatan orang yang dengki apabila ia dengki." (Q.S. Al-Falaq: 1-5)',
       sourceId: 'Q.S. Al-Falaq: 1-5',
+      textUr: 'کہہ دیجیے! میں صبح کے رب کی پناہ مانگتا ہوں۔ ہر اس چیز کے شر سے جو اس نے پیدا کی۔ اور اندھیری رات کے شر سے جب اس کا اندھیرا چھا جائے۔ اور گرہوں میں پھونک مارنے والیوں کے شر سے۔ اور حاسد کے شر سے جب وہ حسد کرے',
+      sourceUr: 'سورۃ الفلق: 1-5',
     ),
     const DhikrModel(
       title: 'سورة الناس',
-      titleEn: 'Surah An-Nas',
-      titleId: 'Surah An-Nas',
-      titleUr: 'سورۃ الناس',
       text:
           'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
       source:
@@ -322,19 +316,17 @@ class AthkarData {
       bookSource: 'حصن المسلم',
       count: 3,
       category: DhikrCategory.morning,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Say: I seek refuge with (Allah) the Lord of mankind, The King of mankind, The Ilah (God) of mankind, From the evil of the whisperer (devil) who withdraws (from his whispering in one\'s heart after one remembers Allah), Who whispers in the breasts of mankind, Of jinn and men."',
       sourceEn: 'Surah An-Nas 114:1-6 | Abu Dawood 4/322, and At-Tirmidhi 5/567. See Al-Albani\'s Sahih At-Tirmidhi 3/182',
-      meaningId:
+      textId:
           '"Katakanlah! Aku berlindung kepada Tuhan (Yang Memelihara dan Menguasai) manusia. Raja manusia. Sembahan manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada manusia. Dari (golongan) jin dan manusia." (Q.S. An-Nas: 1-6)',
       sourceId: 'Q.S. An-Nas: 1-6',
+      textUr: 'کہہ دیجیے! میں لوگوں کے رب کی پناہ مانگتا ہوں۔ لوگوں کے بادشاہ کی۔ لوگوں کے معبود کی۔ وسوسہ ڈالنے والے، پیچھے ہٹ جانے والے کے شر سے۔ جو لوگوں کے دلوں میں وسوسہ ڈالتا ہے۔ خواہ وہ جنوں میں سے ہو یا انسانوں میں سے',
+      sourceUr: 'سورۃ الناس: 1-6',
     ),
     const DhikrModel(
       title: 'دعاء الرضا',
-      titleEn: 'Dua for Contentment',
-      titleId: 'Doa Memohon Keridhaan',
-      titleUr: 'رضا کی دعا',
       text:
           'رَضِيتُ بِاللَّهِ رَبًّا وَبِالإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صلى الله عليه وسلم نَبِيًّا وَرَسُولًا',
       source: 'رواه مسلم (234) من حديث أنس بن مالك',
@@ -345,12 +337,13 @@ class AthkarData {
       textUr:
           'میں اللہ کے رب ہونے پر، اسلام کے دین ہونے پر اور محمد ﷺ کے نبی ہونے پر راضی ہوا',
       sourceUr: 'سنن ابی داود 5072، عمل الیوم واللیلۃ للنسائی 4، سنن الترمذی 3389، مسند احمد 337/4 وسندہ حسن، نیز حاکم اور ذہبی (518/1) نے صحیح قرار دیا ہے',
+      textEn: '"I am pleased with Allah as my Lord, with Islam as my religion, and with Muhammad (peace and blessings be upon him) as my Prophet and Messenger."',
+      sourceEn: 'Sahih Muslim 234',
+      textId: '"Aku ridha Allah sebagai Tuhanku, Islam sebagai agamaku, dan Muhammad shallallahu 'alaihi wa sallam sebagai Nabi dan Rasul."',
+      sourceId: 'Shahih Muslim 234',
     ),
     const DhikrModel(
       title: 'دعاء الحفظ الشامل',
-      titleEn: 'Dua for Comprehensive Protection',
-      titleId: 'Doa Perlindungan Menyeluruh',
-      titleUr: 'مکمل حفاظت کی دعا',
       text:
           'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ',
       source: 'رواه أبو داود (5088) والترمذي (3388) وصححه الألباني',
@@ -361,13 +354,14 @@ class AthkarData {
       textEn:
           '"In the Name of Allah with Whose Name nothing can cause harm on earth or in the heaven, and He is The All-Hearing, The All-Knowing."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 5088, At-Tirmidhi 3388, graded sahih by Al-Albani',
+          'Abu Dawood 5088, At-Tirmidhi 3388, graded sahih by Al-Albani',
+      textId: '"Dengan nama Allah, yang dengan menyebut nama-Nya tidak ada sesuatu pun di bumi dan di langit yang dapat memberi mudarat, dan Dia Maha Mendengar lagi Maha Mengetahui."',
+      sourceId: 'Sunan Abu Dawud 5088, Sunan At-Tirmidzi 3388, dishahihkan Al-Albani',
+      textUr: 'اللہ کے نام سے جس کے نام کے ساتھ زمین و آسمان میں کوئی چیز نقصان نہیں پہنچا سکتی، اور وہ سننے والا، جاننے والا ہے',
+      sourceUr: 'سنن ابی داود 5088، سنن الترمذی 3388',
     ),
     const DhikrModel(
       title: 'أعوذ بكلمات الله التامات',
-      titleEn: 'Seeking Refuge with the Perfect Words of Allah',
-      titleId: 'Doa Berlindung dengan Kalimat Allah yang Sempurna',
-      titleUr: 'اللہ کے کامل کلمات کے ذریعے پناہ مانگنا',
       text: 'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ',
       source: 'رواه مسلم (2708) من حديث خولة بنت حكيم السلمية',
       bookSource: 'حصن المسلم',
@@ -376,13 +370,14 @@ class AthkarData {
       category: DhikrCategory.morning,
       textEn: '"I seek refuge in the Perfect Words of Allah from the evil of what He has created."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Muslim 2708',
+          'Muslim 2708',
+      textId: '"Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari kejahatan makhluk yang Dia ciptakan."',
+      sourceId: 'Shahih Muslim 2708',
+      textUr: 'میں اللہ کے مکمل کلمات کے ساتھ اس کی مخلوق کے شر سے پناہ مانگتا ہوں',
+      sourceUr: 'صحیح مسلم 2708',
     ),
     const DhikrModel(
       title: 'دعاء الصحة',
-      titleEn: 'Dua for Health',
-      titleId: 'Doa Memohon Kesehatan',
-      titleUr: 'صحت کی دعا',
       text:
           'اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي لَا إِلَهَ إِلَّا أَنْتَ',
       source: 'رواه أبو داود (4/320) وصححه الألباني',
@@ -392,12 +387,13 @@ class AthkarData {
       textEn:
           '"O Allah, grant health in my body, O Allah, grant health in my hearing, O Allah, grant health in my sight. There is no god worthy of being worshipped except You."',
       sourceEn: 'Reported in Musnad Imam Ahmad and Sunan Abu Dawood and graded as Hasan by Al-Albani',
+      textId: '"Ya Allah, berikanlah kesehatan pada tubuhku. Ya Allah, berikanlah kesehatan pada pendengaranku. Ya Allah, berikanlah kesehatan pada penglihatanku. Tidak ada Tuhan yang berhak disembah selain Engkau."',
+      sourceId: 'Sunan Abu Dawud 4/320, dihasankan oleh Al-Albani',
+      textUr: 'اے اللہ! میرے بدن کو عافیت دے، اے اللہ! میرے کان کو عافیت دے، اے اللہ! میری آنکھ کو عافیت دے، تیرے سوا کوئی معبود برحق نہیں',
+      sourceUr: 'سنن ابی داود 320/4، وسندہ حسن',
     ),
     const DhikrModel(
       title: 'الاستعاذة من الكفر والفقر',
-      titleEn: 'Seeking Refuge from Disbelief and Poverty',
-      titleId: 'Memohon Perlindungan dari Kekufuran dan Kemiskinan',
-      titleUr: 'کفر اور فقر سے پناہ مانگنا',
       text:
           'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ وَأَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ لَا إِلَهَ إِلَّا أَنْتَ',
       source: 'رواه أبو داود (4/320) وصححه الألباني',
@@ -407,13 +403,14 @@ class AthkarData {
       textEn:
           '"O Allah, I seek refuge in You from disbelief and poverty, and I seek refuge in You from the punishment of the grave. There is no god worthy of worship except You."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 4/320, graded sahih by Al-Albani',
+          'Abu Dawood 4/320, graded sahih by Al-Albani',
+      textId: '"Ya Allah, sesungguhnya aku berlindung kepada-Mu dari kekufuran dan kefakiran, dan aku berlindung kepada-Mu dari siksa kubur. Tidak ada Tuhan yang berhak disembah selain Engkau."',
+      sourceId: 'Sunan Abu Dawud 4/320, dihasankan oleh Al-Albani',
+      textUr: 'اے اللہ! میں کفر اور فقر سے تیری پناہ مانگتا ہوں، اور قبر کے عذاب سے تیری پناہ مانگتا ہوں، تیرے سوا کوئی معبود برحق نہیں',
+      sourceUr: 'سنن ابی داود 320/4، وسندہ حسن',
     ),
     const DhikrModel(
       title: 'أستغفر الله وأتوب إليه',
-      titleEn: 'Dua for Seeking Forgiveness and Repentance',
-      titleId: 'Doa Memohon Ampunan dan Bertaubat',
-      titleUr: 'استغفار اور توبہ کی دعا',
       text: 'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
       source:
           'رواه البخاري (6307) من حديث أبي هريرة: "والله إني لأستغفر الله وأتوب إليه في اليوم أكثر من سبعين مرة"',
@@ -423,15 +420,16 @@ class AthkarData {
       category: DhikrCategory.morning,
       textEn: '"I seek the forgiveness of Allah and repent to Him."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Al-Bukhari 6307',
+          'Al-Bukhari 6307',
+      textId: '"Aku memohon ampun kepada Allah dan bertaubat kepada-Nya."',
+      sourceId: 'Shahih Al-Bukhari 6307',
+      textUr: 'میں اللہ سے بخشش مانگتا ہوں اور اسی کی طرف رجوع کرتا ہوں',
+      sourceUr: 'صحیح بخاری 6307',
     ),
 
     // ===== تُقال أربع مرات =====
     const DhikrModel(
       title: 'دعاء الشهادة',
-      titleEn: 'Dua for Martyrdom (Testimony of Faith)',
-      titleId: 'Doa Memohon Syahadah',
-      titleUr: 'شہادت کی دعا',
       text:
           'اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ',
       source: 'رواه أبو داود (5069) من حديث أبي سعيد الخدري، وصححه الألباني',
@@ -442,15 +440,16 @@ class AthkarData {
       textEn:
           '"O Allah, I have reached the morning and call upon You, the bearers of Your Throne, Your angels and all of Your creation to witness that surely You are Allah, there is none worthy of worship except You alone, You have no partner, and that Muhammad is Your slave and Messenger."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 5069, graded sahih by Al-Albani',
+          'Abu Dawood 5069, graded sahih by Al-Albani',
+      textId: '"Ya Allah, sesungguhnya aku memasuki waktu pagi ini seraya mempersaksikan Engkau, para pemikul 'Arsy-Mu, para malaikat-Mu, dan seluruh makhluk-Mu, bahwa Engkaulah Allah, tidak ada Tuhan yang berhak disembah selain Engkau semata, tidak ada sekutu bagi-Mu, dan bahwa Muhammad adalah hamba dan Rasul-Mu."',
+      sourceId: 'Sunan Abu Dawud 5069, dishahihkan oleh Al-Albani',
+      textUr: 'اے اللہ! میں نے صبح کی، تجھے اور تیرے عرش کے اٹھانے والوں کو اور تیرے فرشتوں اور تیری تمام مخلوق کو گواہ بناتا ہوں کہ تو ہی اللہ ہے، تیرے سوا کوئی معبود برحق نہیں، تو اکیلا ہے، تیرا کوئی شریک نہیں، اور محمد تیرا بندہ اور رسول ہے',
+      sourceUr: 'سنن ابی داود 5069، وسندہ صحیح',
     ),
 
     // ===== تُقال سبع مرات =====
     const DhikrModel(
       title: 'حسبي الله لا إله إلا هو',
-      titleEn: 'Dua: Allah is Sufficient for Me, There is No God but Him',
-      titleId: 'Doa: Cukuplah Allah bagiku, Tiada Tuhan Selain Dia',
-      titleUr: 'دعا: اللہ میرے لیے کافی ہے، اس کے سوا کوئی معبود نہیں',
       text:
           'حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ (129)',
       source:
@@ -459,18 +458,18 @@ class AthkarData {
       virtue: 'من قالها سبعاً حين يصبح وحين يمسي كفاه الله ما أهمه',
       count: 7,
       category: DhikrCategory.morning,
-      isQuran: true,
-      meaningUr:
+      textUr:
           'میرے لیے اللہ کافی ہے جس کے علاوہ کوئی سچا معبود نہیں، میں نے اسی پر بھروسہ کیا اور وہ عرش عظیم کا رب ہے',
       sourceUr: 'سورۃ التوبۃ: 129، سنن ابی داود 5081 وسندہ حسن',
+      textEn: '"Allah is sufficient for me, none has the right to be worshipped except Him. Upon Him I have relied, and He is Lord of the Mighty Throne."',
+      sourceEn: 'Surah At-Tawbah 9:129 | Abu Dawood 5081, graded sahih by Ibn As-Sunni and Al-Albani',
+      textId: '"Cukuplah Allah bagiku, tidak ada Tuhan yang berhak disembah selain Dia, hanya kepada-Nya aku bertawakal dan Dia adalah Tuhan yang memiliki 'Arsy yang agung."',
+      sourceId: 'Q.S. At-Taubah: 129 | Sunan Abu Dawud 5081, dishahihkan Ibnu Sunni dan Al-Albani',
     ),
 
     // ===== تُقال عشر مرات =====
     const DhikrModel(
       title: 'الصلاة على النبي صلى الله عليه وسلم',
-      titleEn: 'Sending Prayers Upon the Prophet ﷺ',
-      titleId: 'Bershalawat kepada Nabi ﷺ',
-      titleUr: 'نبی ﷺ پر درود بھیجنا',
       text: 'اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ',
       source: 'رواه الطبراني وصححه الألباني في صحيح الجامع (6357)',
       bookSource: 'حصن المسلم',
@@ -478,15 +477,16 @@ class AthkarData {
       category: DhikrCategory.morning,
       textEn: '"O Allah, send prayers and peace upon our Prophet Muhammad."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. At-Tabarani, graded sahih by Al-Albani in Sahih al-Jami\' 6357',
+          'At-Tabarani, graded sahih by Al-Albani in Sahih al-Jami\' 6357',
+      textId: '"Ya Allah, limpahkanlah shalawat dan salam kepada Nabi kami, Muhammad."',
+      sourceId: 'At-Thabrani, dishahihkan Al-Albani dalam Shahih Al-Jami' 6357',
+      textUr: 'اے اللہ! ہمارے نبی محمد پر درود اور سلامتی بھیج',
+      sourceUr: 'طبرانی، صححہ الالبانی فی صحیح الجامع 6357',
     ),
 
     // ===== تُقال مائة مرة =====
     const DhikrModel(
       title: 'التهليل',
-      titleEn: 'The Tahlil (La ilaha illallah)',
-      titleId: 'Tahlil (La ilaha illallah)',
-      titleUr: 'تہلیل (لا الہ الا اللہ)',
       text:
           'لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
       source: 'رواه البخاري (6403) ومسلم (2691)',
@@ -497,12 +497,13 @@ class AthkarData {
       textUr:
           'اللہ کے علاوہ کوئی سچا معبود نہیں، وہ اکیلا ہے، اس کا کوئی شریک نہیں، اسی کے لیے بادشاہت ہے اور اسی کے لیے تمام تعریفیں ہیں، اور وہ ہر چیز پر قادر ہے',
       sourceUr: 'صحیح بخاری 6404، صحیح مسلم 2693',
+      textEn: '"There is no god worthy of worship except Allah, alone, without partner. To Him belongs all sovereignty and praise, and He is over all things omnipotent."',
+      sourceEn: 'Al-Bukhari 6403, Muslim 2691',
+      textId: '"Tidak ada Tuhan yang berhak disembah selain Allah semata, tidak ada sekutu bagi-Nya, milik-Nya kerajaan dan milik-Nya segala puji, dan Dia Maha Kuasa atas segala sesuatu."',
+      sourceId: 'Shahih Al-Bukhari 6403, Shahih Muslim 2691',
     ),
     const DhikrModel(
       title: 'الاستغفار',
-      titleEn: 'Seeking Forgiveness',
-      titleId: 'Istighfar (Memohon Ampunan)',
-      titleUr: 'استغفار',
       text:
           'أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ',
       source: 'رواه أبو داود (1517) والترمذي (3577) وصححه الألباني',
@@ -512,12 +513,13 @@ class AthkarData {
       category: DhikrCategory.morning,
       textUr: 'میں اللہ عظیم سے بخشش مانگتا ہوں جس کے علاوہ کوئی سچا معبود نہیں، وہ ہمیشہ زندہ رہنے والا، قائم رکھنے والا ہے، اور اسی کی طرف توبہ کرتا ہوں',
       sourceUr: 'سنن ابی داود، سنن الترمذی 3577 وسندہ حسن',
+      textEn: '"I seek the forgiveness of Allah the Mighty, besides Whom none has the right to be worshipped, the Ever-Living, the Self-Subsisting, and I repent unto Him."',
+      sourceEn: 'Abu Dawood 1517, At-Tirmidhi 3577, graded sahih by Al-Albani',
+      textId: '"Aku memohon ampun kepada Allah Yang Maha Agung, yang tidak ada Tuhan yang berhak disembah selain Dia, Yang Maha Hidup lagi Maha Berdiri Sendiri, dan aku bertaubat kepada-Nya."',
+      sourceId: 'Sunan Abu Dawud 1517, Sunan At-Tirmidzi 3577, dishahihkan Al-Albani',
     ),
     const DhikrModel(
       title: 'سبحان الله وبحمده',
-      titleEn: 'Dua: Glory Be to Allah and Praise Be to Him',
-      titleId: 'Doa: Subhanallah wa bihamdih',
-      titleUr: 'دعا: سبحان اللہ وبحمدہ',
       text: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',
       source: 'رواه البخاري (6405) ومسلم (2691) من حديث أبي هريرة',
       bookSource: 'حصن المسلم',
@@ -526,6 +528,10 @@ class AthkarData {
       category: DhikrCategory.morning,
       textUr: 'اللہ تعالیٰ اپنی تعریف کے ساتھ پاک ہے',
       sourceUr: 'صحیح بخاری 6405 (6843)، صحیح مسلم 2692',
+      textEn: '"Glory is to Allah, and praise is to Him."',
+      sourceEn: 'Al-Bukhari 6405, Muslim 2691',
+      textId: '"Mahasuci Allah dan segala puji bagi-Nya."',
+      sourceId: 'Shahih Al-Bukhari 6405, Shahih Muslim 2691',
     ),
   ];
 
@@ -536,9 +542,6 @@ class AthkarData {
     // ===== تُقال مرة واحدة =====
     const DhikrModel(
       title: 'الاستعاذة قبل القراءة',
-      titleEn: 'Seeking Refuge Before Reciting the Quran',
-      titleId: 'Doa Perlindungan Sebelum Membaca Al-Qur\'an',
-      titleUr: 'قرآت سے پہلے پناہ مانگنا',
       text: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
       source:
           'امتثالاً لقوله تعالى: ﴿فَإِذَا قَرَأْتَ الْقُرْآنَ فَاسْتَعِذْ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ﴾ [النحل: 98]',
@@ -551,9 +554,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'آية الكرسي',
-      titleEn: 'Ayat al-Kursi',
-      titleId: 'Ayat Kursi',
-      titleUr: 'آیت الکرسی',
       text:
           'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ (255)',
       source:
@@ -562,22 +562,18 @@ class AthkarData {
       virtue: 'من قرأها مساءً حفظه الله حتى الصباح',
       count: 1,
       category: DhikrCategory.evening,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Allah! La ilaha illa Huwa (none has the right to be worshipped but He), the Ever Living, the One Who sustains and protects all that exists. Neither slumber, nor sleep overtake Him. To Him belongs whatever is in the heavens and whatever is on earth. Who is he that can intercede with Him except with His Permission? He knows what happens to them (His creatures) in this world, and what will happen to them in the Hereafter. And they will never compass anything of His Knowledge except that which He wills. His Kursi extends over the heavens and the earth, and He feels no fatigue in guarding and preserving them. And He is the Most High, the Most Great."',
       sourceEn: 'Surah Al-Baqarah 2:255 | Sahihut-Targhib wat-Tarhib 1/273, graded sahih by Al-Albani',
-      meaningId:
+      textId:
           '"Allah, tidak ada Tuhan (yang berhak disembah) melainkan Dia, yang hidup kekal lagi terus menerus, mengurus (makhluk-Nya), tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi, tiada yang dapat memberi syafa\'at di sisi Allah tanpa seizin-Nya. Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar."',
       sourceId: 'Q.S. Al-Baqarah: 255 | Ditashih oleh Al-Albani dalam kitab "Shohihut Targhib wat Tarhib" 1/273',
-      meaningUr:
+      textUr:
           'اللہ وہ ذات ہے جس کے علاوہ کوئی سچا معبود ہمیشہ زندہ رہنے والا اور (سب کو) قائم رکھنے والا ہے، نہ اسے اونگھ آتی ہے اور نہ نیند، اسی کے لیے ہے جو آسمانوں میں ہے اور جو زمین میں ہے، کون ہے جو اس کی اجازت کے بغیر اس کے پاس سفارش کر سکے، جو لوگوں کے سامنے ہے اور جو ان کے پیچھے ہے سب کو جانتا ہے، لوگ اس کے علم میں سے کسی چیز کا احاطہ نہیں کرسکتے مگر جو وہ چاہے، اسی کی کرسی آسمانوں اور زمین کو گھیرے ہوئے ہے اور ان دونوں کی حفاظت اسے تھکاتی نہیں، اور وہ بلند ہے عظمت والا ہے۔',
       sourceUr: 'آیۃ الکرسی، سورۃ البقرۃ: 255',
     ),
     const DhikrModel(
       title: 'خواتيم سورة البقرة',
-      titleEn: 'The Closing Verses of Surah Al-Baqarah',
-      titleId: 'Ayat-Ayat Penutup Surah Al-Baqarah',
-      titleUr: 'سورۃ البقرہ کی آخری آیات',
       text:
           'آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ (285) لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ (286)',
       source: 'سورة البقرة: الآيتان (285-286) | رواه البخاري (4008) ومسلم (807)',
@@ -585,16 +581,12 @@ class AthkarData {
       virtue: 'من قرأهما في ليلة كفتاه',
       count: 1,
       category: DhikrCategory.evening,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"The Messenger (Muhammad) believes in what has been sent down to him from his Lord, and (so do) the believers. Each one believes in Allah, His Angels, His Books, and His Messengers. (They say,) \'We make no distinction between one another of His Messengers\' — and they say, \'We hear, and we obey. (We seek) Your Forgiveness, our Lord, and to You is the return (of all).\' Allah burdens not a person beyond his scope. He gets reward for that (good) which he has earned, and he is punished for that (evil) which he has earned. \'Our Lord! Punish us not if we forget or fall into error, our Lord! Lay not on us a burden like that which You did lay on those before us; our Lord! Put not on us a burden greater than we have strength to bear. Pardon us, and grant us Forgiveness, and have mercy on us. You are our Protector, so give us victory over the disbelieving people.\'"',
       sourceEn: 'Surah Al-Baqarah 2:285-286 | Al-Bukhari 4008, Muslim 807',
     ),
     const DhikrModel(
       title: 'دعاء المساء',
-      titleEn: 'The Evening Dua',
-      titleId: 'Doa Sore Hari',
-      titleUr: 'شام کی دعا',
       text:
           'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ',
       source: 'رواه مسلم (2723) من حديث عبد الله بن مسعود',
@@ -610,9 +602,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سيد الاستغفار مساءً',
-      titleEn: 'The Master Supplication for Forgiveness (Evening)',
-      titleId: 'Sayyidul Istighfar (Sore)',
-      titleUr: 'سید الاستغفار (شام)',
       text:
           'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ',
       source: 'رواه البخاري (6306) من حديث شداد بن أوس',
@@ -629,9 +618,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء شكر النعمة مساءً',
-      titleEn: 'Dua for Giving Thanks for a Blessing (Evening)',
-      titleId: 'Doa Bersyukur atas Nikmat (Sore)',
-      titleUr: 'نعمت پر شکر کی دعا (شام)',
       text:
           'اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ',
       source: 'رواه أبو داود (4/324) وابن حبان، وحسّنه الألباني',
@@ -642,13 +628,10 @@ class AthkarData {
       textEn:
           '"O Allah, whatever blessing has been received by me or anyone of Your creation this evening is from You alone, without partner, so to You is all praise and unto You all thanks."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 4/324, Ibn Hibban, graded Hasan by Al-Albani',
+          'Abu Dawood 4/324, Ibn Hibban, graded Hasan by Al-Albani',
     ),
     const DhikrModel(
       title: 'اللهم بك أمسينا',
-      titleEn: 'Dua: O Allah, By You We Reach the Evening',
-      titleId: 'Doa: Ya Allah, dengan-Mu Kami Memasuki Sore',
-      titleUr: 'دعا: اے اللہ تیرے ہی سہارے ہم نے شام کی',
       text:
           'اللَّهُمَّ بِكَ أَمْسَيْنَا وَبِكَ أَصْبَحْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ الْمَصِيرُ',
       source: 'رواه الترمذي (3391) من حديث أبي هريرة، وصححه الألباني',
@@ -664,9 +647,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'أمسينا على فطرة الإسلام',
-      titleEn: 'Dua Upon Reaching Evening Upon the Natural Faith of Islam',
-      titleId: 'Doa di Sore Hari atas Fitrah Islam',
-      titleUr: 'شام کے وقت فطرتِ اسلام پر ہونے کی دعا',
       text:
           'أَمْسَيْنَا عَلَى فِطْرَةِ الْإِسْلَامِ وَعَلَى كَلِمَةِ الْإِخْلَاصِ وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ حَنِيفًا مُسْلِمًا وَمَا كَانَ مِنَ الْمُشْرِكِينَ',
       source: 'رواه أحمد (3/406) من حديث أنس بن مالك',
@@ -679,9 +659,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سبحان الله وبحمده عدد خلقه',
-      titleEn: 'Dua: Glory Be to Allah and Praise Be to Him, by the Number of His Creation',
-      titleId: 'Doa: Subhanallah wa bihamdih \'adada khalqihi',
-      titleUr: 'دعا: سبحان اللہ وبحمدہ عدد خلقہ',
       text:
           'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ',
       source: 'رواه مسلم (2726) من حديث جويرية بنت الحارث رضي الله عنها',
@@ -694,9 +671,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء العافية',
-      titleEn: 'Dua for Well-Being',
-      titleId: 'Doa Memohon Keselamatan',
-      titleUr: 'عافیت کی دعا',
       text:
           'اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي اللَّهُمَّ احْفَظْنِي مِن بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي',
       source: 'رواه أبو داود (5074) وابن ماجه (3871) وصححه الألباني',
@@ -709,9 +683,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'يا حي يا قيوم',
-      titleEn: 'Dua: O Ever-Living, O Sustainer of All',
-      titleId: 'Doa: Ya Hayyu Ya Qayyum',
-      titleUr: 'دعا: یا حی یا قیوم',
       text:
           'يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ',
       source:
@@ -726,9 +697,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء خير الليلة',
-      titleEn: 'Dua for the Good of the Night',
-      titleId: 'Doa Memohon Kebaikan Malam',
-      titleUr: 'رات کی بھلائی کی دعا',
       text:
           'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذِهِ اللَّيْلَةِ فَتْحَهَا وَنَصْرَهَا وَنُورَهَا وَبَرَكَتَهَا وَهُدَاهَا وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهَا وَشَرِّ مَا بَعْدَهَا',
       source: 'رواه أحمد وابن السني في عمل اليوم والليلة',
@@ -741,9 +709,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'اللهم عالم الغيب والشهادة',
-      titleEn: 'Dua: O Allah, Knower of the Unseen and the Seen',
-      titleId: 'Doa: Ya Allah, Yang Mengetahui yang Gaib dan yang Nyata',
-      titleUr: 'دعا: اے اللہ، غیب اور ظاہر کے جاننے والے',
       text:
           'اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءًا أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ',
       source: 'رواه الترمذي (3529) من حديث عبد الرحمن بن أبي بكرة، وصححه الألباني',
@@ -756,9 +721,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'اللهم إنا نعوذ بك من الشرك',
-      titleEn: 'Dua: O Allah, We Seek Refuge in You from Associating Partners with You',
-      titleId: 'Doa: Ya Allah, Kami Berlindung Kepada-Mu dari Syirik',
-      titleUr: 'دعا: اے اللہ ہم شرک سے تیری پناہ چاہتے ہیں',
       text:
           'اللَّهُمَّ إِنَّا نَعُوذُ بِكَ مِنْ أَنْ نُشْرِكَ بِكَ شَيْئًا نَعْلَمُهُ وَنَسْتَغْفِرُكَ لِمَا لَا نَعْلَمُهُ',
       source:
@@ -772,9 +734,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الهم والحزن مساءً',
-      titleEn: 'Dua for Anxiety and Grief (Evening)',
-      titleId: 'Doa Menghilangkan Kesedihan dan Kegundahan (Sore)',
-      titleUr: 'غم اور پریشانی کی دعا (شام)',
       text:
           'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ',
       source: 'رواه البخاري (6369) من حديث أنس بن مالك',
@@ -784,13 +743,10 @@ class AthkarData {
       textEn:
           '"O Allah, I seek refuge in You from anxiety and sorrow, I seek refuge in You from weakness and laziness, I seek refuge in You from cowardice and miserliness, and I seek refuge in You from being overcome by debt and overpowered by men."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Al-Bukhari 6369',
+          'Al-Bukhari 6369',
     ),
     const DhikrModel(
       title: 'يا رب لك الحمد',
-      titleEn: 'Dua: O My Lord, All Praise Is for You',
-      titleId: 'Doa: Ya Rabbi Lakal Hamdu',
-      titleUr: 'دعا: اے میرے رب تیرے لیے حمد ہے',
       text:
           'يَا رَبِّ لَكَ الْحَمْدُ كَمَا يَنْبَغِي لِجَلَالِ وَجْهِكَ وَلِعَظِيمِ سُلْطَانِكَ',
       source: 'من الأذكار المأثورة',
@@ -802,9 +758,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'اللهم أنت ربي عليك توكلت',
-      titleEn: 'Dua: O Allah, You Are My Lord, In You I Place My Trust',
-      titleId: 'Doa: Ya Allah, Engkaulah Rabbku, kepada-Mu Aku Bertawakal',
-      titleUr: 'دعا: اے اللہ تو میرا رب ہے، میں نے تجھ پر بھروسہ کیا',
       text:
           'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ عَلَيْكَ تَوَكَّلْتُ وَأَنْتَ رَبُّ الْعَرْشِ الْعَظِيمِ مَا شَاءَ اللَّهُ كَانَ وَمَا لَمْ يَشَأْ لَمْ يَكُنْ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ أَعْلَمُ أَنَّ اللَّهَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ وَأَنَّ اللَّهَ قَدْ أَحَاطَ بِكُلِّ شَيْءٍ عِلْمًا اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي وَمِنْ شَرِّ كُلِّ دَابَّةٍ أَنْتَ آخِذٌ بِنَاصِيَتِهَا إِنَّ رَبِّي عَلَى صِرَاطٍ مُسْتَقِيمٍ',
       source: 'رواه ابن السني في عمل اليوم والليلة',
@@ -819,9 +772,6 @@ class AthkarData {
     // ===== تُقال ثلاث مرات =====
     const DhikrModel(
       title: 'سورة الإخلاص',
-      titleEn: 'Surah Al-Ikhlas',
-      titleId: 'Surah Al-Ikhlas',
-      titleUr: 'سورۃ الاخلاص',
       text:
           'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)',
       source:
@@ -830,19 +780,15 @@ class AthkarData {
       virtue: 'تعدل ثلث القرآن — من قرأها ثلاثاً مساءً كفته عن كل شيء',
       count: 3,
       category: DhikrCategory.evening,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Say: He is Allah, (The One) Allah-us-Samad. He begets not, nor was He begotten. And there is none co-equal or comparable unto Him."',
       sourceEn: 'Surah Al-Ikhlas 112:1-4',
-      meaningId:
+      textId:
           '"Katakanlah! Dialah Allah Yang Maha Tunggal. Allah, tempat bergantung segala sesuatu. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorangpun yang setara dengan Dia." (Q.S. Al-Ikhlas: 1-4)',
       sourceId: 'Q.S. Al-Ikhlas: 1-4',
     ),
     const DhikrModel(
       title: 'سورة الفلق',
-      titleEn: 'Surah Al-Falaq',
-      titleId: 'Surah Al-Falaq',
-      titleUr: 'سورۃ الفلق',
       text:
           'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
       source:
@@ -850,19 +796,15 @@ class AthkarData {
       bookSource: 'حصن المسلم',
       count: 3,
       category: DhikrCategory.evening,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Say: I seek refuge with (Allah), the Lord of the daybreak. From the evil of what He has created, And from the evil of the darkening (night) as it comes with its darkness, And from the evil of those who practice witchcraft when they blow in the knots, And from the evil of the envier when he envies."',
       sourceEn: 'Surah Al-Falaq 113:1-5',
-      meaningId:
+      textId:
           '"Katakanlah! Aku berlindung kepada Tuhan Yang Menguasai waktu subuh. Dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang menghembus pada buhul-buhul. Dan dari kejahatan orang yang dengki apabila ia dengki." (Q.S. Al-Falaq: 1-5)',
       sourceId: 'Q.S. Al-Falaq: 1-5',
     ),
     const DhikrModel(
       title: 'سورة الناس',
-      titleEn: 'Surah An-Nas',
-      titleId: 'Surah An-Nas',
-      titleUr: 'سورۃ الناس',
       text:
           'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
       source:
@@ -870,19 +812,15 @@ class AthkarData {
       bookSource: 'حصن المسلم',
       count: 3,
       category: DhikrCategory.evening,
-      isQuran: true,
-      meaningEn:
+      textEn:
           '"Say: I seek refuge with (Allah) the Lord of mankind, The King of mankind, The Ilah (God) of mankind, From the evil of the whisperer (devil) who withdraws (from his whispering in one\'s heart after one remembers Allah), Who whispers in the breasts of mankind, Of jinn and men."',
       sourceEn: 'Surah An-Nas 114:1-6 | Abu Dawood 4/322, and At-Tirmidhi 5/567. See Al-Albani\'s Sahih At-Tirmidhi 3/182',
-      meaningId:
+      textId:
           '"Katakanlah! Aku berlindung kepada Tuhan (Yang Memelihara dan Menguasai) manusia. Raja manusia. Sembahan manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada manusia. Dari (golongan) jin dan manusia." (Q.S. An-Nas: 1-6)',
       sourceId: 'Q.S. An-Nas: 1-6',
     ),
     const DhikrModel(
       title: 'دعاء الرضا',
-      titleEn: 'Dua for Contentment',
-      titleId: 'Doa Memohon Keridhaan',
-      titleUr: 'رضا کی دعا',
       text:
           'رَضِيتُ بِاللَّهِ رَبًّا وَبِالإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صلى الله عليه وسلم نَبِيًّا وَرَسُولًا',
       source: 'رواه مسلم (234) من حديث أنس بن مالك',
@@ -896,9 +834,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الحفظ الشامل',
-      titleEn: 'Dua for Comprehensive Protection',
-      titleId: 'Doa Perlindungan Menyeluruh',
-      titleUr: 'مکمل حفاظت کی دعا',
       text:
           'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ',
       source: 'رواه أبو داود (5088) والترمذي (3388) وصححه الألباني',
@@ -909,13 +844,10 @@ class AthkarData {
       textEn:
           '"In the Name of Allah with Whose Name nothing can cause harm on earth or in the heaven, and He is The All-Hearing, The All-Knowing."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 5088, At-Tirmidhi 3388, graded sahih by Al-Albani',
+          'Abu Dawood 5088, At-Tirmidhi 3388, graded sahih by Al-Albani',
     ),
     const DhikrModel(
       title: 'أعوذ بكلمات الله التامات',
-      titleEn: 'Seeking Refuge with the Perfect Words of Allah',
-      titleId: 'Doa Berlindung dengan Kalimat Allah yang Sempurna',
-      titleUr: 'اللہ کے کامل کلمات کے ذریعے پناہ مانگنا',
       text: 'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ',
       source: 'رواه مسلم (2708) من حديث خولة بنت حكيم السلمية',
       bookSource: 'حصن المسلم',
@@ -924,13 +856,10 @@ class AthkarData {
       category: DhikrCategory.evening,
       textEn: '"I seek refuge in the Perfect Words of Allah from the evil of what He has created."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Muslim 2708',
+          'Muslim 2708',
     ),
     const DhikrModel(
       title: 'دعاء الصحة مساءً',
-      titleEn: 'Dua for Health (Evening)',
-      titleId: 'Doa Memohon Kesehatan (Sore)',
-      titleUr: 'صحت کی دعا (شام)',
       text:
           'اللَّهُمَّ عَافِنِي فِي بَدَنِي اللَّهُمَّ عَافِنِي فِي سَمْعِي اللَّهُمَّ عَافِنِي فِي بَصَرِي لَا إِلَهَ إِلَّا أَنْتَ',
       source: 'رواه أبو داود (4/320) وصححه الألباني',
@@ -943,9 +872,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الاستعاذة من الكفر والفقر مساءً',
-      titleEn: 'Seeking Refuge from Disbelief and Poverty (Evening)',
-      titleId: 'Memohon Perlindungan dari Kekufuran dan Kemiskinan (Sore)',
-      titleUr: 'کفر اور فقر سے پناہ مانگنا (شام)',
       text:
           'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكُفْرِ وَالْفَقْرِ وَأَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ لَا إِلَهَ إِلَّا أَنْتَ',
       source: 'رواه أبو داود (4/320) وصححه الألباني',
@@ -955,15 +881,12 @@ class AthkarData {
       textEn:
           '"O Allah, I seek refuge in You from disbelief and poverty, and I seek refuge in You from the punishment of the grave. There is no god worthy of worship except You."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 4/320, graded sahih by Al-Albani',
+          'Abu Dawood 4/320, graded sahih by Al-Albani',
     ),
 
     // ===== تُقال أربع مرات =====
     const DhikrModel(
       title: 'دعاء الشهادة',
-      titleEn: 'Dua for Martyrdom (Testimony of Faith)',
-      titleId: 'Doa Memohon Syahadah',
-      titleUr: 'شہادت کی دعا',
       text:
           'اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ',
       source: 'رواه أبو داود (5069) من حديث أبي سعيد الخدري، وصححه الألباني',
@@ -974,15 +897,12 @@ class AthkarData {
       textEn:
           '"O Allah, I have reached the evening and call upon You, the bearers of Your Throne, Your angels and all of Your creation to witness that surely You are Allah, there is none worthy of worship except You alone, You have no partner, and that Muhammad is Your slave and Messenger."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. Abu Dawood 5069, graded sahih by Al-Albani',
+          'Abu Dawood 5069, graded sahih by Al-Albani',
     ),
 
     // ===== تُقال سبع مرات =====
     const DhikrModel(
       title: 'حسبي الله لا إله إلا هو',
-      titleEn: 'Dua: Allah is Sufficient for Me, There is No God but Him',
-      titleId: 'Doa: Cukuplah Allah bagiku, Tiada Tuhan Selain Dia',
-      titleUr: 'دعا: اللہ میرے لیے کافی ہے، اس کے سوا کوئی معبود نہیں',
       text:
           'حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ (129)',
       source:
@@ -991,8 +911,7 @@ class AthkarData {
       virtue: 'من قالها سبعاً حين يمسي وحين يصبح كفاه الله ما أهمه',
       count: 7,
       category: DhikrCategory.evening,
-      isQuran: true,
-      meaningUr:
+      textUr:
           'میرے لیے اللہ کافی ہے جس کے علاوہ کوئی سچا معبود نہیں، میں نے اسی پر بھروسہ کیا اور وہ عرش عظیم کا رب ہے',
       sourceUr: 'سورۃ التوبۃ: 129، سنن ابی داود 5081 وسندہ حسن',
     ),
@@ -1000,9 +919,6 @@ class AthkarData {
     // ===== تُقال عشر مرات =====
     const DhikrModel(
       title: 'الصلاة على النبي صلى الله عليه وسلم',
-      titleEn: 'Sending Prayers Upon the Prophet ﷺ',
-      titleId: 'Bershalawat kepada Nabi ﷺ',
-      titleUr: 'نبی ﷺ پر درود بھیجنا',
       text: 'اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِيِّنَا مُحَمَّدٍ',
       source: 'رواه الطبراني وصححه الألباني في صحيح الجامع (6357)',
       bookSource: 'حصن المسلم',
@@ -1010,15 +926,12 @@ class AthkarData {
       category: DhikrCategory.evening,
       textEn: '"O Allah, send prayers, peace and blessing upon our Prophet Muhammad."',
       sourceEn:
-          'Literal translation matching the standard Hisn al-Muslim (Fortress of the Muslim) English rendering — no added interpretation. At-Tabarani, graded sahih by Al-Albani in Sahih al-Jami\' 6357',
+          'At-Tabarani, graded sahih by Al-Albani in Sahih al-Jami\' 6357',
     ),
 
     // ===== تُقال مائة مرة =====
     const DhikrModel(
       title: 'التهليل',
-      titleEn: 'The Tahlil (La ilaha illallah)',
-      titleId: 'Tahlil (La ilaha illallah)',
-      titleUr: 'تہلیل (لا الہ الا اللہ)',
       text:
           'لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
       source: 'رواه البخاري (6403) ومسلم (2691)',
@@ -1032,9 +945,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الاستغفار',
-      titleEn: 'Seeking Forgiveness',
-      titleId: 'Istighfar (Memohon Ampunan)',
-      titleUr: 'استغفار',
       text:
           'أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ',
       source: 'رواه أبو داود (1517) والترمذي (3577) وصححه الألباني',
@@ -1047,9 +957,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سبحان الله وبحمده',
-      titleEn: 'Dua: Glory Be to Allah and Praise Be to Him',
-      titleId: 'Doa: Subhanallah wa bihamdih',
-      titleUr: 'دعا: سبحان اللہ وبحمدہ',
       text: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',
       source: 'رواه البخاري (6405) ومسلم (2691) من حديث أبي هريرة',
       bookSource: 'حصن المسلم',
@@ -1064,9 +971,6 @@ class AthkarData {
   static final List<DhikrModel> _sleepAthkar = [
     const DhikrModel(
       title: 'آية الكرسي',
-      titleEn: 'Ayat al-Kursi',
-      titleId: 'Ayat Kursi',
-      titleUr: 'آیت الکرسی',
       text: 'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ (255)',
       source: 'سورة البقرة: الآية (255) | رواه البخاري (2311)',
       bookSource: 'حصن المسلم (ص 100)',
@@ -1076,9 +980,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'آخر آيتين من سورة البقرة',
-      titleEn: 'The Last Two Verses of Surah Al-Baqarah',
-      titleId: 'Dua Penutup Ayat Surah Al-Baqarah',
-      titleUr: 'سورۃ البقرہ کی آخری دو آیات',
       text: 'آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ (285) لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ (286)',
       source: 'سورة البقرة: الآيتان (285-286) | رواه البخاري (4008) ومسلم (807)',
       bookSource: 'حصن المسلم (ص 101)',
@@ -1088,9 +989,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الإخلاص',
-      titleEn: 'Surah Al-Ikhlas',
-      titleId: 'Surah Al-Ikhlas',
-      titleUr: 'سورۃ الاخلاص',
       text: 'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)',
       source: 'سورة الإخلاص: الآيات (1-4) | رواه البخاري (5017)',
       bookSource: 'حصن المسلم (ص 100)',
@@ -1099,9 +997,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الفلق',
-      titleEn: 'Surah Al-Falaq',
-      titleId: 'Surah Al-Falaq',
-      titleUr: 'سورۃ الفلق',
       text: 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
       source: 'سورة الفلق: الآيات (1-5) | رواه البخاري (5017)',
       bookSource: 'حصن المسلم (ص 100)',
@@ -1110,9 +1005,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الناس',
-      titleEn: 'Surah An-Nas',
-      titleId: 'Surah An-Nas',
-      titleUr: 'سورۃ الناس',
       text: 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
       source: 'سورة الناس: الآيات (1-6) | رواه البخاري (5017)',
       bookSource: 'حصن المسلم (ص 100)',
@@ -1122,9 +1014,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الكافرون',
-      titleEn: 'Surah Al-Kafirun',
-      titleId: 'Surah Al-Kafirun',
-      titleUr: 'سورۃ الکافرون',
       text: 'قُلْ يَا أَيُّهَا الْكَافِرُونَ (1) لَا أَعْبُدُ مَا تَعْبُدُونَ (2) وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ (3) وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ (4) وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ (5) لَكُمْ دِينُكُمْ وَلِيَ دِينِ (6)',
       source: 'سورة الكافرون: الآيات (1-6) | رواه أبو داود (5055) والترمذي (3403) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 103)',
@@ -1134,9 +1023,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التسبيح والتحميد والتكبير',
-      titleEn: 'Tasbih, Tahmid and Takbir',
-      titleId: 'Tasbih, Tahmid, dan Takbir',
-      titleUr: 'تسبیح، تحمید اور تکبیر',
       text: 'سُبْحَانَ اللَّهِ\nالْحَمْدُ لِلَّهِ\nاللَّهُ أَكْبَرُ',
       source: 'رواه البخاري (3113) ومسلم (2727)',
       bookSource: 'حصن المسلم (ص 104)',
@@ -1146,9 +1032,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء النوم الأول',
-      titleEn: 'The First Dua Before Sleep',
-      titleId: 'Doa Sebelum Tidur Pertama',
-      titleUr: 'سونے سے پہلے کی پہلی دعا',
       text: 'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا',
       source: 'رواه البخاري (6312)',
       bookSource: 'حصن المسلم (ص 103)',
@@ -1157,9 +1040,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء النوم الثاني',
-      titleEn: 'The Second Dua Before Sleep',
-      titleId: 'Doa Sebelum Tidur Kedua',
-      titleUr: 'سونے سے پہلے کی دوسری دعا',
       text: 'اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ',
       source: 'رواه أبو داود (5045) والترمذي (3398) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 103)',
@@ -1168,9 +1048,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء التفويض عند النوم',
-      titleEn: 'Dua of Entrusting One\'s Affairs to Allah Before Sleep',
-      titleId: 'Doa Menyerahkan Diri kepada Allah Sebelum Tidur',
-      titleUr: 'سونے سے پہلے اپنے معاملات اللہ کے سپرد کرنے کی دعا',
       text: 'اللَّهُمَّ أَسْلَمْتُ نَفْسِي إِلَيْكَ وَفَوَّضْتُ أَمْرِي إِلَيْكَ وَوَجَّهْتُ وَجْهِي إِلَيْكَ وَأَلْجَأْتُ ظَهْرِي إِلَيْكَ رَغْبَةً وَرَهْبَةً إِلَيْكَ لَا مَلْجَأَ وَلَا مَنْجَا مِنْكَ إِلَّا إِلَيْكَ آمَنْتُ بِكِتَابِكَ الَّذِي أَنْزَلْتَ وَبِنَبِيِّكَ الَّذِي أَرْسَلْتَ',
       source: 'رواه البخاري (247) ومسلم (2710)',
       bookSource: 'حصن المسلم (ص 104)',
@@ -1180,9 +1057,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء وضع الجنب على الفراش',
-      titleEn: 'Dua Upon Lying Down to Sleep',
-      titleId: 'Doa Ketika Merebahkan Diri untuk Tidur',
-      titleUr: 'بستر پر لیٹنے کی دعا',
       text: 'اللَّهُمَّ رَبَّ السَّمَاوَاتِ وَرَبَّ الْأَرْضِ وَرَبَّ الْعَرْشِ الْعَظِيمِ رَبَّنَا وَرَبَّ كُلِّ شَيْءٍ فَالِقَ الْحَبِّ وَالنَّوَى وَمُنْزِلَ التَّوْرَاةِ وَالْإِنْجِيلِ وَالْقُرْآنِ أَعُوذُ بِكَ مِنْ شَرِّ كُلِّ شَيْءٍ أَنْتَ آخِذٌ بِنَاصِيَتِهِ اللَّهُمَّ أَنْتَ الْأَوَّلُ فَلَيْسَ قَبْلَكَ شَيْءٌ وَأَنْتَ الْآخِرُ فَلَيْسَ بَعْدَكَ شَيْءٌ وَأَنْتَ الظَّاهِرُ فَلَيْسَ فَوْقَكَ شَيْءٌ وَأَنْتَ الْبَاطِنُ فَلَيْسَ دُونَكَ شَيْءٌ اقْضِ عَنَّا الدَّيْنَ وَأَغْنِنَا مِنَ الْفَقْرِ',
       source: 'رواه مسلم (2713)',
       bookSource: 'حصن المسلم (ص 105)',
@@ -1191,9 +1065,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الهم والغم عند النوم',
-      titleEn: 'Dua for Anxiety and Grief Before Sleep',
-      titleId: 'Doa Menghilangkan Kesedihan Sebelum Tidur',
-      titleUr: 'سونے سے پہلے غم اور فکر کی دعا',
       text: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ',
       source: 'رواه البخاري (6369)',
       bookSource: 'حصن المسلم (ص 106)',
@@ -1202,9 +1073,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الفزع في المنام',
-      titleEn: 'Dua for Fear During Sleep',
-      titleId: 'Doa Ketika Terkejut dalam Tidur',
-      titleUr: 'نیند میں گھبراہٹ کی دعا',
       text: 'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ غَضَبِهِ وَعِقَابِهِ وَشَرِّ عِبَادِهِ وَمِنْ هَمَزَاتِ الشَّيَاطِينِ وَأَنْ يَحْضُرُونِ',
       source: 'رواه أبو داود (3893) والترمذي (3528) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 107)',
@@ -1213,9 +1081,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء القلق وعدم النوم',
-      titleEn: 'Dua for Anxiety and Sleeplessness',
-      titleId: 'Doa Ketika Cemas dan Sulit Tidur',
-      titleUr: 'پریشانی اور بے خوابی کی دعا',
       text: 'اللَّهُمَّ رَبَّ السَّمَاوَاتِ السَّبْعِ وَمَا أَظَلَّتْ، وَرَبَّ الْأَرَضِينَ وَمَا أَقَلَّتْ، وَرَبَّ الشَّيَاطِينِ وَمَا أَضَلَّتْ، كُنْ لِي جَارًا مِنْ شَرِّهِمْ جَمِيعًا أَنْ يَفْرُطَ عَلَيَّ أَحَدٌ مِنْهُمْ أَوْ أَنْ يَبْغِيَ، عَزَّ جَارُكَ، وَجَلَّ ثَنَاؤُكَ، وَلَا إِلَهَ غَيْرُكَ',
       source: 'رواه أبو داود والترمذي وحسّنه الألباني',
       bookSource: 'حصن المسلم',
@@ -1227,9 +1092,6 @@ class AthkarData {
   static final List<DhikrModel> _wakeupAthkar = [
     const DhikrModel(
       title: 'دعاء الاستيقاظ الأول',
-      titleEn: 'The First Dua Upon Waking',
-      titleId: 'Doa Bangun Tidur Pertama',
-      titleUr: 'بیدار ہونے کی پہلی دعا',
       text: 'الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ',
       source: 'رواه البخاري (6312)',
       bookSource: 'حصن المسلم (ص 21)',
@@ -1238,9 +1100,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الاستيقاظ الثاني',
-      titleEn: 'The Second Dua Upon Waking',
-      titleId: 'Doa Bangun Tidur Kedua',
-      titleUr: 'بیدار ہونے کی دوسری دعا',
       text: 'الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي فِي جَسَدِي وَرَدَّ عَلَيَّ رُوحِي وَأَذِنَ لِي بِذِكْرِهِ',
       source: 'رواه الترمذي (3401) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 21)',
@@ -1249,9 +1108,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الاستيقاظ الثالث',
-      titleEn: 'The Third Dua Upon Waking',
-      titleId: 'Doa Bangun Tidur Ketiga',
-      titleUr: 'بیدار ہونے کی تیسری دعا',
       text: 'لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ رَبِّ اغْفِرْ لِي',
       source: 'رواه البخاري (1154)',
       bookSource: 'حصن المسلم (ص 22)',
@@ -1261,9 +1117,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'خواتيم سورة آل عمران',
-      titleEn: 'The Closing Verses of Surah Al Imran',
-      titleId: 'Ayat-Ayat Penutup Surah Al Imran',
-      titleUr: 'سورۃ آل عمران کی آخری آیات',
       text: 'إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافِ اللَّيْلِ وَالنَّهَارِ لَآيَاتٍ لِأُولِي الْأَلْبَابِ (190) الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَى جُنُوبِهِمْ وَيَتَفَكَّرُونَ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ رَبَّنَا مَا خَلَقْتَ هَذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ (191) رَبَّنَا إِنَّكَ مَن تُدْخِلِ النَّارَ فَقَدْ أَخْزَيْتَهُ وَمَا لِلظَّالِمِينَ مِنْ أَنصَارٍ (192) رَّبَّنَا إِنَّنَا سَمِعْنَا مُنَادِيًا يُنَادِي لِلْإِيمَانِ أَنْ آمِنُوا بِرَبِّكُمْ فَآمَنَّا رَبَّنَا فَاغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّئَاتِنَا وَتَوَفَّنَا مَعَ الْأَبْرَارِ (193) رَبَّنَا وَآتِنَا مَا وَعَدتَّنَا عَلَى رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ إِنَّكَ لَا تُخْلِفُ الْمِيعَادَ (194)',
       source: 'سورة آل عمران: الآيات (190-194) | رواه البخاري (183) ومسلم (763)',
       bookSource: 'حصن المسلم (ص 23)',
@@ -1273,9 +1126,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء لبس الثوب',
-      titleEn: 'Dua for Wearing a Garment',
-      titleId: 'Doa Memakai Pakaian',
-      titleUr: 'لباس پہننے کی دعا',
       text: 'الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا الثَّوْبَ وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ',
       source: 'رواه أبو داود (4023) والترمذي (3458) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 25)',
@@ -1285,9 +1135,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء لبس الثوب الجديد',
-      titleEn: 'Dua for Wearing New Clothes',
-      titleId: 'Doa Memakai Pakaian Baru',
-      titleUr: 'نیا لباس پہننے کی دعا',
       text: 'اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ كَسَوْتَنِيهِ أَسْأَلُكَ مِنْ خَيْرِهِ وَخَيْرِ مَا صُنِعَ لَهُ وَأَعُوذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا صُنِعَ لَهُ',
       source: 'رواه أبو داود (4020) والترمذي (1767) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 25)',
@@ -1296,9 +1143,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء رؤية الحلم الحسن',
-      titleEn: 'Dua Upon Seeing a Good Dream',
-      titleId: 'Doa Ketika Melihat Mimpi yang Baik',
-      titleUr: 'اچھا خواب دیکھنے کی دعا',
       text: 'الْحَمْدُ لِلَّهِ\nثم يحدث بها من يحب',
       source: 'رواه البخاري (6985) ومسلم (2261)',
       bookSource: 'حصن المسلم (ص 107)',
@@ -1307,9 +1151,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء رؤية الحلم المكروه',
-      titleEn: 'Dua Upon Seeing a Bad Dream',
-      titleId: 'Doa Ketika Melihat Mimpi yang Buruk',
-      titleUr: 'برا خواب دیکھنے کی دعا',
       text: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ وَمِنْ شَرِّ هَذِهِ الرُّؤْيَا\nثم يتحول عن جنبه ولا يحدث بها أحداً',
       source: 'رواه مسلم (2262)',
       bookSource: 'حصن المسلم (ص 108)',
@@ -1320,9 +1161,6 @@ class AthkarData {
   static final List<DhikrModel> _prayerAthkar = [
     const DhikrModel(
       title: 'دعاء الاستفتاح',
-      titleEn: 'The Opening Dua of the Prayer (Istiftah)',
-      titleId: 'Doa Iftitah',
-      titleUr: 'دعائے استفتاح',
       text: 'سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلَا إِلَهَ غَيْرُكَ',
       source: 'رواه أبو داود (775) والترمذي (243) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 32)',
@@ -1331,9 +1169,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الركوع',
-      titleEn: 'The Dua of Ruku\'',
-      titleId: 'Doa Rukuk',
-      titleUr: 'رکوع کی دعا',
       text: 'سُبْحَانَ رَبِّيَ الْعَظِيمِ',
       source: 'رواه أبو داود (871) والترمذي (261) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 34)',
@@ -1342,9 +1177,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الرفع من الركوع',
-      titleEn: 'The Dua of Rising from Ruku\'',
-      titleId: 'Doa Bangkit dari Rukuk',
-      titleUr: 'رکوع سے اٹھنے کی دعا',
       text: 'رَبَّنَا وَلَكَ الْحَمْدُ حَمْدًا كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ',
       source: 'رواه البخاري (799)',
       bookSource: 'حصن المسلم (ص 35)',
@@ -1353,9 +1185,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء السجود',
-      titleEn: 'The Dua of Prostration (Sujud)',
-      titleId: 'Doa Sujud',
-      titleUr: 'سجدے کی دعا',
       text: 'سُبْحَانَ رَبِّيَ الْأَعْلَى',
       source: 'رواه أبو داود (871) والترمذي (261) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 36)',
@@ -1364,9 +1193,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الدعاء بين السجدتين',
-      titleEn: 'The Dua Between the Two Prostrations',
-      titleId: 'Doa di Antara Dua Sujud',
-      titleUr: 'دو سجدوں کے درمیان کی دعا',
       text: 'رَبِّ اغْفِرْ لِي رَبِّ اغْفِرْ لِي',
       source: 'رواه أبو داود (874) وابن ماجه (897) وصححه الألباني',
       bookSource: 'حصن المسلم (ص 37)',
@@ -1375,9 +1201,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء السجود العام',
-      titleEn: 'The General Dua of Prostration',
-      titleId: 'Doa Sujud Secara Umum',
-      titleUr: 'عام سجدے کی دعا',
       text: 'اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ دِقَّهُ وَجِلَّهُ وَأَوَّلَهُ وَآخِرَهُ وَعَلَانِيَتَهُ وَسِرَّهُ',
       source: 'رواه مسلم (483)',
       bookSource: 'حصن المسلم (ص 36)',
@@ -1386,9 +1209,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التشهد',
-      titleEn: 'The Tashahhud',
-      titleId: 'Tasyahud',
-      titleUr: 'تشہد',
       text: 'التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ',
       source: 'رواه البخاري (831) ومسلم (402)',
       bookSource: 'حصن المسلم (ص 38)',
@@ -1397,9 +1217,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الصلاة الإبراهيمية',
-      titleEn: 'The Ibrahimic Prayer (As-Salat al-Ibrahimiyyah)',
-      titleId: 'Shalawat Ibrahimiyah',
-      titleUr: 'صلاۃ ابراہیمیہ',
       text: 'اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
       source: 'رواه البخاري (3370)',
       bookSource: 'حصن المسلم (ص 39)',
@@ -1408,9 +1225,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء قبل السلام',
-      titleEn: 'Dua Before the Prayer Salutation',
-      titleId: 'Doa Sebelum Salam',
-      titleUr: 'سلام سے پہلے کی دعا',
       text: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ جَهَنَّمَ وَمِنْ عَذَابِ الْقَبْرِ وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ وَمِنْ شَرِّ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ',
       source: 'رواه البخاري (1377) ومسلم (588)',
       bookSource: 'حصن المسلم (ص 40)',
@@ -1421,9 +1235,6 @@ class AthkarData {
   static final List<DhikrModel> _afterPrayerAthkar = [
     const DhikrModel(
       title: 'الاستغفار بعد السلام',
-      titleEn: 'Seeking Forgiveness After the Prayer Salutation',
-      titleId: 'Istighfar Setelah Salam',
-      titleUr: 'سلام کے بعد استغفار',
       text: 'أَسْتَغْفِرُ اللَّهَ (ثلاثاً) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ',
       source: 'رواه مسلم (591)',
       bookSource: 'حصن المسلم (ص 42)',
@@ -1432,9 +1243,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التهليل بعد الفريضة',
-      titleEn: 'The Tahlil After the Obligatory Prayer',
-      titleId: 'Tahlil Setelah Shalat Fardhu',
-      titleUr: 'فرض نماز کے بعد تہلیل',
       text: 'لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ وَلَا مُعْطِيَ لِمَا مَنَعْتَ وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ',
       source: 'رواه البخاري (844) ومسلم (593)',
       bookSource: 'حصن المسلم (ص 43)',
@@ -1443,9 +1251,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التسبيح والتحميد والتكبير',
-      titleEn: 'Tasbih, Tahmid and Takbir',
-      titleId: 'Tasbih, Tahmid, dan Takbir',
-      titleUr: 'تسبیح، تحمید اور تکبیر',
       text: 'سُبْحَانَ اللَّهِ\nالْحَمْدُ لِلَّهِ\nاللَّهُ أَكْبَرُ',
       source: 'رواه البخاري (843) ومسلم (595)',
       bookSource: 'حصن المسلم (ص 44)',
@@ -1455,9 +1260,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'آية الكرسي',
-      titleEn: 'Ayat al-Kursi',
-      titleId: 'Ayat Kursi',
-      titleUr: 'آیت الکرسی',
       text: 'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ (255)',
       source: 'سورة البقرة: الآية (255) | رواه النسائي وصححه الألباني',
       bookSource: 'حصن المسلم (ص 43)',
@@ -1467,9 +1269,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'المعوذتان',
-      titleEn: 'Al-Mu\'awwidhatan (Surah Al-Falaq and An-Nas)',
-      titleId: 'Al-Mu\'awwidzatain (Surah Al-Falaq dan An-Nas)',
-      titleUr: 'معوذتین (سورۃ الفلق اور سورۃ الناس)',
       text: 'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)\nقُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)\nقُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
       source: 'رواه أبو داود والترمذي وصححه الألباني',
       bookSource: 'حصن المسلم (ص 43)',
@@ -1478,9 +1277,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الإعانة على الذكر',
-      titleEn: 'Dua for Help in Remembering, Thanking and Worshipping Allah',
-      titleId: 'Doa Memohon Pertolongan untuk Berdzikir',
-      titleUr: 'ذکر پر مدد کی دعا',
       text: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ',
       source: 'رواه أبو داود (1522) والنسائي وصححه الألباني',
       bookSource: 'حصن المسلم (ص 44)',
@@ -1494,9 +1290,6 @@ class AthkarData {
   static final List<DhikrModel> _mosqueAthkar = [
     const DhikrModel(
       title: 'دعاء الذهاب إلى المسجد',
-      titleEn: 'Dua for Going to the Mosque',
-      titleId: 'Doa Berangkat ke Masjid',
-      titleUr: 'مسجد جانے کی دعا',
       text: 'اللَّهُمَّ اجْعَلْ فِي قَلْبِي نُورًا، وَفِي لِسَانِي نُورًا، وَفِي سَمْعِي نُورًا، وَفِي بَصَرِي نُورًا، وَمِنْ فَوْقِي نُورًا، وَمِنْ تَحْتِي نُورًا، وَعَنْ يَمِينِي نُورًا، وَعَنْ شِمَالِي نُورًا، وَمِنْ أَمَامِي نُورًا، وَمِنْ خَلْفِي نُورًا، وَاجْعَلْ فِي نَفْسِي نُورًا، وَأَعْظِمْ لِي نُورًا، اللَّهُمَّ أَعْطِنِي نُورًا',
       source: 'رواه البخاري (6316) ومسلم (763) والترمذي (3419)',
       bookSource: 'حصن المسلم',
@@ -1506,9 +1299,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء دخول المسجد',
-      titleEn: 'Dua Upon Entering the Mosque',
-      titleId: 'Doa Masuk Masjid',
-      titleUr: 'مسجد میں داخل ہونے کی دعا',
       text: 'أَعُوذُ بِاللَّهِ الْعَظِيمِ، وَبِوَجْهِهِ الْكَرِيمِ، وَسُلْطَانِهِ الْقَدِيمِ، مِنَ الشَّيْطَانِ الرَّجِيمِ\nبِسْمِ اللَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ\nاللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',
       source: 'رواه أبو داود وابن ماجه وصححه الألباني، والشطر الأخير رواه مسلم (713)',
       bookSource: 'حصن المسلم',
@@ -1518,9 +1308,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الخروج من المسجد',
-      titleEn: 'Dua Upon Leaving the Mosque',
-      titleId: 'Doa Keluar dari Masjid',
-      titleUr: 'مسجد سے نکلنے کی دعا',
       text: 'بِسْمِ اللَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ\nاللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ\nاللَّهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيمِ',
       source: 'رواه ابن ماجه وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -1530,9 +1317,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'إجابة المؤذن',
-      titleEn: 'Responding to the Adhan',
-      titleId: 'Menjawab Panggilan Azan',
-      titleUr: 'اذان کا جواب دینا',
       text: 'يُقال مثل ما يقول المؤذن في كل الأذان، إلا في الحيعلتين (حَيَّ عَلَى الصَّلَاةِ، حَيَّ عَلَى الْفَلَاحِ) فيقول بدلها:\nلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
       source: 'رواه البخاري (611) ومسلم (383)',
       bookSource: 'حصن المسلم',
@@ -1542,9 +1326,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الدعاء بعد الأذان',
-      titleEn: 'The Dua After the Adhan',
-      titleId: 'Doa Setelah Azan',
-      titleUr: 'اذان کے بعد کی دعا',
       text: 'اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ، وَالصَّلَاةِ الْقَائِمَةِ، آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ، وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ',
       source: 'رواه البخاري (614)',
       bookSource: 'حصن المسلم',
@@ -1560,9 +1341,6 @@ class AthkarData {
   static final List<DhikrModel> _foodAthkar = [
     const DhikrModel(
       title: 'دعاء قبل الطعام',
-      titleEn: 'Dua Before Eating',
-      titleId: 'Doa Sebelum Makan',
-      titleUr: 'کھانے سے پہلے کی دعا',
       text: 'بِسْمِ اللَّهِ\nفَإِنْ نَسِيَ فِي أَوَّلِهِ فَلْيَقُلْ: بِسْمِ اللَّهِ فِي أَوَّلِهِ وَآخِرِهِ',
       source: 'رواه أبو داود (3767) والترمذي (1858) وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -1571,9 +1349,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء البركة في الطعام',
-      titleEn: 'Dua for Blessing in Food',
-      titleId: 'Doa Memohon Berkah dalam Makanan',
-      titleUr: 'کھانے میں برکت کی دعا',
       text: 'اللَّهُمَّ بَارِكْ لَنَا فِيهِ وَأَطْعِمْنَا خَيْرًا مِنْهُ',
       source: 'رواه الترمذي وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -1583,9 +1358,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء بعد الطعام الأول',
-      titleEn: 'The First Dua After Eating',
-      titleId: 'Doa Setelah Makan Pertama',
-      titleUr: 'کھانے کے بعد کی پہلی دعا',
       text: 'الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا، وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ',
       source: 'رواه أبو داود والترمذي وابن ماجه وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -1595,9 +1367,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء بعد الطعام الثاني',
-      titleEn: 'The Second Dua After Eating',
-      titleId: 'Doa Setelah Makan Kedua',
-      titleUr: 'کھانے کے بعد کی دوسری دعا',
       text: 'الْحَمْدُ لِلَّهِ حَمْدًا كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ غَيْرَ مَكْفِيٍّ وَلَا مُوَدَّعٍ وَلَا مُسْتَغْنًى عَنْهُ رَبَّنَا',
       source: 'رواه البخاري (5458)',
       bookSource: 'حصن المسلم',
@@ -1606,9 +1375,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الضيف لصاحب الطعام',
-      titleEn: 'The Guest\'s Dua for the Host of the Meal',
-      titleId: 'Doa Tamu untuk Tuan Rumah yang Menjamu',
-      titleUr: 'مہمان کی میزبان کے لیے دعا',
       text: 'اللَّهُمَّ أَطْعِمْ مَنْ أَطْعَمَنِي، وَاسْقِ مَنْ سَقَانِي',
       source: 'رواه مسلم (2055)',
       bookSource: 'حصن المسلم',
@@ -1624,9 +1390,6 @@ class AthkarData {
   static final List<DhikrModel> _travelAthkar = [
     const DhikrModel(
       title: 'دعاء ركوب وسيلة السفر',
-      titleEn: 'Dua for Boarding a Means of Transport',
-      titleId: 'Doa Naik Kendaraan',
-      titleUr: 'سواری پر سوار ہونے کی دعا',
       text: 'اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ\nسُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ (13) وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ (14)',
       source: 'سورة الزخرف: الآيتان (13-14) | رواه مسلم (1342)',
       bookSource: 'حصن المسلم',
@@ -1636,9 +1399,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء السفر',
-      titleEn: 'The Dua for Travel',
-      titleId: 'Doa Bepergian (Safar)',
-      titleUr: 'سفر کی دعا',
       text: 'اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى\nاللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ\nاللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ\nاللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ، وَكَآبَةِ الْمَنْظَرِ، وَسُوءِ الْمُنْقَلَبِ فِي الْمَالِ وَالْأَهْلِ',
       source: 'رواه مسلم (1342)',
       bookSource: 'حصن المسلم',
@@ -1648,9 +1408,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء المسافر لمن يودّعه',
-      titleEn: 'The Traveler\'s Dua for the One Seeing Him Off',
-      titleId: 'Doa Musafir untuk yang Melepaskannya',
-      titleUr: 'مسافر کی اپنے وداع کرنے والے کے لیے دعا',
       text: 'أَسْتَوْدِعُ اللَّهَ دِينَكَ، وَأَمَانَتَكَ، وَخَوَاتِيمَ عَمَلِكَ',
       source: 'رواه الترمذي (3443) وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -1659,9 +1416,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء المقيم للمسافر',
-      titleEn: 'The Resident\'s Dua for the Traveler',
-      titleId: 'Doa Orang yang Menetap untuk Musafir',
-      titleUr: 'مقیم کی مسافر کے لیے دعا',
       text: 'أَسْتَوْدِعُ اللَّهَ دِينَكَ، وَأَمَانَتَكَ، وَخَوَاتِيمَ عَمَلِكَ\nزَوَّدَكَ اللَّهُ التَّقْوَى، وَغَفَرَ ذَنْبَكَ، وَيَسَّرَ لَكَ الْخَيْرَ حَيْثُمَا كُنْتَ',
       source: 'رواه الترمذي (3443) وابن ماجه (2825) وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -1670,9 +1424,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء النزول في السفر',
-      titleEn: 'Dua for Stopping During a Journey',
-      titleId: 'Doa Ketika Singgah dalam Perjalanan',
-      titleUr: 'سفر میں پڑاؤ کے وقت کی دعا',
       text: 'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ',
       source: 'رواه مسلم (2708)',
       bookSource: 'حصن المسلم',
@@ -1682,9 +1433,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التكبير والتسبيح في السفر',
-      titleEn: 'Takbir and Tasbih While Traveling',
-      titleId: 'Takbir dan Tasbih Saat Bepergian',
-      titleUr: 'سفر کے دوران تکبیر اور تسبیح',
       text: 'كُنَّا إِذَا صَعِدْنَا كَبَّرْنَا، وَإِذَا نَزَلْنَا سَبَّحْنَا',
       source: 'رواه البخاري (2993)',
       bookSource: 'حصن المسلم',
@@ -1694,9 +1442,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء القفول من السفر',
-      titleEn: 'Dua Upon Returning from a Journey',
-      titleId: 'Doa Kembali dari Bepergian',
-      titleUr: 'سفر سے واپسی کی دعا',
       text: 'آيِبُونَ، تَائِبُونَ، عَابِدُونَ، لِرَبِّنَا حَامِدُونَ',
       source: 'رواه مسلم (1345)',
       bookSource: 'حصن المسلم',
@@ -1712,9 +1457,6 @@ class AthkarData {
   static final List<DhikrModel> _quranAthkar = [
     const DhikrModel(
       title: 'دعاء طلب خيري الدنيا والآخرة',
-      titleEn: 'Dua for Seeking the Good of This World and the Hereafter',
-      titleId: 'Doa Memohon Kebaikan Dunia dan Akhirat',
-      titleUr: 'دنیا و آخرت کی بھلائی کی دعا',
       text: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ (201)',
       source: 'سورة البقرة: الآية (201)',
       bookSource: 'القرآن الكريم',
@@ -1724,9 +1466,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء عدم زيغ القلب',
-      titleEn: 'Dua Against the Deviation of the Heart',
-      titleId: 'Doa Memohon Hati agar Tidak Menyimpang',
-      titleUr: 'دل کے بھٹکنے سے حفاظت کی دعا',
       text: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ (8)',
       source: 'سورة آل عمران: الآية (8)',
       bookSource: 'القرآن الكريم',
@@ -1736,9 +1475,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء المغفرة والنجاة من النار',
-      titleEn: 'Dua for Forgiveness and Salvation from the Fire',
-      titleId: 'Doa Memohon Ampunan dan Keselamatan dari Neraka',
-      titleUr: 'مغفرت اور آگ سے نجات کی دعا',
       text: 'رَبَّنَا إِنَّنَا آمَنَّا فَاغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ النَّارِ (16)',
       source: 'سورة آل عمران: الآية (16)',
       bookSource: 'القرآن الكريم',
@@ -1748,9 +1484,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الثبات والنصر',
-      titleEn: 'Dua for Steadfastness and Victory',
-      titleId: 'Doa Memohon Keteguhan dan Kemenangan',
-      titleUr: 'ثابت قدمی اور نصرت کی دعا',
       text: 'رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ (147)',
       source: 'سورة آل عمران: الآية (147)',
       bookSource: 'القرآن الكريم',
@@ -1760,9 +1493,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الاعتراف بالتقصير وطلب الرحمة',
-      titleEn: 'Dua Acknowledging Shortcomings and Seeking Mercy',
-      titleId: 'Doa Mengakui Kekurangan dan Memohon Rahmat',
-      titleUr: 'کوتاہی کے اعتراف اور رحمت طلب کرنے کی دعا',
       text: 'رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ (23)',
       source: 'سورة الأعراف: الآية (23)',
       bookSource: 'القرآن الكريم',
@@ -1772,9 +1502,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الاكتفاء بالله',
-      titleEn: 'Dua for Being Sufficed by Allah',
-      titleId: 'Doa Merasa Cukup dengan Allah',
-      titleUr: 'اللہ پر اکتفا کرنے کی دعا',
       text: 'حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ (129)',
       source: 'سورة التوبة: الآية (129)',
       bookSource: 'القرآن الكريم',
@@ -1784,9 +1511,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء شرح الصدر وتيسير الأمر',
-      titleEn: 'Dua for Ease of the Heart and Facilitating Affairs',
-      titleId: 'Doa Memohon Kelapangan Dada dan Kemudahan Urusan',
-      titleUr: 'سینے کی کشادگی اور امور کی آسانی کی دعا',
       text: 'رَبِّ اشْرَحْ لِي صَدْرِي (25)\nوَيَسِّرْ لِي أَمْرِي (26)\nوَاحْلُلْ عُقْدَةً مِنْ لِسَانِي (27)\nيَفْقَهُوا قَوْلِي (28)',
       source: 'سورة طه: الآيات (25-28)',
       bookSource: 'القرآن الكريم',
@@ -1796,9 +1520,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء طلب زيادة العلم',
-      titleEn: 'Dua for Seeking an Increase in Knowledge',
-      titleId: 'Doa Memohon Tambahan Ilmu',
-      titleUr: 'علم میں اضافے کی دعا',
       text: 'رَبِّ زِدْنِي عِلْمًا (114)',
       source: 'سورة طه: الآية (114)',
       bookSource: 'القرآن الكريم',
@@ -1807,9 +1528,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء ذي النون (يونس عليه السلام)',
-      titleEn: 'The Dua of Dhun-Nun, Yunus (peace be upon him)',
-      titleId: 'Doa Dzun Nun, Nabi Yunus \'alaihissalam',
-      titleUr: 'ذوالنون یونس علیہ السلام کی دعا',
       text: 'لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ (87)',
       source: 'سورة الأنبياء: الآية (87)',
       bookSource: 'القرآن الكريم',
@@ -1819,9 +1537,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء زكريا عليه السلام للذرية',
-      titleEn: 'The Dua of Zakariyya (peace be upon him) for Offspring',
-      titleId: 'Doa Nabi Zakariya \'alaihissalam untuk Keturunan',
-      titleUr: 'زکریا علیہ السلام کی اولاد کے لیے دعا',
       text: 'رَبِّ لَا تَذَرْنِي فَرْدًا وَأَنْتَ خَيْرُ الْوَارِثِينَ (89)',
       source: 'سورة الأنبياء: الآية (89)',
       bookSource: 'القرآن الكريم',
@@ -1830,9 +1545,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الاستعاذة من وسوسة الشيطان',
-      titleEn: 'Dua for Seeking Refuge from the Whispers of Satan',
-      titleId: 'Doa Berlindung dari Bisikan Setan',
-      titleUr: 'شیطانی وسوسے سے پناہ کی دعا',
       text: 'رَبِّ أَعُوذُ بِكَ مِنْ هَمَزَاتِ الشَّيَاطِينِ (97)\nوَأَعُوذُ بِكَ رَبِّ أَنْ يَحْضُرُونِ (98)',
       source: 'سورة المؤمنون: الآيتان (97-98)',
       bookSource: 'القرآن الكريم',
@@ -1841,9 +1553,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء المغفرة والرحمة',
-      titleEn: 'Dua for Forgiveness and Mercy',
-      titleId: 'Doa Memohon Ampunan dan Rahmat',
-      titleUr: 'مغفرت اور رحمت کی دعا',
       text: 'رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ خَيْرُ الرَّاحِمِينَ (118)',
       source: 'سورة المؤمنون: الآية (118)',
       bookSource: 'القرآن الكريم',
@@ -1852,9 +1561,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الذرية الصالحة',
-      titleEn: 'Dua for Righteous Offspring',
-      titleId: 'Doa Memohon Keturunan yang Saleh',
-      titleUr: 'نیک اولاد کی دعا',
       text: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا (74)',
       source: 'سورة الفرقان: الآية (74)',
       bookSource: 'القرآن الكريم',
@@ -1864,9 +1570,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الشكر على النعمة',
-      titleEn: 'Dua for Giving Thanks for a Blessing',
-      titleId: 'Doa Bersyukur atas Nikmat',
-      titleUr: 'نعمت پر شکر کی دعا',
       text: 'رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَى وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ (19)',
       source: 'سورة النمل: الآية (19)',
       bookSource: 'القرآن الكريم',
@@ -1876,9 +1579,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء عند الحاجة والفقر إلى الله',
-      titleEn: 'Dua for a Time of Need and Dependence Upon Allah',
-      titleId: 'Doa Ketika Membutuhkan dan Berharap kepada Allah',
-      titleUr: 'ضرورت اور اللہ کے سامنے حاجت کی دعا',
       text: 'رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ (24)',
       source: 'سورة القصص: الآية (24)',
       bookSource: 'القرآن الكريم',
@@ -1888,9 +1588,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء إتمام النور',
-      titleEn: 'Dua for the Completion of Light',
-      titleId: 'Doa Memohon Kesempurnaan Cahaya',
-      titleUr: 'نور کی تکمیل کی دعا',
       text: 'رَبَّنَا أَتْمِمْ لَنَا نُورَنَا وَاغْفِرْ لَنَا إِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ (8)',
       source: 'سورة التحريم: الآية (8)',
       bookSource: 'القرآن الكريم',
@@ -1905,9 +1602,6 @@ class AthkarData {
   static final List<DhikrModel> _namesAthkar = [
     const DhikrModel(
       title: '1. الرَّحْمَٰنُ',
-      titleEn: '1. Ar-Rahman',
-      titleId: '1. Ar-Rahman',
-      titleUr: '1. Ar-Rahman',
       text: 'الرَّحْمَٰنُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861) — هذا هو الترتيب الأشهر والأكثر تداولًا لأسماء الله الحسنى، وقد ناقش بعض أهل العلم ثبوت رواية سرد الأسماء بعينها عن النبي ﷺ رغم صحة أصل الحديث، مع العلم أن كل اسم منها ثابت بأدلة مستقلة من القرآن والسنة',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -1917,9 +1611,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '2. الرَّحِيمُ',
-      titleEn: '2. Ar-Rahim',
-      titleId: '2. Ar-Rahim',
-      titleUr: '2. Ar-Rahim',
       text: 'الرَّحِيمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -1929,9 +1620,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '3. الْمَلِكُ',
-      titleEn: '3. Al-Malik',
-      titleId: '3. Al-Malik',
-      titleUr: '3. Al-Malik',
       text: 'الْمَلِكُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -1941,9 +1629,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '4. الْقُدُّوسُ',
-      titleEn: '4. Al-Quddus',
-      titleId: '4. Al-Quddus',
-      titleUr: '4. Al-Quddus',
       text: 'الْقُدُّوسُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -1953,9 +1638,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '5. السَّلَامُ',
-      titleEn: '5. As-Salam',
-      titleId: '5. As-Salam',
-      titleUr: '5. As-Salam',
       text: 'السَّلَامُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -1965,9 +1647,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '6. الْمُؤْمِنُ',
-      titleEn: '6. Al-Mu\'min',
-      titleId: '6. Al-Mu\'min',
-      titleUr: '6. Al-Mu\'min',
       text: 'الْمُؤْمِنُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -1977,9 +1656,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '7. الْمُهَيْمِنُ',
-      titleEn: '7. Al-Muhaymin',
-      titleId: '7. Al-Muhaymin',
-      titleUr: '7. Al-Muhaymin',
       text: 'الْمُهَيْمِنُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -1989,9 +1665,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '8. الْعَزِيزُ',
-      titleEn: '8. Al-Aziz',
-      titleId: '8. Al-Aziz',
-      titleUr: '8. Al-Aziz',
       text: 'الْعَزِيزُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2001,9 +1674,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '9. الْجَبَّارُ',
-      titleEn: '9. Al-Jabbar',
-      titleId: '9. Al-Jabbar',
-      titleUr: '9. Al-Jabbar',
       text: 'الْجَبَّارُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2013,9 +1683,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '10. الْمُتَكَبِّرُ',
-      titleEn: '10. Al-Mutakabbir',
-      titleId: '10. Al-Mutakabbir',
-      titleUr: '10. Al-Mutakabbir',
       text: 'الْمُتَكَبِّرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2025,9 +1692,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '11. الْخَالِقُ',
-      titleEn: '11. Al-Khaliq',
-      titleId: '11. Al-Khaliq',
-      titleUr: '11. Al-Khaliq',
       text: 'الْخَالِقُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2037,9 +1701,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '12. الْبَارِئُ',
-      titleEn: '12. Al-Bari\'',
-      titleId: '12. Al-Bari\'',
-      titleUr: '12. Al-Bari\'',
       text: 'الْبَارِئُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2049,9 +1710,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '13. الْمُصَوِّرُ',
-      titleEn: '13. Al-Musawwir',
-      titleId: '13. Al-Musawwir',
-      titleUr: '13. Al-Musawwir',
       text: 'الْمُصَوِّرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2061,9 +1719,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '14. الْغَفَّارُ',
-      titleEn: '14. Al-Ghaffar',
-      titleId: '14. Al-Ghaffar',
-      titleUr: '14. Al-Ghaffar',
       text: 'الْغَفَّارُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2073,9 +1728,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '15. الْقَهَّارُ',
-      titleEn: '15. Al-Qahhar',
-      titleId: '15. Al-Qahhar',
-      titleUr: '15. Al-Qahhar',
       text: 'الْقَهَّارُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2085,9 +1737,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '16. الْوَهَّابُ',
-      titleEn: '16. Al-Wahhab',
-      titleId: '16. Al-Wahhab',
-      titleUr: '16. Al-Wahhab',
       text: 'الْوَهَّابُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2097,9 +1746,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '17. الرَّزَّاقُ',
-      titleEn: '17. Ar-Razzaq',
-      titleId: '17. Ar-Razzaq',
-      titleUr: '17. Ar-Razzaq',
       text: 'الرَّزَّاقُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2109,9 +1755,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '18. الْفَتَّاحُ',
-      titleEn: '18. Al-Fattah',
-      titleId: '18. Al-Fattah',
-      titleUr: '18. Al-Fattah',
       text: 'الْفَتَّاحُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2121,9 +1764,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '19. الْعَلِيمُ',
-      titleEn: '19. Al-Alim',
-      titleId: '19. Al-Alim',
-      titleUr: '19. Al-Alim',
       text: 'الْعَلِيمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2133,9 +1773,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '20. الْقَابِضُ',
-      titleEn: '20. Al-Qabid',
-      titleId: '20. Al-Qabid',
-      titleUr: '20. Al-Qabid',
       text: 'الْقَابِضُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2145,9 +1782,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '21. الْبَاسِطُ',
-      titleEn: '21. Al-Basit',
-      titleId: '21. Al-Basit',
-      titleUr: '21. Al-Basit',
       text: 'الْبَاسِطُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2157,9 +1791,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '22. الْخَافِضُ',
-      titleEn: '22. Al-Khafid',
-      titleId: '22. Al-Khafid',
-      titleUr: '22. Al-Khafid',
       text: 'الْخَافِضُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2169,9 +1800,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '23. الرَّافِعُ',
-      titleEn: '23. Ar-Rafi\'',
-      titleId: '23. Ar-Rafi\'',
-      titleUr: '23. Ar-Rafi\'',
       text: 'الرَّافِعُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2181,9 +1809,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '24. الْمُعِزُّ',
-      titleEn: '24. Al-Mu\'izz',
-      titleId: '24. Al-Mu\'izz',
-      titleUr: '24. Al-Mu\'izz',
       text: 'الْمُعِزُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2193,9 +1818,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '25. الْمُذِلُّ',
-      titleEn: '25. Al-Mudhill',
-      titleId: '25. Al-Mudhill',
-      titleUr: '25. Al-Mudhill',
       text: 'الْمُذِلُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2205,9 +1827,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '26. السَّمِيعُ',
-      titleEn: '26. As-Sami\'',
-      titleId: '26. As-Sami\'',
-      titleUr: '26. As-Sami\'',
       text: 'السَّمِيعُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2217,9 +1836,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '27. الْبَصِيرُ',
-      titleEn: '27. Al-Basir',
-      titleId: '27. Al-Basir',
-      titleUr: '27. Al-Basir',
       text: 'الْبَصِيرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2229,9 +1845,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '28. الْحَكَمُ',
-      titleEn: '28. Al-Hakam',
-      titleId: '28. Al-Hakam',
-      titleUr: '28. Al-Hakam',
       text: 'الْحَكَمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2241,9 +1854,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '29. الْعَدْلُ',
-      titleEn: '29. Al-Adl',
-      titleId: '29. Al-Adl',
-      titleUr: '29. Al-Adl',
       text: 'الْعَدْلُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2253,9 +1863,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '30. اللَّطِيفُ',
-      titleEn: '30. Al-Latif',
-      titleId: '30. Al-Latif',
-      titleUr: '30. Al-Latif',
       text: 'اللَّطِيفُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2265,9 +1872,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '31. الْخَبِيرُ',
-      titleEn: '31. Al-Khabir',
-      titleId: '31. Al-Khabir',
-      titleUr: '31. Al-Khabir',
       text: 'الْخَبِيرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2277,9 +1881,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '32. الْحَلِيمُ',
-      titleEn: '32. Al-Halim',
-      titleId: '32. Al-Halim',
-      titleUr: '32. Al-Halim',
       text: 'الْحَلِيمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2289,9 +1890,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '33. الْعَظِيمُ',
-      titleEn: '33. Al-Azim',
-      titleId: '33. Al-Azim',
-      titleUr: '33. Al-Azim',
       text: 'الْعَظِيمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2301,9 +1899,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '34. الْغَفُورُ',
-      titleEn: '34. Al-Ghafur',
-      titleId: '34. Al-Ghafur',
-      titleUr: '34. Al-Ghafur',
       text: 'الْغَفُورُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2313,9 +1908,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '35. الشَّكُورُ',
-      titleEn: '35. Ash-Shakur',
-      titleId: '35. Ash-Shakur',
-      titleUr: '35. Ash-Shakur',
       text: 'الشَّكُورُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2325,9 +1917,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '36. الْعَلِيُّ',
-      titleEn: '36. Al-Ali',
-      titleId: '36. Al-Ali',
-      titleUr: '36. Al-Ali',
       text: 'الْعَلِيُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2337,9 +1926,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '37. الْكَبِيرُ',
-      titleEn: '37. Al-Kabir',
-      titleId: '37. Al-Kabir',
-      titleUr: '37. Al-Kabir',
       text: 'الْكَبِيرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2349,9 +1935,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '38. الْحَفِيظُ',
-      titleEn: '38. Al-Hafiz',
-      titleId: '38. Al-Hafiz',
-      titleUr: '38. Al-Hafiz',
       text: 'الْحَفِيظُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2361,9 +1944,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '39. الْمُقِيتُ',
-      titleEn: '39. Al-Muqit',
-      titleId: '39. Al-Muqit',
-      titleUr: '39. Al-Muqit',
       text: 'الْمُقِيتُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2373,9 +1953,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '40. الْحَسِيبُ',
-      titleEn: '40. Al-Hasib',
-      titleId: '40. Al-Hasib',
-      titleUr: '40. Al-Hasib',
       text: 'الْحَسِيبُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2385,9 +1962,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '41. الْجَلِيلُ',
-      titleEn: '41. Al-Jalil',
-      titleId: '41. Al-Jalil',
-      titleUr: '41. Al-Jalil',
       text: 'الْجَلِيلُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2397,9 +1971,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '42. الْكَرِيمُ',
-      titleEn: '42. Al-Karim',
-      titleId: '42. Al-Karim',
-      titleUr: '42. Al-Karim',
       text: 'الْكَرِيمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2409,9 +1980,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '43. الرَّقِيبُ',
-      titleEn: '43. Ar-Raqib',
-      titleId: '43. Ar-Raqib',
-      titleUr: '43. Ar-Raqib',
       text: 'الرَّقِيبُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2421,9 +1989,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '44. الْمُجِيبُ',
-      titleEn: '44. Al-Mujib',
-      titleId: '44. Al-Mujib',
-      titleUr: '44. Al-Mujib',
       text: 'الْمُجِيبُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2433,9 +1998,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '45. الْوَاسِعُ',
-      titleEn: '45. Al-Wasi\'',
-      titleId: '45. Al-Wasi\'',
-      titleUr: '45. Al-Wasi\'',
       text: 'الْوَاسِعُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2445,9 +2007,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '46. الْحَكِيمُ',
-      titleEn: '46. Al-Hakim',
-      titleId: '46. Al-Hakim',
-      titleUr: '46. Al-Hakim',
       text: 'الْحَكِيمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2457,9 +2016,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '47. الْوَدُودُ',
-      titleEn: '47. Al-Wadud',
-      titleId: '47. Al-Wadud',
-      titleUr: '47. Al-Wadud',
       text: 'الْوَدُودُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2469,9 +2025,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '48. الْمَجِيدُ',
-      titleEn: '48. Al-Majid',
-      titleId: '48. Al-Majid',
-      titleUr: '48. Al-Majid',
       text: 'الْمَجِيدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2481,9 +2034,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '49. الْبَاعِثُ',
-      titleEn: '49. Al-Ba\'ith',
-      titleId: '49. Al-Ba\'ith',
-      titleUr: '49. Al-Ba\'ith',
       text: 'الْبَاعِثُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2493,9 +2043,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '50. الشَّهِيدُ',
-      titleEn: '50. Ash-Shahid',
-      titleId: '50. Ash-Shahid',
-      titleUr: '50. Ash-Shahid',
       text: 'الشَّهِيدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2505,9 +2052,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '51. الْحَقُّ',
-      titleEn: '51. Al-Haqq',
-      titleId: '51. Al-Haqq',
-      titleUr: '51. Al-Haqq',
       text: 'الْحَقُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2517,9 +2061,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '52. الْوَكِيلُ',
-      titleEn: '52. Al-Wakil',
-      titleId: '52. Al-Wakil',
-      titleUr: '52. Al-Wakil',
       text: 'الْوَكِيلُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2529,9 +2070,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '53. الْقَوِيُّ',
-      titleEn: '53. Al-Qawiyy',
-      titleId: '53. Al-Qawiyy',
-      titleUr: '53. Al-Qawiyy',
       text: 'الْقَوِيُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2541,9 +2079,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '54. الْمَتِينُ',
-      titleEn: '54. Al-Matin',
-      titleId: '54. Al-Matin',
-      titleUr: '54. Al-Matin',
       text: 'الْمَتِينُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2553,9 +2088,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '55. الْوَلِيُّ',
-      titleEn: '55. Al-Waliyy',
-      titleId: '55. Al-Waliyy',
-      titleUr: '55. Al-Waliyy',
       text: 'الْوَلِيُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2565,9 +2097,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '56. الْحَمِيدُ',
-      titleEn: '56. Al-Hamid',
-      titleId: '56. Al-Hamid',
-      titleUr: '56. Al-Hamid',
       text: 'الْحَمِيدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2577,9 +2106,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '57. الْمُحْصِي',
-      titleEn: '57. Al-Muhsi',
-      titleId: '57. Al-Muhsi',
-      titleUr: '57. Al-Muhsi',
       text: 'الْمُحْصِي',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2589,9 +2115,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '58. الْمُبْدِئُ',
-      titleEn: '58. Al-Mubdi\'',
-      titleId: '58. Al-Mubdi\'',
-      titleUr: '58. Al-Mubdi\'',
       text: 'الْمُبْدِئُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2601,9 +2124,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '59. الْمُعِيدُ',
-      titleEn: '59. Al-Mu\'id',
-      titleId: '59. Al-Mu\'id',
-      titleUr: '59. Al-Mu\'id',
       text: 'الْمُعِيدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2613,9 +2133,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '60. الْمُحْيِي',
-      titleEn: '60. Al-Muhyi',
-      titleId: '60. Al-Muhyi',
-      titleUr: '60. Al-Muhyi',
       text: 'الْمُحْيِي',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2625,9 +2142,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '61. الْمُمِيتُ',
-      titleEn: '61. Al-Mumit',
-      titleId: '61. Al-Mumit',
-      titleUr: '61. Al-Mumit',
       text: 'الْمُمِيتُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2637,9 +2151,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '62. الْحَيُّ',
-      titleEn: '62. Al-Hayy',
-      titleId: '62. Al-Hayy',
-      titleUr: '62. Al-Hayy',
       text: 'الْحَيُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2649,9 +2160,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '63. الْقَيُّومُ',
-      titleEn: '63. Al-Qayyum',
-      titleId: '63. Al-Qayyum',
-      titleUr: '63. Al-Qayyum',
       text: 'الْقَيُّومُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2661,9 +2169,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '64. الْوَاجِدُ',
-      titleEn: '64. Al-Wajid',
-      titleId: '64. Al-Wajid',
-      titleUr: '64. Al-Wajid',
       text: 'الْوَاجِدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2673,9 +2178,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '65. الْمَاجِدُ',
-      titleEn: '65. Al-Majid',
-      titleId: '65. Al-Majid',
-      titleUr: '65. Al-Majid',
       text: 'الْمَاجِدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2685,9 +2187,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '66. الْوَاحِدُ',
-      titleEn: '66. Al-Wahid',
-      titleId: '66. Al-Wahid',
-      titleUr: '66. Al-Wahid',
       text: 'الْوَاحِدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2697,9 +2196,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '67. الْأَحَدُ',
-      titleEn: '67. Al-Ahad',
-      titleId: '67. Al-Ahad',
-      titleUr: '67. Al-Ahad',
       text: 'الْأَحَدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2709,9 +2205,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '68. الصَّمَدُ',
-      titleEn: '68. As-Samad',
-      titleId: '68. As-Samad',
-      titleUr: '68. As-Samad',
       text: 'الصَّمَدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2721,9 +2214,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '69. الْقَادِرُ',
-      titleEn: '69. Al-Qadir',
-      titleId: '69. Al-Qadir',
-      titleUr: '69. Al-Qadir',
       text: 'الْقَادِرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2733,9 +2223,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '70. الْمُقْتَدِرُ',
-      titleEn: '70. Al-Muqtadir',
-      titleId: '70. Al-Muqtadir',
-      titleUr: '70. Al-Muqtadir',
       text: 'الْمُقْتَدِرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2745,9 +2232,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '71. الْمُقَدِّمُ',
-      titleEn: '71. Al-Muqaddim',
-      titleId: '71. Al-Muqaddim',
-      titleUr: '71. Al-Muqaddim',
       text: 'الْمُقَدِّمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2757,9 +2241,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '72. الْمُؤَخِّرُ',
-      titleEn: '72. Al-Mu\'akhkhir',
-      titleId: '72. Al-Mu\'akhkhir',
-      titleUr: '72. Al-Mu\'akhkhir',
       text: 'الْمُؤَخِّرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2769,9 +2250,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '73. الْأَوَّلُ',
-      titleEn: '73. Al-Awwal',
-      titleId: '73. Al-Awwal',
-      titleUr: '73. Al-Awwal',
       text: 'الْأَوَّلُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2781,9 +2259,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '74. الْآخِرُ',
-      titleEn: '74. Al-Akhir',
-      titleId: '74. Al-Akhir',
-      titleUr: '74. Al-Akhir',
       text: 'الْآخِرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2793,9 +2268,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '75. الظَّاهِرُ',
-      titleEn: '75. Az-Zahir',
-      titleId: '75. Az-Zahir',
-      titleUr: '75. Az-Zahir',
       text: 'الظَّاهِرُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2805,9 +2277,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '76. الْبَاطِنُ',
-      titleEn: '76. Al-Batin',
-      titleId: '76. Al-Batin',
-      titleUr: '76. Al-Batin',
       text: 'الْبَاطِنُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2817,9 +2286,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '77. الْوَالِي',
-      titleEn: '77. Al-Wali',
-      titleId: '77. Al-Wali',
-      titleUr: '77. Al-Wali',
       text: 'الْوَالِي',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2829,9 +2295,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '78. الْمُتَعَالِي',
-      titleEn: '78. Al-Muta\'ali',
-      titleId: '78. Al-Muta\'ali',
-      titleUr: '78. Al-Muta\'ali',
       text: 'الْمُتَعَالِي',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2841,9 +2304,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '79. الْبَرُّ',
-      titleEn: '79. Al-Barr',
-      titleId: '79. Al-Barr',
-      titleUr: '79. Al-Barr',
       text: 'الْبَرُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2853,9 +2313,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '80. التَّوَّابُ',
-      titleEn: '80. At-Tawwab',
-      titleId: '80. At-Tawwab',
-      titleUr: '80. At-Tawwab',
       text: 'التَّوَّابُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2865,9 +2322,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '81. الْمُنْتَقِمُ',
-      titleEn: '81. Al-Muntaqim',
-      titleId: '81. Al-Muntaqim',
-      titleUr: '81. Al-Muntaqim',
       text: 'الْمُنْتَقِمُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2877,9 +2331,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '82. الْعَفُوُّ',
-      titleEn: '82. Al-Afuww',
-      titleId: '82. Al-Afuww',
-      titleUr: '82. Al-Afuww',
       text: 'الْعَفُوُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2889,9 +2340,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '83. الرَّؤُوفُ',
-      titleEn: '83. Ar-Ra\'uf',
-      titleId: '83. Ar-Ra\'uf',
-      titleUr: '83. Ar-Ra\'uf',
       text: 'الرَّؤُوفُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2901,9 +2349,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '84. مَالِكُ الْمُلْكِ',
-      titleEn: '84. Malik al-Mulk',
-      titleId: '84. Malik al-Mulk',
-      titleUr: '84. Malik al-Mulk',
       text: 'مَالِكُ الْمُلْكِ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2913,9 +2358,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '85. ذُو الْجَلَالِ وَالْإِكْرَامِ',
-      titleEn: '85. Dhul-Jalali wal-Ikram',
-      titleId: '85. Dhul-Jalali wal-Ikram',
-      titleUr: '85. Dhul-Jalali wal-Ikram',
       text: 'ذُو الْجَلَالِ وَالْإِكْرَامِ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2925,9 +2367,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '86. الْمُقْسِطُ',
-      titleEn: '86. Al-Muqsit',
-      titleId: '86. Al-Muqsit',
-      titleUr: '86. Al-Muqsit',
       text: 'الْمُقْسِطُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2937,9 +2376,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '87. الْجَامِعُ',
-      titleEn: '87. Al-Jami\'',
-      titleId: '87. Al-Jami\'',
-      titleUr: '87. Al-Jami\'',
       text: 'الْجَامِعُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2949,9 +2385,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '88. الْغَنِيُّ',
-      titleEn: '88. Al-Ghani',
-      titleId: '88. Al-Ghani',
-      titleUr: '88. Al-Ghani',
       text: 'الْغَنِيُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2961,9 +2394,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '89. الْمُغْنِي',
-      titleEn: '89. Al-Mughni',
-      titleId: '89. Al-Mughni',
-      titleUr: '89. Al-Mughni',
       text: 'الْمُغْنِي',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2973,9 +2403,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '90. الْمَانِعُ',
-      titleEn: '90. Al-Mani\'',
-      titleId: '90. Al-Mani\'',
-      titleUr: '90. Al-Mani\'',
       text: 'الْمَانِعُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2985,9 +2412,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '91. الضَّارُّ',
-      titleEn: '91. Ad-Darr',
-      titleId: '91. Ad-Darr',
-      titleUr: '91. Ad-Darr',
       text: 'الضَّارُّ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -2997,9 +2421,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '92. النَّافِعُ',
-      titleEn: '92. An-Nafi\'',
-      titleId: '92. An-Nafi\'',
-      titleUr: '92. An-Nafi\'',
       text: 'النَّافِعُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3009,9 +2430,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '93. النُّورُ',
-      titleEn: '93. An-Nur',
-      titleId: '93. An-Nur',
-      titleUr: '93. An-Nur',
       text: 'النُّورُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3021,9 +2439,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '94. الْهَادِي',
-      titleEn: '94. Al-Hadi',
-      titleId: '94. Al-Hadi',
-      titleUr: '94. Al-Hadi',
       text: 'الْهَادِي',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3033,9 +2448,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '95. الْبَدِيعُ',
-      titleEn: '95. Al-Badi\'',
-      titleId: '95. Al-Badi\'',
-      titleUr: '95. Al-Badi\'',
       text: 'الْبَدِيعُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3045,9 +2457,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '96. الْبَاقِي',
-      titleEn: '96. Al-Baqi',
-      titleId: '96. Al-Baqi',
-      titleUr: '96. Al-Baqi',
       text: 'الْبَاقِي',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3057,9 +2466,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '97. الْوَارِثُ',
-      titleEn: '97. Al-Warith',
-      titleId: '97. Al-Warith',
-      titleUr: '97. Al-Warith',
       text: 'الْوَارِثُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3069,9 +2475,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '98. الرَّشِيدُ',
-      titleEn: '98. Ar-Rashid',
-      titleId: '98. Ar-Rashid',
-      titleUr: '98. Ar-Rashid',
       text: 'الرَّشِيدُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3081,9 +2484,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: '99. الصَّبُورُ',
-      titleEn: '99. As-Sabur',
-      titleId: '99. As-Sabur',
-      titleUr: '99. As-Sabur',
       text: 'الصَّبُورُ',
       source: 'رواه الترمذي (3507) وابن ماجه (3861)',
       bookSource: 'حصن المسلم / الأذكار للنووي',
@@ -3099,9 +2499,6 @@ class AthkarData {
   static final List<DhikrModel> _miscAthkar = [
     const DhikrModel(
       title: 'الذكر عند الخروج من المنزل',
-      titleEn: 'Remembrance Upon Leaving the House',
-      titleId: 'Dzikir Ketika Keluar Rumah',
-      titleUr: 'گھر سے نکلتے وقت کا ذکر',
       text: 'بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
       source: 'رواه أبو داود والترمذي وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -3111,9 +2508,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الخروج من المنزل',
-      titleEn: 'Dua Upon Leaving the House',
-      titleId: 'Doa Keluar Rumah',
-      titleUr: 'گھر سے نکلنے کی دعا',
       text: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أَضِلَّ أَوْ أُضَلَّ، أَوْ أَزِلَّ أَوْ أُزَلَّ، أَوْ أَظْلِمَ أَوْ أُظْلَمَ، أَوْ أَجْهَلَ أَوْ يُجْهَلَ عَلَيَّ',
       source: 'رواه أبو داود والترمذي وابن ماجه وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -3122,9 +2516,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الذكر عند دخول المنزل',
-      titleEn: 'Remembrance Upon Entering the House',
-      titleId: 'Dzikir Ketika Masuk Rumah',
-      titleUr: 'گھر میں داخل ہوتے وقت کا ذکر',
       text: 'بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا',
       source: 'رواه أبو داود وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -3134,9 +2525,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الكرب الأول',
-      titleEn: 'The First Dua for Times of Distress',
-      titleId: 'Doa Menghadapi Kesulitan Pertama',
-      titleUr: 'پریشانی کے وقت کی پہلی دعا',
       text: 'لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ',
       source: 'رواه البخاري ومسلم',
       bookSource: 'حصن المسلم',
@@ -3145,9 +2533,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الكرب الثاني',
-      titleEn: 'The Second Dua for Times of Distress',
-      titleId: 'Doa Menghadapi Kesulitan Kedua',
-      titleUr: 'پریشانی کے وقت کی دوسری دعا',
       text: 'اللَّهُمَّ رَحْمَتَكَ أَرْجُو، فَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ، وَأَصْلِحْ لِي شَأْنِي كُلَّهُ، لَا إِلَهَ إِلَّا أَنْتَ',
       source: 'رواه أبو داود وحسّنه الألباني',
       bookSource: 'حصن المسلم',
@@ -3156,9 +2541,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الغضب',
-      titleEn: 'Dua for Anger',
-      titleId: 'Doa Ketika Marah',
-      titleUr: 'غصے کے وقت کی دعا',
       text: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
       source: 'رواه البخاري ومسلم',
       bookSource: 'حصن المسلم',
@@ -3167,9 +2549,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'ما يقال عند العطاس وتشميته',
-      titleEn: 'What to Say Upon Sneezing and Responding to It',
-      titleId: 'Yang Diucapkan Ketika Bersin dan Menjawabnya',
-      titleUr: 'چھینک کے وقت اور اس کا جواب دینے کے کلمات',
       text: 'الْعَاطِسُ يَقُولُ: الْحَمْدُ لِلَّهِ\nوَيَقُولُ لَهُ مَنْ سَمِعَهُ: يَرْحَمُكَ اللَّهُ\nفَيَرُدُّ عَلَيْهِ الْعَاطِسُ: يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ',
       source: 'رواه البخاري (6224)',
       bookSource: 'حصن المسلم',
@@ -3178,9 +2557,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء دخول الخلاء',
-      titleEn: 'Dua Upon Entering the Toilet',
-      titleId: 'Doa Masuk Kamar Mandi',
-      titleUr: 'بیت الخلاء میں داخل ہونے کی دعا',
       text: 'بِسْمِ اللَّهِ\nاللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ',
       source: 'رواه البخاري (142) ومسلم (375)',
       bookSource: 'حصن المسلم',
@@ -3190,9 +2566,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الخروج من الخلاء',
-      titleEn: 'Dua Upon Leaving the Toilet',
-      titleId: 'Doa Keluar dari Kamar Mandi',
-      titleUr: 'بیت الخلاء سے نکلنے کی دعا',
       text: 'غُفْرَانَكَ',
       source: 'رواه أبو داود (30) والترمذي (7) وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -3201,9 +2574,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء لبس الثوب الجديد',
-      titleEn: 'Dua for Wearing New Clothes',
-      titleId: 'Doa Memakai Pakaian Baru',
-      titleUr: 'نیا لباس پہننے کی دعا',
       text: 'اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ كَسَوْتَنِيهِ، أَسْأَلُكَ خَيْرَهُ وَخَيْرَ مَا صُنِعَ لَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا صُنِعَ لَهُ',
       source: 'رواه أبو داود (4020) والترمذي (1767) وحسّنه الألباني',
       bookSource: 'حصن المسلم',
@@ -3212,9 +2582,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء رؤية ما يُعجب',
-      titleEn: 'Dua Upon Seeing Something Pleasing',
-      titleId: 'Doa Ketika Melihat Sesuatu yang Menyenangkan',
-      titleUr: 'پسندیدہ چیز دیکھنے کی دعا',
       text: 'الْحَمْدُ لِلَّهِ الَّذِي بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ',
       source: 'رواه ابن ماجه (3803) وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -3223,9 +2590,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء رؤية ما يُكره',
-      titleEn: 'Dua Upon Seeing Something Disliked',
-      titleId: 'Doa Ketika Melihat Sesuatu yang Tidak Disukai',
-      titleUr: 'ناپسندیدہ چیز دیکھنے کی دعا',
       text: 'الْحَمْدُ لِلَّهِ عَلَى كُلِّ حَالٍ',
       source: 'رواه ابن ماجه (3803) وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -3234,9 +2598,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء دخول السوق',
-      titleEn: 'Dua Upon Entering the Market',
-      titleId: 'Doa Masuk Pasar',
-      titleUr: 'بازار میں داخل ہونے کی دعا',
       text: 'لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، يُحْيِي وَيُمِيتُ وَهُوَ حَيٌّ لَا يَمُوتُ، بِيَدِهِ الْخَيْرُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
       source: 'رواه الترمذي (3428) وحسّنه الألباني',
       bookSource: 'حصن المسلم',
@@ -3246,9 +2607,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء الاستخارة',
-      titleEn: 'The Dua of Istikharah (Seeking Guidance)',
-      titleId: 'Doa Istikharah',
-      titleUr: 'استخارہ کی دعا',
       text: 'اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ، وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ، وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ، فَإِنَّكَ تَقْدِرُ وَلَا أَقْدِرُ، وَتَعْلَمُ وَلَا أَعْلَمُ، وَأَنْتَ عَلَّامُ الْغُيُوبِ\nاللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي، ثُمَّ بَارِكْ لِي فِيهِ\nوَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ شَرٌّ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاصْرِفْهُ عَنِّي وَاصْرِفْنِي عَنْهُ، وَاقْدُرْ لِيَ الْخَيْرَ حَيْثُ كَانَ، ثُمَّ أَرْضِنِي بِهِ',
       source: 'رواه البخاري (1166)',
       bookSource: 'حصن المسلم',
@@ -3258,9 +2616,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء المريض',
-      titleEn: 'Dua for the Sick',
-      titleId: 'Doa untuk Orang Sakit',
-      titleUr: 'مریض کی دعا',
       text: 'أَذْهِبِ الْبَأْسَ رَبَّ النَّاسِ، وَاشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا',
       source: 'رواه البخاري (5675) ومسلم (2191)',
       bookSource: 'حصن المسلم',
@@ -3270,9 +2625,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء تفريج الهم والحزن',
-      titleEn: 'Dua for Relief from Anxiety and Grief',
-      titleId: 'Doa Melapangkan Kesedihan dan Kegundahan',
-      titleUr: 'غم اور پریشانی دور کرنے کی دعا',
       text: 'اللَّهُمَّ إِنِّي عَبْدُكَ ابْنُ عَبْدِكَ ابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجَلَاءَ حُزْنِي، وَذَهَابَ هَمِّي',
       source: 'رواه أحمد (3712) وصححه الألباني',
       bookSource: 'حصن المسلم',
@@ -3290,9 +2642,6 @@ class AthkarData {
   static final List<DhikrModel> _ruqyahAthkar = [
     const DhikrModel(
       title: 'صفة الرقية الشرعية',
-      titleEn: 'The Method of Legislated Ruqyah',
-      titleId: 'Tata Cara Ruqyah Syar\'iyyah',
-      titleUr: 'رقیہ شرعیہ کا طریقہ',
       text:
           'تُقرأ الآيات والأدعية التالية بنيّة الاستشفاء بها، ويُستحسن وضع اليد على موضع الألم إن أمكن مع القراءة، ثم النفث (نفخ خفيف مصحوب بشيء من الريق) في اليدين ومسح الجسد، أو النفث مباشرة على موضع الألم، وتكرار ذلك — خاصة الأدعية النبوية — ثلاث مرات أو سبع مرات كما ورد.',
       source: 'مستفاد من مجموع هدي النبي ﷺ في الرقية الوارد في الأحاديث التالية',
@@ -3303,9 +2652,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'آية الكرسي',
-      titleEn: 'Ayat al-Kursi',
-      titleId: 'Ayat Kursi',
-      titleUr: 'آیت الکرسی',
       text:
           'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ (255)',
       source: 'سورة البقرة: الآية (255)',
@@ -3316,9 +2662,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'خواتيم سورة البقرة',
-      titleEn: 'The Closing Verses of Surah Al-Baqarah',
-      titleId: 'Ayat-Ayat Penutup Surah Al-Baqarah',
-      titleUr: 'سورۃ البقرہ کی آخری آیات',
       text:
           'آمَنَ الرَّسُولُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ (285)\nلَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ (286)',
       source: 'سورة البقرة: الآيتان (285-286)',
@@ -3329,9 +2672,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'أوائل سورة البقرة',
-      titleEn: 'The Opening Verses of Surah Al-Baqarah',
-      titleId: 'Ayat-Ayat Awal Surah Al-Baqarah',
-      titleUr: 'سورۃ البقرہ کی ابتدائی آیات',
       text:
           'الم (1) ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ (2) الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ (3) وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ (4) أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ (5)',
       source: 'سورة البقرة: الآيات (1-5)',
@@ -3342,9 +2682,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الفاتحة (الرقية بها)',
-      titleEn: 'Surah Al-Fatihah (As a Ruqyah)',
-      titleId: 'Surah Al-Fatihah (Sebagai Ruqyah)',
-      titleUr: 'سورۃ الفاتحہ (بطور رقیہ)',
       text:
           'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ (1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَٰنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7)',
       source: 'سورة الفاتحة: كاملة',
@@ -3355,9 +2692,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الإخلاص',
-      titleEn: 'Surah Al-Ikhlas',
-      titleId: 'Surah Al-Ikhlas',
-      titleUr: 'سورۃ الاخلاص',
       text: 'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ (4)',
       source: 'سورة الإخلاص: كاملة',
       bookSource: 'القرآن الكريم',
@@ -3367,9 +2701,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الفلق',
-      titleEn: 'Surah Al-Falaq',
-      titleId: 'Surah Al-Falaq',
-      titleUr: 'سورۃ الفلق',
       text: 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِنْ شَرِّ مَا خَلَقَ (2) وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
       source: 'سورة الفلق: كاملة',
       bookSource: 'القرآن الكريم',
@@ -3379,9 +2710,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'سورة الناس',
-      titleEn: 'Surah An-Nas',
-      titleId: 'Surah An-Nas',
-      titleUr: 'سورۃ الناس',
       text: 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
       source: 'سورة الناس: كاملة',
       bookSource: 'القرآن الكريم',
@@ -3391,9 +2719,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'آيات السحرة (الأعراف)',
-      titleEn: 'The Verses of the Sorcerers (Surah Al-A\'raf)',
-      titleId: 'Ayat Para Penyihir (Surah Al-A\'raf)',
-      titleUr: 'جادوگروں کی آیات (سورۃ الاعراف)',
       text:
           'وَأَوْحَيْنَا إِلَىٰ مُوسَىٰ أَنْ أَلْقِ عَصَاكَ فَإِذَا هِيَ تَلْقَفُ مَا يَأْفِكُونَ (117) فَوَقَعَ الْحَقُّ وَبَطَلَ مَا كَانُوا يَعْمَلُونَ (118) فَغُلِبُوا هُنَالِكَ وَانْقَلَبُوا صَاغِرِينَ (119) وَأُلْقِيَ السَّحَرَةُ سَاجِدِينَ (120) قَالُوا آمَنَّا بِرَبِّ الْعَالَمِينَ (121) رَبِّ مُوسَىٰ وَهَارُونَ (122)',
       source: 'سورة الأعراف: الآيات (117-122)',
@@ -3404,9 +2729,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'آيات السحرة (يونس)',
-      titleEn: 'The Verses of the Sorcerers (Surah Yunus)',
-      titleId: 'Ayat Para Penyihir (Surah Yunus)',
-      titleUr: 'جادوگروں کی آیات (سورۃ یونس)',
       text:
           'وَقَالَ فِرْعَوْنُ ائْتُونِي بِكُلِّ سَاحِرٍ عَلِيمٍ (79) فَلَمَّا جَاءَ السَّحَرَةُ قَالَ لَهُمْ مُوسَىٰ أَلْقُوا مَا أَنْتُمْ مُلْقُونَ (80) فَلَمَّا أَلْقَوْا قَالَ مُوسَىٰ مَا جِئْتُمْ بِهِ السِّحْرُ إِنَّ اللَّهَ سَيُبْطِلُهُ إِنَّ اللَّهَ لَا يُصْلِحُ عَمَلَ الْمُفْسِدِينَ (81) وَيُحِقُّ اللَّهُ الْحَقَّ بِكَلِمَاتِهِ وَلَوْ كَرِهَ الْمُجْرِمُونَ (82)',
       source: 'سورة يونس: الآيات (79-82)',
@@ -3417,9 +2739,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'آيات السحرة (طه)',
-      titleEn: 'The Verses of the Sorcerers (Surah Taha)',
-      titleId: 'Ayat Para Penyihir (Surah Taha)',
-      titleUr: 'جادوگروں کی آیات (سورۃ طٰہٰ)',
       text:
           'قَالُوا يَا مُوسَىٰ إِمَّا أَنْ تُلْقِيَ وَإِمَّا أَنْ نَكُونَ أَوَّلَ مَنْ أَلْقَىٰ (65) قَالَ بَلْ أَلْقُوا فَإِذَا حِبَالُهُمْ وَعِصِيُّهُمْ يُخَيَّلُ إِلَيْهِ مِنْ سِحْرِهِمْ أَنَّهَا تَسْعَىٰ (66) فَأَوْجَسَ فِي نَفْسِهِ خِيفَةً مُوسَىٰ (67) قُلْنَا لَا تَخَفْ إِنَّكَ أَنْتَ الْأَعْلَىٰ (68) وَأَلْقِ مَا فِي يَمِينِكَ تَلْقَفْ مَا صَنَعُوا إِنَّمَا صَنَعُوا كَيْدُ سَاحِرٍ وَلَا يُفْلِحُ السَّاحِرُ حَيْثُ أَتَىٰ (69)',
       source: 'سورة طه: الآيات (65-69)',
@@ -3430,9 +2749,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'رقية جبريل عليه السلام للنبي ﷺ',
-      titleEn: 'The Ruqyah of Jibril (peace be upon him) for the Prophet ﷺ',
-      titleId: 'Ruqyah Malaikat Jibril \'alaihissalam untuk Nabi ﷺ',
-      titleUr: 'جبریل علیہ السلام کی نبی ﷺ کے لیے رقیہ',
       text: 'بِسْمِ اللَّهِ أَرْقِيكَ، مِنْ كُلِّ شَيْءٍ يُؤْذِيكَ، مِنْ شَرِّ كُلِّ نَفْسٍ أَوْ عَيْنِ حَاسِدٍ، اللَّهُ يَشْفِيكَ، بِسْمِ اللَّهِ أَرْقِيكَ',
       source: 'رواه مسلم (2186) عن عائشة رضي الله عنها',
       bookSource: 'حصن المسلم',
@@ -3442,9 +2758,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء إذهاب المرض',
-      titleEn: 'Dua for Removing Illness',
-      titleId: 'Doa Menghilangkan Penyakit',
-      titleUr: 'بیماری دور کرنے کی دعا',
       text: 'اللَّهُمَّ رَبَّ النَّاسِ، أَذْهِبِ الْبَأْسَ، اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا',
       source: 'رواه البخاري (5675) ومسلم (2191) عن عائشة رضي الله عنها',
       bookSource: 'حصن المسلم',
@@ -3454,9 +2767,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التعوذ بكلمات الله التامة',
-      titleEn: 'Seeking Refuge with the Perfect Words of Allah',
-      titleId: 'Doa Berlindung dengan Kalimat Allah yang Sempurna',
-      titleUr: 'اللہ کے کامل کلمات کے ذریعے پناہ مانگنا',
       text: 'أُعِيذُكَ بِكَلِمَاتِ اللَّهِ التَّامَّةِ، مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ',
       source: 'أصله في صحيح البخاري (3371) عن ابن عباس رضي الله عنهما (كان النبي ﷺ يعوّذ بها الحسن والحسين)',
       bookSource: 'حصن المسلم',
@@ -3466,9 +2776,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء عيادة المريض (يُقال سبع مرات)',
-      titleEn: 'Dua for Visiting the Sick (Said Seven Times)',
-      titleId: 'Doa Menjenguk Orang Sakit (Dibaca Tujuh Kali)',
-      titleUr: 'مریض کی عیادت کی دعا (سات بار پڑھی جائے)',
       text: 'أَسْأَلُ اللَّهَ الْعَظِيمَ رَبَّ الْعَرْشِ الْعَظِيمِ أَنْ يَشْفِيَكَ',
       source: 'رواه أبو داود (3106) والترمذي (2083) عن ابن عباس رضي الله عنهما',
       bookSource: 'حصن المسلم',
@@ -3488,9 +2795,6 @@ class AthkarData {
   static final List<DhikrModel> _nawawi40Athkar = [
     const DhikrModel(
       title: 'الحديث 1: أهمية النية في الأعمال والهجرة',
-      titleEn: 'Hadith 1: The Importance of Intention in Deeds and Migration',
-      titleId: 'Hadits ke-1: Pentingnya Niat dalam Amal dan Hijrah',
-      titleUr: 'حدیث 1: اعمال اور ہجرت میں نیت کی اہمیت',
       text: 'إنَّما الأَعْمالُ بِالنِّيّاتِ، وَإِنَّما لِكُلِّ امْرِئٍ ما نَوَى، فَمَنْ كانَتْ هِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كانَتْ هِجْرَتُهُ لِدُنْيا يُصِيبُها أَوْ امْرَأَةٍ يَنْكِحُها فَهِجْرَتُهُ إلَى ما هاجَرَ إلَيْهِ.',
       source: 'عن عمر بن الخطاب رضي الله عنه — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3500,9 +2804,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 2: أركان الإسلام والإيمان والإحسان',
-      titleEn: 'Hadith 2: The Pillars of Islam, Iman, and Ihsan',
-      titleId: 'Hadits ke-2: Rukun Islam, Iman, dan Ihsan',
-      titleUr: 'حدیث 2: اسلام، ایمان اور احسان کے ارکان',
       text: 'بَيْنَما نَحْنُ جُلُوسٌ عِنْدَ رَسُولِ اللَّهِ ﷺ ذاتَ يَوْمٍ، إذْ طَلَعَ عَلَيْنا رَجُلٌ شَدِيدُ بَياضِ الثِّيابِ، شَدِيدُ سَوادِ الشَّعْرِ، لا يُرَى عَلَيْهِ أَثَرُ السَّفَرِ، وَلا يَعْرِفُهُ مِنّا أَحَدٌ. حَتَّى جَلَسَ إلَى النَّبِيِّ ﷺ، فَأَسْنَدَ رُكْبَتَيْهِ إلَى رُكْبَتَيْهِ، وَوَضَعَ كَفَّيْهِ عَلَى فَخْذَيْهِ، وَقالَ: يا مُحَمَّدُ أَخْبِرْنِي عَنِ الإِسْلامِ. فَقالَ رَسُولُ اللَّهِ ﷺ: الإِسْلامُ أَنْ تَشْهَدَ أَنْ لا إلَهَ إلّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَتُقِيمَ الصَّلاةَ، وَتُؤْتِيَ الزَّكاةَ، وَتَصُومَ رَمَضانَ، وَتَحُجَّ البَيْتَ إنِ اسْتَطَعْتَ إلَيْهِ سَبِيلًا. قالَ: صَدَقْتَ. فَعَجِبْنا لَهُ يَسْأَلُهُ وَيُصَدِّقُهُ! قالَ: فَأَخْبِرْنِي عَنِ الإِيمانِ. قالَ: أَنْ تُؤْمِنَ بِاللَّهِ وَمَلائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الآخِرِ، وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ. قالَ: صَدَقْتَ. قالَ: فَأَخْبِرْنِي عَنِ الإِحْسانِ. قالَ: أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَراهُ، فَإِنْ لَمْ تَكُنْ تَراهُ فَإِنَّهُ يَراكَ. قالَ: فَأَخْبِرْنِي عَنِ السّاعَةِ. قالَ: ما المَسْئُولُ عَنْها بِأَعْلَمَ مِنَ السّائِلِ. قالَ: فَأَخْبِرْنِي عَنْ أَماراتِها؟ قالَ: أَنْ تَلِدَ الأَمَةُ رَبَّتَها، وَأَنْ تَرَى الحُفاةَ العُراةَ العالَةَ رِعاءَ الشّاءِ يَتَطاوَلُونَ فِي البُنْيانِ. ثُمَّ انْطَلَقَ، فَلَبِثْتُ مَلِيًّا، ثُمَّ قالَ: يا عُمَرُ أَتَدْرِي مَنِ السّائِلُ؟ قُلْتُ: اللَّهُ وَرَسُولُهُ أَعْلَمُ. قالَ: فَإِنَّهُ جِبْرِيلُ أَتاكُمْ يُعَلِّمُكُمْ دِينَكُمْ.',
       source: 'عن عمر بن الخطاب رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3512,9 +2813,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 3: أركان الإسلام الخمسة',
-      titleEn: 'Hadith 3: The Five Pillars of Islam',
-      titleId: 'Hadits ke-3: Lima Rukun Islam',
-      titleUr: 'حدیث 3: اسلام کے پانچ رکن',
       text: 'بُنِيَ الإِسْلامُ عَلَى خَمْسٍ: شَهادَةِ أَنْ لا إلَهَ إلّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقامِ الصَّلاةِ، وَإِيتاءِ الزَّكاةِ، وَحَجِّ البَيْتِ، وَصَوْمِ رَمَضانَ.',
       source: 'عن عبد الله بن عمر بن الخطاب رضي الله عنهما — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3524,9 +2822,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 4: أطوار خلق الإنسان وسبق القدر',
-      titleEn: 'Hadith 4: The Stages of Man\'s Creation and the Precedence of Divine Decree',
-      titleId: 'Hadits ke-4: Tahapan Penciptaan Manusia dan Ketetapan Takdir',
-      titleUr: 'حدیث 4: انسان کی تخلیق کے مراحل اور تقدیر کی سبقت',
       text: 'حَدَّثَنا رَسُولُ اللَّهِ ﷺ -وَهُوَ الصّادِقُ المَصْدُوقُ-: إنَّ أَحَدَكُمْ يُجْمَعُ خَلْقُهُ فِي بَطْنِ أُمِّهِ أَرْبَعِينَ يَوْمًا نُطْفَةً، ثُمَّ يَكُونُ عَلَقَةً مِثْلَ ذَلِكَ، ثُمَّ يَكُونُ مُضْغَةً مِثْلَ ذَلِكَ، ثُمَّ يُرْسَلُ إلَيْهِ المَلَكُ فَيَنْفُخُ فِيهِ الرُّوحَ، وَيُؤْمَرُ بِأَرْبَعِ كَلِماتٍ: بِكَتْبِ رِزْقِهِ، وَأَجَلِهِ، وَعَمَلِهِ، وَشَقِيٍّ أَمْ سَعِيدٍ؛ فَوَاللَّهِ الَّذِي لا إلَهَ غَيْرُهُ إنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ الجَنَّةِ حَتَّى ما يَكُونُ بَيْنَهُ وَبَيْنَها إلّا ذِراعٌ فَيَسْبِقُ عَلَيْهِ الكِتابُ فَيَعْمَلُ بِعَمَلِ أَهْلِ النّارِ فَيَدْخُلُها. وَإِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ النّارِ حَتَّى ما يَكُونُ بَيْنَهُ وَبَيْنَها إلّا ذِراعٌ فَيَسْبِقُ عَلَيْهِ الكِتابُ فَيَعْمَلُ بِعَمَلِ أَهْلِ الجَنَّةِ فَيَدْخُلُها.',
       source: 'عن عبد الله بن مسعود رضي الله عنه — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3536,9 +2831,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 5: رد كل عمل مبتدع مخالف للشرع',
-      titleEn: 'Hadith 5: Rejecting Every Innovated Act That Contradicts the Sharia',
-      titleId: 'Hadits ke-5: Menolak Setiap Amalan Bid\'ah yang Menyalahi Syariat',
-      titleUr: 'حدیث 5: شریعت کے خلاف ہر نئے عمل کا رد',
       text: 'مَنْ أَحْدَثَ فِي أَمْرِنا هَذا ما لَيْسَ مِنْهُ فَهُوَ رَدٌّ.',
       source: 'عن عائشة أم المؤمنين رضي الله عنها — رواه البخاري ومسلم، وفي رواية لمسلم: مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنا فَهُوَ رَدٌّ',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3548,9 +2840,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 6: الحلال بيّن والحرام بيّن واجتناب الشبهات',
-      titleEn: 'Hadith 6: The Lawful is Clear and the Unlawful is Clear, So Avoid Doubtful Matters',
-      titleId: 'Hadits ke-6: Yang Halal Jelas dan yang Haram Jelas, Hindarilah yang Syubhat',
-      titleUr: 'حدیث 6: حلال واضح ہے اور حرام واضح ہے، مشتبہ چیزوں سے اجتناب',
       text: 'إنَّ الحَلالَ بَيِّنٌ، وَإِنَّ الحَرامَ بَيِّنٌ، وَبَيْنَهُما أُمُورٌ مُشْتَبِهاتٌ لا يَعْلَمُهُنَّ كَثِيرٌ مِنَ النّاسِ، فَمَنِ اتَّقَى الشُّبُهاتِ فَقَدِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ، وَمَنْ وَقَعَ فِي الشُّبُهاتِ وَقَعَ فِي الحَرامِ، كَالرّاعِي يَرْعَى حَوْلَ الحِمَى يُوشِكُ أَنْ يَرْتَعَ فِيهِ، أَلا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى، أَلا وَإِنَّ حِمَى اللَّهِ مَحارِمُهُ، أَلا وَإِنَّ فِي الجَسَدِ مُضْغَةً إذا صَلَحَتْ صَلَحَ الجَسَدُ كُلُّهُ، وَإذا فَسَدَتْ فَسَدَ الجَسَدُ كُلُّهُ، أَلا وَهِيَ القَلْبُ.',
       source: 'عن النعمان بن بشير رضي الله عنهما — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3560,9 +2849,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 7: الدين النصيحة لله ولعباده',
-      titleEn: 'Hadith 7: Religion is Sincere Advice to Allah and His Servants',
-      titleId: 'Hadits ke-7: Agama Adalah Nasihat bagi Allah dan Hamba-Nya',
-      titleUr: 'حدیث 7: دین اللہ اور اس کے بندوں کے لیے خیرخواہی ہے',
       text: 'الدِّينُ النَّصِيحَةُ. قُلْنا: لِمَنْ؟ قالَ: لِلَّهِ، وَلِكِتابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ المُسْلِمِينَ وَعامَّتِهِمْ.',
       source: 'عن تميم بن أوس الداري رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3572,9 +2858,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 8: الأمر بقتال الناس حتى يشهدوا الشهادتين',
-      titleEn: 'Hadith 8: The Command to Fight the People Until They Testify to the Two Testimonies',
-      titleId: 'Hadits ke-8: Perintah Memerangi Manusia hingga Bersyahadat',
-      titleUr: 'حدیث 8: لوگوں سے لڑنے کا حکم یہاں تک کہ وہ دو گواہیاں دیں',
       text: 'أُمِرْتُ أَنْ أُقاتِلَ النّاسَ حَتَّى يَشْهَدُوا أَنْ لا إلَهَ إلّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَيُقِيمُوا الصَّلاةَ، وَيُؤْتُوا الزَّكاةَ؛ فَإِذا فَعَلُوا ذَلِكَ عَصَمُوا مِنِّي دِماءَهُمْ وَأَمْوالَهُمْ إلّا بِحَقِّ الإِسْلامِ، وَحِسابُهُمْ عَلَى اللَّهِ تَعالَى.',
       source: 'عن عبد الله بن عمر رضي الله عنهما — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3584,9 +2867,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 9: الامتثال للأوامر واجتناب النواهي',
-      titleEn: 'Hadith 9: Compliance with Commands and Avoidance of Prohibitions',
-      titleId: 'Hadits ke-9: Mematuhi Perintah dan Menjauhi Larangan',
-      titleUr: 'حدیث 9: احکامات کی تعمیل اور ممنوعات سے اجتناب',
       text: 'ما نَهَيْتُكُمْ عَنْهُ فاجْتَنِبُوهُ، وَما أَمَرْتُكُمْ بِهِ فَأْتُوا مِنْهُ ما اسْتَطَعْتُمْ، فَإِنَّما أَهْلَكَ الَّذِينَ مِنْ قَبْلِكُمْ كَثْرَةُ مَسائِلِهِمْ وَاخْتِلافُهُمْ عَلَى أَنْبِيائِهِمْ.',
       source: 'عن أبو هريرة عبد الرحمن بن صخر رضي الله عنه — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3596,9 +2876,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 10: طيب الكسب وأثره في إجابة الدعاء',
-      titleEn: 'Hadith 10: The Purity of One\'s Earnings and Its Effect on the Answering of Dua',
-      titleId: 'Hadits ke-10: Kebaikan Rezeki dan Pengaruhnya terhadap Terkabulnya Doa',
-      titleUr: 'حدیث 10: حلال کمائی اور دعا کی قبولیت پر اس کا اثر',
       text: 'إنَّ اللَّهَ طَيِّبٌ لا يَقْبَلُ إلّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ المُؤْمِنِينَ بِما أَمَرَ بِهِ المُرْسَلِينَ فَقالَ تَعالَى: ﴿يا أَيُّها الرُّسُلُ كُلُوا مِنَ الطَّيِّباتِ وَاعْمَلُوا صالِحًا﴾، وَقالَ تَعالَى: ﴿يا أَيُّها الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّباتِ ما رَزَقْناكُمْ﴾ ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ يَمُدُّ يَدَيْهِ إلَى السَّماءِ: يا رَبِّ! يا رَبِّ! وَمَطْعَمُهُ حَرامٌ، وَمَشْرَبُهُ حَرامٌ، وَمَلْبَسُهُ حَرامٌ، وَغُذِّيَ بِالْحَرامِ، فَأَنَّى يُسْتَجابُ لَهُ؟',
       source: 'عن أبو هريرة رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3608,9 +2885,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 11: ترك الشك إلى اليقين والورع',
-      titleEn: 'Hadith 11: Leaving Doubt for What is Certain, and Wara\' (Caution)',
-      titleId: 'Hadits ke-11: Meninggalkan Keraguan Menuju Keyakinan dan Sikap Wara\'',
-      titleUr: 'حدیث 11: شک چھوڑ کر یقین اور تقویٰ اختیار کرنا',
       text: 'دَعْ ما يُرِيبُكَ إلَى ما لا يُرِيبُكَ.',
       source: 'عن الحسن بن علي بن أبي طالب رضي الله عنهما — رواه الترمذي والنسائي، وقال الترمذي: حديث حسن صحيح',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3620,9 +2894,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 12: حسن الإسلام بترك ما لا يعني',
-      titleEn: 'Hadith 12: The Goodness of a Person\'s Islam is in Leaving What Does Not Concern Him',
-      titleId: 'Hadits ke-12: Kebaikan Islam Seseorang adalah Meninggalkan yang Tidak Bermanfaat Baginya',
-      titleUr: 'حدیث 12: اچھے اسلام کی علامت غیر ضروری باتوں کو چھوڑنا ہے',
       text: 'مِنْ حُسْنِ إسْلامِ المَرْءِ تَرْكُهُ ما لا يَعْنِيهِ.',
       source: 'عن أبو هريرة رضي الله عنه — حديث حسن، رواه الترمذي وغيره هكذا',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3632,9 +2903,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 13: كمال الإيمان بحب الخير للآخرين',
-      titleEn: 'Hadith 13: The Completeness of Faith is Loving Good for Others',
-      titleId: 'Hadits ke-13: Kesempurnaan Iman dengan Mencintai Kebaikan untuk Orang Lain',
-      titleUr: 'حدیث 13: ایمان کا کمال دوسروں کے لیے بھلائی پسند کرنا ہے',
       text: 'لا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ ما يُحِبُّ لِنَفْسِهِ.',
       source: 'عن أنس بن مالك رضي الله عنه — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3644,9 +2912,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 14: حرمة دم المسلم إلا بحق',
-      titleEn: 'Hadith 14: The Sanctity of a Muslim\'s Blood Except by Right',
-      titleId: 'Hadits ke-14: Kesucian Darah Seorang Muslim Kecuali dengan Hak',
-      titleUr: 'حدیث 14: مسلمان کا خون حق کے بغیر حرام ہے',
       text: 'لا يَحِلُّ دَمُ امْرِئٍ مُسْلِمٍ إلّا بِإِحْدَى ثَلاثٍ: الثَّيِّبُ الزّانِي، وَالنَّفْسُ بِالنَّفْسِ، وَالتّارِكُ لِدِينِهِ المُفارِقُ لِلْجَماعَةِ.',
       source: 'عن عبد الله بن مسعود رضي الله عنه — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3656,9 +2921,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 15: حفظ اللسان وإكرام الجار والضيف',
-      titleEn: 'Hadith 15: Guarding the Tongue and Honoring the Neighbor and the Guest',
-      titleId: 'Hadits ke-15: Menjaga Lisan serta Memuliakan Tetangga dan Tamu',
-      titleUr: 'حدیث 15: زبان کی حفاظت اور پڑوسی و مہمان کی عزت',
       text: 'مَنْ كانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيُكْرِمْ جارَهُ، وَمَنْ كانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيُكْرِمْ ضَيْفَهُ.',
       source: 'عن أبو هريرة رضي الله عنه — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3668,9 +2930,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 16: النهي عن الغضب',
-      titleEn: 'Hadith 16: The Prohibition of Anger',
-      titleId: 'Hadits ke-16: Larangan Marah',
-      titleUr: 'حدیث 16: غصے کی ممانعت',
       text: 'أَنَّ رَجُلًا قالَ لِلنَّبِيِّ ﷺ: أَوْصِنِي. قالَ: لا تَغْضَبْ. فَرَدَّدَ مِرارًا، قالَ: لا تَغْضَبْ.',
       source: 'عن أبو هريرة رضي الله عنه — رواه البخاري',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3680,9 +2939,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 17: الإحسان في كل شيء حتى القتل والذبح',
-      titleEn: 'Hadith 17: Excellence in All Things, Even in Killing and Slaughter',
-      titleId: 'Hadits ke-17: Berbuat Ihsan dalam Segala Hal Termasuk Menyembelih',
-      titleUr: 'حدیث 17: ہر کام میں احسان، حتیٰ کہ ذبح میں بھی',
       text: 'إنَّ اللَّهَ كَتَبَ الإِحْسانَ عَلَى كُلِّ شَيْءٍ، فَإِذا قَتَلْتُمْ فَأَحْسِنُوا القِتْلَةَ، وَإِذا ذَبَحْتُمْ فَأَحْسِنُوا الذِّبْحَةَ، وَلْيُحِدَّ أَحَدُكُمْ شَفْرَتَهُ، وَلْيُرِحْ ذَبِيحَتَهُ.',
       source: 'عن شداد بن أوس رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3692,9 +2948,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 18: تقوى الله ومحو السيئة بالحسنة وحسن الخلق',
-      titleEn: 'Hadith 18: Taqwa (God-Consciousness), Erasing Sins with Good Deeds, and Good Character',
-      titleId: 'Hadits ke-18: Taqwa, Menghapus Keburukan dengan Kebaikan, dan Akhlak Mulia',
-      titleUr: 'حدیث 18: تقویٰ، نیکی سے گناہ مٹانا، اور حسن اخلاق',
       text: 'اتَّقِ اللَّهَ حَيْثُما كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الحَسَنَةَ تَمْحُها، وَخالِقِ النّاسَ بِخُلُقٍ حَسَنٍ.',
       source: 'عن أبو ذر جندب بن جنادة، وأبو عبد الرحمن معاذ بن جبل رضي الله عنهما — رواه الترمذي وقال: حديث حسن، وفي بعض النسخ: حسن صحيح',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3704,9 +2957,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 19: حفظ الله والاستعانة به والإيمان بالقدر',
-      titleEn: 'Hadith 19: Being Mindful of Allah, Seeking His Help, and Believing in Divine Decree',
-      titleId: 'Hadits ke-19: Menjaga Allah, Meminta Pertolongan-Nya, dan Beriman pada Takdir',
-      titleUr: 'حدیث 19: اللہ کی نگہداشت، اس سے مدد مانگنا اور تقدیر پر ایمان',
       text: 'كُنْتُ خَلْفَ رَسُولِ اللَّهِ ﷺ يَوْمًا، فَقالَ: يا غُلامُ! إنِّي أُعَلِّمُكَ كَلِماتٍ: احْفَظِ اللَّهَ يَحْفَظْكَ، احْفَظِ اللَّهَ تَجِدْهُ تُجاهَكَ، إذا سَأَلْتَ فاسْأَلِ اللَّهَ، وَإذا اسْتَعَنْتَ فاسْتَعِنْ بِاللَّهِ، وَاعْلَمْ أَنَّ الأُمَّةَ لَوِ اجْتَمَعَتْ عَلَى أَنْ يَنْفَعُوكَ بِشَيْءٍ لَمْ يَنْفَعُوكَ إلّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ لَكَ، وَإِنِ اجْتَمَعُوا عَلَى أَنْ يَضُرُّوكَ بِشَيْءٍ لَمْ يَضُرُّوكَ إلّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ عَلَيْكَ؛ رُفِعَتِ الأَقْلامُ، وَجَفَّتِ الصُّحُفُ.',
       source: 'عن عبد الله بن عباس رضي الله عنهما — رواه الترمذي وقال: حديث حسن صحيح',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3716,9 +2966,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 20: الحياء من خصال النبوة الأولى',
-      titleEn: 'Hadith 20: Modesty is One of the Earliest Characteristics of Prophethood',
-      titleId: 'Hadits ke-20: Rasa Malu Termasuk Sifat Kenabian yang Pertama',
-      titleUr: 'حدیث 20: حیا نبوت کی ابتدائی خصلتوں میں سے ہے',
       text: 'إنَّ مِمّا أَدْرَكَ النّاسُ مِنْ كَلامِ النُّبُوَّةِ الأُولَى: إذا لَمْ تَسْتَحِ فاصْنَعْ ما شِئْتَ.',
       source: 'عن أبو مسعود عقبة بن عمرو الأنصاري البدري رضي الله عنه — رواه البخاري',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3728,9 +2975,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 21: الإيمان بالله والاستقامة عليه',
-      titleEn: 'Hadith 21: Believing in Allah and Being Steadfast Upon It',
-      titleId: 'Hadits ke-21: Beriman kepada Allah dan Istiqamah di Atasnya',
-      titleUr: 'حدیث 21: اللہ پر ایمان اور اس پر ثابت قدم رہنا',
       text: 'قُلْتُ: يا رَسُولَ اللَّهِ! قُلْ لِي فِي الإِسْلامِ قَوْلًا لا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ. قالَ: قُلْ: آمَنْتُ بِاللَّهِ ثُمَّ اسْتَقِمْ.',
       source: 'عن أبو عمرو -وقيل أبو عمرة- سفيان بن عبد الله رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3740,9 +2984,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 22: الاقتصار على الفرائض موجب لدخول الجنة',
-      titleEn: 'Hadith 22: Adhering to the Obligations Leads to Paradise',
-      titleId: 'Hadits ke-22: Berpegang pada yang Wajib Mengantarkan ke Surga',
-      titleUr: 'حدیث 22: فرائض پر اکتفا کرنا جنت میں داخلے کا سبب',
       text: 'أن رجلاً سأل رسول الله صلى الله عليه وسلم فقال: أرأيت إذا صليت المكتوبات، وصمت رمضان، وأحللت الحلال، وحرمت الحرام، ولم أزد على ذلك شيئاً، أأدخل الجنة؟ قال: نعم.',
       source: 'عن جابر بن عبد الله الأنصاري رضي الله عنهما — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3752,9 +2993,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 23: فضل الطهارة والذكر ومنزلة القرآن والصبر',
-      titleEn: 'Hadith 23: The Virtue of Purification, Remembrance, the Status of the Quran, and Patience',
-      titleId: 'Hadits ke-23: Keutamaan Bersuci, Dzikir, Kedudukan Al-Qur\'an, dan Kesabaran',
-      titleUr: 'حدیث 23: طہارت، ذکر، قرآن کے مقام اور صبر کی فضیلت',
       text: 'الطُّهُورُ شَطْرُ الإيمانِ، وَالحَمْدُ لِلَّهِ تَمْلَأُ المِيزانَ، وَسُبْحانَ اللَّهِ وَالحَمْدُ لِلَّهِ تَمْلَآنِ -أَوْ تَمْلَأُ- ما بَيْنَ السَّماءِ وَالأَرْضِ، وَالصَّلاةُ نُورٌ، وَالصَّدَقَةُ بُرْهانٌ، وَالصَّبْرُ ضِياءٌ، وَالقُرْآنُ حُجَّةٌ لَكَ أَوْ عَلَيْكَ، كُلُّ النّاسِ يَغْدُو فَبائِعٌ نَفْسَهُ فَمُعْتِقُها أَوْ مُوبِقُها.',
       source: 'عن أبو مالك الحارث بن عاصم الأشعري رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3764,9 +3002,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 24: تحريم الظلم وسعة رحمة الله وغناه عن خلقه',
-      titleEn: 'Hadith 24: The Prohibition of Injustice and the Vastness of Allah\'s Mercy and Self-Sufficiency',
-      titleId: 'Hadits ke-24: Larangan Berbuat Zalim dan Luasnya Rahmat Serta Kekayaan Allah',
-      titleUr: 'حدیث 24: ظلم کی حرمت اور اللہ کی وسیع رحمت اور بے نیازی',
       text: 'عَنِ النَّبِيِّ صلى الله عليه وسلم فِيما يَرْوِيهِ عَنْ رَبِّهِ عَزَّ وَجَلَّ أَنَّهُ قالَ: يا عِبادِي إنِّي حَرَّمْتُ الظُّلْمَ عَلَى نَفْسِي وَجَعَلْتُهُ بَيْنَكُمْ مُحَرَّمًا فَلا تَظالَمُوا، يا عِبادِي كُلُّكُمْ ضالٌّ إلّا مَنْ هَدَيْتُهُ فاسْتَهْدُونِي أَهْدِكُمْ، يا عِبادِي كُلُّكُمْ جائِعٌ إلّا مَنْ أَطْعَمْتُهُ فاسْتَطْعِمُونِي أُطْعِمْكُمْ، يا عِبادِي كُلُّكُمْ عارٍ إلّا مَنْ كَسَوْتُهُ فاسْتَكْسُونِي أَكْسُكُمْ، يا عِبادِي إنَّكُمْ تُخْطِئُونَ بِاللَّيْلِ وَالنَّهارِ وَأَنا أَغْفِرُ الذُّنُوبَ جَمِيعًا فاسْتَغْفِرُونِي أَغْفِرْ لَكُمْ، يا عِبادِي إنَّكُمْ لَنْ تَبْلُغُوا ضُرِّي فَتَضُرُّونِي وَلَنْ تَبْلُغُوا نَفْعِي فَتَنْفَعُونِي، يا عِبادِي لَوْ أَنَّ أَوَّلَكُمْ وَآخِرَكُمْ وَإِنْسَكُمْ وَجِنَّكُمْ كانُوا عَلَى أَتْقَى قَلْبِ رَجُلٍ واحِدٍ مِنْكُمْ ما زادَ ذَلِكَ فِي مُلْكِي شَيْئًا، يا عِبادِي لَوْ أَنَّ أَوَّلَكُمْ وَآخِرَكُمْ وَإِنْسَكُمْ وَجِنَّكُمْ كانُوا عَلَى أَفْجَرِ قَلْبِ رَجُلٍ واحِدٍ مِنْكُمْ ما نَقَصَ ذَلِكَ مِنْ مُلْكِي شَيْئًا، يا عِبادِي لَوْ أَنَّ أَوَّلَكُمْ وَآخِرَكُمْ وَإِنْسَكُمْ وَجِنَّكُمْ قامُوا فِي صَعِيدٍ واحِدٍ فَسَأَلُونِي فَأَعْطَيْتُ كُلَّ واحِدٍ مَسْأَلَتَهُ ما نَقَصَ ذَلِكَ مِمّا عِنْدِي إلّا كَما يَنْقُصُ المِخْيَطُ إذا أُدْخِلَ البَحْرَ، يا عِبادِي إنَّما هِيَ أَعْمالُكُمْ أُحْصِيها لَكُمْ ثُمَّ أُوَفِّيكُمْ إيّاها، فَمَنْ وَجَدَ خَيْرًا فَلْيَحْمَدِ اللَّهَ، وَمَنْ وَجَدَ غَيْرَ ذَلِكَ فَلا يَلُومَنَّ إلّا نَفْسَهُ.',
       source: 'عن أبو ذر الغفاري رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3776,9 +3011,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 25: كل عمل خير صدقة ولو بغير مال',
-      titleEn: 'Hadith 25: Every Good Deed is Charity, Even Without Wealth',
-      titleId: 'Hadits ke-25: Setiap Perbuatan Baik Adalah Sedekah Walau Tanpa Harta',
-      titleUr: 'حدیث 25: ہر نیک عمل صدقہ ہے چاہے مال کے بغیر ہو',
       text: 'أَنَّ ناسًا مِنْ أَصْحابِ رَسُولِ اللَّهِ صلى الله عليه وسلم قالُوا لِلنَّبِيِّ صلى الله عليه وسلم: يا رَسُولَ اللَّهِ ذَهَبَ أَهْلُ الدُّثُورِ بِالأُجُورِ، يُصَلُّونَ كَما نُصَلِّي، وَيَصُومُونَ كَما نَصُومُ، وَيَتَصَدَّقُونَ بِفُضُولِ أَمْوالِهِمْ، قالَ: أَوَلَيْسَ قَدْ جَعَلَ اللَّهُ لَكُمْ ما تَصَّدَّقُونَ؟ إنَّ بِكُلِّ تَسْبِيحَةٍ صَدَقَةً، وَكُلِّ تَكْبِيرَةٍ صَدَقَةً، وَكُلِّ تَحْمِيدَةٍ صَدَقَةً، وَكُلِّ تَهْلِيلَةٍ صَدَقَةً، وَأَمْرٌ بِالمَعْرُوفِ صَدَقَةٌ، وَنَهْيٌ عَنْ مُنْكَرٍ صَدَقَةٌ، وَفِي بُضْعِ أَحَدِكُمْ صَدَقَةٌ، قالُوا: يا رَسُولَ اللَّهِ أَيَأْتِي أَحَدُنا شَهْوَتَهُ وَيَكُونُ لَهُ فِيها أَجْرٌ؟ قالَ: أَرَأَيْتُمْ لَوْ وَضَعَها فِي حَرامٍ أَكانَ عَلَيْهِ وِزْرٌ؟ فَكَذَلِكَ إذا وَضَعَها فِي الحَلالِ كانَ لَهُ أَجْرٌ.',
       source: 'عن أبو ذر رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3788,9 +3020,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 26: أبواب الصدقة كثيرة ميسرة كل يوم',
-      titleEn: 'Hadith 26: The Doors of Charity are Many and Made Easy Every Day',
-      titleId: 'Hadits ke-26: Pintu-Pintu Sedekah Banyak dan Dimudahkan Setiap Hari',
-      titleUr: 'حدیث 26: صدقے کے دروازے بہت ہیں اور روزانہ آسان کیے جاتے ہیں',
       text: 'كُلُّ سُلامَى مِنَ النّاسِ عَلَيْهِ صَدَقَةٌ، كُلَّ يَوْمٍ تَطْلُعُ فِيهِ الشَّمْسُ: تَعْدِلُ بَيْنَ اثْنَيْنِ صَدَقَةٌ، وَتُعِينُ الرَّجُلَ فِي دابَّتِهِ فَتَحْمِلُ لَهُ عَلَيْها أَوْ تَرْفَعُ لَهُ عَلَيْها مَتاعَهُ صَدَقَةٌ، وَالكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ، وَبِكُلِّ خُطْوَةٍ تَمْشِيها إلَى الصَّلاةِ صَدَقَةٌ، وَتُمِيطُ الأَذَى عَنِ الطَّرِيقِ صَدَقَةٌ.',
       source: 'عن أبو هريرة رضي الله عنه — رواه البخاري ومسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3800,9 +3029,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 27: معيار البر والإثم في اطمئنان القلب',
-      titleEn: 'Hadith 27: The Standard of Righteousness and Sin is the Tranquility of the Heart',
-      titleId: 'Hadits ke-27: Ukuran Kebaikan dan Dosa adalah Ketenangan Hati',
-      titleUr: 'حدیث 27: نیکی اور گناہ کا معیار دل کا اطمینان ہے',
       text: 'عَنِ النَّوّاسِ بْنِ سَمْعانَ رضي الله عنه عَنِ النَّبِيِّ صلى الله عليه وسلم قالَ: البِرُّ حُسْنُ الخُلُقِ، وَالإِثْمُ ما حاكَ فِي صَدْرِكَ وَكَرِهْتَ أَنْ يَطَّلِعَ عَلَيْهِ النّاسُ. وَعَنْ وابِصَةَ بْنِ مَعْبَدٍ رضي الله عنه قالَ: أَتَيْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم فَقالَ: جِئْتَ تَسْأَلُ عَنِ البِرِّ؟ قُلْتُ: نَعَمْ. فَقالَ: اسْتَفْتِ قَلْبَكَ؛ البِرُّ ما اطْمَأَنَّتْ إلَيْهِ النَّفْسُ وَاطْمَأَنَّ إلَيْهِ القَلْبُ، وَالإِثْمُ ما حاكَ فِي النَّفْسِ وَتَرَدَّدَ فِي الصَّدْرِ، وَإِنْ أَفْتاكَ النّاسُ وَأَفْتَوْكَ.',
       source: 'عن النواس بن سمعان رضي الله عنه، ووابصة بن معبد رضي الله عنه — الأول رواه مسلم، والثاني حديث حسن رويناه في مسندي الإمامين أحمد بن حنبل والدارمي بإسناد حسن',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3812,9 +3038,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 28: لزوم السنة والتحذير من البدع',
-      titleEn: 'Hadith 28: Adherence to the Sunnah and Warning Against Innovations',
-      titleId: 'Hadits ke-28: Berpegang pada Sunnah dan Waspada terhadap Bid\'ah',
-      titleUr: 'حدیث 28: سنت کی پابندی اور بدعتوں سے خبردار رہنا',
       text: 'وَعَظَنا رَسُولُ اللَّهِ صلى الله عليه وسلم مَوْعِظَةً وَجِلَتْ مِنْها القُلُوبُ وَذَرَفَتْ مِنْها العُيُونُ، فَقُلْنا: يا رَسُولَ اللَّهِ كَأَنَّها مَوْعِظَةُ مُوَدِّعٍ فَأَوْصِنا، قالَ: أُوصِيكُمْ بِتَقْوَى اللَّهِ عَزَّ وَجَلَّ وَالسَّمْعِ وَالطّاعَةِ وَإِنْ تَأَمَّرَ عَلَيْكُمْ عَبْدٌ، فَإِنَّهُ مَنْ يَعِشْ مِنْكُمْ فَسَيَرَى اخْتِلافًا كَثِيرًا، فَعَلَيْكُمْ بِسُنَّتِي وَسُنَّةِ الخُلَفاءِ الرّاشِدِينَ المَهْدِيِّينَ، عَضُّوا عَلَيْها بِالنَّواجِذِ، وَإِيّاكُمْ وَمُحْدَثاتِ الأُمُورِ فَإِنَّ كُلَّ مُحْدَثَةٍ بِدْعَةٌ، وَكُلَّ بِدْعَةٍ ضَلالَةٌ.',
       source: 'عن أبو نجيح العرباض بن سارية رضي الله عنه — رواه أبو داود والترمذي وقال: حديث حسن صحيح',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3824,9 +3047,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 29: أبواب الخير وأركان الدين وخطر اللسان',
-      titleEn: 'Hadith 29: The Gates of Good, the Pillars of the Religion, and the Danger of the Tongue',
-      titleId: 'Hadits ke-29: Pintu-Pintu Kebaikan, Pilar Agama, dan Bahaya Lisan',
-      titleUr: 'حدیث 29: بھلائی کے دروازے، دین کے ستون اور زبان کا خطرہ',
       text: 'قُلْتُ: يا رَسُولَ اللَّهِ أَخْبِرْنِي بِعَمَلٍ يُدْخِلُنِي الجَنَّةَ وَيُباعِدُنِي مِنَ النّارِ، قالَ: لَقَدْ سَأَلْتَ عَنْ عَظِيمٍ، وَإِنَّهُ لَيَسِيرٌ عَلَى مَنْ يَسَّرَهُ اللَّهُ تَعالَى عَلَيْهِ: تَعْبُدُ اللَّهَ لا تُشْرِكُ بِهِ شَيْئًا، وَتُقِيمُ الصَّلاةَ، وَتُؤْتِي الزَّكاةَ، وَتَصُومُ رَمَضانَ، وَتَحُجُّ البَيْتَ. ثُمَّ قالَ: أَلا أَدُلُّكَ عَلَى أَبْوابِ الخَيْرِ؟ الصَّوْمُ جُنَّةٌ، وَالصَّدَقَةُ تُطْفِئُ الخَطِيئَةَ كَما يُطْفِئُ الماءُ النّارَ، وَصَلاةُ الرَّجُلِ فِي جَوْفِ اللَّيْلِ. ثُمَّ قالَ: أَلا أُخْبِرُكَ بِرَأْسِ الأَمْرِ وَعَمُودِهِ وَذِرْوَةِ سَنامِهِ؟ قُلْتُ: بَلَى يا رَسُولَ اللَّهِ، قالَ: رَأْسُ الأَمْرِ الإِسْلامُ، وَعَمُودُهُ الصَّلاةُ، وَذِرْوَةُ سَنامِهِ الجِهادُ. ثُمَّ قالَ: أَلا أُخْبِرُكَ بِمِلاكِ ذَلِكَ كُلِّهِ؟ قُلْتُ: بَلَى يا رَسُولَ اللَّهِ، فَأَخَذَ بِلِسانِهِ وَقالَ: كُفَّ عَلَيْكَ هَذا. قُلْتُ: يا نَبِيَّ اللَّهِ وَإِنّا لَمُؤاخَذُونَ بِما نَتَكَلَّمُ بِهِ؟ فَقالَ: ثَكِلَتْكَ أُمُّكَ يا مُعاذُ، وَهَلْ يَكُبُّ النّاسَ فِي النّارِ عَلَى وُجُوهِهِمْ -أَوْ قالَ: عَلَى مَناخِرِهِمْ- إلّا حَصائِدُ أَلْسِنَتِهِمْ.',
       source: 'عن معاذ بن جبل رضي الله عنه — رواه الترمذي وقال: حديث حسن صحيح',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3836,9 +3056,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 30: الوقوف عند حدود الله دون تضييع أو تعدٍّ',
-      titleEn: 'Hadith 30: Standing at the Limits of Allah Without Neglect or Transgression',
-      titleId: 'Hadits ke-30: Berhenti pada Batasan Allah Tanpa Menyia-nyiakan atau Melampaui',
-      titleUr: 'حدیث 30: اللہ کی حدود پر رکنا، نہ کوتاہی نہ زیادتی',
       text: 'إنَّ اللَّهَ تَعالَى فَرَضَ فَرائِضَ فَلا تُضَيِّعُوها، وَحَدَّ حُدُودًا فَلا تَعْتَدُوها، وَحَرَّمَ أَشْياءَ فَلا تَنْتَهِكُوها، وَسَكَتَ عَنْ أَشْياءَ رَحْمَةً لَكُمْ غَيْرَ نِسْيانٍ فَلا تَبْحَثُوا عَنْها.',
       source: 'عن أبو ثعلبة الخشني جرثوم بن ناشر رضي الله عنه — حديث حسن رواه الدارقطني وغيره',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3848,9 +3065,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 31: الزهد سبب لمحبة الله ومحبة الناس',
-      titleEn: 'Hadith 31: Asceticism (Zuhd) is a Cause for Allah\'s Love and People\'s Love',
-      titleId: 'Hadits ke-31: Zuhud Sebab Dicintai Allah dan Manusia',
-      titleUr: 'حدیث 31: زہد اللہ اور لوگوں کی محبت کا سبب ہے',
       text: 'جاءَ رَجُلٌ إلَى النَّبِيِّ صلى الله عليه وسلم فَقالَ: يا رَسُولَ اللَّهِ دُلَّنِي عَلَى عَمَلٍ إذا عَمِلْتُهُ أَحَبَّنِي اللَّهُ وَأَحَبَّنِي النّاسُ، فَقالَ: ازْهَدْ فِي الدُّنْيا يُحِبَّكَ اللَّهُ، وَازْهَدْ فِيما عِنْدَ النّاسِ يُحِبَّكَ النّاسُ.',
       source: 'عن سهل بن سعد الساعدي رضي الله عنه — حديث حسن رواه ابن ماجه وغيره بأسانيد حسنة',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3860,9 +3074,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 32: تحريم إلحاق الضرر بالنفس أو بالغير',
-      titleEn: 'Hadith 32: The Prohibition of Harming Oneself or Others',
-      titleId: 'Hadits ke-32: Larangan Membahayakan Diri Sendiri atau Orang Lain',
-      titleUr: 'حدیث 32: اپنے آپ یا دوسروں کو نقصان پہنچانے کی حرمت',
       text: 'لا ضَرَرَ وَلا ضِرارَ.',
       source: 'عن أبو سعيد سعد بن مالك بن سنان الخدري رضي الله عنه — حديث حسن رواه ابن ماجه والدارقطني وغيرهما مسندًا',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3872,9 +3083,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 33: قاعدة البينة على المدعي واليمين على من أنكر',
-      titleEn: 'Hadith 33: The Principle That the Burden of Proof is on the Claimant, and the Oath is on the One Who Denies',
-      titleId: 'Hadits ke-33: Kaidah Bukti bagi Penuduh dan Sumpah bagi yang Mengingkari',
-      titleUr: 'حدیث 33: دعویدار پر ثبوت اور انکار کرنے والے پر قسم کا اصول',
       text: 'لَوْ يُعْطَى النّاسُ بِدَعْواهُمْ لادَّعَى رِجالٌ أَمْوالَ قَوْمٍ وَدِماءَهُمْ، وَلَكِنَّ البَيِّنَةَ عَلَى المُدَّعِي، وَالْيَمِينَ عَلَى مَنْ أَنْكَرَ.',
       source: 'عن ابن عباس رضي الله عنهما — حديث حسن رواه البيهقي وغيره هكذا، وبعضه في الصحيحين',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3884,9 +3092,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 34: مراتب إنكار المنكر',
-      titleEn: 'Hadith 34: The Levels of Rejecting Wrongdoing',
-      titleId: 'Hadits ke-34: Tingkatan Mengingkari Kemungkaran',
-      titleUr: 'حدیث 34: برائی کو روکنے کے درجات',
       text: 'مَنْ رَأَى مِنْكُمْ مُنْكَرًا فَلْيُغَيِّرْهُ بِيَدِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِلِسانِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِقَلْبِهِ، وَذَلِكَ أَضْعَفُ الإيمانِ.',
       source: 'عن أبو سعيد الخدري رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3896,9 +3101,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 35: حرمة أخوة المسلم على المسلم',
-      titleEn: 'Hadith 35: The Sanctity of Brotherhood Between Muslims',
-      titleId: 'Hadits ke-35: Kesucian Persaudaraan Sesama Muslim',
-      titleUr: 'حدیث 35: مسلمانوں کی باہمی اخوت کی حرمت',
       text: 'لا تَحاسَدُوا، وَلا تَناجَشُوا، وَلا تَباغَضُوا، وَلا تَدابَرُوا، وَلا يَبِعْ بَعْضُكُمْ عَلَى بَيْعِ بَعْضٍ، وَكُونُوا عِبادَ اللَّهِ إخْوانًا، المُسْلِمُ أَخُو المُسْلِمِ، لا يَظْلِمُهُ، وَلا يَخْذُلُهُ، وَلا يَكْذِبُهُ، وَلا يَحْقِرُهُ، التَّقْوَى هاهُنا -وَيُشِيرُ إلَى صَدْرِهِ ثَلاثَ مَرّاتٍ- بِحَسْبِ امْرِئٍ مِنَ الشَّرِّ أَنْ يَحْقِرَ أَخاهُ المُسْلِمَ، كُلُّ المُسْلِمِ عَلَى المُسْلِمِ حَرامٌ: دَمُهُ وَمالُهُ وَعِرْضُهُ.',
       source: 'عن أبو هريرة رضي الله عنه — رواه مسلم',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3908,9 +3110,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 36: فضل تفريج الكرب وطلب العلم وذكر الله',
-      titleEn: 'Hadith 36: The Virtue of Relieving Distress, Seeking Knowledge, and Remembering Allah',
-      titleId: 'Hadits ke-36: Keutamaan Melapangkan Kesulitan, Menuntut Ilmu, dan Berdzikir',
-      titleUr: 'حدیث 36: پریشانی دور کرنے، علم حاصل کرنے اور اللہ کے ذکر کی فضیلت',
       text: 'مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيا نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ القِيامَةِ، وَمَنْ يَسَّرَ عَلَى مُعْسِرٍ يَسَّرَ اللَّهُ عَلَيْهِ فِي الدُّنْيا وَالآخِرَةِ، وَمَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ فِي الدُّنْيا وَالآخِرَةِ، وَاللَّهُ فِي عَوْنِ العَبْدِ ما كانَ العَبْدُ فِي عَوْنِ أَخِيهِ، وَمَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إلَى الجَنَّةِ، وَما اجْتَمَعَ قَوْمٌ فِي بَيْتٍ مِنْ بُيُوتِ اللَّهِ يَتْلُونَ كِتابَ اللَّهِ وَيَتَدارَسُونَهُ بَيْنَهُمْ إلّا نَزَلَتْ عَلَيْهِمُ السَّكِينَةُ وَغَشِيَتْهُمُ الرَّحْمَةُ وَحَفَّتْهُمُ المَلائِكَةُ وَذَكَرَهُمُ اللَّهُ فِيمَنْ عِنْدَهُ، وَمَنْ بَطَّأَ بِهِ عَمَلُهُ لَمْ يُسْرِعْ بِهِ نَسَبُهُ.',
       source: 'عن أبو هريرة رضي الله عنه — رواه مسلم بهذا اللفظ',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3920,9 +3119,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 37: تفضل الله بمضاعفة الحسنات والعفو عن الهم بالسيئة',
-      titleEn: 'Hadith 37: Allah\'s Grace in Multiplying Good Deeds and Overlooking Ill Intentions',
-      titleId: 'Hadits ke-37: Karunia Allah Melipatgandakan Kebaikan dan Memaafkan Niat Buruk',
-      titleUr: 'حدیث 37: اللہ کا نیکیوں کو کئی گنا بڑھانا اور برے ارادے سے درگزر کرنا',
       text: 'عَنِ النَّبِيِّ صلى الله عليه وسلم فِيما يَرْوِيهِ عَنْ رَبِّهِ، قالَ: إنَّ اللَّهَ كَتَبَ الحَسَناتِ وَالسَّيِّئاتِ ثُمَّ بَيَّنَ ذَلِكَ، فَمَنْ هَمَّ بِحَسَنَةٍ فَلَمْ يَعْمَلْها كَتَبَها اللَّهُ عِنْدَهُ حَسَنَةً كامِلَةً، وَإِنْ هَمَّ بِها فَعَمِلَها كَتَبَها اللَّهُ عِنْدَهُ عَشْرَ حَسَناتٍ إلَى سَبْعِمِائَةِ ضِعْفٍ إلَى أَضْعافٍ كَثِيرَةٍ، وَإِنْ هَمَّ بِسَيِّئَةٍ فَلَمْ يَعْمَلْها كَتَبَها اللَّهُ عِنْدَهُ حَسَنَةً كامِلَةً، وَإِنْ هَمَّ بِها فَعَمِلَها كَتَبَها اللَّهُ سَيِّئَةً واحِدَةً.',
       source: 'عن ابن عباس رضي الله عنهما — رواه البخاري ومسلم في صحيحيهما بهذه الحروف',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3932,9 +3128,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 38: منزلة أولياء الله وفضل النوافل بعد الفرائض',
-      titleEn: 'Hadith 38: The Status of Allah\'s Close Friends and the Virtue of Voluntary Deeds After the Obligatory',
-      titleId: 'Hadits ke-38: Kedudukan Wali Allah dan Keutamaan Amalan Sunnah Setelah yang Wajib',
-      titleUr: 'حدیث 38: اللہ کے اولیاء کا مقام اور فرائض کے بعد نوافل کی فضیلت',
       text: 'إنَّ اللَّهَ تَعالَى قالَ: مَنْ عادَى لِي وَلِيًّا فَقَدْ آذَنْتُهُ بِالحَرْبِ، وَما تَقَرَّبَ إلَيَّ عَبْدِي بِشَيْءٍ أَحَبَّ إلَيَّ مِمّا افْتَرَضْتُهُ عَلَيْهِ، وَلا يَزالُ عَبْدِي يَتَقَرَّبُ إلَيَّ بِالنَّوافِلِ حَتَّى أُحِبَّهُ، فَإِذا أَحْبَبْتُهُ كُنْتُ سَمْعَهُ الَّذِي يَسْمَعُ بِهِ، وَبَصَرَهُ الَّذِي يُبْصِرُ بِهِ، وَيَدَهُ الَّتِي يَبْطِشُ بِها، وَرِجْلَهُ الَّتِي يَمْشِي بِها، وَلَئِنْ سَأَلَنِي لَأُعْطِيَنَّهُ، وَلَئِنِ اسْتَعاذَنِي لَأُعِيذَنَّهُ.',
       source: 'عن أبو هريرة رضي الله عنه — رواه البخاري',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3944,9 +3137,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 39: رفع المؤاخذة عن الخطأ والنسيان والإكراه',
-      titleEn: 'Hadith 39: The Lifting of Blame for Mistake, Forgetfulness, and Compulsion',
-      titleId: 'Hadits ke-39: Terangkatnya Dosa karena Salah, Lupa, dan Terpaksa',
-      titleUr: 'حدیث 39: غلطی، بھول اور جبر پر مؤاخذہ اٹھا لینا',
       text: 'إنَّ اللَّهَ تَجاوَزَ لِي عَنْ أُمَّتِي الخَطَأَ وَالنِّسْيانَ وَما اسْتُكْرِهُوا عَلَيْهِ.',
       source: 'عن ابن عباس رضي الله عنهما — حديث حسن رواه ابن ماجه والبيهقي وغيرهما',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3956,9 +3146,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 40: الزهد في الدنيا واغتنام الوقت والصحة',
-      titleEn: 'Hadith 40: Asceticism in This World and Making the Most of Time and Health',
-      titleId: 'Hadits ke-40: Zuhud terhadap Dunia serta Memanfaatkan Waktu dan Kesehatan',
-      titleUr: 'حدیث 40: دنیا سے بے رغبتی اور وقت اور صحت کی قدر',
       text: 'أَخَذَ رَسُولُ اللَّهِ صلى الله عليه وسلم بِمَنْكِبِي فَقالَ: كُنْ فِي الدُّنْيا كَأَنَّكَ غَرِيبٌ أَوْ عابِرُ سَبِيلٍ. وَكانَ ابْنُ عُمَرَ رضي الله عنهما يَقُولُ: إذا أَمْسَيْتَ فَلا تَنْتَظِرِ الصَّباحَ، وَإذا أَصْبَحْتَ فَلا تَنْتَظِرِ المَساءَ، وَخُذْ مِنْ صِحَّتِكَ لِمَرَضِكَ، وَمِنْ حَياتِكَ لِمَوْتِكَ.',
       source: 'عن ابن عمر رضي الله عنهما — رواه البخاري',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3968,9 +3155,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 41: وجوب تقديم الشرع على الهوى',
-      titleEn: 'Hadith 41: The Obligation of Placing the Sharia Above One\'s Desires',
-      titleId: 'Hadits ke-41: Wajibnya Mendahulukan Syariat di Atas Hawa Nafsu',
-      titleUr: 'حدیث 41: خواہش پر شریعت کو مقدم رکھنا واجب ہے',
       text: 'لا يُؤْمِنُ أَحَدُكُمْ حَتَّى يَكُونَ هَواهُ تَبَعًا لِما جِئْتُ بِهِ.',
       source: 'عن عبد الله بن عمرو بن العاص رضي الله عنهما — حديث حسن صحيح، رويناه في كتاب الحجة بإسناد صحيح',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3980,9 +3164,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الحديث 42: سعة مغفرة الله لمن دعاه ولم يشرك به',
-      titleEn: 'Hadith 42: The Vastness of Allah\'s Forgiveness for Those Who Call Upon Him Without Associating Partners with Him',
-      titleId: 'Hadits ke-42: Luasnya Ampunan Allah bagi yang Berdoa Tanpa Menyekutukan-Nya',
-      titleUr: 'حدیث 42: اللہ کی وسیع مغفرت ان کے لیے جو اسے پکاریں اور شرک نہ کریں',
       text: 'سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ: قالَ اللَّهُ تَعالَى: يا ابْنَ آدَمَ إنَّكَ ما دَعَوْتَنِي وَرَجَوْتَنِي غَفَرْتُ لَكَ عَلَى ما كانَ مِنْكَ وَلا أُبالِي، يا ابْنَ آدَمَ لَوْ بَلَغَتْ ذُنُوبُكَ عَنانَ السَّماءِ ثُمَّ اسْتَغْفَرْتَنِي غَفَرْتُ لَكَ، يا ابْنَ آدَمَ إنَّكَ لَوْ أَتَيْتَنِي بِقُرابِ الأَرْضِ خَطايا ثُمَّ لَقِيتَنِي لا تُشْرِكُ بِي شَيْئًا لَأَتَيْتُكَ بِقُرابِها مَغْفِرَةً.',
       source: 'عن أنس بن مالك رضي الله عنه — رواه الترمذي وقال: حديث حسن صحيح',
       bookSource: 'الأربعون النووية للإمام النووي',
@@ -3999,9 +3180,6 @@ class AthkarData {
   static final List<DhikrModel> _dailySunnahAthkar = [
     const DhikrModel(
       title: 'السواك',
-      titleEn: 'Using the Siwak (Tooth-stick)',
-      titleId: 'Bersiwak',
-      titleUr: 'مسواک کرنا',
       text: 'لَوْلَا أَنْ أَشُقَّ عَلَى أُمَّتِي لَأَمَرْتُهُمْ بِالسِّوَاكِ عِنْدَ كُلِّ صَلَاةٍ',
       source: 'متفق عليه، عن أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4011,9 +3189,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'صلاة الوتر',
-      titleEn: 'The Witr Prayer',
-      titleId: 'Shalat Witir',
-      titleUr: 'نماز وتر',
       text: 'إنَّ اللَّهَ وِتْرٌ يُحِبُّ الْوِتْرَ، فَأَوْتِرُوا يَا أَهْلَ الْقُرْآنِ',
       source: 'رواه أبو داود والترمذي والنسائي عن علي رضي الله عنه، وصححه الألباني',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4023,9 +3198,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'السنن الرواتب اثنتا عشرة ركعة',
-      titleEn: 'The Twelve Rak\'ahs of the Sunnah Prayers',
-      titleId: 'Dua Belas Rakaat Shalat Sunnah Rawatib',
-      titleUr: 'بارہ رکعت سنن رواتب',
       text: 'مَنْ ثَابَرَ عَلَى ثِنْتَيْ عَشْرَةَ رَكْعَةً مِنَ السُّنَّةِ بَنَى اللَّهُ لَهُ بَيْتًا فِي الْجَنَّةِ: أَرْبَعٍ قَبْلَ الظُّهْرِ، وَرَكْعَتَيْنِ بَعْدَهَا، وَرَكْعَتَيْنِ بَعْدَ الْمَغْرِبِ، وَرَكْعَتَيْنِ بَعْدَ الْعِشَاءِ، وَرَكْعَتَيْنِ قَبْلَ صَلَاةِ الْفَجْرِ',
       source: 'رواه الترمذي والنسائي عن أم حبيبة رضي الله عنها، وصححه الألباني',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4035,9 +3207,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'صلاة الضحى',
-      titleEn: 'The Duha Prayer',
-      titleId: 'Shalat Dhuha',
-      titleUr: 'نماز چاشت (ضحیٰ)',
       text: 'يُصْبِحُ عَلَى كُلِّ سُلَامَى مِنْ أَحَدِكُمْ صَدَقَةٌ، فَكُلُّ تَسْبِيحَةٍ صَدَقَةٌ، وَكُلُّ تَحْمِيدَةٍ صَدَقَةٌ... وَيُجْزِئُ مِنْ ذَلِكَ رَكْعَتَانِ يَرْكَعُهُمَا مِنَ الضُّحَى',
       source: 'رواه مسلم عن أبي ذر رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4047,9 +3216,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'صيام الاثنين والخميس',
-      titleEn: 'Fasting on Mondays and Thursdays',
-      titleId: 'Puasa Senin dan Kamis',
-      titleUr: 'پیر اور جمعرات کے روزے',
       text: 'تُعْرَضُ الْأَعْمَالُ يَوْمَ الِاثْنَيْنِ وَالْخَمِيسِ، فَأُحِبُّ أَنْ يُعْرَضَ عَمَلِي وَأَنَا صَائِمٌ',
       source: 'رواه الترمذي عن أبي هريرة رضي الله عنه، وحسّنه الألباني',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4059,9 +3225,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'صيام الأيام البيض',
-      titleEn: 'Fasting the White Days (Ayyam al-Bid)',
-      titleId: 'Puasa Ayyamul Bidh (Hari-Hari Putih)',
-      titleUr: 'ایام بیض کے روزے',
       text: 'يَا أَبَا ذَرٍّ، إِذَا صُمْتَ مِنَ الشَّهْرِ ثَلَاثَةَ أَيَّامٍ فَصُمْ ثَلَاثَ عَشْرَةَ، وَأَرْبَعَ عَشْرَةَ، وَخَمْسَ عَشْرَةَ',
       source: 'رواه الترمذي والنسائي عن أبي ذر رضي الله عنه، وصححه الألباني',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4071,9 +3234,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الأكل والشرب باليمين',
-      titleEn: 'Eating and Drinking with the Right Hand',
-      titleId: 'Makan dan Minum dengan Tangan Kanan',
-      titleUr: 'دائیں ہاتھ سے کھانا اور پینا',
       text: 'إِذَا أَكَلَ أَحَدُكُمْ فَلْيَأْكُلْ بِيَمِينِهِ، وَإِذَا شَرِبَ فَلْيَشْرَبْ بِيَمِينِهِ؛ فَإِنَّ الشَّيْطَانَ يَأْكُلُ بِشِمَالِهِ وَيَشْرَبُ بِشِمَالِهِ',
       source: 'رواه مسلم عن ابن عمر رضي الله عنهما',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4083,9 +3243,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'خصال الفطرة الخمس',
-      titleEn: 'The Five Practices of the Natural Disposition (Fitrah)',
-      titleId: 'Lima Perkara Fitrah',
-      titleUr: 'فطرت کی پانچ خصلتیں',
       text: 'الْفِطْرَةُ خَمْسٌ -أَوْ خَمْسٌ مِنَ الْفِطْرَةِ-: الْخِتَانُ، وَالِاسْتِحْدَادُ، وَقَصُّ الشَّارِبِ، وَتَقْلِيمُ الْأَظْفَارِ، وَنَتْفُ الْإِبْطِ',
       source: 'متفق عليه، عن أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4095,9 +3252,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'النوم على طهارة وعلى الشق الأيمن',
-      titleEn: 'Sleeping in a State of Purity and on the Right Side',
-      titleId: 'Tidur dalam Keadaan Suci dan Menghadap ke Kanan',
-      titleUr: 'باوضو اور دائیں کروٹ پر سونا',
       text: 'إِذَا أَتَيْتَ مَضْجَعَكَ فَتَوَضَّأْ وُضُوءَكَ لِلصَّلَاةِ، ثُمَّ اضْطَجِعْ عَلَى شِقِّكَ الْأَيْمَنِ',
       source: 'متفق عليه، عن البراء بن عازب رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4107,9 +3261,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'إفشاء السلام',
-      titleEn: 'Spreading the Greeting of Peace',
-      titleId: 'Menyebarkan Salam',
-      titleUr: 'سلام کو عام کرنا',
       text: 'لَا تَدْخُلُونَ الْجَنَّةَ حَتَّى تُؤْمِنُوا، وَلَا تُؤْمِنُوا حَتَّى تَحَابُّوا، أَوَلَا أَدُلُّكُمْ عَلَى شَيْءٍ إِذَا فَعَلْتُمُوهُ تَحَابَبْتُمْ؟ أَفْشُوا السَّلَامَ بَيْنَكُمْ',
       source: 'رواه مسلم عن أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4126,9 +3277,6 @@ class AthkarData {
   static final List<DhikrModel> _fridaySunnahAthkar = [
     const DhikrModel(
       title: 'الغسل يوم الجمعة',
-      titleEn: 'Bathing on Friday',
-      titleId: 'Mandi pada Hari Jumat',
-      titleUr: 'جمعہ کے دن غسل کرنا',
       text: 'مَنِ اغْتَسَلَ يَوْمَ الْجُمُعَةِ غُسْلَ الْجَنَابَةِ ثُمَّ رَاحَ فَكَأَنَّمَا قَرَّبَ بَدَنَةً، وَمَنْ رَاحَ فِي السَّاعَةِ الثَّانِيَةِ فَكَأَنَّمَا قَرَّبَ بَقَرَةً، وَمَنْ رَاحَ فِي السَّاعَةِ الثَّالِثَةِ فَكَأَنَّمَا قَرَّبَ كَبْشًا أَقْرَنَ',
       source: 'متفق عليه، عن أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4138,9 +3286,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التطيب ولبس أحسن الثياب',
-      titleEn: 'Applying Perfume and Wearing One\'s Best Clothes',
-      titleId: 'Memakai Wewangian dan Pakaian Terbaik',
-      titleUr: 'خوشبو لگانا اور بہترین لباس پہننا',
       text: 'مَنِ اغْتَسَلَ يَوْمَ الْجُمُعَةِ، وَمَسَّ مِنْ طِيبٍ إِنْ كَانَ عِنْدَهُ، وَلَبِسَ مِنْ أَحْسَنِ ثِيَابِهِ... ثُمَّ لَمْ يَتَخَطَّ رِقَابَ النَّاسِ، ثُمَّ صَلَّى مَا كُتِبَ لَهُ، ثُمَّ أَنْصَتَ إِذَا خَرَجَ إِمَامُهُ حَتَّى يَفْرُغَ مِنْ صَلَاتِهِ، كَانَتْ كَفَّارَةً لِمَا بَيْنَهَا وَبَيْنَ جُمُعَتِهِ الَّتِي قَبْلَهَا',
       source: 'رواه أحمد وابن ماجه عن أبي أيوب الأنصاري رضي الله عنه، وحسّنه الألباني',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4150,9 +3295,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'التبكير إلى المسجد',
-      titleEn: 'Going Early to the Mosque',
-      titleId: 'Bersegera ke Masjid',
-      titleUr: 'مسجد جلدی جانا',
       text: 'لَوْ يَعْلَمُ النَّاسُ مَا فِي النِّدَاءِ وَالصَّفِّ الْأَوَّلِ، ثُمَّ لَمْ يَجِدُوا إِلَّا أَنْ يَسْتَهِمُوا عَلَيْهِ لَاسْتَهَمُوا',
       source: 'متفق عليه، عن أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4162,9 +3304,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'قراءة سورة الكهف',
-      titleEn: 'Reciting Surah Al-Kahf',
-      titleId: 'Membaca Surah Al-Kahf',
-      titleUr: 'سورۃ الکہف کی تلاوت',
       text: 'مَنْ قَرَأَ سُورَةَ الْكَهْفِ يَوْمَ الْجُمُعَةِ أَضَاءَ لَهُ مِنَ النُّورِ مَا بَيْنَ الْجُمُعَتَيْنِ',
       source: 'رواه الحاكم والبيهقي عن أبي سعيد الخدري رضي الله عنه، وصححه الألباني في صحيح الترغيب',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4174,9 +3313,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الإكثار من الصلاة على النبي ﷺ',
-      titleEn: 'Sending Abundant Prayers Upon the Prophet ﷺ',
-      titleId: 'Memperbanyak Shalawat kepada Nabi ﷺ',
-      titleUr: 'نبی ﷺ پر کثرت سے درود بھیجنا',
       text: 'أَكْثِرُوا الصَّلَاةَ عَلَيَّ فِي يَوْمِ الْجُمُعَةِ وَلَيْلَةِ الْجُمُعَةِ، فَمَنْ صَلَّى عَلَيَّ صَلَاةً صَلَّى اللَّهُ عَلَيْهِ بِهَا عَشْرًا',
       source: 'رواه البيهقي عن أنس رضي الله عنه، وحسّنه الألباني',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4186,9 +3322,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'تحري ساعة الإجابة',
-      titleEn: 'Seeking the Hour of Answered Prayer',
-      titleId: 'Mencari Waktu Mustajab Berdoa',
-      titleUr: 'قبولیت کی گھڑی تلاش کرنا',
       text: 'فِي الْجُمُعَةِ سَاعَةٌ لَا يُوَافِقُهَا عَبْدٌ مُسْلِمٌ وَهُوَ قَائِمٌ يُصَلِّي، يَسْأَلُ اللَّهَ تَعَالَى شَيْئًا إِلَّا أَعْطَاهُ إِيَّاهُ، وَأَشَارَ بِيَدِهِ يُقَلِّلُهَا',
       source: 'متفق عليه، عن أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4198,9 +3331,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'الإنصات للخطبة',
-      titleEn: 'Listening Attentively to the Sermon (Khutbah)',
-      titleId: 'Mendengarkan Khutbah dengan Seksama',
-      titleUr: 'خطبہ توجہ سے سننا',
       text: 'إِذَا قُلْتَ لِصَاحِبِكَ يَوْمَ الْجُمُعَةِ: أَنْصِتْ، وَالْإِمَامُ يَخْطُبُ، فَقَدْ لَغَوْتَ',
       source: 'متفق عليه، عن أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4210,9 +3340,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'عدم تخطي رقاب الناس',
-      titleEn: 'Not Stepping Over the Necks of People',
-      titleId: 'Tidak Melangkahi Pundak Orang Lain (Saat Shalat Jumat)',
-      titleUr: 'لوگوں کی گردنیں پھلانگنے سے اجتناب',
       text: 'اجْلِسْ فَقَدْ آذَيْتَ',
       source: 'قالها النبي ﷺ لرجل يتخطى رقاب الناس يوم الجمعة، رواه أبو داود عن عبد الله بن بسر رضي الله عنه بسند حسن',
       bookSource: 'حصن المسلم / رياض الصالحين',
@@ -4230,9 +3357,6 @@ class AthkarData {
   static final List<DhikrModel> _prophetsDuaAthkar = [
     const DhikrModel(
       title: 'دعاء آدم عليه السلام',
-      titleEn: 'The Dua of Adam (peace be upon him)',
-      titleId: 'Doa Nabi Adam \'alaihissalam',
-      titleUr: 'آدم علیہ السلام کی دعا',
       text: 'رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ (23)',
       source: 'سورة الأعراف: الآية (23)',
       bookSource: 'القرآن الكريم',
@@ -4242,9 +3366,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء نوح عليه السلام',
-      titleEn: 'The Dua of Nuh (peace be upon him)',
-      titleId: 'Doa Nabi Nuh \'alaihissalam',
-      titleUr: 'نوح علیہ السلام کی دعا',
       text: 'رَبِّ إِنِّي أَعُوذُ بِكَ أَنْ أَسْأَلَكَ مَا لَيْسَ لِي بِهِ عِلْمٌ وَإِلَّا تَغْفِرْ لِي وَتَرْحَمْنِي أَكُنْ مِنَ الْخَاسِرِينَ (47)',
       source: 'سورة هود: الآية (47)',
       bookSource: 'القرآن الكريم',
@@ -4254,9 +3375,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء نوح عليه السلام لوالديه والمؤمنين',
-      titleEn: 'The Dua of Nuh (peace be upon him) for His Parents and the Believers',
-      titleId: 'Doa Nabi Nuh \'alaihissalam untuk Kedua Orang Tuanya dan Orang-Orang Beriman',
-      titleUr: 'نوح علیہ السلام کی اپنے والدین اور مومنین کے لیے دعا',
       text: 'رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَنْ دَخَلَ بَيْتِيَ مُؤْمِنًا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَلَا تَزِدِ الظَّالِمِينَ إِلَّا تَبَارًا (28)',
       source: 'سورة نوح: الآية (28)',
       bookSource: 'القرآن الكريم',
@@ -4266,9 +3384,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء إبراهيم عليه السلام بالذرية الصالحة',
-      titleEn: 'The Dua of Ibrahim (peace be upon him) for Righteous Offspring',
-      titleId: 'Doa Nabi Ibrahim \'alaihissalam untuk Keturunan yang Saleh',
-      titleUr: 'ابراہیم علیہ السلام کی نیک اولاد کے لیے دعا',
       text: 'رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ (100)',
       source: 'سورة الصافات: الآية (100)',
       bookSource: 'القرآن الكريم',
@@ -4278,9 +3393,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء إبراهيم عليه السلام لذريته وللمؤمنين',
-      titleEn: 'The Dua of Ibrahim (peace be upon him) for His Offspring and the Believers',
-      titleId: 'Doa Nabi Ibrahim \'alaihissalam untuk Keturunannya dan Orang-Orang Beriman',
-      titleUr: 'ابراہیم علیہ السلام کی اپنی اولاد اور مومنین کے لیے دعا',
       text: 'رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ (40) رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ (41)',
       source: 'سورة إبراهيم: الآيتان (40-41)',
       bookSource: 'القرآن الكريم',
@@ -4290,9 +3402,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء إبراهيم عليه السلام لأمن مكة',
-      titleEn: 'The Dua of Ibrahim (peace be upon him) for the Safety of Makkah',
-      titleId: 'Doa Nabi Ibrahim \'alaihissalam untuk Keamanan Makkah',
-      titleUr: 'ابراہیم علیہ السلام کی مکہ کی امن کے لیے دعا',
       text: 'رَبِّ اجْعَلْ هَذَا الْبَلَدَ آمِنًا وَاجْنُبْنِي وَبَنِيَّ أَنْ نَعْبُدَ الْأَصْنَامَ (35)',
       source: 'سورة إبراهيم: الآية (35)',
       bookSource: 'القرآن الكريم',
@@ -4302,9 +3411,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء موسى عليه السلام بشرح الصدر',
-      titleEn: 'The Dua of Musa (peace be upon him) for Ease of the Heart',
-      titleId: 'Doa Nabi Musa \'alaihissalam Memohon Kelapangan Dada',
-      titleUr: 'موسیٰ علیہ السلام کی سینے کی کشادگی کی دعا',
       text: 'رَبِّ اشْرَحْ لِي صَدْرِي (25) وَيَسِّرْ لِي أَمْرِي (26) وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي (27) يَفْقَهُوا قَوْلِي (28)',
       source: 'سورة طه: الآيات (25-28)',
       bookSource: 'القرآن الكريم',
@@ -4314,9 +3420,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء موسى عليه السلام بالمغفرة',
-      titleEn: 'The Dua of Musa (peace be upon him) for Forgiveness',
-      titleId: 'Doa Nabi Musa \'alaihissalam Memohon Ampunan',
-      titleUr: 'موسیٰ علیہ السلام کی مغفرت کی دعا',
       text: 'رَبِّ إِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي',
       source: 'سورة القصص: الآية (16)',
       bookSource: 'القرآن الكريم',
@@ -4326,9 +3429,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء موسى عليه السلام عند الحاجة',
-      titleEn: 'The Dua of Musa (peace be upon him) in Time of Need',
-      titleId: 'Doa Nabi Musa \'alaihissalam Ketika Membutuhkan',
-      titleUr: 'موسیٰ علیہ السلام کی ضرورت کے وقت دعا',
       text: 'رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ',
       source: 'سورة القصص: الآية (24)',
       bookSource: 'القرآن الكريم',
@@ -4338,9 +3438,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء يونس عليه السلام (ذو النون)',
-      titleEn: 'The Dua of Yunus (peace be upon him), Dhun-Nun',
-      titleId: 'Doa Nabi Yunus \'alaihissalam (Dzun Nun)',
-      titleUr: 'یونس علیہ السلام کی دعا (ذوالنون)',
       text: 'لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ (87)',
       source: 'سورة الأنبياء: الآية (87)',
       bookSource: 'القرآن الكريم',
@@ -4350,9 +3447,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء أيوب عليه السلام',
-      titleEn: 'The Dua of Ayyub (peace be upon him)',
-      titleId: 'Doa Nabi Ayyub \'alaihissalam',
-      titleUr: 'ایوب علیہ السلام کی دعا',
       text: 'أَنِّي مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ (83)',
       source: 'سورة الأنبياء: الآية (83)',
       bookSource: 'القرآن الكريم',
@@ -4362,9 +3456,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء زكريا عليه السلام بالذرية',
-      titleEn: 'The Dua of Zakariyya (peace be upon him) for Offspring',
-      titleId: 'Doa Nabi Zakariya \'alaihissalam Memohon Keturunan',
-      titleUr: 'زکریا علیہ السلام کی اولاد کے لیے دعا',
       text: 'رَبِّ هَبْ لِي مِنْ لَدُنْكَ ذُرِّيَّةً طَيِّبَةً إِنَّكَ سَمِيعُ الدُّعَاءِ (38)',
       source: 'سورة آل عمران: الآية (38)',
       bookSource: 'القرآن الكريم',
@@ -4374,9 +3465,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء زكريا عليه السلام عند الكبر',
-      titleEn: 'The Dua of Zakariyya (peace be upon him) in Old Age',
-      titleId: 'Doa Nabi Zakariya \'alaihissalam di Usia Tua',
-      titleUr: 'زکریا علیہ السلام کی بڑھاپے میں دعا',
       text: 'رَبِّ لَا تَذَرْنِي فَرْدًا وَأَنْتَ خَيْرُ الْوَارِثِينَ (89)',
       source: 'سورة الأنبياء: الآية (89)',
       bookSource: 'القرآن الكريم',
@@ -4386,9 +3474,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء سليمان عليه السلام بالشكر',
-      titleEn: 'The Dua of Sulayman (peace be upon him) for Gratitude',
-      titleId: 'Doa Nabi Sulaiman \'alaihissalam Memohon Rasa Syukur',
-      titleUr: 'سلیمان علیہ السلام کی شکر کی دعا',
       text: 'رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ (19)',
       source: 'سورة النمل: الآية (19)',
       bookSource: 'القرآن الكريم',
@@ -4398,9 +3483,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء يوسف عليه السلام',
-      titleEn: 'The Dua of Yusuf (peace be upon him)',
-      titleId: 'Doa Nabi Yusuf \'alaihissalam',
-      titleUr: 'یوسف علیہ السلام کی دعا',
       text: 'رَبِّ قَدْ آتَيْتَنِي مِنَ الْمُلْكِ وَعَلَّمْتَنِي مِنْ تَأْوِيلِ الْأَحَادِيثِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ أَنْتَ وَلِيِّي فِي الدُّنْيَا وَالْآخِرَةِ تَوَفَّنِي مُسْلِمًا وَأَلْحِقْنِي بِالصَّالِحِينَ (101)',
       source: 'سورة يوسف: الآية (101)',
       bookSource: 'القرآن الكريم',
@@ -4410,9 +3492,6 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'دعاء النبي محمد ﷺ بزيادة العلم',
-      titleEn: 'The Dua of the Prophet Muhammad ﷺ for Increase in Knowledge',
-      titleId: 'Doa Nabi Muhammad ﷺ Memohon Tambahan Ilmu',
-      titleUr: 'نبی محمد ﷺ کی علم میں اضافے کی دعا',
       text: 'رَبِّ زِدْنِي عِلْمًا (114)',
       source: 'سورة طه: الآية (114)',
       bookSource: 'القرآن الكريم',
