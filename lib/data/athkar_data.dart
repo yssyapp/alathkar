@@ -2616,34 +2616,66 @@ class AthkarData {
     const DhikrModel(
       title: 'دعاء الكرب الأول',
       text: 'لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ',
-      source: 'رواه البخاري ومسلم',
+      source: 'رواه البخاري (6346) ومسلم (2730) من حديث ابن عباس رضي الله عنهما',
       bookSource: 'حصن المسلم',
       count: 1,
       category: DhikrCategory.misc,
+      textEn:
+          '"There is no god but Allah, the Mighty, the Forbearing. There is no god but Allah, Lord of the Mighty Throne. There is no god but Allah, Lord of the heavens, Lord of the earth, and Lord of the Noble Throne."',
+      sourceEn: 'Al-Bukhari 6346, Muslim 2730',
+      textId:
+          '"Tidak ada Tuhan yang berhak disembah selain Allah Yang Maha Agung lagi Maha Penyantun. Tidak ada Tuhan yang berhak disembah selain Allah, Tuhan pemilik Arsy yang agung. Tidak ada Tuhan yang berhak disembah selain Allah, Tuhan langit, Tuhan bumi, dan Tuhan Arsy yang mulia."',
+      sourceId: 'Shahih Al-Bukhari 6346, Shahih Muslim 2730',
+      textUr:
+          'اللہ کے سوا کوئی معبود برحق نہیں، وہ عظیم اور بردبار ہے، اللہ کے سوا کوئی معبود برحق نہیں، وہ عرش عظیم کا رب ہے، اللہ کے سوا کوئی معبود برحق نہیں، وہ آسمانوں کا رب، زمین کا رب اور عرش کریم کا رب ہے',
+      sourceUr: 'صحیح بخاری 6346، صحیح مسلم 2730',
     ),
     const DhikrModel(
       title: 'دعاء الكرب الثاني',
       text: 'اللَّهُمَّ رَحْمَتَكَ أَرْجُو، فَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ، وَأَصْلِحْ لِي شَأْنِي كُلَّهُ، لَا إِلَهَ إِلَّا أَنْتَ',
-      source: 'رواه أبو داود وحسّنه الألباني',
+      source: 'رواه أبو داود (5090) من حديث أبي بكرة رضي الله عنه، وحسّنه الألباني',
       bookSource: 'حصن المسلم',
       count: 1,
       category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, it is Your mercy that I hope for, so do not leave me to myself even for the blink of an eye, and set right all of my affairs. There is no god but You."',
+      sourceEn: 'Abu Dawood 5090, graded hasan by Al-Albani',
+      textId:
+          '"Ya Allah, rahmat-Mu yang aku harapkan, maka janganlah Engkau serahkan diriku kepada diriku sendiri walau sekejap mata, dan perbaikilah seluruh urusanku. Tidak ada Tuhan yang berhak disembah selain Engkau."',
+      sourceId: 'Sunan Abu Dawud 5090, dihasankan oleh Al-Albani',
+      textUr:
+          'اے اللہ! میں تیری رحمت کا امیدوار ہوں، پس مجھے پلک جھپکنے کے برابر بھی میرے نفس کے سپرد نہ کر، اور میرا سارا معاملہ درست فرما دے، تیرے سوا کوئی معبود برحق نہیں',
+      sourceUr: 'سنن ابی داود 5090',
     ),
     const DhikrModel(
       title: 'دعاء الغضب',
       text: 'أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ',
-      source: 'رواه البخاري ومسلم',
+      source: 'رواه البخاري (3282، 6115) ومسلم (2610) من حديث سليمان بن صرد رضي الله عنه',
       bookSource: 'حصن المسلم',
       count: 1,
       category: DhikrCategory.misc,
+      textEn: '"I seek refuge in Allah from Satan, the accursed."',
+      sourceEn: 'Al-Bukhari 3282, 6115, Muslim 2610',
+      textId: '"Aku berlindung kepada Allah dari setan yang terkutuk."',
+      sourceId: 'Shahih Al-Bukhari 3282, 6115, Shahih Muslim 2610',
+      textUr: 'میں شیطان مردود سے اللہ کی پناہ مانگتا ہوں',
+      sourceUr: 'صحیح بخاری 3282، 6115، صحیح مسلم 2610',
     ),
     const DhikrModel(
       title: 'ما يقال عند العطاس وتشميته',
       text: 'الْعَاطِسُ يَقُولُ: الْحَمْدُ لِلَّهِ\nوَيَقُولُ لَهُ مَنْ سَمِعَهُ: يَرْحَمُكَ اللَّهُ\nفَيَرُدُّ عَلَيْهِ الْعَاطِسُ: يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ',
-      source: 'رواه البخاري (6224)',
+      source: 'رواه البخاري (6224) من حديث أبي هريرة رضي الله عنه',
       bookSource: 'حصن المسلم',
       count: 1,
       category: DhikrCategory.misc,
+      textEn:
+          '"The one who sneezes says: \'Al-hamdu lillah\' (Praise be to Allah). Whoever hears him says: \'Yarhamuk Allah\' (May Allah have mercy on you). Then the sneezer replies: \'Yahdikumullah wa yuslihu balakum\' (May Allah guide you and set your affairs right)."',
+      sourceEn: 'Al-Bukhari 6224',
+      textId:
+          '"Orang yang bersin mengucapkan: Alhamdulillah. Yang mendengarnya mengucapkan: Yarhamukallah. Lalu orang yang bersin membalas: Yahdikumullah wa yushlihu balakum."',
+      sourceId: 'Shahih Al-Bukhari 6224',
+      textUr: 'چھینکنے والا کہے: الحمد للہ، سننے والا کہے: یرحمک اللہ، پھر چھینکنے والا جواب دے: یہدیکم اللہ ویصلح بالکم',
+      sourceUr: 'صحیح بخاری 6224',
     ),
     const DhikrModel(
       title: 'دعاء دخول الخلاء',
@@ -2669,6 +2701,15 @@ class AthkarData {
       bookSource: 'حصن المسلم',
       count: 1,
       category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, praise is due to You. You have clothed me with it. I ask You for its goodness and the goodness of that for which it was made, and I seek refuge in You from its evil and the evil of that for which it was made."',
+      sourceEn: 'Abu Dawood 4020, At-Tirmidhi 1767, graded hasan by Al-Albani',
+      textId:
+          '"Ya Allah, bagi-Mu segala puji, Engkaulah yang telah memberiku pakaian ini. Aku memohon kepada-Mu kebaikannya dan kebaikan tujuan ia dibuat, dan aku berlindung kepada-Mu dari keburukannya dan keburukan tujuan ia dibuat."',
+      sourceId: 'Sunan Abu Dawud 4020, Sunan At-Tirmidzi 1767, dihasankan Al-Albani',
+      textUr:
+          'اے اللہ! تیرے ہی لیے حمد ہے، تو نے مجھے یہ لباس پہنایا، میں تجھ سے اس کی بھلائی اور جس کام کے لیے یہ بنایا گیا اس کی بھلائی مانگتا ہوں، اور اس کے شر اور جس کام کے لیے یہ بنایا گیا اس کے شر سے تیری پناہ مانگتا ہوں',
+      sourceUr: 'سنن ابی داود 4020، سنن الترمذی 1767',
     ),
     const DhikrModel(
       title: 'دعاء رؤية ما يُعجب',
@@ -2694,15 +2735,33 @@ class AthkarData {
       virtue: 'كتب الله له ألف ألف حسنة، ومحا عنه ألف ألف سيئة، وبنى له بيتاً في الجنة',
       count: 1,
       category: DhikrCategory.misc,
+      textEn:
+          '"There is no god but Allah alone, without partner. His is the dominion and His is the praise. He gives life and causes death, and He is Ever-Living and does not die. In His Hand is all good, and He has power over all things."',
+      sourceEn: 'At-Tirmidhi 3428, graded hasan by Al-Albani',
+      textId:
+          '"Tidak ada Tuhan yang berhak disembah selain Allah semata, tidak ada sekutu bagi-Nya, milik-Nya kerajaan dan milik-Nya segala puji, Dia yang menghidupkan dan mematikan, Dia Maha Hidup dan tidak mati, di tangan-Nya segala kebaikan, dan Dia Maha Kuasa atas segala sesuatu."',
+      sourceId: 'Sunan At-Tirmidzi 3428, dihasankan Al-Albani',
+      textUr:
+          'اللہ کے سوا کوئی معبود برحق نہیں، وہ اکیلا ہے، اس کا کوئی شریک نہیں، بادشاہت اسی کی ہے اور تعریف اسی کے لیے ہے، وہ زندہ کرتا اور مارتا ہے، وہ ہمیشہ زندہ رہنے والا ہے مرتا نہیں، بھلائی اسی کے ہاتھ میں ہے، اور وہ ہر چیز پر قادر ہے',
+      sourceUr: 'سنن الترمذی 3428',
     ),
     const DhikrModel(
       title: 'دعاء الاستخارة',
       text: 'اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ، وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ، وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ، فَإِنَّكَ تَقْدِرُ وَلَا أَقْدِرُ، وَتَعْلَمُ وَلَا أَعْلَمُ، وَأَنْتَ عَلَّامُ الْغُيُوبِ\nاللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي، ثُمَّ بَارِكْ لِي فِيهِ\nوَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ شَرٌّ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاصْرِفْهُ عَنِّي وَاصْرِفْنِي عَنْهُ، وَاقْدُرْ لِيَ الْخَيْرَ حَيْثُ كَانَ، ثُمَّ أَرْضِنِي بِهِ',
-      source: 'رواه البخاري (1166)',
+      source: 'رواه البخاري (1166) من حديث جابر بن عبد الله رضي الله عنهما',
       bookSource: 'حصن المسلم',
       virtue: 'يُقال بعد ركعتين من غير الفريضة، ويسمّي حاجته',
       count: 1,
       category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, I seek Your guidance by virtue of Your knowledge, and I seek ability by virtue of Your power, and I ask You of Your great bounty. You have power, I have none. You know, I know not. You are the Knower of hidden things. O Allah, if in Your knowledge this matter is good for me in my religion, my livelihood and the outcome of my affairs, then ordain it for me, make it easy for me, and bless it for me. And if in Your knowledge this matter is bad for me in my religion, my livelihood and the outcome of my affairs, then turn it away from me and turn me away from it, and ordain for me the good wherever it may be, and make me pleased with it."',
+      sourceEn: 'Al-Bukhari 1166',
+      textId:
+          '"Ya Allah, sesungguhnya aku memohon pilihan yang tepat kepada-Mu dengan ilmu-Mu, aku memohon kemampuan kepada-Mu dengan kekuasaan-Mu, dan aku memohon kepada-Mu dari karunia-Mu yang agung. Sesungguhnya Engkau berkuasa sedang aku tidak berkuasa, Engkau mengetahui sedang aku tidak mengetahui, dan Engkau Maha Mengetahui perkara yang gaib. Ya Allah, jika Engkau mengetahui bahwa perkara ini baik bagiku dalam agamaku, penghidupanku, dan akibat urusanku, maka takdirkanlah untukku, mudahkanlah untukku, kemudian berkahilah untukku padanya. Dan jika Engkau mengetahui bahwa perkara ini buruk bagiku, maka jauhkanlah ia dariku dan jauhkanlah aku darinya, dan takdirkanlah untukku kebaikan di mana pun berada, kemudian jadikanlah aku ridha dengannya."',
+      sourceId: 'Shahih Al-Bukhari 1166',
+      textUr:
+          'اے اللہ! میں تجھ سے تیرے علم کے ذریعے خیر طلب کرتا ہوں، اور تیری قدرت کے ذریعے قوت طلب کرتا ہوں، اور تجھ سے تیرے فضلِ عظیم کا سوال کرتا ہوں، بےشک تو قدرت رکھتا ہے اور میں نہیں رکھتا، تو جانتا ہے اور میں نہیں جانتا، اور تو غیب کی باتوں کا خوب جاننے والا ہے، اے اللہ! اگر تو جانتا ہے کہ یہ کام میرے دین، میری معیشت اور میرے انجامِ کار کے لیے بہتر ہے تو اسے میرے لیے مقدر فرما دے اور آسان کر دے، پھر اس میں برکت عطا فرما، اور اگر تو جانتا ہے کہ یہ کام میرے لیے برا ہے تو اسے مجھ سے اور مجھے اس سے پھیر دے، اور میرے لیے خیر مقدر فرما جہاں کہیں بھی ہو، پھر مجھے اس پر راضی کر دے',
+      sourceUr: 'صحیح بخاری 1166',
     ),
     const DhikrModel(
       title: 'دعاء المريض',
@@ -2716,11 +2775,215 @@ class AthkarData {
     const DhikrModel(
       title: 'دعاء تفريج الهم والحزن',
       text: 'اللَّهُمَّ إِنِّي عَبْدُكَ ابْنُ عَبْدِكَ ابْنُ أَمَتِكَ، نَاصِيَتِي بِيَدِكَ، مَاضٍ فِيَّ حُكْمُكَ، عَدْلٌ فِيَّ قَضَاؤُكَ، أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ سَمَّيْتَ بِهِ نَفْسَكَ، أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ، أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ، أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ، أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي، وَنُورَ صَدْرِي، وَجَلَاءَ حُزْنِي، وَذَهَابَ هَمِّي',
-      source: 'رواه أحمد (3712) وصححه الألباني',
+      source: 'رواه أحمد (3712) من حديث عبد الله بن مسعود رضي الله عنه، وصححه الألباني',
       bookSource: 'حصن المسلم',
       virtue: 'ما أصاب أحدًا همّ ولا حزن فقالها إلا أذهب الله همّه وحزنه وأبدله مكانه فرحًا',
       count: 1,
       category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, I am Your slave, son of Your male slave, son of Your female slave. My forelock is in Your Hand. Your judgment upon me prevails, and Your decree concerning me is just. I ask You by every name belonging to You, with which You have named Yourself, or revealed in Your Book, or taught to any of Your creation, or which You have kept in the knowledge of the unseen with Yourself, to make the Quran the spring of my heart, the light of my chest, a departure for my sorrow and a release for my anxiety."',
+      sourceEn: 'Musnad Ahmad 3712, graded sahih by Al-Albani',
+      textId:
+          '"Ya Allah, sesungguhnya aku adalah hamba-Mu, anak dari hamba-Mu (laki-laki), anak dari hamba-Mu (perempuan). Ubun-ubunku berada di tangan-Mu, hukum-Mu berlaku atasku, dan takdir-Mu atasku adalah adil. Aku memohon kepada-Mu dengan setiap nama yang menjadi milik-Mu, yang dengannya Engkau menamakan diri-Mu, atau Engkau turunkan dalam kitab-Mu, atau Engkau ajarkan kepada salah seorang makhluk-Mu, atau Engkau simpan dalam ilmu gaib di sisi-Mu, agar Engkau jadikan Al-Qur\'an sebagai penyejuk hatiku, cahaya dadaku, penghilang kesedihanku, dan pelenyap kegelisahanku."',
+      sourceId: 'Musnad Ahmad 3712, dishahihkan oleh Al-Albani',
+      textUr:
+          'اے اللہ! میں تیرا بندہ ہوں، تیرے بندے کا بیٹا ہوں، تیری بندی کا بیٹا ہوں، میری پیشانی تیرے ہاتھ میں ہے، مجھ پر تیرا حکم نافذ ہے، اور میرے بارے میں تیرا فیصلہ عادلانہ ہے، میں تجھ سے تیرے ہر اس نام کے وسیلے سے سوال کرتا ہوں جو تو نے اپنے لیے رکھا ہے، یا اپنی کتاب میں نازل فرمایا، یا اپنی کسی مخلوق کو سکھایا، یا اپنے پاس علمِ غیب میں مخصوص رکھا ہے، کہ تو قرآن کو میرے دل کی بہار، میرے سینے کا نور، میرے غم کا مداوا اور میری پریشانی کا خاتمہ بنا دے',
+      sourceUr: 'مسند احمد 3712',
+    ),
+    const DhikrModel(
+      title: 'دعاء قضاء الدين',
+      text: 'اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ',
+      source: 'رواه الترمذي (3563) من حديث علي بن أبي طالب رضي الله عنه، وحسّنه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'دعاء لسداد الدَّين وقضائه، علّمه النبي ﷺ لرجل مكاتَب أراد الوفاء بكتابته',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, suffice me with what You have made lawful instead of what You have made unlawful, and make me independent, by Your grace, of all others besides You."',
+      sourceEn: 'At-Tirmidhi 3563, graded hasan by Al-Albani',
+      textId:
+          '"Ya Allah, cukupkanlah aku dengan yang halal dari-Mu sehingga aku terhindar dari yang haram, dan cukupkanlah aku dengan karunia-Mu sehingga aku tidak butuh kepada selain-Mu."',
+      sourceId: 'Sunan At-Tirmidzi 3563, dihasankan Al-Albani',
+      textUr: 'اے اللہ! مجھے اپنے حلال کے ذریعے حرام سے بچا لے، اور اپنے فضل سے مجھے اپنے سوا سب سے بے نیاز کر دے',
+      sourceUr: 'سنن الترمذی 3563',
+    ),
+    const DhikrModel(
+      title: 'دعاء نزول المطر',
+      text: 'اللَّهُمَّ صَيِّبًا نَافِعًا',
+      source: 'رواه البخاري (1032) من حديث عائشة رضي الله عنها',
+      bookSource: 'حصن المسلم',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn: '"O Allah, (make it) a beneficial, plentiful rain."',
+      sourceEn: 'Al-Bukhari 1032',
+      textId: '"Ya Allah, jadikanlah hujan ini hujan yang bermanfaat."',
+      sourceId: 'Shahih Al-Bukhari 1032',
+      textUr: 'اے اللہ! (اسے) فائدہ مند بارش بنا دے',
+      sourceUr: 'صحیح بخاری 1032',
+    ),
+    const DhikrModel(
+      title: 'الدعاء المأثور عند هبوب الريح',
+      text:
+          'اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَهَا وَخَيْرَ مَا فِيهَا وَخَيْرَ مَا أُرْسِلَتْ بِهِ، وَأَعُوذُ بِكَ مِنْ شَرِّهَا وَشَرِّ مَا فِيهَا وَشَرِّ مَا أُرْسِلَتْ بِهِ',
+      source: 'رواه مسلم (899) من حديث عائشة رضي الله عنها',
+      bookSource: 'حصن المسلم',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, I ask You for its good, the good of what is in it, and the good of that with which it was sent, and I seek refuge in You from its evil, the evil of what is in it, and the evil of that with which it was sent."',
+      sourceEn: 'Muslim 899',
+      textId:
+          '"Ya Allah, aku memohon kepada-Mu kebaikannya, kebaikan yang ada padanya, dan kebaikan yang dibawanya, dan aku berlindung kepada-Mu dari keburukannya, keburukan yang ada padanya, dan keburukan yang dibawanya."',
+      sourceId: 'Shahih Muslim 899',
+      textUr:
+          'اے اللہ! میں تجھ سے اس (ہوا) کی بھلائی، اس میں موجود بھلائی اور اس کے ساتھ بھیجی گئی بھلائی مانگتا ہوں، اور اس کے شر، اس میں موجود شر اور اس کے ساتھ بھیجے گئے شر سے تیری پناہ مانگتا ہوں',
+      sourceUr: 'صحیح مسلم 899',
+    ),
+    const DhikrModel(
+      title: 'دعاء من استصعب عليه أمر',
+      text: 'اللَّهُمَّ لَا سَهْلَ إِلَّا مَا جَعَلْتَهُ سَهْلًا، وَأَنْتَ تَجْعَلُ الْحَزْنَ إِذَا شِئْتَ سَهْلًا',
+      source: 'رواه ابن حبان (2427) وابن السني، وصححه الألباني في صحيح الجامع (4409)',
+      bookSource: 'حصن المسلم',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, nothing is easy except what You make easy, and You make the difficult easy if You will."',
+      sourceEn: 'Ibn Hibban 2427, graded sahih by Al-Albani',
+      textId:
+          '"Ya Allah, tidak ada kemudahan kecuali apa yang Engkau jadikan mudah, dan Engkau menjadikan yang sulit itu mudah jika Engkau kehendaki."',
+      sourceId: 'Shahih Ibnu Hibban 2427, dishahihkan Al-Albani',
+      textUr: 'اے اللہ! کوئی چیز آسان نہیں سوائے اس کے جسے تو آسان کر دے، اور تو چاہے تو مشکل کو آسان بنا دیتا ہے',
+      sourceUr: 'صحیح ابن حبان 2427',
+    ),
+    const DhikrModel(
+      title: 'دعاء الخوف من الشرك',
+      text: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أُشْرِكَ بِكَ وَأَنَا أَعْلَمُ، وَأَسْتَغْفِرُكَ لِمَا لَا أَعْلَمُ',
+      source: 'رواه أحمد (21112) وصححه الألباني في السلسلة الصحيحة',
+      bookSource: 'حصن المسلم',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"O Allah, I seek refuge in You from associating any partner with You knowingly, and I ask Your forgiveness for that which I am unaware of."',
+      sourceEn: 'Musnad Ahmad 21112, graded sahih by Al-Albani',
+      textId:
+          '"Ya Allah, aku berlindung kepada-Mu dari mempersekutukan-Mu sedangkan aku mengetahuinya, dan aku memohon ampun kepada-Mu atas apa yang tidak aku ketahui."',
+      sourceId: 'Musnad Ahmad 21112, dishahihkan Al-Albani',
+      textUr: 'اے اللہ! میں تجھ سے پناہ مانگتا ہوں کہ میں جانتے بوجھتے تیرے ساتھ شرک کروں، اور جو میں نہیں جانتا اس کے لیے تجھ سے بخشش مانگتا ہوں',
+      sourceUr: 'مسند احمد 21112',
+    ),
+    const DhikrModel(
+      title: 'كفارة المجلس',
+      text: 'سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ، أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ',
+      source: 'رواه أبو داود (4859) والترمذي (3433) من حديث أبي هريرة رضي الله عنه، وصححه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'من قالها في مجلس لغط كانت كفارة له',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"Glory is to You, O Allah, and praise. I bear witness that none has the right to be worshipped except You. I seek Your forgiveness and turn to You in repentance."',
+      sourceEn: 'Abu Dawood 4859, At-Tirmidhi 3433, graded sahih by Al-Albani',
+      textId:
+          '"Maha Suci Engkau, ya Allah, dan segala puji bagi-Mu, aku bersaksi bahwa tidak ada Tuhan yang berhak disembah selain Engkau, aku memohon ampun dan bertaubat kepada-Mu."',
+      sourceId: 'Sunan Abu Dawud 4859, Sunan At-Tirmidzi 3433, dishahihkan Al-Albani',
+      textUr: 'اے اللہ! تو پاک ہے اور تیری ہی تعریف ہے، میں گواہی دیتا ہوں کہ تیرے سوا کوئی معبود برحق نہیں، میں تجھ سے بخشش مانگتا ہوں اور تیری طرف رجوع کرتا ہوں',
+      sourceUr: 'سنن ابی داود 4859، سنن الترمذی 3433',
+    ),
+    const DhikrModel(
+      title: 'ما يقال في المجلس قبل القيام',
+      text: 'رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الْغَفُورُ',
+      source: 'رواه أبو داود (1516) والترمذي (3434) من حديث ابن عمر رضي الله عنهما، وحسّنه الألباني',
+      bookSource: 'حصن المسلم',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn: '"My Lord, forgive me and accept my repentance. Indeed, You are the Ever-Accepting of repentance, the Most Merciful."',
+      sourceEn: 'Abu Dawood 1516, At-Tirmidhi 3434, graded hasan by Al-Albani',
+      textId: '"Ya Rabbku, ampunilah aku dan terimalah taubatku, sesungguhnya Engkau Maha Penerima Taubat lagi Maha Pengampun."',
+      sourceId: 'Sunan Abu Dawud 1516, Sunan At-Tirmidzi 3434, dihasankan Al-Albani',
+      textUr: 'اے میرے رب! مجھے بخش دے اور میری توبہ قبول فرما، بےشک تو ہی بہت توبہ قبول کرنے والا، بہت بخشنے والا ہے',
+      sourceUr: 'سنن ابی داود 1516، سنن الترمذی 3434',
+    ),
+    const DhikrModel(
+      title: 'دعاء من رأى مبتلى',
+      text: 'الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي مِمَّا ابْتَلَاكَ بِهِ، وَفَضَّلَنِي عَلَى كَثِيرٍ مِمَّنْ خَلَقَ تَفْضِيلًا',
+      source: 'رواه الترمذي (3431) من حديث أبي هريرة رضي الله عنه، وحسّنه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'من رأى مبتلى فقالها لم يصبه ذلك البلاء',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"Praise be to Allah Who has spared me from what He has afflicted you with, and has favored me above many of those whom He has created."',
+      sourceEn: 'At-Tirmidhi 3431, graded hasan by Al-Albani',
+      textId:
+          '"Segala puji bagi Allah yang telah menyelamatkanku dari apa yang Dia timpakan kepadamu, dan melebihkanku atas banyak makhluk yang Dia ciptakan."',
+      sourceId: 'Sunan At-Tirmidzi 3431, dihasankan Al-Albani',
+      textUr: 'تمام تعریفیں اللہ کے لیے ہیں جس نے مجھے اس آزمائش سے محفوظ رکھا جس میں تجھے مبتلا کیا، اور مجھے اپنی بہت سی مخلوق پر فضیلت عطا فرمائی',
+      sourceUr: 'سنن الترمذی 3431',
+    ),
+    const DhikrModel(
+      title: 'الدعاء للمتزوج',
+      text: 'بَارَكَ اللَّهُ لَكَ، وَبَارَكَ عَلَيْكَ، وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ',
+      source: 'رواه أبو داود (2130) والترمذي (1091) من حديث أبي هريرة رضي الله عنه، وحسّنه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'يُقال تهنئةً لمن تزوّج',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn: '"May Allah bless you, and shower His blessings upon you, and join you together in goodness."',
+      sourceEn: 'Abu Dawood 2130, At-Tirmidhi 1091, graded hasan sahih by Al-Albani',
+      textId: '"Semoga Allah memberkahimu, dan melimpahkan berkah atasmu, dan menyatukan kalian berdua dalam kebaikan."',
+      sourceId: 'Sunan Abu Dawud 2130, Sunan At-Tirmidzi 1091, dihasankan Al-Albani',
+      textUr: 'اللہ تجھے برکت دے، تجھ پر برکت نازل فرمائے، اور تم دونوں کو خیر میں جمع فرمائے',
+      sourceUr: 'سنن ابی داود 2130، سنن الترمذی 1091',
+    ),
+    const DhikrModel(
+      title: 'دعاء من أصيب بمصيبة',
+      text: 'إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا',
+      source: 'رواه مسلم (918) من حديث أم سلمة رضي الله عنها',
+      bookSource: 'حصن المسلم',
+      virtue: 'إلا أجره الله في مصيبته وأخلف له خيراً منها',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"Indeed we belong to Allah, and indeed to Him we will return. O Allah, reward me for my affliction and compensate me with something better than it."',
+      sourceEn: 'Muslim 918',
+      textId:
+          '"Sesungguhnya kami milik Allah dan kepada-Nya kami kembali. Ya Allah, berilah aku pahala dalam musibahku ini dan gantikanlah untukku dengan yang lebih baik darinya."',
+      sourceId: 'Shahih Muslim 918',
+      textUr: 'بےشک ہم اللہ ہی کے ہیں اور اسی کی طرف لوٹنے والے ہیں، اے اللہ! میری مصیبت میں مجھے اجر عطا فرما اور اس کے بدلے مجھے اس سے بہتر عطا فرما',
+      sourceUr: 'صحیح مسلم 918',
+    ),
+    const DhikrModel(
+      title: 'دعاء لبس الثوب',
+      text: 'الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا (الثَّوْبَ) وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ',
+      source: 'رواه أبو داود (4023) والترمذي (3560) من حديث معاذ بن أنس رضي الله عنه، وحسّنه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'غُفر له ما تقدم من ذنبه',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"Praise be to Allah Who has clothed me with this (garment) and provided it for me, with no power or might from myself."',
+      sourceEn: 'Abu Dawood 4023, At-Tirmidhi 3560, graded hasan by Al-Albani',
+      textId:
+          '"Segala puji bagi Allah yang telah memberiku pakaian ini dan memberikannya kepadaku tanpa daya dan kekuatan dariku."',
+      sourceId: 'Sunan Abu Dawud 4023, Sunan At-Tirmidzi 3560, dihasankan Al-Albani',
+      textUr: 'تمام تعریفیں اللہ کے لیے ہیں جس نے مجھے یہ (لباس) پہنایا اور بغیر میری کسی طاقت اور قوت کے یہ مجھے عطا فرمایا',
+      sourceUr: 'سنن ابی داود 4023، سنن الترمذی 3560',
+    ),
+    const DhikrModel(
+      title: 'دعاء زيارة القبور',
+      text:
+          'السَّلَامُ عَلَيْكُمْ أَهْلَ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ، وَإِنَّا إِنْ شَاءَ اللَّهُ بِكُمْ لَاحِقُونَ، يَرْحَمُ اللَّهُ الْمُسْتَقْدِمِينَ مِنَّا وَالْمُسْتَأْخِرِينَ، أَسْأَلُ اللَّهَ لَنَا وَلَكُمُ الْعَافِيَةَ',
+      source: 'رواه مسلم (249) من حديث بريدة بن الحصيب رضي الله عنه',
+      bookSource: 'حصن المسلم',
+      count: 1,
+      category: DhikrCategory.misc,
+      textEn:
+          '"Peace be upon you, O inhabitants of the graves, believers and Muslims. We shall, if Allah wills, join you. May Allah have mercy on those of us who have gone before and those who remain behind. I ask Allah for well-being for us and for you."',
+      sourceEn: 'Muslim 249',
+      textId:
+          '"Semoga keselamatan atas kalian wahai penghuni kubur dari kalangan mukminin dan muslimin, dan sesungguhnya kami insya Allah akan menyusul kalian. Semoga Allah merahmati orang-orang yang terdahulu dan yang terkemudian dari kami. Aku memohon keselamatan bagi kami dan kalian kepada Allah."',
+      sourceId: 'Shahih Muslim 249',
+      textUr: 'اے قبروں میں رہنے والے مومنو اور مسلمانو! تم پر سلامتی ہو، اور ہم بھی ان شاء اللہ تم سے آ ملنے والے ہیں، اللہ ہم میں سے آگے جانے والوں اور پیچھے رہنے والوں پر رحم فرمائے، میں اللہ سے اپنے اور تمہارے لیے عافیت مانگتا ہوں',
+      sourceUr: 'صحیح مسلم 249',
     ),
   ];
 

@@ -118,10 +118,25 @@ class AthkarCategoriesScreen extends StatelessWidget {
   }
 
   Widget _buildTopBar(BuildContext context) {
+    // إذا فُتحت هذه الشاشة عبر Navigator.push (من الصفحة الرئيسية) نعرض زر
+    // رجوع إلى جانب زر "+"، حتى لا يبقى المستخدم عالقاً بدون طريقة للعودة
+    // لصفحة "آية وحديث اليوم" الرئيسية.
+    final canPop = Navigator.canPop(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 10, 16, 6),
       child: Row(
         children: [
+          if (canPop) ...[
+            _RoundIconButton(
+              icon: Icons.arrow_forward_ios_rounded,
+              iconSize: 16,
+              onTap: () {
+                HapticFeedback.selectionClick();
+                Navigator.pop(context);
+              },
+            ),
+            const SizedBox(width: 8),
+          ],
           _RoundIconButton(
             icon: Icons.add_rounded,
             onTap: () {
@@ -154,7 +169,8 @@ class AthkarCategoriesScreen extends StatelessWidget {
 class _RoundIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
-  const _RoundIconButton({required this.icon, required this.onTap});
+  final double iconSize;
+  const _RoundIconButton({required this.icon, required this.onTap, this.iconSize = 22});
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +187,7 @@ class _RoundIconButton extends StatelessWidget {
             shape: BoxShape.circle,
             border: Border.all(color: AppTheme.gold.withValues(alpha: 0.6), width: 1.4),
           ),
-          child: Icon(icon, color: AppTheme.gold, size: 22),
+          child: Icon(icon, color: AppTheme.gold, size: iconSize),
         ),
       ),
     );
