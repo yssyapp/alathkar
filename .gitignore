@@ -49,3 +49,4 @@ app.*.map.json
 # داعي لتتبعها بجيت.
 build_log.txt
 full_build_log*.txt
+test_log.txt
