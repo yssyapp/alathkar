@@ -22,20 +22,20 @@ class AthkarCategoriesScreen extends StatelessWidget {
   /// أول عنصر يظهر أعلى اليمين وثانيه أعلى اليسار (لأن اتجاه الواجهة
   /// العربية RTL)، وهكذا صفاً بعد صف.
   static const List<DhikrCategory> _gridOrder = [
-    DhikrCategory.morning,
     DhikrCategory.evening,
-    DhikrCategory.prayer,
+    DhikrCategory.morning,
     DhikrCategory.afterPrayer,
-    DhikrCategory.adhan,
+    DhikrCategory.prayer,
     DhikrCategory.sleep,
     DhikrCategory.wakeup,
+    DhikrCategory.adhan,
     DhikrCategory.mosque,
-    DhikrCategory.wudu,
     DhikrCategory.home,
-    DhikrCategory.food,
+    DhikrCategory.wudu,
     DhikrCategory.toilet,
-    DhikrCategory.travel,
+    DhikrCategory.food,
     DhikrCategory.misc,
+    DhikrCategory.travel,
   ];
 
   void _openCategory(BuildContext context, DhikrCategory category) {
