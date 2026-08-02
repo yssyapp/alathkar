@@ -134,7 +134,7 @@ class AppStrings {
     'asmaIntroDescription': {'ar': 'اسم الله (لفظ الجلالة) هو الاسم الأعظم الجامع، وما يلي هو أسماؤه الحسنى التسعة والتسعون الواردة في حديث الترمذي. أهل العلم مختلفون قليلاً في حصر بعض الأسماء (كـ"الرشيد" و"الصبور")، فأثبتناهما معاً كما هو شائع في أغلب المصادر مع التنبيه لذلك.', 'en': 'Allah (the greatest, all-encompassing name) is the supreme name, and below are His 99 beautiful names as reported in the hadith of al-Tirmidhi. Scholars differ slightly on a few names (such as "Ar-Rasheed" and "As-Saboor"), so we included both as is common in most sources, with this note for clarity.', 'id': 'Allah (lafal jalalah) adalah nama teragung yang mencakup semuanya, dan berikut adalah 99 Asmaul Husna-Nya sebagaimana disebutkan dalam hadits At-Tirmidzi. Para ulama sedikit berbeda pendapat dalam menetapkan beberapa nama (seperti "Ar-Rasyid" dan "Ash-Shabur"), sehingga kami mencantumkan keduanya sebagaimana lazim di kebanyakan sumber, disertai catatan ini.', 'ur': 'اللہ (لفظِ جلالہ) سب سے بڑا اور جامع نام ہے، اور ذیل میں اس کے ننانوے اسماء حسنیٰ ہیں جو حدیثِ ترمذی میں مذکور ہیں۔ اہلِ علم بعض ناموں (جیسے "الرشید" اور "الصبور") کے شمار میں قدرے مختلف الرائے ہیں، اس لیے ہم نے دونوں کو شامل کیا ہے جیسا کہ اکثر مصادر میں رائج ہے، اور اس کی وضاحت کر دی گئی ہے۔'},
 
     // athkar_categories_screen.dart
-    'athkarCatTitle': {'ar': 'الأذكار', 'en': 'Athkar', 'id': 'Dzikir', 'ur': 'اذکار'},
+    'athkarCatTitle': {'ar': 'أذكار المسلم', 'en': 'Muslim Athkar', 'id': 'Dzikir Muslim', 'ur': 'مسلم اذکار'},
     'athkarCatEmptyCategory': {'ar': 'لا توجد أذكار في هذه الفئة بعد', 'en': 'No athkar in this category yet', 'id': 'Belum ada dzikir dalam kategori ini', 'ur': 'اس زمرے میں ابھی کوئی اذکار موجود نہیں'},
 
     // counters_screen.dart

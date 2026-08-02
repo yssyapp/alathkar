@@ -145,6 +145,7 @@ enum DhikrCategory {
   morning, evening, sleep, wakeup, prayer,
   afterPrayer, mosque, food, travel, quran, names, misc, ruqyah, nawawi40,
   dailySunnah, fridaySunnah, prophetsDua,
+  adhan, home, wudu, toilet,
 }
 
 extension DhikrCategoryExtension on DhikrCategory {
@@ -167,6 +168,10 @@ extension DhikrCategoryExtension on DhikrCategory {
       case DhikrCategory.dailySunnah: return 'سنن النبي ﷺ اليومية';
       case DhikrCategory.fridaySunnah: return 'سنن يوم الجمعة';
       case DhikrCategory.prophetsDua: return 'أدعية الأنبياء';
+      case DhikrCategory.adhan: return 'أذكار الآذان';
+      case DhikrCategory.home: return 'أذكار المنزل';
+      case DhikrCategory.wudu: return 'أذكار الوضوء';
+      case DhikrCategory.toilet: return 'أذكار الخلاء';
     }
   }
 
@@ -195,6 +200,10 @@ extension DhikrCategoryExtension on DhikrCategory {
           case DhikrCategory.dailySunnah: return "Prophet's Daily Sunnah";
           case DhikrCategory.fridaySunnah: return 'Friday Sunnah';
           case DhikrCategory.prophetsDua: return "Prophets' Supplications";
+          case DhikrCategory.adhan: return 'Adhan Remembrance';
+          case DhikrCategory.home: return 'Home Remembrance';
+          case DhikrCategory.wudu: return 'Ablution (Wudu) Remembrance';
+          case DhikrCategory.toilet: return 'Restroom Remembrance';
         }
       case AppLanguage.id:
         switch (this) {
@@ -215,6 +224,10 @@ extension DhikrCategoryExtension on DhikrCategory {
           case DhikrCategory.dailySunnah: return 'Sunnah Harian Nabi ﷺ';
           case DhikrCategory.fridaySunnah: return 'Sunnah Hari Jumat';
           case DhikrCategory.prophetsDua: return 'Doa Para Nabi';
+          case DhikrCategory.adhan: return 'Dzikir Adzan';
+          case DhikrCategory.home: return 'Dzikir Rumah';
+          case DhikrCategory.wudu: return 'Dzikir Wudhu';
+          case DhikrCategory.toilet: return 'Dzikir Kamar Mandi';
         }
       case AppLanguage.ur:
         switch (this) {
@@ -235,6 +248,10 @@ extension DhikrCategoryExtension on DhikrCategory {
           case DhikrCategory.dailySunnah: return 'نبی ﷺ کی روزمرہ سنتیں';
           case DhikrCategory.fridaySunnah: return 'جمعہ کی سنتیں';
           case DhikrCategory.prophetsDua: return 'انبیاء کی دعائیں';
+          case DhikrCategory.adhan: return 'اذان کے اذکار';
+          case DhikrCategory.home: return 'گھر کے اذکار';
+          case DhikrCategory.wudu: return 'وضو کے اذکار';
+          case DhikrCategory.toilet: return 'بیت الخلاء کے اذکار';
         }
     }
   }
@@ -258,6 +275,10 @@ extension DhikrCategoryExtension on DhikrCategory {
       case DhikrCategory.dailySunnah: return '🌿';
       case DhikrCategory.fridaySunnah: return '📅';
       case DhikrCategory.prophetsDua: return '🌟';
+      case DhikrCategory.adhan: return '📢';
+      case DhikrCategory.home: return '🏠';
+      case DhikrCategory.wudu: return '💧';
+      case DhikrCategory.toilet: return '🚪';
     }
   }
 }

@@ -37,6 +37,14 @@ class AthkarData {
         return _fridaySunnahAthkar;
       case DhikrCategory.prophetsDua:
         return _prophetsDuaAthkar;
+      case DhikrCategory.adhan:
+        return _adhanAthkar;
+      case DhikrCategory.home:
+        return _homeAthkar;
+      case DhikrCategory.wudu:
+        return _wuduAthkar;
+      case DhikrCategory.toilet:
+        return _toiletAthkar;
     }
   }
 
@@ -3583,6 +3591,240 @@ class AthkarData {
       virtue: 'أمر الله نبيه ﷺ أن يدعو بهذا الدعاء الجامع القصير',
       count: 1,
       category: DhikrCategory.prophetsDua,
+    ),
+  ];
+
+  // =============================================
+  // أذكار الآذان
+  // =============================================
+  static final List<DhikrModel> _adhanAthkar = [
+    const DhikrModel(
+      title: 'متابعة المؤذن',
+      text:
+          'يُقال مثل ما يقول المؤذن في كل جمل الأذان، إلا في "حَيَّ عَلَى الصَّلَاةِ" و"حَيَّ عَلَى الْفَلَاحِ" فيقال بدلاً منهما: "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ"',
+      source: 'رواه البخاري (611) ومسلم (383) من حديث عمر بن الخطاب رضي الله عنه',
+      bookSource: 'حصن المسلم',
+      virtue: 'من قالها من قلبه دخل الجنة',
+      count: 1,
+      category: DhikrCategory.adhan,
+      textEn:
+          '"Repeat after the caller (mu\'adhin) every phrase of the adhan, except at \'Hayya \'ala-s-Salah\' and \'Hayya \'ala-l-Falah\', where instead one says: \'La hawla wa la quwwata illa billah\' (There is no power and no strength except with Allah)."',
+      sourceEn: 'Al-Bukhari 611, Muslim 383',
+      textId:
+          'Menjawab setiap kalimat adzan yang diucapkan muadzin, kecuali pada kalimat "Hayya \'alash Shalah" dan "Hayya \'alal Falah" maka dijawab dengan: "La hawla wa la quwwata illa billah".',
+      sourceId: 'Shahih Al-Bukhari 611, Shahih Muslim 383',
+      textUr:
+          'مؤذن جو کلمہ کہے اسی طرح دہرایا جائے، سوائے "حَیَّ عَلَی الصَّلَاۃ" اور "حَیَّ عَلَی الْفَلَاح" کے، جن کے جواب میں کہا جائے: "لَا حَوْلَ وَلَا قُوَّۃَ إِلَّا بِاللَّہ"',
+      sourceUr: 'صحیح بخاری 611، صحیح مسلم 383',
+    ),
+    const DhikrModel(
+      title: 'الصلاة على النبي بعد الأذان',
+      text:
+          'اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ',
+      source: 'رواه مسلم (384) من حديث عبد الله بن عمرو بن العاص رضي الله عنهما',
+      bookSource: 'حصن المسلم',
+      virtue: 'من صلى علي صلاة صلى الله عليه بها عشراً',
+      count: 1,
+      category: DhikrCategory.adhan,
+      textEn: '"O Allah, send prayers upon Muhammad."',
+      sourceEn: 'Muslim 384',
+      textId: '"Ya Allah, limpahkanlah shalawat kepada Muhammad."',
+      sourceId: 'Shahih Muslim 384',
+      textUr: 'اے اللہ! محمد ﷺ پر رحمت نازل فرما',
+      sourceUr: 'صحیح مسلم 384',
+    ),
+    const DhikrModel(
+      title: 'دعاء الوسيلة بعد الأذان',
+      text:
+          'اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلَاةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ',
+      source: 'رواه البخاري (614) من حديث جابر بن عبد الله رضي الله عنهما',
+      bookSource: 'حصن المسلم',
+      virtue: 'حلت له شفاعتي يوم القيامة',
+      count: 1,
+      category: DhikrCategory.adhan,
+      textEn:
+          '"O Allah, Lord of this perfect call and established prayer, grant Muhammad the intercession (wasilah) and favor, and raise him to the praiseworthy station You have promised him."',
+      sourceEn: 'Al-Bukhari 614',
+      textId:
+          '"Ya Allah, Tuhan pemilik seruan yang sempurna ini dan shalat yang akan didirikan, berikanlah kepada Muhammad wasilah (kedudukan tinggi) dan keutamaan, dan bangkitkanlah dia pada kedudukan terpuji yang telah Engkau janjikan kepadanya."',
+      sourceId: 'Shahih Al-Bukhari 614',
+      textUr:
+          'اے اللہ! اس کامل دعوت اور قائم ہونے والی نماز کے رب! محمد ﷺ کو وسیلہ اور فضیلت عطا فرما، اور انہیں مقامِ محمود پر فائز فرما جس کا تو نے ان سے وعدہ کیا ہے',
+      sourceUr: 'صحیح بخاری 614',
+    ),
+    const DhikrModel(
+      title: 'دعاء ما بين الأذان والإقامة',
+      text:
+          'الدُّعَاءُ بَيْنَ الْأَذَانِ وَالْإِقَامَةِ لَا يُرَدُّ',
+      source: 'رواه أبو داود (521) والترمذي (212) من حديث أنس بن مالك رضي الله عنه، وصححه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'الدعاء بين الأذان والإقامة لا يُرد، فيستحب الإكثار من الدعاء في هذا الوقت',
+      count: 1,
+      category: DhikrCategory.adhan,
+      textEn: '"The supplication made between the adhan and the iqamah is not rejected."',
+      sourceEn: 'Abu Dawood 521, At-Tirmidhi 212, graded sahih by Al-Albani',
+      textId: '"Doa yang dipanjatkan antara adzan dan iqamah tidak akan ditolak."',
+      sourceId: 'Sunan Abu Dawud 521, Sunan At-Tirmidzi 212, dishahihkan Al-Albani',
+      textUr: 'اذان اور اقامت کے درمیان کی گئی دعا رد نہیں کی جاتی',
+      sourceUr: 'سنن ابی داود 521، سنن الترمذی 212، وصححه الألبانی',
+    ),
+    const DhikrModel(
+      title: 'الشهادتان بعد الأذان',
+      text:
+          'وَأَنَا أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ رَضِيتُ بِاللَّهِ رَبًّا وَبِمُحَمَّدٍ رَسُولًا وَبِالْإِسْلَامِ دِينًا',
+      source: 'رواه مسلم (386) من حديث سعد بن أبي وقاص رضي الله عنه',
+      bookSource: 'حصن المسلم',
+      virtue: 'غُفر له ذنبه',
+      count: 1,
+      category: DhikrCategory.adhan,
+      textEn:
+          '"And I bear witness that none has the right to be worshipped except Allah alone, without partner, and that Muhammad is His slave and Messenger. I am pleased with Allah as my Lord, with Muhammad as my Messenger, and with Islam as my religion."',
+      sourceEn: 'Muslim 386',
+      textId:
+          '"Dan aku bersaksi bahwa tidak ada Tuhan yang berhak disembah selain Allah semata, tidak ada sekutu bagi-Nya, dan bahwa Muhammad adalah hamba dan Rasul-Nya. Aku ridha Allah sebagai Tuhanku, Muhammad sebagai Rasul, dan Islam sebagai agamaku."',
+      sourceId: 'Shahih Muslim 386',
+      textUr:
+          'اور میں گواہی دیتا ہوں کہ اللہ کے سوا کوئی معبود برحق نہیں، وہ اکیلا ہے، اس کا کوئی شریک نہیں، اور محمد ﷺ اس کے بندے اور رسول ہیں، میں اللہ کے رب ہونے، محمد ﷺ کے رسول ہونے اور اسلام کے دین ہونے پر راضی ہوا',
+      sourceUr: 'صحیح مسلم 386',
+    ),
+  ];
+
+  // =============================================
+  // أذكار المنزل
+  // =============================================
+  static final List<DhikrModel> _homeAthkar = [
+    const DhikrModel(
+      title: 'دعاء دخول المنزل',
+      text:
+          'بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا',
+      source: 'رواه أبو داود (5096) من حديث أبي مالك الأشعري رضي الله عنه، وصححه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'ثم يُسلِّم على أهله بعدها',
+      count: 1,
+      category: DhikrCategory.home,
+      textEn:
+          '"In the Name of Allah we enter, and in the Name of Allah we leave, and upon our Lord we place our trust."',
+      sourceEn: 'Abu Dawood 5096, graded sahih by Al-Albani',
+      textId:
+          '"Dengan nama Allah kami masuk, dan dengan nama Allah kami keluar, dan hanya kepada Allah, Tuhan kami, kami bertawakal."',
+      sourceId: 'Sunan Abu Dawud 5096, dishahihkan oleh Al-Albani',
+      textUr: 'اللہ کے نام سے ہم داخل ہوئے اور اللہ کے نام سے ہم نکلے، اور اپنے رب اللہ ہی پر ہم نے بھروسہ کیا',
+      sourceUr: 'سنن ابی داود 5096، وصححه الألبانی',
+    ),
+    const DhikrModel(
+      title: 'دعاء الخروج من المنزل',
+      text:
+          'بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
+      source:
+          'رواه أبو داود (5095) والترمذي (3426) من حديث أم سلمة رضي الله عنها، وصححه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'يُقال له: هُديت وكُفيت ووُقيت، وتنحى عنه الشيطان',
+      count: 1,
+      category: DhikrCategory.home,
+      textEn:
+          '"In the Name of Allah, I place my trust in Allah, and there is no might nor power except with Allah."',
+      sourceEn: 'Abu Dawood 5095, At-Tirmidhi 3426, graded sahih by Al-Albani',
+      textId:
+          '"Dengan nama Allah, aku bertawakal kepada Allah, tidak ada daya dan kekuatan kecuali dengan (izin) Allah."',
+      sourceId: 'Sunan Abu Dawud 5095, Sunan At-Tirmidzi 3426, dishahihkan Al-Albani',
+      textUr: 'اللہ کے نام سے، میں نے اللہ پر بھروسہ کیا، اور اللہ کے سوا کوئی طاقت اور قوت نہیں',
+      sourceUr: 'سنن ابی داود 5095، سنن الترمذی 3426، وصححه الألبانی',
+    ),
+  ];
+
+  // =============================================
+  // أذكار الوضوء
+  // =============================================
+  static final List<DhikrModel> _wuduAthkar = [
+    const DhikrModel(
+      title: 'التسمية عند بدء الوضوء',
+      text: 'بِسْمِ اللَّهِ',
+      source:
+          'رواه أبو داود (101) والترمذي (25) من حديث أبي هريرة رضي الله عنه، وحسّنه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'لا وضوء لمن لم يذكر اسم الله عليه',
+      count: 1,
+      category: DhikrCategory.wudu,
+      textEn: '"In the Name of Allah."',
+      sourceEn: 'Abu Dawood 101, At-Tirmidhi 25, graded hasan by Al-Albani',
+      textId: '"Dengan nama Allah."',
+      sourceId: 'Sunan Abu Dawud 101, Sunan At-Tirmidzi 25, dihasankan Al-Albani',
+      textUr: 'اللہ کے نام سے',
+      sourceUr: 'سنن ابی داود 101، سنن الترمذی 25',
+    ),
+    const DhikrModel(
+      title: 'الشهادتان بعد الوضوء',
+      text:
+          'أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ',
+      source: 'رواه مسلم (234) من حديث عمر بن الخطاب رضي الله عنه',
+      bookSource: 'حصن المسلم',
+      virtue: 'فُتحت له أبواب الجنة الثمانية يدخل من أيها شاء',
+      count: 1,
+      category: DhikrCategory.wudu,
+      textEn:
+          '"I bear witness that none has the right to be worshipped except Allah alone, without partner, and I bear witness that Muhammad is His slave and Messenger."',
+      sourceEn: 'Muslim 234',
+      textId:
+          '"Aku bersaksi bahwa tidak ada Tuhan yang berhak disembah selain Allah semata, tidak ada sekutu bagi-Nya, dan aku bersaksi bahwa Muhammad adalah hamba dan Rasul-Nya."',
+      sourceId: 'Shahih Muslim 234',
+      textUr: 'میں گواہی دیتا ہوں کہ اللہ کے سوا کوئی معبود برحق نہیں، وہ اکیلا ہے، اس کا کوئی شریک نہیں، اور میں گواہی دیتا ہوں کہ محمد ﷺ اس کے بندے اور رسول ہیں',
+      sourceUr: 'صحیح مسلم 234',
+    ),
+    const DhikrModel(
+      title: 'دعاء التوابين بعد الوضوء',
+      text:
+          'اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ',
+      source: 'رواه الترمذي (55) من حديث عمر بن الخطاب رضي الله عنه، وحسّنه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'من دعاء النبي ﷺ عقب الوضوء',
+      count: 1,
+      category: DhikrCategory.wudu,
+      textEn: '"O Allah, make me among those who repent often and among those who purify themselves."',
+      sourceEn: 'At-Tirmidhi 55, graded hasan by Al-Albani',
+      textId: '"Ya Allah, jadikanlah aku termasuk orang-orang yang bertaubat dan jadikanlah aku termasuk orang-orang yang bersuci."',
+      sourceId: 'Sunan At-Tirmidzi 55, dihasankan oleh Al-Albani',
+      textUr: 'اے اللہ! مجھے بہت توبہ کرنے والوں میں سے بنا اور مجھے پاک رہنے والوں میں سے بنا',
+      sourceUr: 'سنن الترمذی 55',
+    ),
+  ];
+
+  // =============================================
+  // أذكار الخلاء
+  // =============================================
+  static final List<DhikrModel> _toiletAthkar = [
+    const DhikrModel(
+      title: 'دعاء دخول الخلاء',
+      text: 'بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ',
+      source:
+          'رواه البخاري (142) ومسلم (375) من حديث أنس بن مالك رضي الله عنه',
+      bookSource: 'حصن المسلم',
+      virtue: 'حجاب بين أعين الجن وعورات بني آدم عند دخول الخلاء أن يقول بسم الله',
+      count: 1,
+      category: DhikrCategory.toilet,
+      textEn:
+          '"In the Name of Allah. O Allah, I take refuge in You from the male and female devils (evil, filth)."',
+      sourceEn: 'Al-Bukhari 142, Muslim 375',
+      textId:
+          '"Dengan nama Allah, Ya Allah, sesungguhnya aku berlindung kepada-Mu dari godaan setan laki-laki dan setan perempuan."',
+      sourceId: 'Shahih Al-Bukhari 142, Shahih Muslim 375',
+      textUr: 'اللہ کے نام سے، اے اللہ! میں خبیث جنوں اور خبیث جنیوں سے تیری پناہ مانگتا ہوں',
+      sourceUr: 'صحیح بخاری 142، صحیح مسلم 375',
+    ),
+    const DhikrModel(
+      title: 'دعاء الخروج من الخلاء',
+      text: 'غُفْرَانَكَ',
+      source:
+          'رواه أبو داود (30) والترمذي (7) وابن ماجه (300) من حديث عائشة رضي الله عنها، وصححه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'كان النبي ﷺ إذا خرج من الخلاء قال: غفرانك',
+      count: 1,
+      category: DhikrCategory.toilet,
+      textEn: '"I ask You (Allah) for forgiveness."',
+      sourceEn: 'Abu Dawood 30, At-Tirmidhi 7, Ibn Majah 300, graded sahih by Al-Albani',
+      textId: '"Aku memohon ampunan-Mu (Ya Allah)."',
+      sourceId: 'Sunan Abu Dawud 30, Sunan At-Tirmidzi 7, Sunan Ibnu Majah 300, dishahihkan Al-Albani',
+      textUr: 'اے اللہ! میں تیری بخشش کا طلبگار ہوں',
+      sourceUr: 'سنن ابی داود 30، سنن الترمذی 7، سنن ابن ماجہ 300',
     ),
   ];
 }
