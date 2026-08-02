@@ -437,8 +437,25 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
 
   // ============== آية وحديث اليوم ==============
 
+  /// تفسير الآية بنفس التفسير المعتمد (تفسير السعدي) مترجماً للغة الحالية،
+  /// مع بقاء النص القرآني نفسه بالعربية دوماً دون أي تغيير.
+  String _ayahTafsirFor(DailyAyah ayah, AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.ar:
+        return ayah.tafsir;
+      case AppLanguage.en:
+        return ayah.tafsirEn ?? ayah.tafsir;
+      case AppLanguage.id:
+        return ayah.tafsirId ?? ayah.tafsir;
+      case AppLanguage.ur:
+        return ayah.tafsirUr ?? ayah.tafsir;
+    }
+  }
+
   Widget _buildDailyAyahCard(bool isDark) {
     final ayah = ayahOfTheDay(_today);
+    final lang = context.watch<LanguageProvider>().language;
+    final tafsir = _ayahTafsirFor(ayah, lang);
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
@@ -469,7 +486,7 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
           const SizedBox(height: 12),
           Text(context.tr('dashTafsirLabel'), style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.toolEmerald)),
           const SizedBox(height: 6),
-          Text(ayah.tafsir, style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark), height: 1.7)),
+          Text(tafsir, style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark), height: 1.7)),
           const SizedBox(height: 6),
           Text('(${ayah.tafsirSource})', style: GoogleFonts.cairo(fontSize: 10.5, color: AppTheme.subTextColor(isDark))),
         ],
@@ -477,8 +494,40 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
     );
   }
 
+  /// معنى الحديث المترجم للغة الحالية (يبقى null للعربية، لأن نص الحديث
+  /// الأصلي يُعرض دوماً بالعربية ولا يُستبدل بترجمة).
+  String? _hadithMeaningFor(DailyHadith hadith, AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.ar:
+        return null;
+      case AppLanguage.en:
+        return hadith.textEn;
+      case AppLanguage.id:
+        return hadith.textId;
+      case AppLanguage.ur:
+        return hadith.textUr;
+    }
+  }
+
+  /// شرح الحديث بلغة الواجهة الحالية، مع الرجوع للشرح العربي إذا لم تتوفر
+  /// ترجمة بعد لتلك اللغة (بدل ترك القسم فارغاً).
+  String _hadithSharhFor(DailyHadith hadith, AppLanguage lang) {
+    switch (lang) {
+      case AppLanguage.ar:
+        return hadith.sharh;
+      case AppLanguage.en:
+        return hadith.sharhEn ?? hadith.sharh;
+      case AppLanguage.id:
+        return hadith.sharhId ?? hadith.sharh;
+      case AppLanguage.ur:
+        return hadith.sharhUr ?? hadith.sharh;
+    }
+  }
+
   Widget _buildDailyHadithCard(bool isDark) {
     final hadith = hadithOfTheDay(_today);
+    final lang = context.watch<LanguageProvider>().language;
+    final meaning = _hadithMeaningFor(hadith, lang);
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
@@ -497,20 +546,36 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
             ],
           ),
           const SizedBox(height: 12),
+          // راوي الحديث (الصحابي) يُذكر أولاً فوق نص الحديث، تماماً كما
+          // يُقدَّم في كتب الحديث ("عن فلان قال...")، ثم يأتي التخريج
+          // (الراوي/المصدر) أسفل الحديث بدل خلطهما معاً في سطر واحد.
+          Text('عن ${hadith.narrator}',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.toolEmerald)),
+          const SizedBox(height: 8),
           Text(
             hadith.text,
             textAlign: TextAlign.center,
+            textDirection: TextDirection.rtl,
             style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark), height: 1.9),
           ),
+          // نص الحديث نفسه يبقى دائماً بالعربية (لا يُترجم حرفياً كنص شرعي)،
+          // لكن معناه المترجم يُعرض تحته لغير الناطقين بالعربية.
+          if (meaning != null) ...[
+            const SizedBox(height: 8),
+            Text(meaning,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.cairo(fontSize: 12.5, fontStyle: FontStyle.italic, color: AppTheme.subTextColor(isDark), height: 1.7)),
+          ],
           const SizedBox(height: 6),
-          Text('عن ${hadith.narrator} — ${hadith.source}',
+          Text(hadith.source,
               textAlign: TextAlign.center, style: GoogleFonts.cairo(fontSize: 11.5, color: AppTheme.subTextColor(isDark))),
           const SizedBox(height: 14),
           Divider(color: AppTheme.toolEmerald.withValues(alpha: 0.15), height: 1),
           const SizedBox(height: 12),
           Text(context.tr('dashExplanationLabel'), style: GoogleFonts.cairo(fontSize: 12, fontWeight: FontWeight.w700, color: AppTheme.gold)),
           const SizedBox(height: 6),
-          Text(hadith.sharh, style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark), height: 1.7)),
+          Text(_hadithSharhFor(hadith, lang), style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark), height: 1.7)),
         ],
       ),
     );
