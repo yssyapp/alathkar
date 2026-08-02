@@ -13,6 +13,13 @@ class AppDatabase {
   static const _dbName = 'athkari.db';
   static const _dbVersion = 1;
 
+  /// يُفعَّل فقط من ملفات الاختبار (test/) — يجعل كل ملف اختبار يفتح قاعدة
+  /// بيانات مستقلة داخل الذاكرة بدل ملف مشترك على القرص. مهم جداً لأن
+  /// `flutter test` يشغّل كل ملف اختبار في عملية/isolate منفصلة بالتوازي،
+  /// فمشاركة نفس ملف athkari.db بينها تسبب أخطاء قفل/قراءة القرص
+  /// (database is locked / disk I/O error) دون أي علاقة بصحة الكود نفسه.
+  static bool useInMemoryForTests = false;
+
   Database? _db;
 
   Future<Database> get database async {
@@ -21,8 +28,9 @@ class AppDatabase {
   }
 
   Future<Database> _open() async {
-    final dbPath = await getDatabasesPath();
-    final path = p.join(dbPath, _dbName);
+    final path = useInMemoryForTests
+        ? inMemoryDatabasePath
+        : p.join(await getDatabasesPath(), _dbName);
     return openDatabase(
       path,
       version: _dbVersion,
@@ -41,5 +49,21 @@ class AppDatabase {
         ''');
       },
     );
+  }
+
+  /// يغلق الاتصال الحالي ويحذف ملف القاعدة بالكامل — يُستخدم فقط داخل
+  /// الاختبارات الآلية (test/) لضمان بداية نظيفة قبل كل اختبار، بدون أي
+  /// تأثير على سلوك التطبيق الفعلي (لا يُستدعى أبداً من كود الإنتاج).
+  Future<void> resetForTest() async {
+    final db = _db;
+    if (db != null) {
+      await db.close();
+      _db = null;
+    }
+    if (!useInMemoryForTests) {
+      final dbPath = await getDatabasesPath();
+      final path = p.join(dbPath, _dbName);
+      await deleteDatabase(path);
+    }
   }
 }

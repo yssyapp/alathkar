@@ -88,6 +88,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # نسخة SQLite تعمل بدون قنوات المنصة (platform channels) — تسمح لاختبارات
+  # الوحدة (test/repositories/*) بفتح قاعدة بيانات حقيقية داخل بيئة الاختبار
+  # (Dart VM) بدل جهاز/محاكي فعلي، عبر تعيين databaseFactory = databaseFactoryFfi.
+  sqflite_common_ffi: ^2.3.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
