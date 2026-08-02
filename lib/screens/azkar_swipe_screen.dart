@@ -314,25 +314,56 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
               ),
               const SizedBox(height: 12),
             ],
-            GestureDetector(
-              onTap: _decrement,
-              onLongPress: _resetCounter,
+            // بطاقة موحّدة: نص الذكر أعلاها، وشريط العدّاد التنازلي ملتصق
+            // بأسفلها بعرض كامل ولون معبّأ (بدل شارة صغيرة منفصلة) — تصميم
+            // أوضح وأسهل للمس، والضغط على أي من الجزءين ينقص العدّاد.
+            ClipRRect(
+              borderRadius: BorderRadius.circular(22),
               child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(22),
                 decoration: BoxDecoration(
                   gradient: AppTheme.cardGradient(isDark),
-                  borderRadius: BorderRadius.circular(22),
                   border: Border.all(
                     color: isCompleted ? AppTheme.gold : AppTheme.gold.withValues(alpha: 0.3),
                     width: isCompleted ? 1.5 : 1,
                   ),
                 ),
-                child: Text(
-                  dhikr.text,
-                  style: GoogleFonts.cairo(fontSize: 21, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark), height: 2.0),
-                  textAlign: TextAlign.center,
-                  textDirection: TextDirection.rtl,
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: _decrement,
+                      onLongPress: _resetCounter,
+                      child: Padding(
+                        padding: const EdgeInsets.all(22),
+                        child: Text(
+                          dhikr.text,
+                          style: GoogleFonts.cairo(fontSize: 21, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark), height: 2.0),
+                          textAlign: TextAlign.center,
+                          textDirection: TextDirection.rtl,
+                        ),
+                      ),
+                    ),
+                    // عدّاد تنازلي تحت كل ذكر بلا استثناء: يبدأ بعدد مرات
+                    // التكرار الصحيحة (dhikr.count) وينقص بالضغط عليه حتى
+                    // الصفر، ثم ينتقل تلقائياً للذكر التالي.
+                    GestureDetector(
+                      onTap: _decrement,
+                      onLongPress: _resetCounter,
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        color: isCompleted ? AppTheme.gold : AppTheme.primaryGreen,
+                        child: Text(
+                          localizedDigits('$_remaining', lang),
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.cairo(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w800,
+                            color: isCompleted ? AppTheme.darkBackground : Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -365,52 +396,6 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
                 ),
               ),
             ],
-            const SizedBox(height: 16),
-            // عدّاد تنازلي تحت كل ذكر بلا استثناء: يبدأ بعدد مرات التكرار
-            // الصحيحة (dhikr.count) وينقص بالضغط عليه (أو على النص أعلاه)
-            // حتى الصفر، ثم ينتقل تلقائياً للذكر التالي.
-            GestureDetector(
-              onTap: _decrement,
-              onLongPress: _resetCounter,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 12),
-                decoration: BoxDecoration(
-                  gradient: isCompleted ? AppTheme.goldGradient : AppTheme.cardGradient(isDark),
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppTheme.gold, width: isCompleted ? 1.5 : 1),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      isCompleted ? Icons.check_circle : Icons.touch_app_outlined,
-                      size: 18,
-                      color: isCompleted ? AppTheme.darkBackground : AppTheme.gold,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      localizedDigits('$_remaining', lang),
-                      style: GoogleFonts.cairo(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800,
-                        color: isCompleted ? AppTheme.darkBackground : AppTheme.textColor(isDark),
-                      ),
-                    ),
-                    if (dhikr.count > 1) ...[
-                      const SizedBox(width: 6),
-                      Text(
-                        '/ ${localizedDigits('${dhikr.count}', lang)}',
-                        style: GoogleFonts.cairo(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color: (isCompleted ? AppTheme.darkBackground : AppTheme.subTextColor(isDark)).withValues(alpha: 0.8),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-            ),
             if (dhikr.virtue != null) ...[
               const SizedBox(height: 16),
               Container(
