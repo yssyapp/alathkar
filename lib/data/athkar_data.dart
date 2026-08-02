@@ -226,6 +226,24 @@ class AthkarData {
       sourceId: 'Musnad Ahmad 3/406',
     ),
     const DhikrModel(
+      title: 'دعاء الشهادة',
+      text:
+          'اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ',
+      source: 'رواه أبو داود (5069) من حديث أبي سعيد الخدري، وصححه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'أعتقه الله من النار',
+      count: 4,
+      category: DhikrCategory.morning,
+      textEn:
+          '"O Allah, I have reached the morning and call upon You, the bearers of Your Throne, Your angels and all of Your creation to witness that surely You are Allah, there is none worthy of worship except You alone, You have no partner, and that Muhammad is Your slave and Messenger."',
+      sourceEn:
+          'Abu Dawood 5069, graded sahih by Al-Albani',
+      textId: '"Ya Allah, sesungguhnya aku memasuki waktu pagi ini seraya mempersaksikan Engkau, para pemikul Arsy-Mu, para malaikat-Mu, dan seluruh makhluk-Mu, bahwa Engkaulah Allah, tidak ada Tuhan yang berhak disembah selain Engkau semata, tidak ada sekutu bagi-Mu, dan bahwa Muhammad adalah hamba dan Rasul-Mu."',
+      sourceId: 'Sunan Abu Dawud 5069, dishahihkan oleh Al-Albani',
+      textUr: 'اے اللہ! میں نے صبح کی، تجھے اور تیرے عرش کے اٹھانے والوں کو اور تیرے فرشتوں اور تیری تمام مخلوق کو گواہ بناتا ہوں کہ تو ہی اللہ ہے، تیرے سوا کوئی معبود برحق نہیں، تو اکیلا ہے، تیرا کوئی شریک نہیں، اور محمد تیرا بندہ اور رسول ہے',
+      sourceUr: 'سنن ابی داود 5069، وسندہ صحیح',
+    ),
+    const DhikrModel(
       title: 'سبحان الله وبحمده عدد خلقه',
       text:
           'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ',
@@ -426,26 +444,6 @@ class AthkarData {
       textEn:
           '"O my Lord, to You is all praise as befits the majesty of Your Face and the greatness of Your dominion."',
       sourceEn: 'From the reported Athkar',
-    ),
-
-    // ===== تُقال أربع مرات =====
-    const DhikrModel(
-      title: 'دعاء الشهادة',
-      text:
-          'اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ',
-      source: 'رواه أبو داود (5069) من حديث أبي سعيد الخدري، وصححه الألباني',
-      bookSource: 'حصن المسلم',
-      virtue: 'أعتقه الله من النار',
-      count: 4,
-      category: DhikrCategory.morning,
-      textEn:
-          '"O Allah, I have reached the morning and call upon You, the bearers of Your Throne, Your angels and all of Your creation to witness that surely You are Allah, there is none worthy of worship except You alone, You have no partner, and that Muhammad is Your slave and Messenger."',
-      sourceEn:
-          'Abu Dawood 5069, graded sahih by Al-Albani',
-      textId: '"Ya Allah, sesungguhnya aku memasuki waktu pagi ini seraya mempersaksikan Engkau, para pemikul Arsy-Mu, para malaikat-Mu, dan seluruh makhluk-Mu, bahwa Engkaulah Allah, tidak ada Tuhan yang berhak disembah selain Engkau semata, tidak ada sekutu bagi-Mu, dan bahwa Muhammad adalah hamba dan Rasul-Mu."',
-      sourceId: 'Sunan Abu Dawud 5069, dishahihkan oleh Al-Albani',
-      textUr: 'اے اللہ! میں نے صبح کی، تجھے اور تیرے عرش کے اٹھانے والوں کو اور تیرے فرشتوں اور تیری تمام مخلوق کو گواہ بناتا ہوں کہ تو ہی اللہ ہے، تیرے سوا کوئی معبود برحق نہیں، تو اکیلا ہے، تیرا کوئی شریک نہیں، اور محمد تیرا بندہ اور رسول ہے',
-      sourceUr: 'سنن ابی داود 5069، وسندہ صحیح',
     ),
 
     // ===== تُقال سبع مرات =====
@@ -698,6 +696,26 @@ class AthkarData {
       sourceUr: 'مسند احمد 406/3، عمل الیوم واللیلۃ لابن السنی وسندہ حسن',
     ),
     const DhikrModel(
+      title: 'دعاء الشهادة',
+      text:
+          'اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ',
+      source: 'رواه أبو داود (5069) من حديث أبي سعيد الخدري، وصححه الألباني',
+      bookSource: 'حصن المسلم',
+      virtue: 'أعتقه الله من النار',
+      count: 4,
+      category: DhikrCategory.evening,
+      textEn:
+          '"O Allah, I have reached the evening and call upon You, the bearers of Your Throne, Your angels and all of Your creation to witness that surely You are Allah, there is none worthy of worship except You alone, You have no partner, and that Muhammad is Your slave and Messenger."',
+      sourceEn:
+          'Abu Dawood 5069, graded sahih by Al-Albani',
+      textId:
+          '"Ya Allah, sesungguhnya aku memasuki waktu sore ini seraya mempersaksikan Engkau, para pemikul Arsy-Mu, para malaikat-Mu, dan seluruh makhluk-Mu, bahwa Engkaulah Allah, tidak ada Tuhan yang berhak disembah selain Engkau semata, tidak ada sekutu bagi-Mu, dan bahwa Muhammad adalah hamba dan Rasul-Mu."',
+      sourceId: 'Sunan Abu Dawud 5069, dishahihkan oleh Al-Albani',
+      textUr:
+          'اے اللہ! میں نے شام کی، تجھے اور تیرے عرش کے اٹھانے والوں کو اور تیرے فرشتوں اور تیری تمام مخلوق کو گواہ بناتا ہوں کہ تو ہی اللہ ہے، تیرے سوا کوئی معبود برحق نہیں، تو اکیلا ہے، تیرا کوئی شریک نہیں، اور محمد تیرا بندہ اور رسول ہے',
+      sourceUr: 'سنن ابی داود 5069، وسندہ صحیح',
+    ),
+    const DhikrModel(
       title: 'سبحان الله وبحمده عدد خلقه',
       text:
           'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ',
@@ -873,23 +891,6 @@ class AthkarData {
       sourceEn:
           'Abu Dawood 4/320, graded sahih by Al-Albani',
     ),
-
-    // ===== تُقال أربع مرات =====
-    const DhikrModel(
-      title: 'دعاء الشهادة',
-      text:
-          'اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ',
-      source: 'رواه أبو داود (5069) من حديث أبي سعيد الخدري، وصححه الألباني',
-      bookSource: 'حصن المسلم',
-      virtue: 'أعتقه الله من النار',
-      count: 4,
-      category: DhikrCategory.evening,
-      textEn:
-          '"O Allah, I have reached the evening and call upon You, the bearers of Your Throne, Your angels and all of Your creation to witness that surely You are Allah, there is none worthy of worship except You alone, You have no partner, and that Muhammad is Your slave and Messenger."',
-      sourceEn:
-          'Abu Dawood 5069, graded sahih by Al-Albani',
-    ),
-
     // ===== تُقال سبع مرات =====
     const DhikrModel(
       title: 'حسبي الله لا إله إلا هو',
