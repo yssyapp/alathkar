@@ -266,7 +266,7 @@ class AthkarData {
           'رواه النسائي في عمل اليوم والليلة والحاكم من حديث أنس بن مالك عن فاطمة رضي الله عنها — والحديث ضعيف الإسناد كما نبّه عليه الألباني',
       bookSource: 'تحفة الأخيار',
       virtue: 'دعاء جامع بالاستغاثة الكاملة، ومعناه صحيح وإن ضعف إسناده',
-      count: 1,
+      count: 3,
       category: DhikrCategory.morning,
       textUr:
           'اے ہمیشہ زندہ رہنے والے، اے قائم رکھنے والے! تیری رحمت کے ساتھ مدد چاہتا ہوں، میری پوری حالت درست فرما دے، اور مجھے پلک جھپکنے کے برابر بھی میرے نفس کے سپرد نہ کر',
@@ -298,7 +298,7 @@ class AthkarData {
           'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْجُبْنِ وَالْبُخْلِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ',
       source: 'رواه البخاري (6369) من حديث أنس بن مالك',
       bookSource: 'حصن المسلم',
-      count: 1,
+      count: 3,
       category: DhikrCategory.morning,
       textEn:
           '"O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and being overpowered by men."',
@@ -397,20 +397,35 @@ class AthkarData {
     ),
     const DhikrModel(
       title: 'أستغفر الله وأتوب إليه',
-      text: 'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',
+      text:
+          'أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ',
       source:
-          'رواه البخاري (6307) من حديث أبي هريرة: "والله إني لأستغفر الله وأتوب إليه في اليوم أكثر من سبعين مرة"',
+          'رواه أبو داود (1517) والترمذي (3577) من حديث بلال بن يسار بن زيد مولى النبي صلى الله عليه وسلم عن أبيه عن جده، وصححه الألباني',
       bookSource: 'حصن المسلم',
-      virtue: 'من هدي النبي صلى الله عليه وسلم الإكثار من الاستغفار',
+      virtue: 'من قالها غُفر له وإن كان فرَّ من الزحف',
       count: 3,
       category: DhikrCategory.morning,
-      textEn: '"I seek the forgiveness of Allah and repent to Him."',
-      sourceEn:
-          'Al-Bukhari 6307',
-      textId: '"Aku memohon ampun kepada Allah dan bertaubat kepada-Nya."',
-      sourceId: 'Shahih Al-Bukhari 6307',
-      textUr: 'میں اللہ سے بخشش مانگتا ہوں اور اسی کی طرف رجوع کرتا ہوں',
-      sourceUr: 'صحیح بخاری 6307',
+      textEn:
+          '"I seek the forgiveness of Allah, the Mighty, Whom there is none worthy of worship but He, the Living, the Sustainer, and I repent to Him."',
+      sourceEn: 'Abu Dawood 1517, At-Tirmidhi 3577, graded sahih by Al-Albani',
+      textId:
+          '"Aku memohon ampun kepada Allah Yang Maha Agung, yang tiada Tuhan yang berhak disembah selain Dia, Yang Maha Hidup lagi Maha Mengurus (makhluk-Nya), dan aku bertaubat kepada-Nya."',
+      sourceId: 'Sunan Abu Dawud 1517, Sunan At-Tirmidzi 3577, dishahihkan Al-Albani',
+      textUr:
+          'میں اللہ عظیم سے بخشش مانگتا ہوں جس کے سوا کوئی معبود برحق نہیں، وہ ہمیشہ زندہ رہنے والا، ہر چیز کو قائم رکھنے والا ہے، اور میں اسی کی طرف رجوع کرتا ہوں',
+      sourceUr: 'سنن ابی داود 1517، سنن الترمذی 3577، وصححه الألبانی',
+    ),
+    const DhikrModel(
+      title: 'يا رب لك الحمد',
+      text:
+          'يَا رَبِّ لَكَ الْحَمْدُ كَمَا يَنْبَغِي لِجَلَالِ وَجْهِكَ وَلِعَظِيمِ سُلْطَانِكَ',
+      source: 'من الأذكار المأثورة',
+      bookSource: 'تحفة الأخيار',
+      count: 3,
+      category: DhikrCategory.morning,
+      textEn:
+          '"O my Lord, to You is all praise as befits the majesty of Your Face and the greatness of Your dominion."',
+      sourceEn: 'From the reported Athkar',
     ),
 
     // ===== تُقال أربع مرات =====
@@ -715,7 +730,7 @@ class AthkarData {
           'رواه النسائي في عمل اليوم والليلة والحاكم من حديث أنس بن مالك عن فاطمة رضي الله عنها — والحديث ضعيف الإسناد كما نبّه عليه الألباني',
       bookSource: 'تحفة الأخيار',
       virtue: 'دعاء جامع بالاستغاثة الكاملة، ومعناه صحيح وإن ضعف إسناده',
-      count: 1,
+      count: 3,
       category: DhikrCategory.evening,
       textUr:
           'اے ہمیشہ زندہ رہنے والے، اے قائم رکھنے والے! تیری رحمت کے ساتھ مدد چاہتا ہوں، میری پوری حالت درست فرما دے، اور مجھے پلک جھپکنے کے برابر بھی میرے نفس کے سپرد نہ کر',
@@ -764,7 +779,7 @@ class AthkarData {
           'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ',
       source: 'رواه البخاري (6369) من حديث أنس بن مالك',
       bookSource: 'حصن المسلم',
-      count: 1,
+      count: 3,
       category: DhikrCategory.evening,
       textEn:
           '"O Allah, I seek refuge in You from anxiety and sorrow, I seek refuge in You from weakness and laziness, I seek refuge in You from cowardice and miserliness, and I seek refuge in You from being overcome by debt and overpowered by men."',
@@ -777,7 +792,7 @@ class AthkarData {
           'يَا رَبِّ لَكَ الْحَمْدُ كَمَا يَنْبَغِي لِجَلَالِ وَجْهِكَ وَلِعَظِيمِ سُلْطَانِكَ',
       source: 'من الأذكار المأثورة',
       bookSource: 'تحفة الأخيار',
-      count: 1,
+      count: 3,
       category: DhikrCategory.evening,
       textEn: '"O my Lord, to You is all praise as befits the majesty of Your Face and the greatness of Your dominion."',
       sourceEn: 'From the reported Athkar',
