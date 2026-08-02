@@ -90,14 +90,22 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
   final PageController _controller = PageController();
   int _index = 0;
 
+  /// معرّفات الأذكار التي أكمل المستخدم عدّها بالكامل خلال هذه الجلسة —
+  /// أساس عدّاد "أنجزت" أسفل شريط التقدم. تُعاد للصفر تلقائياً عند فتح
+  /// الشاشة من جديد (لكل جلسة قراءة عدّها الخاص)، وتُستثنى منها الأذكار
+  /// التي تُقال مرة واحدة بلا تكرار (count <= 1) لأنه لا يوجد لها عدّاد
+  /// أصلاً لتمييز إنجازها عن مجرد المرور عليها.
+  final Set<String> _completedIds = {};
+
   @override
   void didUpdateWidget(covariant AzkarSwipeView oldWidget) {
     super.didUpdateWidget(oldWidget);
     // عند تبديل الفئة (مثلاً الانتقال بين تبويب الصباح والمساء) نعيد
-    // الموضع لأول ذكر بدل الاحتفاظ برقم صفحة قد لا يكون موجوداً في الفئة
-    // الجديدة أصلاً.
+    // الموضع لأول ذكر ونصفّر عدّاد الإنجاز، بدل الاحتفاظ بحالة فئة سابقة
+    // لا علاقة لها بالفئة الجديدة أصلاً.
     if (oldWidget.category != widget.category) {
       _index = 0;
+      _completedIds.clear();
       if (_controller.hasClients) _controller.jumpToPage(0);
     }
   }
@@ -106,6 +114,10 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  void _markCompleted(String dhikrId) {
+    if (_completedIds.add(dhikrId)) setState(() {});
   }
 
   @override
@@ -123,13 +135,48 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
       );
     }
 
+    // كل ذكر الآن له عدّاد تنازلي خاص به (حتى لو تُقال مرة واحدة)، فمقام
+    // نسبة "أنجزت" هو إجمالي عدد الأذكار في الفئة بالكامل.
+    final countableTotal = athkar.length;
+    final progress = (_index + 1) / athkar.length;
+
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(top: widget.embedded ? 10 : 2, bottom: 6),
-          child: Text(
-            '${_index + 1} / ${athkar.length}',
-            style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark)),
+          padding: EdgeInsets.fromLTRB(20, widget.embedded ? 10 : 2, 20, 8),
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: LinearProgressIndicator(
+                  value: progress,
+                  minHeight: 5,
+                  backgroundColor: AppTheme.gold.withValues(alpha: 0.15),
+                  valueColor: AlwaysStoppedAnimation<Color>(AppTheme.gold),
+                ),
+              ),
+              const SizedBox(height: 6),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${_index + 1} / ${athkar.length}',
+                    style: GoogleFonts.cairo(fontSize: 12.5, color: AppTheme.subTextColor(isDark)),
+                  ),
+                  if (countableTotal > 0)
+                    Row(
+                      children: [
+                        Icon(Icons.check_circle, size: 13, color: AppTheme.gold.withValues(alpha: 0.85)),
+                        const SizedBox(width: 4),
+                        Text(
+                          '${context.tr('dhikrCompletedLabel')} ${_completedIds.length} / $countableTotal',
+                          style: GoogleFonts.cairo(fontSize: 12.5, fontWeight: FontWeight.w700, color: AppTheme.gold),
+                        ),
+                      ],
+                    ),
+                ],
+              ),
+            ],
           ),
         ),
         Expanded(
@@ -143,7 +190,20 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
               dhikr: athkar[i],
               lang: lang,
               isDark: isDark,
-              onCompleted: () => context.read<StatsProvider>().recordCompletion(),
+              onCompleted: () {
+                context.read<StatsProvider>().recordCompletion();
+                _markCompleted(athkar[i].id);
+              },
+              // عند اكتمال عدّاد الذكر الحالي (وصل للصفر) ننتقل تلقائياً
+              // للذكر التالي — إلا لو كان آخر ذكر في الفئة، فنبقى عليه.
+              onAdvance: () {
+                if (i < athkar.length - 1 && _controller.hasClients) {
+                  _controller.nextPage(
+                    duration: const Duration(milliseconds: 450),
+                    curve: Curves.easeOutCubic,
+                  );
+                }
+              },
             ),
           ),
         ),
@@ -158,13 +218,17 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
 }
 
 /// محتوى ذكر واحد يملأ الصفحة: بدون عنوان، نص الذكر بارز في المنتصف،
-/// وتحته الفضل (إن وُجد) والمصدر وأزرار النسخ/المشاركة. قابل للتمرير
-/// الداخلي لو كان النص طويلاً جداً (كآية الكرسي) على شاشة صغيرة.
+/// وتحته عدّاد تنازلي خاص به، ثم الفضل (إن وُجد) والمصدر وأزرار
+/// النسخ/المشاركة. قابل للتمرير الداخلي لو كان النص طويلاً جداً (كآية
+/// الكرسي) على شاشة صغيرة.
 class _AzkarSwipePage extends StatefulWidget {
   final DhikrModel dhikr;
   final AppLanguage lang;
   final bool isDark;
   final VoidCallback onCompleted;
+
+  /// يُستدعى تلقائياً بعد وصول العدّاد للصفر، للانتقال للذكر التالي.
+  final VoidCallback onAdvance;
 
   const _AzkarSwipePage({
     super.key,
@@ -172,6 +236,7 @@ class _AzkarSwipePage extends StatefulWidget {
     required this.lang,
     required this.isDark,
     required this.onCompleted,
+    required this.onAdvance,
   });
 
   @override
@@ -179,26 +244,30 @@ class _AzkarSwipePage extends StatefulWidget {
 }
 
 class _AzkarSwipePageState extends State<_AzkarSwipePage> {
-  int _counter = 0;
+  /// عدّاد تنازلي: يبدأ من عدد مرات تكرار الذكر كما ورد في الحديث الصحيح
+  /// (dhikr.count) وينقص واحداً في كل ضغطة حتى يصل للصفر — بدل عدّاد
+  /// تصاعدي يحتاج مقارنة ذهنية بالرقم المستهدف في كل مرة. عند وصوله للصفر
+  /// ننتقل تلقائياً للذكر التالي (راجع [_decrement]).
+  late int _remaining = widget.dhikr.count;
 
-  void _incrementCounter() {
-    final dhikr = widget.dhikr;
-    if (dhikr.count <= 1) return;
-    if (_counter >= dhikr.count) {
-      HapticFeedback.mediumImpact();
-      return;
-    }
-    setState(() => _counter++);
-    if (_counter >= dhikr.count) {
+  void _decrement() {
+    if (_remaining <= 0) return;
+    setState(() => _remaining--);
+    if (_remaining == 0) {
       HapticFeedback.mediumImpact();
       widget.onCompleted();
+      // مهلة قصيرة يرى خلالها المستخدم وصول العدّاد للصفر فعلياً قبل
+      // الانتقال التلقائي، بدل قفزة فورية قد تمر دون ملاحظتها.
+      Future.delayed(const Duration(milliseconds: 450), () {
+        if (mounted) widget.onAdvance();
+      });
     } else {
       HapticFeedback.lightImpact();
     }
   }
 
   void _resetCounter() {
-    setState(() => _counter = 0);
+    setState(() => _remaining = widget.dhikr.count);
     HapticFeedback.selectionClick();
   }
 
@@ -208,7 +277,7 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
     final isDark = widget.isDark;
     final lang = widget.lang;
     final bodyDir = lang.isRtl ? TextDirection.rtl : TextDirection.ltr;
-    final isCompleted = dhikr.count > 1 && _counter >= dhikr.count;
+    final isCompleted = _remaining == 0;
     final isFavorite = context.select<FavoritesProvider, bool>((p) => p.isFavorite(dhikr));
     // قاعدة ثابتة: النص الشرعي (آية أو حديث) يظهر عربياً كاملاً دائماً
     // أولاً، ثم ترجمته (إن وُجدت فعلاً) تحته كتوضيح لا كبديل عنه.
@@ -246,7 +315,8 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
               const SizedBox(height: 12),
             ],
             GestureDetector(
-              onTap: dhikr.count > 1 ? _incrementCounter : null,
+              onTap: _decrement,
+              onLongPress: _resetCounter,
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(22),
@@ -295,29 +365,52 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
                 ),
               ),
             ],
-            if (dhikr.count > 1) ...[
-              const SizedBox(height: 16),
-              GestureDetector(
-                onTap: _incrementCounter,
-                onLongPress: _resetCounter,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-                  decoration: BoxDecoration(
-                    gradient: isCompleted ? AppTheme.goldGradient : AppTheme.cardGradient(isDark),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: AppTheme.gold, width: 1),
-                  ),
-                  child: Text(
-                    '$_counter / ${dhikr.count}',
-                    style: GoogleFonts.cairo(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: isCompleted ? AppTheme.darkBackground : AppTheme.textColor(isDark),
+            const SizedBox(height: 16),
+            // عدّاد تنازلي تحت كل ذكر بلا استثناء: يبدأ بعدد مرات التكرار
+            // الصحيحة (dhikr.count) وينقص بالضغط عليه (أو على النص أعلاه)
+            // حتى الصفر، ثم ينتقل تلقائياً للذكر التالي.
+            GestureDetector(
+              onTap: _decrement,
+              onLongPress: _resetCounter,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 12),
+                decoration: BoxDecoration(
+                  gradient: isCompleted ? AppTheme.goldGradient : AppTheme.cardGradient(isDark),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: AppTheme.gold, width: isCompleted ? 1.5 : 1),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      isCompleted ? Icons.check_circle : Icons.touch_app_outlined,
+                      size: 18,
+                      color: isCompleted ? AppTheme.darkBackground : AppTheme.gold,
                     ),
-                  ),
+                    const SizedBox(width: 8),
+                    Text(
+                      localizedDigits('$_remaining', lang),
+                      style: GoogleFonts.cairo(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800,
+                        color: isCompleted ? AppTheme.darkBackground : AppTheme.textColor(isDark),
+                      ),
+                    ),
+                    if (dhikr.count > 1) ...[
+                      const SizedBox(width: 6),
+                      Text(
+                        '/ ${localizedDigits('${dhikr.count}', lang)}',
+                        style: GoogleFonts.cairo(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: (isCompleted ? AppTheme.darkBackground : AppTheme.subTextColor(isDark)).withValues(alpha: 0.8),
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ),
-            ],
+            ),
             if (dhikr.virtue != null) ...[
               const SizedBox(height: 16),
               Container(
@@ -371,7 +464,7 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
                     Clipboard.setData(ClipboardData(text: dhikr.textFor(lang)));
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('تم نسخ الذكر', style: GoogleFonts.cairo(), textDirection: TextDirection.rtl),
+                        content: Text(context.tr('dhikrCopiedMsg'), style: GoogleFonts.cairo(), textDirection: bodyDir),
                         backgroundColor: AppTheme.primaryGreen,
                       ),
                     );
