@@ -75,23 +75,39 @@ class AthkarCategoriesScreen extends StatelessWidget {
             children: [
               _buildTopBar(context),
               Expanded(
-                child: GridView.builder(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                  itemCount: _gridOrder.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 14,
-                    crossAxisSpacing: 14,
-                    childAspectRatio: 1.65,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 10),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      // نحسب حجم كل بطاقة ديناميكياً بحيث تملأ كل الفئات
+                      // الشاشة كاملة في صفحة واحدة بدون أي سحب رأسي، مهما
+                      // كان حجم الشاشة (7 صفوف × عمودين لكل الفئات الحالية).
+                      const crossAxisCount = 2;
+                      const spacing = 10.0;
+                      final rows = (_gridOrder.length / crossAxisCount).ceil();
+                      final cardWidth = (constraints.maxWidth - spacing * (crossAxisCount - 1)) / crossAxisCount;
+                      final cardHeight = (constraints.maxHeight - spacing * (rows - 1)) / rows;
+                      final aspectRatio = cardWidth / cardHeight;
+                      return GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: _gridOrder.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: crossAxisCount,
+                          mainAxisSpacing: spacing,
+                          crossAxisSpacing: spacing,
+                          childAspectRatio: aspectRatio,
+                        ),
+                        itemBuilder: (context, index) {
+                          final category = _gridOrder[index];
+                          return _CategoryTile(
+                            category: category,
+                            lang: lang,
+                            onTap: () => _openCategory(context, category),
+                          );
+                        },
+                      );
+                    },
                   ),
-                  itemBuilder: (context, index) {
-                    final category = _gridOrder[index];
-                    return _CategoryTile(
-                      category: category,
-                      lang: lang,
-                      onTap: () => _openCategory(context, category),
-                    );
-                  },
                 ),
               ),
             ],
