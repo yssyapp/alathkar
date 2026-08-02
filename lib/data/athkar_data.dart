@@ -82,6 +82,63 @@ class AthkarData {
           'اللہ وہ ذات ہے جس کے علاوہ کوئی سچا معبود ہمیشہ زندہ رہنے والا اور (سب کو) قائم رکھنے والا ہے، نہ اسے اونگھ آتی ہے اور نہ نیند، اسی کے لیے ہے جو آسمانوں میں ہے اور جو زمین میں ہے، کون ہے جو اس کی اجازت کے بغیر اس کے پاس سفارش کر سکے، جو لوگوں کے سامنے ہے اور جو ان کے پیچھے ہے سب کو جانتا ہے، لوگ اس کے علم میں سے کسی چیز کا احاطہ نہیں کرسکتے مگر جو وہ چاہے، اسی کی کرسی آسمانوں اور زمین کو گھیرے ہوئے ہے اور ان دونوں کی حفاظت اسے تھکاتی نہیں، اور وہ بلند ہے عظمت والا ہے۔',
       sourceUr: 'آیۃ الکرسی، سورۃ البقرۃ: 255',
     ),
+
+    // ===== المعوذات: تُقال ثلاث مرات، وترتيبها هنا مباشرة بعد آية الكرسي =====
+    const DhikrModel(
+      title: 'سورة الإخلاص',
+      text:
+          'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)',
+      source:
+          'سورة الإخلاص: الآيات (1-4) | رواه أبو داود (5082) والترمذي (3575)',
+      bookSource: 'حصن المسلم',
+      virtue: 'تعدل ثلث القرآن — من قرأها ثلاثاً صباحاً كفته عن كل شيء',
+      count: 3,
+      category: DhikrCategory.morning,
+      textEn:
+          '"Say: He is Allah, (The One) Allah-us-Samad. He begets not, nor was He begotten. And there is none co-equal or comparable unto Him."',
+      sourceEn: 'Surah Al-Ikhlas 112:1-4',
+      textId:
+          '"Katakanlah! Dialah Allah Yang Maha Tunggal. Allah, tempat bergantung segala sesuatu. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorangpun yang setara dengan Dia." (Q.S. Al-Ikhlas: 1-4)',
+      sourceId: 'Q.S. Al-Ikhlas: 1-4',
+      textUr: 'کہہ دیجیے! اللہ ایک ہے۔ اللہ بے نیاز ہے۔ نہ اس نے کسی کو جنا اور نہ وہ جنا گیا۔ اور نہ کوئی اس کا ہمسر ہے',
+      sourceUr: 'سورۃ الاخلاص: 1-4',
+    ),
+    const DhikrModel(
+      title: 'سورة الفلق',
+      text:
+          'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
+      source:
+          'سورة الفلق: الآيات (1-5) | رواه أبو داود (5082) والترمذي (3575)',
+      bookSource: 'حصن المسلم',
+      count: 3,
+      category: DhikrCategory.morning,
+      textEn:
+          '"Say: I seek refuge with (Allah), the Lord of the daybreak. From the evil of what He has created, And from the evil of the darkening (night) as it comes with its darkness, And from the evil of those who practice witchcraft when they blow in the knots, And from the evil of the envier when he envies."',
+      sourceEn: 'Surah Al-Falaq 113:1-5',
+      textId:
+          '"Katakanlah! Aku berlindung kepada Tuhan Yang Menguasai waktu subuh. Dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang menghembus pada buhul-buhul. Dan dari kejahatan orang yang dengki apabila ia dengki." (Q.S. Al-Falaq: 1-5)',
+      sourceId: 'Q.S. Al-Falaq: 1-5',
+      textUr: 'کہہ دیجیے! میں صبح کے رب کی پناہ مانگتا ہوں۔ ہر اس چیز کے شر سے جو اس نے پیدا کی۔ اور اندھیری رات کے شر سے جب اس کا اندھیرا چھا جائے۔ اور گرہوں میں پھونک مارنے والیوں کے شر سے۔ اور حاسد کے شر سے جب وہ حسد کرے',
+      sourceUr: 'سورۃ الفلق: 1-5',
+    ),
+    const DhikrModel(
+      title: 'سورة الناس',
+      text:
+          'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
+      source:
+          'سورة الناس: الآيات (1-6) | رواه أبو داود (5082) والترمذي (3575)',
+      bookSource: 'حصن المسلم',
+      count: 3,
+      category: DhikrCategory.morning,
+      textEn:
+          '"Say: I seek refuge with (Allah) the Lord of mankind, The King of mankind, The Ilah (God) of mankind, From the evil of the whisperer (devil) who withdraws (from his whispering in one\'s heart after one remembers Allah), Who whispers in the breasts of mankind, Of jinn and men."',
+      sourceEn: 'Surah An-Nas 114:1-6 | Abu Dawood 4/322, and At-Tirmidhi 5/567. See Al-Albani\'s Sahih At-Tirmidhi 3/182',
+      textId:
+          '"Katakanlah! Aku berlindung kepada Tuhan (Yang Memelihara dan Menguasai) manusia. Raja manusia. Sembahan manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada manusia. Dari (golongan) jin dan manusia." (Q.S. An-Nas: 1-6)',
+      sourceId: 'Q.S. An-Nas: 1-6',
+      textUr: 'کہہ دیجیے! میں لوگوں کے رب کی پناہ مانگتا ہوں۔ لوگوں کے بادشاہ کی۔ لوگوں کے معبود کی۔ وسوسہ ڈالنے والے، پیچھے ہٹ جانے والے کے شر سے۔ جو لوگوں کے دلوں میں وسوسہ ڈالتا ہے۔ خواہ وہ جنوں میں سے ہو یا انسانوں میں سے',
+      sourceUr: 'سورۃ الناس: 1-6',
+    ),
     const DhikrModel(
       title: 'دعاء الصباح',
       text:
@@ -254,61 +311,6 @@ class AthkarData {
     ),
 
     // ===== تُقال ثلاث مرات =====
-    const DhikrModel(
-      title: 'سورة الإخلاص',
-      text:
-          'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)',
-      source:
-          'سورة الإخلاص: الآيات (1-4) | رواه أبو داود (5082) والترمذي (3575)',
-      bookSource: 'حصن المسلم',
-      virtue: 'تعدل ثلث القرآن — من قرأها ثلاثاً صباحاً كفته عن كل شيء',
-      count: 3,
-      category: DhikrCategory.morning,
-      textEn:
-          '"Say: He is Allah, (The One) Allah-us-Samad. He begets not, nor was He begotten. And there is none co-equal or comparable unto Him."',
-      sourceEn: 'Surah Al-Ikhlas 112:1-4',
-      textId:
-          '"Katakanlah! Dialah Allah Yang Maha Tunggal. Allah, tempat bergantung segala sesuatu. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorangpun yang setara dengan Dia." (Q.S. Al-Ikhlas: 1-4)',
-      sourceId: 'Q.S. Al-Ikhlas: 1-4',
-      textUr: 'کہہ دیجیے! اللہ ایک ہے۔ اللہ بے نیاز ہے۔ نہ اس نے کسی کو جنا اور نہ وہ جنا گیا۔ اور نہ کوئی اس کا ہمسر ہے',
-      sourceUr: 'سورۃ الاخلاص: 1-4',
-    ),
-    const DhikrModel(
-      title: 'سورة الفلق',
-      text:
-          'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
-      source:
-          'سورة الفلق: الآيات (1-5) | رواه أبو داود (5082) والترمذي (3575)',
-      bookSource: 'حصن المسلم',
-      count: 3,
-      category: DhikrCategory.morning,
-      textEn:
-          '"Say: I seek refuge with (Allah), the Lord of the daybreak. From the evil of what He has created, And from the evil of the darkening (night) as it comes with its darkness, And from the evil of those who practice witchcraft when they blow in the knots, And from the evil of the envier when he envies."',
-      sourceEn: 'Surah Al-Falaq 113:1-5',
-      textId:
-          '"Katakanlah! Aku berlindung kepada Tuhan Yang Menguasai waktu subuh. Dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang menghembus pada buhul-buhul. Dan dari kejahatan orang yang dengki apabila ia dengki." (Q.S. Al-Falaq: 1-5)',
-      sourceId: 'Q.S. Al-Falaq: 1-5',
-      textUr: 'کہہ دیجیے! میں صبح کے رب کی پناہ مانگتا ہوں۔ ہر اس چیز کے شر سے جو اس نے پیدا کی۔ اور اندھیری رات کے شر سے جب اس کا اندھیرا چھا جائے۔ اور گرہوں میں پھونک مارنے والیوں کے شر سے۔ اور حاسد کے شر سے جب وہ حسد کرے',
-      sourceUr: 'سورۃ الفلق: 1-5',
-    ),
-    const DhikrModel(
-      title: 'سورة الناس',
-      text:
-          'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
-      source:
-          'سورة الناس: الآيات (1-6) | رواه أبو داود (5082) والترمذي (3575)',
-      bookSource: 'حصن المسلم',
-      count: 3,
-      category: DhikrCategory.morning,
-      textEn:
-          '"Say: I seek refuge with (Allah) the Lord of mankind, The King of mankind, The Ilah (God) of mankind, From the evil of the whisperer (devil) who withdraws (from his whispering in one\'s heart after one remembers Allah), Who whispers in the breasts of mankind, Of jinn and men."',
-      sourceEn: 'Surah An-Nas 114:1-6 | Abu Dawood 4/322, and At-Tirmidhi 5/567. See Al-Albani\'s Sahih At-Tirmidhi 3/182',
-      textId:
-          '"Katakanlah! Aku berlindung kepada Tuhan (Yang Memelihara dan Menguasai) manusia. Raja manusia. Sembahan manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada manusia. Dari (golongan) jin dan manusia." (Q.S. An-Nas: 1-6)',
-      sourceId: 'Q.S. An-Nas: 1-6',
-      textUr: 'کہہ دیجیے! میں لوگوں کے رب کی پناہ مانگتا ہوں۔ لوگوں کے بادشاہ کی۔ لوگوں کے معبود کی۔ وسوسہ ڈالنے والے، پیچھے ہٹ جانے والے کے شر سے۔ جو لوگوں کے دلوں میں وسوسہ ڈالتا ہے۔ خواہ وہ جنوں میں سے ہو یا انسانوں میں سے',
-      sourceUr: 'سورۃ الناس: 1-6',
-    ),
     const DhikrModel(
       title: 'دعاء الرضا',
       text:
@@ -557,6 +559,57 @@ class AthkarData {
           '"The Messenger (Muhammad) believes in what has been sent down to him from his Lord, and (so do) the believers. Each one believes in Allah, His Angels, His Books, and His Messengers. (They say,) \'We make no distinction between one another of His Messengers\' — and they say, \'We hear, and we obey. (We seek) Your Forgiveness, our Lord, and to You is the return (of all).\' Allah burdens not a person beyond his scope. He gets reward for that (good) which he has earned, and he is punished for that (evil) which he has earned. \'Our Lord! Punish us not if we forget or fall into error, our Lord! Lay not on us a burden like that which You did lay on those before us; our Lord! Put not on us a burden greater than we have strength to bear. Pardon us, and grant us Forgiveness, and have mercy on us. You are our Protector, so give us victory over the disbelieving people.\'"',
       sourceEn: 'Surah Al-Baqarah 2:285-286 | Al-Bukhari 4008, Muslim 807',
     ),
+
+    // ===== المعوذات: تُقال ثلاث مرات، وترتيبها هنا مباشرة بعد خواتيم سورة البقرة =====
+    const DhikrModel(
+      title: 'سورة الإخلاص',
+      text:
+          'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)',
+      source:
+          'سورة الإخلاص: الآيات (1-4) | رواه أبو داود (5082) والترمذي (3575)',
+      bookSource: 'حصن المسلم',
+      virtue: 'تعدل ثلث القرآن — من قرأها ثلاثاً مساءً كفته عن كل شيء',
+      count: 3,
+      category: DhikrCategory.evening,
+      textEn:
+          '"Say: He is Allah, (The One) Allah-us-Samad. He begets not, nor was He begotten. And there is none co-equal or comparable unto Him."',
+      sourceEn: 'Surah Al-Ikhlas 112:1-4',
+      textId:
+          '"Katakanlah! Dialah Allah Yang Maha Tunggal. Allah, tempat bergantung segala sesuatu. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorangpun yang setara dengan Dia." (Q.S. Al-Ikhlas: 1-4)',
+      sourceId: 'Q.S. Al-Ikhlas: 1-4',
+    ),
+    const DhikrModel(
+      title: 'سورة الفلق',
+      text:
+          'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
+      source:
+          'سورة الفلق: الآيات (1-5) | رواه أبو داود (5082) والترمذي (3575)',
+      bookSource: 'حصن المسلم',
+      count: 3,
+      category: DhikrCategory.evening,
+      textEn:
+          '"Say: I seek refuge with (Allah), the Lord of the daybreak. From the evil of what He has created, And from the evil of the darkening (night) as it comes with its darkness, And from the evil of those who practice witchcraft when they blow in the knots, And from the evil of the envier when he envies."',
+      sourceEn: 'Surah Al-Falaq 113:1-5',
+      textId:
+          '"Katakanlah! Aku berlindung kepada Tuhan Yang Menguasai waktu subuh. Dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang menghembus pada buhul-buhul. Dan dari kejahatan orang yang dengki apabila ia dengki." (Q.S. Al-Falaq: 1-5)',
+      sourceId: 'Q.S. Al-Falaq: 1-5',
+    ),
+    const DhikrModel(
+      title: 'سورة الناس',
+      text:
+          'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
+      source:
+          'سورة الناس: الآيات (1-6) | رواه أبو داود (5082) والترمذي (3575)',
+      bookSource: 'حصن المسلم',
+      count: 3,
+      category: DhikrCategory.evening,
+      textEn:
+          '"Say: I seek refuge with (Allah) the Lord of mankind, The King of mankind, The Ilah (God) of mankind, From the evil of the whisperer (devil) who withdraws (from his whispering in one\'s heart after one remembers Allah), Who whispers in the breasts of mankind, Of jinn and men."',
+      sourceEn: 'Surah An-Nas 114:1-6 | Abu Dawood 4/322, and At-Tirmidhi 5/567. See Al-Albani\'s Sahih At-Tirmidhi 3/182',
+      textId:
+          '"Katakanlah! Aku berlindung kepada Tuhan (Yang Memelihara dan Menguasai) manusia. Raja manusia. Sembahan manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada manusia. Dari (golongan) jin dan manusia." (Q.S. An-Nas: 1-6)',
+      sourceId: 'Q.S. An-Nas: 1-6',
+    ),
     const DhikrModel(
       title: 'دعاء المساء',
       text:
@@ -740,57 +793,6 @@ class AthkarData {
       textEn:
           '"O Allah, You are my Lord, there is no god worthy of worship except You, in You I place my trust, and You are the Lord of the Mighty Throne. Whatever Allah wills happens, and whatever He does not will does not happen. There is no power and no strength except with Allah, the Most High, the Most Great. I know that Allah is capable of all things and that Allah has encompassed all things in knowledge. O Allah, I seek refuge in You from the evil of myself and from the evil of every creature whose forelock You hold. Indeed my Lord is on a straight path."',
       sourceEn: 'Ibn as-Sunni in \'Amal al-Yawm wal-Laylah',
-    ),
-
-    // ===== تُقال ثلاث مرات =====
-    const DhikrModel(
-      title: 'سورة الإخلاص',
-      text:
-          'قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ (4)',
-      source:
-          'سورة الإخلاص: الآيات (1-4) | رواه أبو داود (5082) والترمذي (3575)',
-      bookSource: 'حصن المسلم',
-      virtue: 'تعدل ثلث القرآن — من قرأها ثلاثاً مساءً كفته عن كل شيء',
-      count: 3,
-      category: DhikrCategory.evening,
-      textEn:
-          '"Say: He is Allah, (The One) Allah-us-Samad. He begets not, nor was He begotten. And there is none co-equal or comparable unto Him."',
-      sourceEn: 'Surah Al-Ikhlas 112:1-4',
-      textId:
-          '"Katakanlah! Dialah Allah Yang Maha Tunggal. Allah, tempat bergantung segala sesuatu. Dia tidak beranak dan tidak pula diperanakkan. Dan tidak ada seorangpun yang setara dengan Dia." (Q.S. Al-Ikhlas: 1-4)',
-      sourceId: 'Q.S. Al-Ikhlas: 1-4',
-    ),
-    const DhikrModel(
-      title: 'سورة الفلق',
-      text:
-          'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِن شَرِّ مَا خَلَقَ (2) وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)',
-      source:
-          'سورة الفلق: الآيات (1-5) | رواه أبو داود (5082) والترمذي (3575)',
-      bookSource: 'حصن المسلم',
-      count: 3,
-      category: DhikrCategory.evening,
-      textEn:
-          '"Say: I seek refuge with (Allah), the Lord of the daybreak. From the evil of what He has created, And from the evil of the darkening (night) as it comes with its darkness, And from the evil of those who practice witchcraft when they blow in the knots, And from the evil of the envier when he envies."',
-      sourceEn: 'Surah Al-Falaq 113:1-5',
-      textId:
-          '"Katakanlah! Aku berlindung kepada Tuhan Yang Menguasai waktu subuh. Dari kejahatan makhluk-Nya. Dan dari kejahatan malam apabila telah gelap gulita. Dan dari kejahatan wanita-wanita tukang sihir yang menghembus pada buhul-buhul. Dan dari kejahatan orang yang dengki apabila ia dengki." (Q.S. Al-Falaq: 1-5)',
-      sourceId: 'Q.S. Al-Falaq: 1-5',
-    ),
-    const DhikrModel(
-      title: 'سورة الناس',
-      text:
-          'قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَٰهِ النَّاسِ (3) مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)',
-      source:
-          'سورة الناس: الآيات (1-6) | رواه أبو داود (5082) والترمذي (3575)',
-      bookSource: 'حصن المسلم',
-      count: 3,
-      category: DhikrCategory.evening,
-      textEn:
-          '"Say: I seek refuge with (Allah) the Lord of mankind, The King of mankind, The Ilah (God) of mankind, From the evil of the whisperer (devil) who withdraws (from his whispering in one\'s heart after one remembers Allah), Who whispers in the breasts of mankind, Of jinn and men."',
-      sourceEn: 'Surah An-Nas 114:1-6 | Abu Dawood 4/322, and At-Tirmidhi 5/567. See Al-Albani\'s Sahih At-Tirmidhi 3/182',
-      textId:
-          '"Katakanlah! Aku berlindung kepada Tuhan (Yang Memelihara dan Menguasai) manusia. Raja manusia. Sembahan manusia. Dari kejahatan (bisikan) syaitan yang biasa bersembunyi. Yang membisikkan (kejahatan) ke dalam dada manusia. Dari (golongan) jin dan manusia." (Q.S. An-Nas: 1-6)',
-      sourceId: 'Q.S. An-Nas: 1-6',
     ),
     const DhikrModel(
       title: 'دعاء الرضا',
