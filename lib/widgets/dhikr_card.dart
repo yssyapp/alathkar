@@ -137,12 +137,16 @@ class _DhikrCardState extends State<DhikrCard> {
     );
   }
 
-  /// رأس البطاقة: ظاهر دائماً (مطوية أو مفتوحة) — عنوان + مفضّلة +
-  /// شارة تقدّم مصغّرة + سهم يدور مع حالة الفتح. النقر عليه يفتح/يطوي.
+  /// رأس البطاقة: ظاهر دائماً (مطوية أو مفتوحة) — بداية نص الذكر نفسه
+  /// (بلا أي عنوان مُخترَع فوقه) + مفضّلة + شارة تقدّم مصغّرة + سهم يدور
+  /// مع حالة الفتح. النقر عليه يفتح/يطوي.
   ///
-  /// العنوان يبقى عربياً دائماً (لا يوجد له ترجمة بعد)، أما نص الذكر نفسه
-  /// فيُعرض بلغة التطبيق الحالية عبر [DhikrModel.textFor] — ولو الترجمة
-  /// غير متوفرة لهذا الذكر تحديداً يرجع تلقائياً للنص العربي بدل الفراغ.
+  /// ملاحظة مهمة: لا نعرض "عنوان" الذكر (مثل "دعاء الاكتفاء بالله") في أي
+  /// مكان بالتطبيق — هذه العناوين وصفية فقط من إعداد التطبيق وليست جزءاً
+  /// من الحديث أو الدعاء نفسه، فعرضها كأنها عنوان رسمي قد يُفهم خطأً على
+  /// أنها جزء من النص الوارد. لذلك يُعرض دائماً نص الذكر الفعلي بلغة
+  /// التطبيق الحالية عبر [DhikrModel.textFor] — ولو الترجمة غير متوفرة
+  /// لهذا الذكر تحديداً يرجع تلقائياً للنص العربي بدل الفراغ.
   Widget _buildHeader(BuildContext context, bool isDark, bool isFavorite, bool isCompleted, AppLanguage lang) {
     final dhikr = widget.dhikr;
     final previewDir = lang.isRtl ? TextDirection.rtl : TextDirection.ltr;
@@ -182,24 +186,13 @@ class _DhikrCardState extends State<DhikrCard> {
                       ),
                     ),
                   Text(
-                    dhikr.title,
-                    style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark)),
-                    textAlign: TextAlign.right,
+                    dhikr.textFor(lang),
+                    style: GoogleFonts.cairo(fontSize: 15, fontWeight: FontWeight.w700, color: AppTheme.textColor(isDark)),
+                    textAlign: previewAlign,
+                    textDirection: previewDir,
                     overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
+                    maxLines: _expanded ? 2 : 1,
                   ),
-                  if (!_expanded)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 2),
-                      child: Text(
-                        dhikr.textFor(lang),
-                        style: GoogleFonts.cairo(fontSize: 12, color: AppTheme.subTextColor(isDark)),
-                        textAlign: previewAlign,
-                        textDirection: previewDir,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                    ),
                 ],
               ),
             ),
