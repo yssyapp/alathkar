@@ -15,7 +15,7 @@ class AppStrings {
   AppStrings._();
 
   static const Map<String, Map<String, String>> _dict = {
-    'app_name': {'ar': 'الأذكار', 'en': 'Athkar', 'id': 'Athkar', 'ur': 'اذکار'},
+    'app_name': {'ar': 'الأذكار', 'en': 'alathkar', 'id': 'alathkar', 'ur': 'اذکار'},
     // يظهر كعنوان صغير فوق ترجمة الآية/الحديث المعروضة تحت النص العربي
     // الأصلي — راجع القاعدة في dhikr_card.dart و azkar_swipe_screen.dart:
     // النص الشرعي (آية أو حديث) يظهر عربياً كاملاً دائماً أولاً، ثم ترجمته
@@ -134,7 +134,7 @@ class AppStrings {
     'asmaIntroDescription': {'ar': 'اسم الله (لفظ الجلالة) هو الاسم الأعظم الجامع، وما يلي هو أسماؤه الحسنى التسعة والتسعون الواردة في حديث الترمذي. أهل العلم مختلفون قليلاً في حصر بعض الأسماء (كـ"الرشيد" و"الصبور")، فأثبتناهما معاً كما هو شائع في أغلب المصادر مع التنبيه لذلك.', 'en': 'Allah (the greatest, all-encompassing name) is the supreme name, and below are His 99 beautiful names as reported in the hadith of al-Tirmidhi. Scholars differ slightly on a few names (such as "Ar-Rasheed" and "As-Saboor"), so we included both as is common in most sources, with this note for clarity.', 'id': 'Allah (lafal jalalah) adalah nama teragung yang mencakup semuanya, dan berikut adalah 99 Asmaul Husna-Nya sebagaimana disebutkan dalam hadits At-Tirmidzi. Para ulama sedikit berbeda pendapat dalam menetapkan beberapa nama (seperti "Ar-Rasyid" dan "Ash-Shabur"), sehingga kami mencantumkan keduanya sebagaimana lazim di kebanyakan sumber, disertai catatan ini.', 'ur': 'اللہ (لفظِ جلالہ) سب سے بڑا اور جامع نام ہے، اور ذیل میں اس کے ننانوے اسماء حسنیٰ ہیں جو حدیثِ ترمذی میں مذکور ہیں۔ اہلِ علم بعض ناموں (جیسے "الرشید" اور "الصبور") کے شمار میں قدرے مختلف الرائے ہیں، اس لیے ہم نے دونوں کو شامل کیا ہے جیسا کہ اکثر مصادر میں رائج ہے، اور اس کی وضاحت کر دی گئی ہے۔'},
 
     // athkar_categories_screen.dart
-    'athkarCatTitle': {'ar': 'أذكار المسلم', 'en': 'Muslim Athkar', 'id': 'Dzikir Muslim', 'ur': 'مسلم اذکار'},
+    'athkarCatTitle': {'ar': 'الأذكار', 'en': 'Athkar', 'id': 'Dzikir', 'ur': 'اذکار'},
     'athkarCatEmptyCategory': {'ar': 'لا توجد أذكار في هذه الفئة بعد', 'en': 'No athkar in this category yet', 'id': 'Belum ada dzikir dalam kategori ini', 'ur': 'اس زمرے میں ابھی کوئی اذکار موجود نہیں'},
 
     // counters_screen.dart
@@ -142,7 +142,7 @@ class AppStrings {
     'countersTasbihTitle': {'ar': 'سبحان الله', 'en': 'SubhanAllah', 'id': 'Subhanallah', 'ur': 'سبحان اللہ'},
     'countersTasbihSubtitle': {'ar': 'تسبيح', 'en': 'Tasbih', 'id': 'Tasbih', 'ur': 'تسبیح'},
     'countersHamdTitle': {'ar': 'الحمد لله', 'en': 'Alhamdulillah', 'id': 'Alhamdulillah', 'ur': 'الحمد للہ'},
-    'countersHamdSubtitle': {'ar': 'حمد', 'en': 'Praise', 'id': 'Puji', 'ur': 'حمد'},
+    'countersHamdSubtitle': {'ar': 'حمد', 'en': 'Tahmid', 'id': 'Tahmid', 'ur': 'حمد'},
     'countersIstighfarTitle': {'ar': 'أستغفر الله', 'en': 'Astaghfirullah', 'id': 'Astaghfirullah', 'ur': 'استغفر اللہ'},
     'countersIstighfarSubtitle': {'ar': 'استغفار', 'en': 'Istighfar', 'id': 'Istighfar', 'ur': 'استغفار'},
     'countersMisbahaTitle': {'ar': 'المسبحة العامة', 'en': 'General Tasbih', 'id': 'Tasbih Umum', 'ur': 'عام تسبیح'},
@@ -156,7 +156,7 @@ class AppStrings {
 
     // favorites_screen.dart
     'favoritesTitle': {'ar': 'المفضلة', 'en': 'Favorites', 'id': 'Favorit', 'ur': 'پسندیدہ'},
-    'favoritesEmptyTitle': {'ar': 'لا توجد أذكار مفضّلة بعد', 'en': 'No favorite adhkar yet', 'id': 'Belum ada dzikir favorit', 'ur': 'ابھی تک کوئی پسندیدہ ذکر نہیں'},
+    'favoritesEmptyTitle': {'ar': 'لا توجد أذكار مفضّلة بعد', 'en': 'No favorite athkar yet', 'id': 'Belum ada dzikir favorit', 'ur': 'ابھی تک کوئی پسندیدہ ذکر نہیں'},
     'favoritesEmptyHint': {'ar': 'اضغط على أيقونة النجمة بجانب أي ذكر لإضافته هنا', 'en': 'Tap the star icon next to any dhikr to add it here', 'id': 'Ketuk ikon bintang di samping dzikir mana pun untuk menambahkannya di sini', 'ur': 'کسی بھی ذکر کے ساتھ موجود ستارے کے آئیکن پر ٹیپ کریں تاکہ اسے یہاں شامل کریں'},
 
     // habits_screen.dart
@@ -259,7 +259,7 @@ class AppStrings {
     'statsTitle': {'ar': 'إحصائياتي', 'en': 'My Stats', 'id': 'Statistik Saya', 'ur': 'میرے اعداد و شمار'},
     'statsStreakLabel': {'ar': 'يوم متتالي', 'en': 'Day streak', 'id': 'Hari berturut-turut', 'ur': 'مسلسل دن'},
     'statsBestStreakLabel': {'ar': 'أفضل سلسلة', 'en': 'Best streak', 'id': 'Rentetan terbaik', 'ur': 'بہترین سلسلہ'},
-    'statsTodayLabel': {'ar': 'أذكار اليوم', 'en': 'Today\'s adhkar', 'id': 'Dzikir hari ini', 'ur': 'آج کے اذکار'},
+    'statsTodayLabel': {'ar': 'أذكار اليوم', 'en': 'Today\'s athkar', 'id': 'Dzikir hari ini', 'ur': 'آج کے اذکار'},
     'statsTotalLabel': {'ar': 'إجمالي كل الأوقات', 'en': 'All-time total', 'id': 'Total sepanjang waktu', 'ur': 'مجموعی کل تعداد'},
     'statsNote': {
       'ar': 'يُحسب "الذكر المكتمل" لما تخلّص عدّ التكرار المطلوب لذكر معيّن (زي التسبيح 33 مرة). واصل يومياً عشان تحافظ على سلسلتك 🔥',
@@ -376,7 +376,7 @@ class AppStrings {
     'dashNavQibla': {'ar': 'القبلة', 'en': 'Qibla', 'id': 'Kiblat', 'ur': 'قبلہ'},
     'dashNavCalendar': {'ar': 'التقويم', 'en': 'Calendar', 'id': 'Kalender', 'ur': 'کیلنڈر'},
     'dashTimeRemainingPrefix': {'ar': 'الوقت المتبقي لأذان', 'en': 'Time remaining until', 'id': 'Waktu tersisa hingga', 'ur': 'باقی وقت تک'},
-    'dashOnlinePrayerTimesBadge': {'ar': 'مواقيت أونلاين', 'en': 'Online timings', 'id': 'Waktu online', 'ur': 'آن لائن اوقات'},
+    'dashOnlinePrayerTimesBadge': {'ar': 'مواقيت أونلاين', 'en': 'Online times', 'id': 'Waktu online', 'ur': 'آن لائن اوقات'},
 
     // ============== الميزات الاختيارية عبر الإنترنت (الإعدادات) ==============
     'onlineFeaturesSectionTitle': {'ar': 'ميزات اختيارية عبر الإنترنت', 'en': 'Optional online features', 'id': 'Fitur online opsional', 'ur': 'اختیاری آن لائن خصوصیات'},
@@ -412,7 +412,7 @@ class AppStrings {
     'backupImportError': {'ar': 'تعذّر استيراد الملف — تأكد إنه نسخة احتياطية صحيحة من هذا التطبيق.', 'en': 'Couldn\'t import the file — make sure it\'s a valid backup from this app.', 'id': 'Tidak dapat mengimpor file — pastikan itu cadangan valid dari aplikasi ini.', 'ur': 'فائل درآمد نہیں ہو سکی — یقینی بنائیں کہ یہ اس ایپ کا درست بیک اپ ہے۔'},
 
     // ============== شاشة البحث ==============
-    'searchTitle': {'ar': 'البحث بالأذكار', 'en': 'Search Adhkar', 'id': 'Cari Dzikir', 'ur': 'اذکار تلاش کریں'},
+    'searchTitle': {'ar': 'البحث بالأذكار', 'en': 'Search Athkar', 'id': 'Cari Dzikir', 'ur': 'اذکار تلاش کریں'},
     'searchHint': {'ar': 'ابحث بعنوان الذكر أو نصه...', 'en': 'Search by title or text...', 'id': 'Cari berdasarkan judul atau teks...', 'ur': 'عنوان یا متن سے تلاش کریں...'},
     'searchEmptyPrompt': {'ar': 'اكتب كلمة للبحث بين كل الأذكار', 'en': 'Type a word to search across all adhkar', 'id': 'Ketik kata untuk mencari di semua dzikir', 'ur': 'تمام اذکار میں تلاش کے لیے ایک لفظ لکھیں'},
     'searchNoResults': {'ar': 'لا توجد نتائج', 'en': 'No results found', 'id': 'Tidak ada hasil', 'ur': 'کوئی نتیجہ نہیں ملا'},
