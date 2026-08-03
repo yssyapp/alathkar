@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
@@ -886,17 +887,20 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _navIcon(isDark, Icons.explore_outlined, context.tr('dashNavQibla'), () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const QiblaScreen()));
+              _navIcon(isDark, Icons.more_horiz_rounded, 'المزيد', () {
+                _showMoreSheet(context, isDark);
+              }),
+              _navIcon(isDark, Icons.settings_outlined, 'الإعدادات', () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen()));
+              }),
+              _navIcon(isDark, Icons.calendar_month_outlined, context.tr('dashNavCalendar'), () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const HijriCalendarScreen()));
               }),
               _navIcon(isDark, Icons.auto_stories_rounded, context.tr('dashToolAthkarTitle'), () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const AthkarCategoriesScreen()));
               }, highlighted: true),
-              _navIcon(isDark, Icons.calendar_month_outlined, context.tr('dashNavCalendar'), () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const HijriCalendarScreen()));
-              }),
-              _navIcon(isDark, Icons.settings_outlined, 'الإعدادات', () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen()));
+              _navIcon(isDark, Icons.explore_outlined, context.tr('dashNavQibla'), () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const QiblaScreen()));
               }),
             ],
           ),
@@ -927,6 +931,101 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
     );
   }
 
+  /// قائمة "المزيد" — ورقة سفلية تجمع بقية أدوات التطبيق التي لا تملك
+  /// أيقونة ثابتة في الشريط السفلي (المفضلة، الإحصائيات، العادات، البحث،
+  /// حاسبة الزكاة، أسماء الله الحسنى، المسجد القريب، العدّادات).
+  void _showMoreSheet(BuildContext context, bool isDark) {
+    HapticFeedback.selectionClick();
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (sheetContext) {
+        final items = <_MoreItem>[
+          _MoreItem(Icons.favorite_border_rounded, 'المفضلة', AppTheme.toolTeal, () {
+            Navigator.push(sheetContext, MaterialPageRoute(builder: (_) => const FavoritesScreen()));
+          }),
+          _MoreItem(Icons.search_rounded, 'البحث', AppTheme.toolAmber, () {
+            Navigator.push(sheetContext, MaterialPageRoute(builder: (_) => const SearchScreen()));
+          }),
+          _MoreItem(Icons.bar_chart_rounded, 'الإحصائيات', AppTheme.toolEmerald, () {
+            Navigator.push(sheetContext, MaterialPageRoute(builder: (_) => const StatsScreen()));
+          }),
+          _MoreItem(Icons.checklist_rounded, 'العادات', AppTheme.toolOlive, () {
+            Navigator.push(sheetContext, MaterialPageRoute(builder: (_) => const HabitsScreen()));
+          }),
+          _MoreItem(Icons.auto_awesome_outlined, 'أسماء الله الحسنى', AppTheme.gold, () {
+            Navigator.push(sheetContext, MaterialPageRoute(builder: (_) => const AsmaAllahScreen()));
+          }),
+          _MoreItem(Icons.fingerprint, 'العدّادات', AppTheme.toolSage, () {
+            Navigator.push(sheetContext, MaterialPageRoute(builder: (_) => const CountersScreen()));
+          }),
+          _MoreItem(Icons.savings_outlined, 'حاسبة الزكاة', AppTheme.toolAmber, () {
+            Navigator.pop(sheetContext);
+            showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              builder: (_) => const ZakatCalculatorSheet(),
+            );
+          }),
+          _MoreItem(Icons.mosque_rounded, 'المسجد القريب', AppTheme.toolMint, () {
+            Navigator.push(sheetContext, MaterialPageRoute(builder: (_) => const NearbyMosqueScreen()));
+          }),
+        ];
+        return SafeArea(
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 18),
+            decoration: BoxDecoration(
+              color: AppTheme.surfaceColor(isDark),
+              borderRadius: BorderRadius.circular(24),
+              border: Border.all(color: AppTheme.gold.withValues(alpha: 0.25)),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(width: 40, height: 4, decoration: BoxDecoration(color: AppTheme.gold.withValues(alpha: 0.4), borderRadius: BorderRadius.circular(4))),
+                const SizedBox(height: 14),
+                Text('المزيد', style: GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w800, color: AppTheme.gold)),
+                const SizedBox(height: 14),
+                GridView.count(
+                  crossAxisCount: 4,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 8,
+                  childAspectRatio: 0.8,
+                  children: items.map((item) {
+                    return GestureDetector(
+                      onTap: () {
+                        HapticFeedback.selectionClick();
+                        item.onTap();
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(shape: BoxShape.circle, color: item.color.withValues(alpha: 0.14)),
+                            child: Icon(item.icon, size: 20, color: item.color),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(item.label, textAlign: TextAlign.center, maxLines: 2, overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.cairo(fontSize: 10.5, fontWeight: FontWeight.w600, color: AppTheme.textColor(isDark))),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   // ============== مساعدات عامة ==============
 
   void _snack(String message) {
@@ -937,6 +1036,15 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
       ),
     );
   }
+}
+
+/// عنصر واحد داخل ورقة "المزيد" السفلية.
+class _MoreItem {
+  final IconData icon;
+  final String label;
+  final Color color;
+  final VoidCallback onTap;
+  const _MoreItem(this.icon, this.label, this.color, this.onTap);
 }
 
 /// عدّاد حيّ (يتحدّث كل ثانية) للصلاة القادمة + شريط أوقات اليوم — مُعزول
