@@ -887,20 +887,20 @@ class _DashboardHomeScreenState extends State<DashboardHomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _navIcon(isDark, Icons.more_horiz_rounded, 'المزيد', () {
-                _showMoreSheet(context, isDark);
-              }),
               _navIcon(isDark, Icons.settings_outlined, 'الإعدادات', () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen()));
-              }),
-              _navIcon(isDark, Icons.calendar_month_outlined, context.tr('dashNavCalendar'), () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const HijriCalendarScreen()));
               }),
               _navIcon(isDark, Icons.auto_stories_rounded, context.tr('dashToolAthkarTitle'), () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const AthkarCategoriesScreen()));
               }, highlighted: true),
+              _navIcon(isDark, Icons.calendar_month_outlined, context.tr('dashNavCalendar'), () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const HijriCalendarScreen()));
+              }),
               _navIcon(isDark, Icons.explore_outlined, context.tr('dashNavQibla'), () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) => const QiblaScreen()));
+              }),
+              _navIcon(isDark, Icons.more_horiz_rounded, 'المزيد', () {
+                _showMoreSheet(context, isDark);
               }),
             ],
           ),
