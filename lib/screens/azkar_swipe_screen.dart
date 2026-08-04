@@ -97,6 +97,25 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
   /// أصلاً لتمييز إنجازها عن مجرد المرور عليها.
   final Set<String> _completedIds = {};
 
+  /// العدّاد التنازلي المتبقي لكل ذكر (مفتاحه معرّف الذكر)، محفوظ هنا في
+  /// حالة الشاشة الأم لا داخل بطاقة الذكر نفسها — لأن [PageView.builder]
+  /// يتخلّص من صفحات الأذكار البعيدة عن العرض ويعيد بناءها من جديد عند
+  /// العودة إليها بالسحب، فلو بقي العدّاد حالة محلية للبطاقة لكان يُعاد
+  /// ضبطه للعدد الكامل من جديد في كل مرة، فيبدو للمستخدم أن "الذكر الذي
+  /// أنهاه عاد يُعدّ من البداية". بإبقائه هنا يستمر عند الصفر بعد اكتماله
+  /// مهما تنقّل المستخدم بين الأذكار.
+  final Map<String, int> _remaining = {};
+
+  /// هذا الحفظ مطبّق فقط على أذكار الصباح والمساء بناءً على طلب المستخدم
+  /// — بقية الفئات تحتفظ بسلوكها الأصلي (العدّاد يُعاد لكامل العدد عند
+  /// إعادة بناء الصفحة، دون حفظ التقدّم بين التنقّلات).
+  bool get _persistsRemaining => widget.category == DhikrCategory.morning || widget.category == DhikrCategory.evening;
+
+  int _remainingFor(DhikrModel dhikr) {
+    if (!_persistsRemaining) return dhikr.count;
+    return _remaining.putIfAbsent(dhikr.id, () => dhikr.count);
+  }
+
   @override
   void didUpdateWidget(covariant AzkarSwipeView oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -106,6 +125,7 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
     if (oldWidget.category != widget.category) {
       _index = 0;
       _completedIds.clear();
+      _remaining.clear();
       if (_controller.hasClients) _controller.jumpToPage(0);
     }
   }
@@ -190,6 +210,10 @@ class _AzkarSwipeViewState extends State<AzkarSwipeView> {
               dhikr: athkar[i],
               lang: lang,
               isDark: isDark,
+              remaining: _remainingFor(athkar[i]),
+              onRemainingChanged: (value) {
+                if (_persistsRemaining) _remaining[athkar[i].id] = value;
+              },
               onCompleted: () {
                 context.read<StatsProvider>().recordCompletion();
                 _markCompleted(athkar[i].id);
@@ -227,6 +251,15 @@ class _AzkarSwipePage extends StatefulWidget {
   final bool isDark;
   final VoidCallback onCompleted;
 
+  /// العدّاد المتبقي الحالي لهذا الذكر، كما تحفظه الشاشة الأم — يُستخدم
+  /// كقيمة ابتدائية عند بناء هذه الصفحة (بما فيه إعادة بنائها بعد أن كان
+  /// [PageView] قد تخلّص منها).
+  final int remaining;
+
+  /// يُستدعى في كل مرة يتغيّر فيها العدّاد المتبقي، ليُحفَظ في الشاشة
+  /// الأم فيبقى العدّاد عند الصفر ولا يُعاد عدّه من جديد عند التنقّل.
+  final ValueChanged<int> onRemainingChanged;
+
   /// يُستدعى تلقائياً بعد وصول العدّاد للصفر، للانتقال للذكر التالي.
   final VoidCallback onAdvance;
 
@@ -235,6 +268,8 @@ class _AzkarSwipePage extends StatefulWidget {
     required this.dhikr,
     required this.lang,
     required this.isDark,
+    required this.remaining,
+    required this.onRemainingChanged,
     required this.onCompleted,
     required this.onAdvance,
   });
@@ -248,11 +283,12 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
   /// (dhikr.count) وينقص واحداً في كل ضغطة حتى يصل للصفر — بدل عدّاد
   /// تصاعدي يحتاج مقارنة ذهنية بالرقم المستهدف في كل مرة. عند وصوله للصفر
   /// ننتقل تلقائياً للذكر التالي (راجع [_decrement]).
-  late int _remaining = widget.dhikr.count;
+  late int _remaining = widget.remaining;
 
   void _decrement() {
     if (_remaining <= 0) return;
     setState(() => _remaining--);
+    widget.onRemainingChanged(_remaining);
     if (_remaining == 0) {
       HapticFeedback.mediumImpact();
       widget.onCompleted();
@@ -268,6 +304,7 @@ class _AzkarSwipePageState extends State<_AzkarSwipePage> {
 
   void _resetCounter() {
     setState(() => _remaining = widget.dhikr.count);
+    widget.onRemainingChanged(_remaining);
     HapticFeedback.selectionClick();
   }
 
